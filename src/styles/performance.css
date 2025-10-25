@@ -1,0 +1,112 @@
+/* Performance Optimizations for Smooth Animations */
+
+/* Hardware acceleration for all animated elements */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize motion components */
+[data-motion] {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize video elements */
+video {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+}
+
+/* Optimize gradients and backgrounds */
+.bg-gradient-to-br,
+.bg-gradient-to-r {
+  will-change: auto;
+  transform: translateZ(0);
+}
+
+/* Optimize backdrop filters */
+.backdrop-blur-sm {
+  will-change: auto;
+  transform: translateZ(0);
+}
+
+/* Optimize motion animations */
+.motion-safe\:animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.motion-safe\:animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optimize scroll performance */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Optimize image and video loading */
+img, video {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Optimize transform animations */
+.transform-gpu {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+/* Optimize blur effects */
+.blur-optimized {
+  filter: blur(60px);
+  will-change: filter;
+  transform: translateZ(0);
+}
+
+/* Optimize shadow effects */
+.shadow-optimized {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 80px rgba(139, 92, 246, 0.2);
+  will-change: box-shadow;
+  transform: translateZ(0);
+}
