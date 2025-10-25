@@ -8,20 +8,31 @@ const testimonials = [
     quote: "SaveCash found over $12,000 in hidden fees I didn't know existed. Game changer.",
     author: "David Chen",
     role: "Tech Entrepreneur",
+    savings: "$12,000",
     image: "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MDQ3NDY0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
     quote: "Within the first month, I recovered $847 in unnecessary charges. The ROI is insane.",
     author: "Rachel Martinez",
     role: "Creative Director",
+    savings: "$847",
     image: "https://images.unsplash.com/photo-1634133472760-e5c2bd346787?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwZW50cmVwcmVuZXVyJTIwaGVhZHNob3R8ZW58MXx8fHwxNzYwNTA3NjA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
     quote: "The AI saved me $23,000 annually. This isn't just an app, it's a revolution.",
     author: "Marcus Johnson",
     role: "Business Owner",
+    savings: "$23,000",
     image: "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MDQ3NDY0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
   },
+];
+
+// Mock "As Seen On" logos
+const pressLogos = [
+  { name: "TechCrunch", logo: "TC" },
+  { name: "Forbes", logo: "Forbes" },
+  { name: "Wired", logo: "Wired" },
+  { name: "Fast Company", logo: "FC" },
 ];
 
 const container = {
@@ -49,6 +60,44 @@ export function TestimonialsSection() {
   return (
     <section className="py-32 px-6 relative">
       <div className="max-w-6xl mx-auto">
+        {/* As Seen On Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="text-center mb-16"
+        >
+          <motion.p 
+            className="text-sm text-gray-500 mb-8 tracking-wider uppercase"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            As Seen On
+          </motion.p>
+          
+          <motion.div 
+            className="flex flex-wrap items-center justify-center gap-8 opacity-60"
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 0.6, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            {pressLogos.map((press, index) => (
+              <motion.div
+                key={press.name}
+                className="text-2xl font-bold text-gray-400 hover:text-white transition-colors cursor-pointer"
+                whileHover={{ scale: 1.1 }}
+                transition={{ duration: 0.2 }}
+              >
+                {press.logo}
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -1,36 +1,41 @@
 import { motion } from "motion/react";
-import { Sparkles, Zap, TrendingUp, Shield, Brain, CheckCircle2 } from "lucide-react";
+import { Sparkles, Zap, TrendingUp, Shield, Brain, CheckCircle2, Wallet, Coins, Target, Lock } from "lucide-react";
 
 const features = [
   {
-    icon: Brain,
+    icon: Wallet,
     title: "Automated Savings",
     description: "AI scans and saves surplus funds automatically.",
+    color: "from-green-400 to-emerald-500",
+    bgColor: "from-green-500/10 to-emerald-500/10",
   },
   {
-    icon: Zap,
-    title: "Subscription Optimizer",
-    description: "Cancel unused subscriptions instantly.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Spending Insights",
-    description: "Real-time insights to reduce waste.",
-  },
-  {
-    icon: Sparkles,
-    title: "Investment AI",
-    description: "Curated investment ideas for your goals.",
+    icon: Brain,
+    title: "Smart Recommendations",
+    description: "AI-powered insights to optimize your spending.",
+    color: "from-purple-400 to-violet-500",
+    bgColor: "from-purple-500/10 to-violet-500/10",
   },
   {
     icon: Shield,
-    title: "Bank-Level Security",
-    description: "Complete privacy protection.",
+    title: "No Hidden Fees",
+    description: "Transparent pricing with complete security.",
+    color: "from-blue-400 to-cyan-500",
+    bgColor: "from-blue-500/10 to-cyan-500/10",
   },
   {
-    icon: CheckCircle2,
-    title: "Effortless Automation",
-    description: "Set once. Save forever.",
+    icon: TrendingUp,
+    title: "Investment AI",
+    description: "Curated investment ideas for your goals.",
+    color: "from-orange-400 to-red-500",
+    bgColor: "from-orange-500/10 to-red-500/10",
+  },
+  {
+    icon: Lock,
+    title: "Bank-Level Security",
+    description: "Complete privacy protection.",
+    color: "from-pink-400 to-rose-500",
+    bgColor: "from-pink-500/10 to-rose-500/10",
   },
 ];
 
@@ -40,6 +45,8 @@ const container = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
+      ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
+      type: "tween",
     },
   },
 };
@@ -51,7 +58,8 @@ const item = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.25, 0.1, 0.25, 1],
+      ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
+      type: "tween",
     },
   },
 };
@@ -112,7 +120,18 @@ export function FeaturesSection() {
                   scale: 1.1,
                   rotate: [0, -10, 10, -10, 0],
                 }}
-                transition={{ duration: 0.5 }}
+                transition={{ 
+                  duration: 0.5,
+                  ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
+                  type: "tween",
+                }}
+                style={{
+                  transform: "translate3d(0, 0, 0)",
+                  willChange: "transform",
+                  backfaceVisibility: "hidden",
+                  isolation: "isolate",
+                  contain: "layout style paint",
+                }}
               >
                 {/* Animated glow */}
                 <motion.div
@@ -123,7 +142,8 @@ export function FeaturesSection() {
                   transition={{
                     duration: 2,
                     repeat: Infinity,
-                    ease: "easeInOut",
+                    ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
+                    type: "tween",
                   }}
                 />
                 <feature.icon className="w-7 h-7 text-purple-400 relative z-10" />

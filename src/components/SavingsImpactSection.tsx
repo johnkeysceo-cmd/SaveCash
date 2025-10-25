@@ -1,6 +1,7 @@
-import { motion } from "motion/react";
+import React from "react";
+import { motion, Variants } from "motion/react";
 
-const container = {
+const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -10,14 +11,14 @@ const container = {
   },
 };
 
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { 
     opacity: 1, 
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.25, 0.1, 0.25, 1],
+      ease: "easeOut",
     },
   },
 };
@@ -177,8 +178,6 @@ export function SavingsImpactSection() {
                       transform: "translateZ(0)",
                       willChange: "transform",
                       backfaceVisibility: "hidden",
-                      imageRendering: "high-quality",
-                      imageRendering: "-webkit-optimize-contrast",
                       imageRendering: "crisp-edges",
                       filter: "contrast(1.4) brightness(1.15) saturate(1.3) hue-rotate(8deg)",
                     }}

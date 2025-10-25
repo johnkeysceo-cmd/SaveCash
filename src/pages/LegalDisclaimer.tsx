@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { PageTemplate } from "../components/PageTemplate";
+import { AnimatedBlob } from "../components/AnimatedBlob";
 import { AlertTriangle, Scale, Shield, FileText, Gavel, Users, Copyright, ExternalLink, Video, Image, Music, Code } from "lucide-react";
 
 export function LegalDisclaimer() {
@@ -561,6 +562,9 @@ export function LegalDisclaimer() {
           </motion.div>
         </div>
       </section>
+      
+      {/* Animated Blob Background */}
+      <AnimatedBlob />
     </PageTemplate>
   );
 }

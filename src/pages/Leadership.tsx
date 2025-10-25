@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { PageTemplate } from "../components/PageTemplate";
+import { AnimatedBlob } from "../components/AnimatedBlob";
 import { Users, Award, TrendingUp, Shield, Brain, Zap } from "lucide-react";
 
 export function Leadership() {
@@ -216,6 +217,9 @@ export function Leadership() {
           </div>
         </motion.div>
       </div>
+      
+      {/* Animated Blob Background */}
+      <AnimatedBlob />
     </div>
   );
 }

@@ -1,8 +1,6 @@
 import React from "react";
 import { motion } from "motion/react";
 import { PageTemplate } from "../components/PageTemplate";
-import { FloatingBlobs } from "../components/FloatingBlobs";
-import { AnimatedBlob } from "../components/AnimatedBlob";
 import { Users, Target, Award, Heart, Zap, Shield } from "lucide-react";
 
 export function About() {
@@ -72,14 +70,6 @@ export function About() {
         <div className="absolute inset-0 bg-black/40" />
       </div>
 
-      {/* Animated Blobs Background */}
-      <div className="fixed inset-0 z-10 pointer-events-none">
-        <FloatingBlobs />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <AnimatedBlob />
-        </div>
-      </div>
-      
       {/* Main Content */}
       <div className="relative z-20">
         <PageTemplate 
@@ -140,8 +130,8 @@ export function About() {
               <h2 className="text-4xl md:text-5xl mb-6 text-white">Our Story</h2>
               <div className="space-y-4 text-gray-400 text-lg leading-relaxed">
                 <p>
-                  SaveCash was born from a simple observation: most people are leaving thousands of dollars 
-                  on the table every year through missed opportunities, hidden fees, and suboptimal financial decisions.
+                  SaveCash was born from a simple observation: most people struggle with financial management 
+                  and miss opportunities to optimize their money through better decision-making.
                 </p>
                 <p>
                   Our founder, Sarah Chen, spent 15 years at Goldman Sachs watching wealthy clients access 
@@ -268,9 +258,9 @@ export function About() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               { number: "50K+", label: "Users Helped" },
-              { number: "$2.4M+", label: "Total Savings Found" },
               { number: "98%", label: "User Satisfaction" },
-              { number: "24/7", label: "AI Support" }
+              { number: "24/7", label: "AI Support" },
+              { number: "15+", label: "Years Experience" }
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}

@@ -132,8 +132,6 @@ export function AIAssistantChat() {
                   transform: "translateZ(0)",
                   willChange: "transform",
                   backfaceVisibility: "hidden",
-                  imageRendering: "high-quality",
-                  imageRendering: "-webkit-optimize-contrast",
                   imageRendering: "crisp-edges",
                   filter: "contrast(1.4) brightness(1.15) saturate(1.3) hue-rotate(8deg)",
                 }}

@@ -1,9 +1,127 @@
-import React from "react";
-import { motion } from "motion/react";
+import React, { useEffect, useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "motion/react";
 import { Button } from "./ui/button";
 import { MessageSquare, TrendingUp, Shield, Zap, Brain, BarChart3 } from "lucide-react";
 
 export function AIAssistantSection() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Simple scroll-based opacity
+  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+  
+  // BEYOND HUMAN PERCEPTION SMOOTHNESS - CINEMATIC LEVEL
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const forwardRef = useRef<boolean>(true);
+  const videoOpacityRef = useRef<number>(1);
+  const rafRef = useRef<number | undefined>(undefined);
+  const lastTimeRef = useRef<number>(0);
+  const isTransitioningRef = useRef<boolean>(false);
+  const startTimeRef = useRef<number>(0);
+  
+  useEffect(() => {
+    const video = videoRef.current;
+    const container = containerRef.current;
+    if (!video || !container || prefersReducedMotion) return;
+
+    // GPU-ACCELERATED SMOOTH ANIMATION LOOP
+    const animate = () => {
+      const currentTime = performance.now();
+      const deltaTime = currentTime - lastTimeRef.current;
+      
+      // 120fps max for ultra-smooth motion
+      if (deltaTime < 8.33) {
+        rafRef.current = requestAnimationFrame(animate);
+        return;
+      }
+      lastTimeRef.current = currentTime;
+
+      // SUBPIXEL SMOOTH FADE with cubic-bezier easing
+      if (video.currentTime >= video.duration - 0.05 && forwardRef.current) {
+        isTransitioningRef.current = true;
+        startTimeRef.current = currentTime;
+        
+        const fadeOut = () => {
+          const elapsed = performance.now() - startTimeRef.current;
+          const progress = Math.min(elapsed / 200, 1); // 200ms fade
+          const easedProgress = 1 - Math.pow(1 - progress, 4); // ultra-smooth cubic-bezier
+          
+          // Direct DOM manipulation - NO React re-renders
+          videoOpacityRef.current = easedProgress;
+          video.style.opacity = videoOpacityRef.current.toString();
+          
+          if (progress < 1) {
+            rafRef.current = requestAnimationFrame(fadeOut);
+          } else {
+            // Reset and ultra-smooth fade in
+            video.currentTime = 0;
+            startTimeRef.current = performance.now();
+            
+            const fadeIn = () => {
+              const inElapsed = performance.now() - startTimeRef.current;
+              const inProgress = Math.min(inElapsed / 300, 1); // 300ms fade in
+              const easedInProgress = Math.pow(inProgress, 3); // cubic-bezier ease-in
+              
+              videoOpacityRef.current = easedInProgress;
+              video.style.opacity = videoOpacityRef.current.toString();
+              
+              if (inProgress < 1) {
+                rafRef.current = requestAnimationFrame(fadeIn);
+              } else {
+                isTransitioningRef.current = false;
+              }
+            };
+            rafRef.current = requestAnimationFrame(fadeIn);
+          }
+        };
+        
+        rafRef.current = requestAnimationFrame(fadeOut);
+      }
+
+      // ULTRA-SMOOTH ping-pong with GPU acceleration
+      if (video.currentTime >= video.duration && forwardRef.current) {
+        forwardRef.current = false;
+        video.playbackRate = -1;
+        video.play();
+      } else if (video.currentTime <= 0 && !forwardRef.current) {
+        forwardRef.current = true;
+        video.playbackRate = 1;
+        video.play();
+      }
+
+      rafRef.current = requestAnimationFrame(animate);
+    };
+
+    // Start the ultra-smooth animation loop
+    rafRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+      }
+    };
+  }, [prefersReducedMotion]);
+  
+  
+
+  useEffect(() => {
+    // Check for motion reduction preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
   const handleStartChat = () => {
     // Navigate to separate AI chat page
     window.history.pushState({}, '', '/ai-chat');
@@ -18,7 +136,7 @@ export function AIAssistantSection() {
   ];
 
   return (
-    <section className="py-32 px-6 relative">
+    <section ref={sectionRef} className="py-32 px-6 relative">
       <div className="max-w-6xl mx-auto relative">
 
         <motion.div
@@ -90,12 +208,12 @@ export function AIAssistantSection() {
           viewport={{ once: true, margin: "-100px" }}
           className="relative"
         >
-          {/* Professional container */}
-          <div className="relative bg-gradient-to-br from-white/[0.05] to-white/[0.02] rounded-3xl border border-white/10 overflow-hidden backdrop-blur-sm"
-            style={{
-              boxShadow: "0 30px 80px -20px rgba(168, 85, 247, 0.2)",
-            }}
-          >
+                 {/* Professional container */}
+                 <div className="relative bg-black/90 rounded-3xl border border-white/10 overflow-hidden backdrop-blur-sm"
+                   style={{
+                     boxShadow: "0 30px 80px -20px rgba(168, 85, 247, 0.2)",
+                   }}
+                 >
             {/* Subtle grid pattern */}
             <div 
               className="absolute inset-0 opacity-[0.015]"
@@ -115,7 +233,7 @@ export function AIAssistantSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
                     viewport={{ once: true }}
-                    className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.04] hover:border-white/10 transition-all group"
+                           className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-black/70 border border-white/5 hover:bg-black/80 hover:border-white/10 transition-all group"
                   >
                     <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 flex items-center justify-center group-hover:from-purple-500/20 group-hover:to-pink-500/20 transition-all">
                       <feature.icon className="w-6 h-6 text-purple-400 group-hover:text-purple-300 transition-colors" />
@@ -134,87 +252,60 @@ export function AIAssistantSection() {
                   viewport={{ once: true }}
                   className="mb-8"
                 >
-                  {/* Holographic AI Animation - Third Duplicate */}
+                  {/* SPECTACULAR Ultra-High Quality AI Animation */}
                   <div className="flex items-center justify-center mb-8">
-                        <motion.div
-                      className="w-20 h-20"
-                      initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
-                      whileInView={{ opacity: 1, scale: 1, rotate: -5 }}
-                      transition={{ duration: 0.8, ease: "easeOut" }}
-                      viewport={{ once: true }}
+                    <motion.div
+                      className="relative w-32 h-32"
                       style={{
-                        transform: "translateZ(0)",
-                        willChange: "transform",
-                        backfaceVisibility: "hidden",
+                        opacity: prefersReducedMotion ? 1 : opacity,
                       }}
                     >
-                      {/* Ultra High Resolution Container with Circular Frame */}
-                      <div className="relative w-full h-full rounded-full overflow-hidden"
+                      {/* BEYOND HUMAN PERCEPTION - CINEMATIC LEVEL */}
+                      <div 
+                        ref={containerRef}
+                        className="relative w-full h-full rounded-full overflow-hidden border-4 border-white/20"
                         style={{
-                          background: "transparent",
-                          border: "2px solid rgba(168, 85, 247, 0.5)",
-                          boxShadow: `
-                            0 0 20px rgba(168, 85, 247, 0.7),
-                            0 0 40px rgba(236, 72, 153, 0.5),
-                            0 0 60px rgba(249, 115, 22, 0.4),
-                            inset 0 0 15px rgba(255, 255, 255, 0.15)
-                          `,
+                          transform: 'translate3d(0, 0, 0)',
+                          willChange: 'transform',
+                          backfaceVisibility: 'hidden',
+                          isolation: 'isolate',
+                          contain: 'layout style paint',
+                          perspective: '1000px',
                         }}
                       >
-                        {/* BlenderKit-Level Resolution Video */}
                         <video
+                          ref={videoRef}
                           src="/vecteezy_3d-render-abstract-smooth-shape-holographic-color-on-black_31705729.mp4"
-                          autoPlay
-                          loop
                           muted
                           playsInline
+                          autoPlay
                           preload="auto"
                           className="w-full h-full object-cover"
                           style={{
-                            transform: "translateZ(0)",
-                            willChange: "transform",
-                            backfaceVisibility: "hidden",
-                            imageRendering: "high-quality",
-                            imageRendering: "-webkit-optimize-contrast",
-                            imageRendering: "crisp-edges",
-                            filter: "contrast(1.4) brightness(1.15) saturate(1.3) hue-rotate(8deg)",
+                            transform: 'translate3d(0, 0, 0) scale3d(1, 1, 1)',
+                            willChange: 'opacity, transform',
+                            backfaceVisibility: 'hidden',
+                            isolation: 'isolate',
+                            contain: 'layout style paint',
+                            imageRendering: 'crisp-edges',
+                            filter: 'contrast(1.1) brightness(1.05) saturate(1.1) blur(0.5px)',
+                            transition: 'none',
+                            pointerEvents: 'none',
+                            opacity: 1,
                           }}
                         />
-                        
-                        {/* Premium Circular Frame Glow */}
-                        <div className="absolute inset-0 rounded-full pointer-events-none"
+                        <div 
+                          className="absolute inset-0 bg-gradient-to-b from-white/5 to-black/10 pointer-events-none"
                           style={{
-                            background: `
-                              conic-gradient(from 0deg at 50% 50%, 
-                                rgba(168, 85, 247, 0.4) 0deg, 
-                                rgba(236, 72, 153, 0.3) 90deg, 
-                                rgba(249, 115, 22, 0.3) 180deg, 
-                                rgba(168, 85, 247, 0.4) 270deg, 
-                                rgba(168, 85, 247, 0.4) 360deg
-                              )
-                            `,
-                            mixBlendMode: "screen",
-                          }}
-                        />
-                        
-                        {/* Animated Frame Border */}
-                            <motion.div
-                          className="absolute inset-0 rounded-full pointer-events-none"
-                              animate={{
-                            boxShadow: [
-                              "0 0 25px rgba(168, 85, 247, 0.5), 0 0 50px rgba(236, 72, 153, 0.3)",
-                              "0 0 50px rgba(168, 85, 247, 0.9), 0 0 100px rgba(236, 72, 153, 0.7)",
-                              "0 0 25px rgba(168, 85, 247, 0.5), 0 0 50px rgba(236, 72, 153, 0.3)",
-                            ],
-                              }}
-                              transition={{
-                            duration: 4,
-                                repeat: Infinity,
-                            ease: "easeInOut",
+                            transform: 'translate3d(0, 0, 0)',
+                            willChange: 'auto',
+                            backfaceVisibility: 'hidden',
+                            isolation: 'isolate',
+                            contain: 'layout style paint',
                           }}
                         />
                       </div>
-                        </motion.div>
+                    </motion.div>
                   </div>
                 </motion.div>
 
@@ -257,7 +348,7 @@ export function AIAssistantSection() {
                   ].map((topic, i) => (
                     <div
                       key={topic}
-                      className="flex items-center justify-center gap-2 text-gray-400 py-2 px-4 rounded-full bg-white/[0.02] border border-white/5"
+                             className="flex items-center justify-center gap-2 text-gray-400 py-2 px-4 rounded-full bg-black/70 border border-white/5"
                     >
                       <div className="w-1 h-1 rounded-full bg-gradient-to-r from-purple-400 to-pink-400" />
                       <span>{topic}</span>

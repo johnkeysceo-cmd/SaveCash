@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { PageTemplate } from "../components/PageTemplate";
+import { AnimatedBlob } from "../components/AnimatedBlob";
 import { Shield, Mail, Phone, User, CheckCircle, AlertCircle } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
@@ -310,6 +311,9 @@ export function OptOut() {
           </motion.div>
         </div>
       </section>
+      
+      {/* Animated Blob Background */}
+      <AnimatedBlob />
     </PageTemplate>
   );
 }

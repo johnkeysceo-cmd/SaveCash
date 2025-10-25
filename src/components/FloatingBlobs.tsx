@@ -32,11 +32,13 @@ export function FloatingBlobs() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Force hardware acceleration on container
+    // ULTRA-SMOOTH hardware acceleration
     if (containerRef.current) {
-      containerRef.current.style.transform = "translateZ(0)";
+      containerRef.current.style.transform = "translate3d(0, 0, 0)";
       containerRef.current.style.willChange = "transform";
       containerRef.current.style.backfaceVisibility = "hidden";
+      containerRef.current.style.isolation = "isolate";
+      containerRef.current.style.contain = "layout style paint";
     }
   }, []);
 
@@ -45,10 +47,12 @@ export function FloatingBlobs() {
       ref={containerRef}
       className="fixed inset-0 pointer-events-none overflow-hidden"
       style={{
-        transform: "translateZ(0)",
+        transform: "translate3d(0, 0, 0)",
         willChange: "transform",
         backfaceVisibility: "hidden",
         isolation: "isolate",
+        contain: "layout style paint",
+        perspective: "1000px",
       }}
     >
       {blobs.map((blob) => (
@@ -59,7 +63,7 @@ export function FloatingBlobs() {
             left: blob.initialX,
             top: blob.initialY,
             filter: "blur(60px)",
-            transform: "translateZ(0)",
+            transform: "translate3d(0, 0, 0) scale3d(1, 1, 1)",
             willChange: "transform",
             backfaceVisibility: "hidden",
             isolation: "isolate",
@@ -74,18 +78,20 @@ export function FloatingBlobs() {
           transition={{
             duration: blob.duration,
             repeat: Infinity,
-            ease: [0.25, 0.1, 0.25, 1], // Custom cubic-bezier for ultra-smooth motion
+            ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
             type: "tween",
+            repeatType: "loop",
           }}
         >
           <div 
             className={`w-full h-full bg-gradient-to-br ${blob.gradient} rounded-[inherit] opacity-70`} 
             style={{
               boxShadow: "0 20px 60px rgba(0, 0, 0, 0.3), 0 0 80px rgba(139, 92, 246, 0.2)",
-              transform: "translateZ(0)",
+              transform: "translate3d(0, 0, 0) scale3d(1, 1, 1)",
               willChange: "transform",
               backfaceVisibility: "hidden",
               isolation: "isolate",
+              contain: "layout style paint",
             }}
           />
         </motion.div>

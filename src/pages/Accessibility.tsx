@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { PageTemplate } from "../components/PageTemplate";
+import { AnimatedBlob } from "../components/AnimatedBlob";
 import { Accessibility, Eye, MousePointer, Volume2, Keyboard, Smartphone, Users, Heart } from "lucide-react";
 
 export function Accessibility() {
@@ -324,6 +325,9 @@ export function Accessibility() {
           </motion.div>
         </div>
       </section>
+      
+      {/* Animated Blob Background */}
+      <AnimatedBlob />
     </PageTemplate>
   );
 }

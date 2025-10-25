@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { PageTemplate } from "../components/PageTemplate";
+import { AnimatedBlob } from "../components/AnimatedBlob";
 import { Shield, Lock, Database, Eye, CheckCircle, AlertTriangle, FileText, Users, Globe, Clock } from "lucide-react";
 
 export function DataProcessing() {
@@ -301,6 +302,9 @@ export function DataProcessing() {
             </button>
           </div>
         </motion.div>
+        
+        {/* Animated Blob Background */}
+        <AnimatedBlob />
     </PageTemplate>
   );
 }

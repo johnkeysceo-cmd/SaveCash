@@ -297,6 +297,9 @@ export function Features() {
           </motion.div>
         </div>
       </section>
+      
+      {/* Animated Blob Background */}
+      <AnimatedBlob />
     </PageTemplate>
   );
 }

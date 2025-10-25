@@ -10,6 +10,8 @@ const container = {
     transition: {
       staggerChildren: 0.05,
       delayChildren: 0.1,
+      ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
+      type: "tween",
     },
   },
 };
@@ -21,7 +23,8 @@ const item = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: "easeOut",
+      ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
+      type: "tween",
     },
   },
 };
@@ -65,7 +68,26 @@ export function HeroSection() {
           className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-orange-500/10 border border-purple-500/20 rounded-full backdrop-blur-sm"
         >
           <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-pulse" />
-          <span className="text-sm text-gray-300">Save $500 – $25,000 per month</span>
+          <span className="text-sm text-gray-300">Trusted by 1,200+ early adopters</span>
+        </motion.div>
+
+        {/* Trust Signals */}
+        <motion.div
+          variants={item}
+          className="flex flex-wrap items-center justify-center gap-6 mb-8 text-sm text-gray-400"
+        >
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-green-400" />
+            <span>Bank-level Security</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-blue-400" />
+            <span>SOC 2 Compliant</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <div className="w-2 h-2 rounded-full bg-purple-400" />
+            <span>GDPR Ready</span>
+          </div>
         </motion.div>
 
         <motion.h1 
@@ -73,10 +95,26 @@ export function HeroSection() {
           className="text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tight leading-[1.05]"
         >
           <span className="block text-white">
-            Save smarter.
+            Automatically save
           </span>
+          <motion.span 
+            className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+            animate={{
+              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }}
+            style={{
+              backgroundSize: "200% 100%"
+            }}
+          >
+            $500–$25,000
+          </motion.span>
           <span className="block text-white">
-            Live better.
+            every month.
           </span>
         </motion.h1>
         
@@ -84,49 +122,80 @@ export function HeroSection() {
           variants={item}
           className="text-2xl md:text-3xl text-gray-400 mb-4 max-w-4xl mx-auto leading-relaxed"
         >
-          Stop wasting money.
+          SaveCashPro uses AI to optimize your spending and savings. No apps, no manual tracking — just smarter money management.
         </motion.p>
 
         <motion.p 
           variants={item}
-          className="text-2xl md:text-3xl text-gray-400 mb-12 max-w-4xl mx-auto leading-relaxed"
+          className="text-xl text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed"
         >
-          Let AI optimize your finances while you focus on what matters.
+          Start your smarter financial future today.
         </motion.p>
         
         <motion.div 
           variants={item}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
         >
-          <motion.div 
-            whileHover={{ scale: 1.05 }} 
-            whileTap={{ scale: 0.95 }}
-            transition={{
-              duration: 0.2,
-              ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
-              type: "tween",
-            }}
-            style={{
-              transform: "translateZ(0)",
-              willChange: "transform",
-              backfaceVisibility: "hidden",
-              isolation: "isolate",
-              contain: "layout style paint",
-            }}
-          >
-            <Button
-              onClick={() => {
-                window.scrollTo({
-                  top: document.documentElement.scrollHeight,
-                  behavior: 'smooth'
-                });
-              }}
-              className="group bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white px-12 py-8 text-lg rounded-full transition-all duration-500 shadow-[0_20px_60px_-15px_rgba(168,85,247,0.5)]"
-            >
-              Get started
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-          </motion.div>
+                 <motion.div
+                   whileHover={{ 
+                     scale: 1.05,
+                     boxShadow: "0 25px 80px -15px rgba(168,85,247,0.8)"
+                   }}
+                   whileTap={{ scale: 0.95 }}
+                   animate={{
+                     boxShadow: [
+                       "0 20px 60px -15px rgba(168,85,247,0.5)",
+                       "0 25px 80px -15px rgba(168,85,247,0.7)",
+                       "0 20px 60px -15px rgba(168,85,247,0.5)"
+                     ]
+                   }}
+                   transition={{
+                     duration: 0.2,
+                     ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
+                     type: "tween",
+                     boxShadow: {
+                       duration: 2,
+                       repeat: Infinity,
+                       ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
+                       type: "tween",
+                     }
+                   }}
+                   style={{
+                     transform: "translate3d(0, 0, 0)",
+                     willChange: "transform, box-shadow",
+                     backfaceVisibility: "hidden",
+                     isolation: "isolate",
+                     contain: "layout style paint",
+                   }}
+                 >
+                   <Button
+                     onClick={() => {
+                       window.scrollTo({
+                         top: document.documentElement.scrollHeight,
+                         behavior: 'smooth'
+                       });
+                     }}
+                     className="group relative bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white px-12 py-8 text-lg rounded-full transition-all duration-500 overflow-hidden"
+                   >
+                     <span className="relative z-10 flex items-center">
+                       Join the Waitlist
+                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                     </span>
+                     
+                     {/* Animated background shimmer */}
+                     <motion.div
+                       className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+                       animate={{
+                         x: ["-200%", "200%"],
+                       }}
+                       transition={{
+                         duration: 2,
+                         repeat: Infinity,
+                         ease: "easeInOut"
+                       }}
+                     />
+                   </Button>
+                 </motion.div>
         </motion.div>
 
         {/* Animated rotating benefits */}

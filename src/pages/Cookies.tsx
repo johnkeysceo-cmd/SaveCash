@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "motion/react";
 import { PageTemplate } from "../components/PageTemplate";
+import { AnimatedBlob } from "../components/AnimatedBlob";
 import { Cookie, Settings, Shield, Eye, Database, Lock } from "lucide-react";
 
 export function Cookies() {
@@ -335,6 +336,9 @@ export function Cookies() {
           </motion.div>
         </div>
       </section>
+      
+      {/* Animated Blob Background */}
+      <AnimatedBlob />
     </PageTemplate>
   );
 }

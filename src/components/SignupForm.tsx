@@ -1,14 +1,32 @@
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
-import { ArrowRight, Sparkles } from "lucide-react";
-import { useState } from "react";
+import { ArrowRight, Sparkles, X, Clock } from "lucide-react";
 
 export function SignupForm() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success">("idle");
+  const [showPopup, setShowPopup] = useState(false);
+  const [spotsLeft, setSpotsLeft] = useState(247); // Dynamic countdown
+
+  // Show popup after 3 seconds
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopup(true);
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Countdown timer
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setSpotsLeft(prev => Math.max(200, prev - Math.floor(Math.random() * 3)));
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -57,23 +75,45 @@ export function SignupForm() {
               transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
               className="text-center"
             >
-              {/* Headings */}
+              {/* Enhanced Headings with Urgency */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
+                className="mb-8"
+              >
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-500/20 to-pink-500/20 border border-purple-500/30 rounded-full mb-6">
+                  <Sparkles className="w-4 h-4 text-purple-400" />
+                  <span className="text-sm text-purple-300 font-medium">Limited Early Access</span>
+                </div>
+              </motion.div>
+
               <motion.h2 
                 className="text-6xl md:text-8xl mb-6 text-white tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
-              >
-                Start saving.
-              </motion.h2>
-              <motion.h2 
-                className="text-6xl md:text-8xl mb-20 bg-gradient-to-r from-purple-400 via-pink-400 to-pink-300 bg-clip-text text-transparent tracking-tight"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
               >
-                See results.
+                Join the waitlist.
               </motion.h2>
+              <motion.h2 
+                className="text-6xl md:text-8xl mb-8 bg-gradient-to-r from-purple-400 via-pink-400 to-pink-300 bg-clip-text text-transparent tracking-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                Get early access.
+              </motion.h2>
+
+              <motion.p 
+                className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                Be among the first to experience AI-powered financial optimization. 
+                <span className="text-purple-300 font-semibold"> Only 500 spots remaining.</span>
+              </motion.p>
 
               {/* Form with glowing backdrop */}
               <motion.div
@@ -135,11 +175,18 @@ export function SignupForm() {
                         className="w-full h-16 group bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white text-lg rounded-2xl transition-all duration-500 shadow-[0_20px_60px_-15px_rgba(168,85,247,0.6)] disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden"
                       >
                         {isSubmitting ? (
-                          <span className="relative z-10">Processing...</span>
+                          <span className="relative z-10 flex items-center justify-center gap-2">
+                            <motion.div
+                              className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full"
+                              animate={{ rotate: 360 }}
+                              transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                            />
+                            Securing your spot...
+                          </span>
                         ) : (
                           <>
                             <span className="relative z-10 flex items-center justify-center gap-2">
-                              Get started
+                              Reserve My Spot
                               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                             </span>
                           </>
@@ -387,6 +434,55 @@ export function SignupForm() {
           )}
         </AnimatePresence>
       </div>
+
+      {/* Sticky Popup */}
+      <AnimatePresence>
+        {showPopup && (
+          <motion.div
+            initial={{ opacity: 0, y: 100, scale: 0.8 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 100, scale: 0.8 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="fixed bottom-6 right-6 z-50 max-w-sm"
+          >
+            <div className="bg-gradient-to-br from-purple-600 to-pink-600 rounded-2xl p-6 shadow-2xl border border-white/20 backdrop-blur-sm">
+              <div className="flex items-start justify-between mb-4">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-5 h-5 text-white" />
+                  <span className="text-white font-semibold">Limited Time</span>
+                </div>
+                <button
+                  onClick={() => setShowPopup(false)}
+                  className="text-white/70 hover:text-white transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+              
+              <h3 className="text-white font-bold text-lg mb-2">
+                Only {spotsLeft} spots left!
+              </h3>
+              <p className="text-white/80 text-sm mb-4">
+                Join the waitlist now and get exclusive early access + 50% off your first year.
+              </p>
+              
+              <Button
+                onClick={() => {
+                  setShowPopup(false);
+                  window.scrollTo({
+                    top: document.documentElement.scrollHeight,
+                    behavior: 'smooth'
+                  });
+                }}
+                className="w-full bg-white text-purple-600 hover:bg-white/90 font-semibold"
+              >
+                Reserve My Spot
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
