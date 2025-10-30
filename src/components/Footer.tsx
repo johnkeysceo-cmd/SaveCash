@@ -1,121 +1,276 @@
 import React from "react";
 import { motion } from "motion/react";
-import { Mail, Phone, MapPin, Shield, Lock, Users, FileText, Globe } from "lucide-react";
+import { 
+  Mail, 
+  Briefcase, 
+  Users, 
+  Newspaper, 
+  TrendingUp, 
+  Shield, 
+  Code, 
+  Link, 
+  Activity,
+  HelpCircle,
+  FileText,
+  BookOpen,
+  MessageSquare,
+  Users2,
+  LifeBuoy,
+  Lock,
+  Scale,
+  Cookie,
+  Eye,
+  Accessibility,
+  AlertTriangle,
+  ExternalLink
+} from "lucide-react";
+import { SecuritySwitch } from "./ui/SecuritySwitch";
 
-export function Footer() {
+export default function Footer() {
+  const companyLinks = [
+    { title: "About Us", href: "/about", icon: Users },
+    { title: "Careers", href: "/careers", icon: Briefcase },
+    { title: "Contact", href: "/contact", icon: Mail },
+    { title: "Leadership", href: "/leadership", icon: Users },
+    { title: "Press", href: "/press", icon: Newspaper },
+    { title: "Investors", href: "/investors", icon: TrendingUp }
+  ];
+
+  const productLinks = [
+    { title: "Features", href: "/features", icon: TrendingUp },
+    { title: "Pricing", href: "/pricing", icon: TrendingUp },
+    { title: "Security", href: "/security", icon: Shield },
+    { title: "Security Overview", href: "/security-overview", icon: Shield },
+    { title: "API", href: "/api", icon: Code },
+    { title: "Integrations", href: "/integrations", icon: Link },
+    { title: "Status", href: "/status", icon: Activity }
+  ];
+
+  const resourceLinks = [
+    { title: "Help Center", href: "/help", icon: HelpCircle },
+    { title: "FAQs", href: "/faq", icon: HelpCircle },
+    { title: "Documentation", href: "/documentation", icon: FileText },
+    { title: "Blog", href: "/blog", icon: BookOpen },
+    { title: "Community", href: "/community", icon: Users2 },
+    { title: "Support", href: "/support", icon: LifeBuoy }
+  ];
+
+  const legalLinks = [
+    { title: "Privacy Policy", href: "/privacy", icon: Lock },
+    { title: "Terms of Service", href: "/terms", icon: Scale },
+    { title: "Cookie Policy", href: "/cookies", icon: Cookie },
+    { title: "Do Not Sell My Info", href: "/opt-out", icon: Eye },
+    { title: "Accessibility", href: "/accessibility", icon: Accessibility },
+    { title: "Legal Disclaimer", href: "/legal-disclaimer", icon: AlertTriangle },
+    { title: "EULA", href: "/eula", icon: FileText },
+    { title: "Return Policy", href: "/return-policy", icon: FileText },
+    { title: "Shipping Policy", href: "/shipping-policy", icon: FileText }
+  ];
+
   return (
-    <footer className="bg-[#0A0A0A] border-t border-white/10">
+    <footer className="bg-gradient-to-b from-black to-gray-900 border-t border-gray-800">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           
           {/* Company Section */}
-          <div className="space-y-4">
-            <h4 className="text-white font-semibold text-lg mb-4">Company</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li><a href="/about" className="hover:text-white transition-colors">About Us</a></li>
-              <li><a href="/careers" className="hover:text-white transition-colors">Careers</a></li>
-              <li><a href="/contact" className="hover:text-white transition-colors">Contact</a></li>
-              <li><a href="/leadership" className="hover:text-white transition-colors">Leadership</a></li>
-            </ul>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="text-white font-semibold text-lg mb-6">Company</h4>
+            <div className="space-y-4">
+              {companyLinks.map((link, index) => (
+                <motion.a
+                  key={link.title}
+                  href={link.href}
+                  className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.1 + index * 0.05 }}
+                  viewport={{ once: true }}
+                >
+                  <link.icon className="w-4 h-4 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
+                  <span className="group-hover:underline">{link.title}</span>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Product Section */}
-          <div className="space-y-4">
-            <h4 className="text-white font-semibold text-lg mb-4">Product</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li><a href="/features" className="hover:text-white transition-colors">Features</a></li>
-              <li><a href="/pricing" className="hover:text-white transition-colors">Pricing</a></li>
-              <li><a href="/security" className="hover:text-white transition-colors">Security</a></li>
-              <li><a href="/api" className="hover:text-white transition-colors">API</a></li>
-            </ul>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="text-white font-semibold text-lg mb-6">Product</h4>
+            <div className="space-y-4">
+              {productLinks.map((link, index) => (
+                <motion.a
+                  key={link.title}
+                  href={link.href}
+                  className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.2 + index * 0.05 }}
+                  viewport={{ once: true }}
+                >
+                  <link.icon className="w-4 h-4 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
+                  <span className="group-hover:underline">{link.title}</span>
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Resources Section */}
-          <div className="space-y-4">
-            <h4 className="text-white font-semibold text-lg mb-4">Resources</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li><a href="/blog" className="hover:text-white transition-colors">Blog</a></li>
-              <li><a href="/help" className="hover:text-white transition-colors">Help Center</a></li>
-              <li><a href="/faq" className="hover:text-white transition-colors">FAQs</a></li>
-              <li><a href="/documentation" className="hover:text-white transition-colors">Documentation</a></li>
-            </ul>
-          </div>
-
-          {/* Legal & Compliance Section */}
-          <div className="space-y-4">
-            <h4 className="text-white font-semibold text-lg mb-4">Legal</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li><a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a></li>
-              <li><a href="/terms" className="hover:text-white transition-colors">Terms of Service</a></li>
-              <li><a href="/cookies" className="hover:text-white transition-colors">Cookie Policy</a></li>
-              <li><a href="/opt-out" className="hover:text-white transition-colors">Do Not Sell My Info</a></li>
-              <li><a href="/accessibility" className="hover:text-white transition-colors">Accessibility</a></li>
-              <li><a href="/legal-disclaimer" className="hover:text-white transition-colors">Legal Disclaimer</a></li>
-              <li><a href="/data-processing" className="hover:text-white transition-colors">Data Processing</a></li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Contact Information */}
-        <div className="mt-16 pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-6">
-              <div className="flex items-center gap-2 text-gray-400">
-                <Mail className="w-4 h-4" />
-                <span>support@financely.com</span>
-              </div>
-              <div className="flex items-center gap-2 text-gray-400">
-                <Phone className="w-4 h-4" />
-                <span>+1 (555) 123-4567</span>
-              </div>
-              <div className="flex items-center gap-2 text-gray-400">
-                <MapPin className="w-4 h-4" />
-                <span>San Francisco, CA</span>
-          </div>
-        </div>
-
-            <div className="flex items-center gap-4">
-              <div className="flex items-center gap-2 text-gray-400">
-                <Shield className="w-4 h-4" />
-                <span>Bank-level Security</span>
-              </div>
-              <div className="flex items-center gap-2 text-gray-400">
-                <Lock className="w-4 h-4" />
-                <span>SOC 2 Compliant</span>
-              </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="text-white font-semibold text-lg mb-6">Resources</h4>
+            <div className="space-y-4">
+              {resourceLinks.map((link, index) => (
+                <motion.a
+                  key={link.title}
+                  href={link.href}
+                  className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.3 + index * 0.05 }}
+                  viewport={{ once: true }}
+                >
+                  <link.icon className="w-4 h-4 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
+                  <span className="group-hover:underline">{link.title}</span>
+                </motion.a>
+              ))}
             </div>
-          </div>
-        </div>
+          </motion.div>
 
-        {/* Bottom Section */}
-        <div className="mt-12 pt-8 border-t border-white/10">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-            <div className="flex items-center gap-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">F</span>
+          {/* Legal Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            <h4 className="text-white font-semibold text-lg mb-6">Legal</h4>
+            <div className="space-y-4">
+              {legalLinks.map((link, index) => (
+                <motion.a
+                  key={link.title}
+                  href={link.href}
+                  className="flex items-center gap-3 text-gray-300 hover:text-white transition-colors duration-300 group"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.4, delay: 0.4 + index * 0.05 }}
+                  viewport={{ once: true }}
+                >
+                  <link.icon className="w-4 h-4 text-gray-400 group-hover:text-purple-400 transition-colors duration-300" />
+                  <span className="group-hover:underline">{link.title}</span>
+                </motion.a>
+              ))}
             </div>
-              <div>
-                <h3 className="text-white font-semibold text-lg">Financely</h3>
-                <p className="text-gray-400 text-sm">AI-Powered Financial Intelligence</p>
-          </div>
-            </div>
+          </motion.div>
+
+        </div>
+      </div>
+
+      {/* Footer Base */}
+      <div className="border-t border-gray-800 bg-gray-900/50">
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center md:text-left"
+            >
+              <div className="text-gray-400 text-sm mb-2">
+                © 2025 SaveCash. All rights reserved.
+              </div>
+              <div className="text-gray-500 text-xs">
+                Select visual elements licensed via Shutterstock.
+              </div>
+              <div className="text-gray-500 text-xs mt-1">
+                SaveCash is a registered trademark.
+              </div>
+            </motion.div>
             
-            <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-gray-400 text-sm">
-              <div className="flex items-center gap-6">
-                <span>© 2024 SaveCash Pro. All rights reserved.</span>
-                <div className="flex items-center gap-2">
-                  <Globe className="w-4 h-4" />
-                  <span>English (US)</span>
-                </div>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4, delay: 0.7 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-6 text-sm"
+            >
+              <motion.a
+                href="/privacy"
+                className="text-gray-500 hover:text-purple-400 transition-colors duration-300"
+                whileHover={{ 
+                  scale: 1.05,
+                  textShadow: "0 0 8px rgba(168, 85, 247, 0.3)"
+                }}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.7 }}
+                viewport={{ once: true }}
+              >
+                Privacy
+              </motion.a>
+              <motion.a
+                href="/terms"
+                className="text-gray-500 hover:text-purple-400 transition-colors duration-300"
+                whileHover={{ 
+                  scale: 1.05,
+                  textShadow: "0 0 8px rgba(168, 85, 247, 0.3)"
+                }}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.75 }}
+                viewport={{ once: true }}
+              >
+                Terms
+              </motion.a>
+              <motion.a
+                href="/licenses"
+                className="text-gray-500 hover:text-purple-400 transition-colors duration-300"
+                whileHover={{ 
+                  scale: 1.05,
+                  textShadow: "0 0 8px rgba(168, 85, 247, 0.3)"
+                }}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.8 }}
+                viewport={{ once: true }}
+              >
+                Licenses & Credits
+              </motion.a>
+              <motion.a
+                href="/contact"
+                className="text-gray-500 hover:text-purple-400 transition-colors duration-300"
+                whileHover={{ 
+                  scale: 1.05,
+                  textShadow: "0 0 8px rgba(168, 85, 247, 0.3)"
+                }}
+                initial={{ opacity: 0, x: -10 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: 0.85 }}
+                viewport={{ once: true }}
+              >
+                Contact
+              </motion.a>
+              {/* Security toggle (visual control) */}
+              <div className="flex items-center gap-2">
+                <span className="text-gray-500">Security</span>
+                <SecuritySwitch />
               </div>
-              
-              <div className="flex items-center gap-6 text-xs">
-                <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
-                <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
-                <a href="/legal-disclaimer" className="hover:text-white transition-colors">Legal</a>
-              </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>

@@ -16,8 +16,9 @@ export function ParticleBackground() {
   return (
     <div 
       ref={containerRef}
-      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
+      className="fixed inset-0 pointer-events-none overflow-hidden"
       style={{
+        zIndex: -2,
         transform: "translateZ(0)",
         willChange: "transform",
         backfaceVisibility: "hidden",

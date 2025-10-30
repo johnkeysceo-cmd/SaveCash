@@ -83,8 +83,18 @@ export function SavingsImpactSection() {
             <motion.div
               key={data.label}
               variants={item}
-              className="group p-12 bg-white/[0.02] rounded-3xl border border-white/10 backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500 text-center"
+              className="group p-12 bg-white/[0.02] rounded-3xl border border-white/10 backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500 text-center relative overflow-hidden"
+              whileHover={{ 
+                scale: 1.02,
+                y: -5,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
             >
+              {/* Subtle glow effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-pink-500/0 to-orange-500/0 opacity-0 group-hover:opacity-5 transition-opacity duration-500"
+                initial={false}
+              />
               <motion.div 
                 className="text-6xl md:text-7xl mb-4 bg-gradient-to-br from-purple-400 via-pink-400 to-orange-400 bg-clip-text text-transparent"
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -128,96 +138,30 @@ export function SavingsImpactSection() {
           }}
         >
           <div className="relative z-10 text-center">
-            <motion.div
-              className="relative inline-block mb-8"
-              animate={{
-                y: [0, -10, 0],
-              }}
-              transition={{
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              {/* Holographic AI Animation - Fourth Duplicate */}
-              <motion.div 
-                className="w-32 h-32 mx-auto"
-                initial={{ opacity: 0, scale: 0.8, rotate: -8 }}
-                whileInView={{ opacity: 1, scale: 1, rotate: -5 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true }}
-                style={{
-                  transform: "translateZ(0)",
-                  willChange: "transform",
-                  backfaceVisibility: "hidden",
-                }}
-              >
-                {/* Ultra High Resolution Container with Circular Frame */}
-                <div className="relative w-full h-full rounded-full overflow-hidden"
+            <div className="relative inline-block mb-8">
+              {/* BlenderKit-Level Quality Video Animation */}
+              <div className="w-16 h-16 mx-auto rounded-full overflow-hidden">
+                <video
+                  src="/lv_0_20251026134622.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="auto"
+                  className="w-full h-full object-cover"
                   style={{
-                    background: "transparent",
-                    border: "2px solid rgba(168, 85, 247, 0.5)",
-                    boxShadow: `
-                      0 0 25px rgba(168, 85, 247, 0.7),
-                      0 0 50px rgba(236, 72, 153, 0.5),
-                      0 0 75px rgba(249, 115, 22, 0.4),
-                      inset 0 0 20px rgba(255, 255, 255, 0.15)
-                    `,
+                    transform: "translateZ(0)",
+                    willChange: "auto",
+                    backfaceVisibility: "hidden",
+                    imageRendering: "crisp-edges",
+                    filter: "contrast(1.4) brightness(1.2) saturate(1.3) hue-rotate(5deg)",
+                    isolation: "isolate",
+                    contain: "layout style paint",
+                    perspective: "1000px",
                   }}
-                >
-                  {/* BlenderKit-Level Resolution Video */}
-                  <video
-                    src="/vecteezy_3d-render-abstract-smooth-shape-holographic-color-on-black_31705729.mp4"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    className="w-full h-full object-cover"
-                    style={{
-                      transform: "translateZ(0)",
-                      willChange: "transform",
-                      backfaceVisibility: "hidden",
-                      imageRendering: "crisp-edges",
-                      filter: "contrast(1.4) brightness(1.15) saturate(1.3) hue-rotate(8deg)",
-                    }}
-                  />
-                  
-                  {/* Premium Circular Frame Glow */}
-                  <div className="absolute inset-0 rounded-full pointer-events-none"
-                    style={{
-                      background: `
-                        conic-gradient(from 0deg at 50% 50%, 
-                          rgba(168, 85, 247, 0.4) 0deg, 
-                          rgba(236, 72, 153, 0.3) 90deg, 
-                          rgba(249, 115, 22, 0.3) 180deg, 
-                          rgba(168, 85, 247, 0.4) 270deg, 
-                          rgba(168, 85, 247, 0.4) 360deg
-                        )
-                      `,
-                      mixBlendMode: "screen",
-                    }}
-                  />
-                  
-                  {/* Animated Frame Border */}
-                  <motion.div 
-                    className="absolute inset-0 rounded-full pointer-events-none"
-                    animate={{
-                      boxShadow: [
-                        "0 0 30px rgba(168, 85, 247, 0.5), 0 0 60px rgba(236, 72, 153, 0.3)",
-                        "0 0 60px rgba(168, 85, 247, 0.9), 0 0 120px rgba(236, 72, 153, 0.7)",
-                        "0 0 30px rgba(168, 85, 247, 0.5), 0 0 60px rgba(236, 72, 153, 0.3)",
-                      ],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "easeInOut",
-                    }}
-                  />
-                </div>
-              </motion.div>
-            </motion.div>
+                />
+              </div>
+            </div>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}

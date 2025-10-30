@@ -1,310 +1,343 @@
 import React from "react";
 import { motion } from "motion/react";
-import { PageTemplate } from "../components/PageTemplate";
+import { Database, Shield, Lock, Eye, CheckCircle, AlertTriangle, ArrowRight, Mail, Home } from "lucide-react";
 import { AnimatedBlob } from "../components/AnimatedBlob";
-import { Shield, Lock, Database, Eye, CheckCircle, AlertTriangle, FileText, Users, Globe, Clock } from "lucide-react";
 
-export function DataProcessing() {
+export default function DataProcessing() {
+  const processingPurposes = [
+    {
+      icon: Database,
+      title: "Service Provision",
+      description: "Processing your data to provide and improve our financial services",
+      details: ["Account management", "Transaction processing", "Service delivery", "Customer support"],
+      color: "from-blue-400 to-cyan-500"
+    },
+    {
+      icon: Shield,
+      title: "Security & Fraud Prevention",
+      description: "Processing data to protect your account and prevent fraudulent activities",
+      details: ["Identity verification", "Fraud detection", "Security monitoring", "Risk assessment"],
+      color: "from-green-400 to-emerald-500"
+    },
+    {
+      icon: Eye,
+      title: "Analytics & Improvement",
+      description: "Processing data to analyze usage patterns and improve our services",
+      details: ["Usage analytics", "Performance monitoring", "Feature optimization", "User experience"],
+      color: "from-purple-400 to-violet-500"
+    },
+    {
+      icon: Lock,
+      title: "Legal Compliance",
+      description: "Processing data to comply with legal and regulatory requirements",
+      details: ["Regulatory reporting", "Tax compliance", "Audit requirements", "Legal obligations"],
+      color: "from-orange-400 to-red-500"
+    }
+  ];
+
   const dataTypes = [
     {
-      icon: Users,
       title: "Personal Information",
-      description: "Name, email, phone number, and contact details",
-      examples: ["Full name", "Email address", "Phone number", "Mailing address"],
-      purpose: "Account creation, communication, and service delivery"
+      description: "Name, email, phone number, and identification details",
+      icon: Database,
+      color: "from-blue-400 to-cyan-500"
     },
     {
-      icon: Database,
       title: "Financial Data",
-      description: "Bank account information, transaction history, and financial metrics",
-      examples: ["Account balances", "Transaction history", "Investment data", "Credit scores"],
-      purpose: "Financial analysis, budgeting, and personalized recommendations"
-    },
-    {
-      icon: Globe,
-      title: "Usage Analytics",
-      description: "How you interact with our platform and services",
-      examples: ["Page views", "Feature usage", "Session duration", "Device information"],
-      purpose: "Service improvement, feature optimization, and user experience enhancement"
-    },
-    {
-      icon: FileText,
-      title: "Communication Records",
-      description: "Support tickets, feedback, and correspondence",
-      examples: ["Support messages", "Feedback forms", "Survey responses", "Email communications"],
-      purpose: "Customer service, product improvement, and relationship management"
-    }
-  ];
-
-  const legalBasis = [
-    {
-      title: "Contract Performance",
-      description: "Processing necessary to provide our financial services as agreed in our terms of service.",
-      icon: CheckCircle,
-      color: "text-green-400"
-    },
-    {
-      title: "Legitimate Interest",
-      description: "Processing for our legitimate business interests, such as improving our services and preventing fraud.",
-      icon: Eye,
-      color: "text-blue-400"
-    },
-    {
-      title: "Legal Obligation",
-      description: "Processing required by law, such as anti-money laundering and tax reporting requirements.",
+      description: "Bank account details, transaction history, and financial goals",
       icon: Shield,
-      color: "text-purple-400"
+      color: "from-green-400 to-emerald-500"
     },
     {
-      title: "Consent",
-      description: "Processing based on your explicit consent for marketing communications and optional features.",
-      icon: Users,
-      color: "text-pink-400"
-    }
-  ];
-
-  const dataRights = [
-    {
-      title: "Right to Access",
-      description: "You can request a copy of all personal data we hold about you.",
+      title: "Usage Data",
+      description: "How you interact with our platform and features",
       icon: Eye,
-      action: "Request Data Export"
+      color: "from-purple-400 to-violet-500"
     },
     {
-      title: "Right to Rectification",
-      description: "You can ask us to correct any inaccurate or incomplete personal data.",
-      icon: CheckCircle,
-      action: "Update Information"
-    },
-    {
-      title: "Right to Erasure",
-      description: "You can request deletion of your personal data in certain circumstances.",
-      icon: AlertTriangle,
-      action: "Request Deletion"
-    },
-    {
-      title: "Right to Portability",
-      description: "You can request your data in a structured, machine-readable format.",
-      icon: Database,
-      action: "Download Data"
-    },
-    {
-      title: "Right to Restrict Processing",
-      description: "You can limit how we process your personal data in certain situations.",
+      title: "Device Information",
+      description: "IP address, browser type, and device identifiers",
       icon: Lock,
-      action: "Restrict Processing"
-    },
-    {
-      title: "Right to Object",
-      description: "You can object to processing based on legitimate interests or for marketing.",
-      icon: Shield,
-      action: "Object to Processing"
-    }
-  ];
-
-  const securityMeasures = [
-    {
-      title: "Encryption",
-      description: "All data is encrypted in transit and at rest using industry-standard AES-256 encryption.",
-      icon: Lock
-    },
-    {
-      title: "Access Controls",
-      description: "Strict role-based access controls ensure only authorized personnel can access your data.",
-      icon: Shield
-    },
-    {
-      title: "Regular Audits",
-      description: "We conduct regular security audits and penetration testing to identify and address vulnerabilities.",
-      icon: CheckCircle
-    },
-    {
-      title: "Data Minimization",
-      description: "We only collect and process the minimum amount of data necessary for our services.",
-      icon: Database
-    },
-    {
-      title: "Retention Policies",
-      description: "We have strict data retention policies and automatically delete data when no longer needed.",
-      icon: Clock
-    },
-    {
-      title: "Incident Response",
-      description: "We have comprehensive incident response procedures in case of any data security breach.",
-      icon: AlertTriangle
+      color: "from-orange-400 to-red-500"
     }
   ];
 
   return (
-    <PageTemplate 
-      title="Data Processing Agreement" 
-      subtitle="Comprehensive information about how we collect, process, and protect your personal data in compliance with GDPR, CCPA, and other privacy regulations."
-    >
-
-        {/* Data Types We Collect */}
+    <div className="min-h-screen bg-black relative">
+        <AnimatedBlob />
+      {/* Hero Section */}
+      <section className="relative py-32 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-orange-900/20" />
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Back to Website Button */}
+          <motion.div 
+            className="mb-8"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <motion.a
+              href="/"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/20 rounded-full text-white hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
+              whileHover={{ scale: 1.05, x: -5 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Home className="w-4 h-4" />
+              <span>Back to Website</span>
+            </motion.a>
+          </motion.div>
+          <motion.div 
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <motion.h1 
+              className="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tight"
+              whileHover={{ 
+                scale: 1.02,
+                textShadow: "0 0 40px rgba(255, 255, 255, 0.3)",
+                transition: { duration: 0.3 }
+              }}
+            >
+              Data Processing
+            </motion.h1>
+            <motion.p 
+              className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Learn about how we process your personal data and your rights regarding data processing.
+            </motion.p>
+            <motion.div 
+              className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-blue-500/10 border border-blue-500/20 rounded-full text-blue-400"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <CheckCircle className="w-5 h-5" />
+              <span>GDPR Compliant</span>
+            </motion.div>
+          </motion.div>
+      </div>
+      </section>
+      
+      {/* Processing Purposes */}
+      <section className="py-20 px-6">
+        <div className="max-w-7xl mx-auto">
         <motion.div
-          className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
+          className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl mb-12 text-center text-white">Data Types We Collect</h2>
+            <h2 className="text-5xl font-bold text-white mb-6">Processing Purposes</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              We process your data for specific, legitimate purposes
+          </p>
+        </motion.div>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {processingPurposes.map((purpose, index) => (
+              <motion.div
+                key={purpose.title}
+                className="group bg-white/[0.02] rounded-3xl p-8 border border-white/10 backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500 relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                {/* Subtle glow effect */}
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-br ${purpose.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  initial={false}
+                />
+                
+                <motion.div 
+                  className={`w-16 h-16 bg-gradient-to-br ${purpose.color} rounded-2xl flex items-center justify-center mb-6 relative z-10`}
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: [0, -5, 5, 0],
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <purpose.icon className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-2xl font-bold text-white mb-4 relative z-10">{purpose.title}</h3>
+                <p className="text-gray-300 mb-6 leading-relaxed relative z-10">{purpose.description}</p>
+                <div className="space-y-2 relative z-10">
+                  {purpose.details.map((detail, idx) => (
+                    <div key={idx} className="flex items-center gap-3">
+                      <div className="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0" />
+                      <span className="text-gray-400 text-sm">{detail}</span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Data Types */}
+      <section className="py-20 px-6 bg-gradient-to-br from-purple-900/10 to-pink-900/10">
+        <div className="max-w-7xl mx-auto">
+        <motion.div
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true }}
+        >
+            <h2 className="text-5xl font-bold text-white mb-6">Types of Data Processed</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              We process different categories of personal data
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {dataTypes.map((type, index) => (
               <motion.div
                 key={type.title}
-                className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] rounded-3xl border border-white/10 p-8 shadow-2xl backdrop-blur-sm"
-                initial={{ opacity: 0, y: 20 }}
+                className="group bg-white/[0.02] rounded-3xl p-8 border border-white/10 backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500 text-center relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
               >
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mr-4">
-                    <type.icon className="w-6 h-6 text-purple-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">{type.title}</h3>
-                </div>
-                <p className="text-gray-400 mb-6">{type.description}</p>
+                {/* Subtle glow effect */}
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-br ${type.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  initial={false}
+                />
                 
-                <div className="mb-6">
-                  <h4 className="text-white font-semibold mb-3">Examples:</h4>
-                  <ul className="space-y-2">
-                    {type.examples.map((example, exampleIndex) => (
-                      <li key={exampleIndex} className="text-gray-400 flex items-center">
-                        <div className="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
-                        {example}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div className="p-4 bg-purple-500/10 rounded-2xl border border-purple-400/20">
-                  <h4 className="text-purple-300 font-semibold mb-2">Purpose:</h4>
-                  <p className="text-gray-300 text-sm">{type.purpose}</p>
-                </div>
+                <motion.div 
+                  className={`w-16 h-16 bg-gradient-to-br ${type.color} rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10`}
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: [0, -5, 5, 0],
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <type.icon className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold text-white mb-4 relative z-10">{type.title}</h3>
+                <p className="text-gray-300 relative z-10">{type.description}</p>
               </motion.div>
             ))}
           </div>
-        </motion.div>
+        </div>
+      </section>
 
-        {/* Legal Basis for Processing */}
+      {/* Legal Basis */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto">
         <motion.div
-          className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl mb-12 text-center text-white">Legal Basis for Processing</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {legalBasis.map((basis, index) => (
+            <h2 className="text-5xl font-bold text-white mb-6">Legal Basis for Processing</h2>
+            <p className="text-xl text-gray-300 mb-12">
+              We process your data based on specific legal grounds
+            </p>
+          </motion.div>
+
               <motion.div
-                key={basis.title}
-                className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] rounded-3xl border border-white/10 p-8 shadow-2xl backdrop-blur-sm"
-                initial={{ opacity: 0, y: 20 }}
+            className="bg-white/[0.02] rounded-3xl p-12 border border-white/10 backdrop-blur-sm"
+            initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
                 viewport={{ once: true }}
               >
-                <div className="flex items-center mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mr-4">
-                    <basis.icon className={`w-6 h-6 ${basis.color}`} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-white">{basis.title}</h3>
+            <div className="space-y-8">
+              <div className="flex items-start gap-4 p-6 bg-white/[0.02] rounded-xl border border-white/10">
+                <CheckCircle className="w-6 h-6 text-green-400 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Contract Performance</h3>
+                  <p className="text-gray-300">Processing necessary to provide our services under our terms of service.</p>
                 </div>
-                <p className="text-gray-400">{basis.description}</p>
-              </motion.div>
-            ))}
+              </div>
+
+              <div className="flex items-start gap-4 p-6 bg-white/[0.02] rounded-xl border border-white/10">
+                <Shield className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Legitimate Interest</h3>
+                  <p className="text-gray-300">Processing for our legitimate business interests, balanced against your rights.</p>
+                </div>
+              </div>
+
+              <div className="flex items-start gap-4 p-6 bg-white/[0.02] rounded-xl border border-white/10">
+                <Lock className="w-6 h-6 text-purple-400 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Legal Obligation</h3>
+                  <p className="text-gray-300">Processing required to comply with legal and regulatory requirements.</p>
+                </div>
+          </div>
+
+              <div className="flex items-start gap-4 p-6 bg-white/[0.02] rounded-xl border border-white/10">
+                <AlertTriangle className="w-6 h-6 text-orange-400 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Consent</h3>
+                  <p className="text-gray-300">Processing based on your explicit consent, which you can withdraw at any time.</p>
+                </div>
+              </div>
           </div>
         </motion.div>
+        </div>
+      </section>
 
-        {/* Your Data Rights */}
+      {/* Contact Section */}
+      <section className="py-32 px-6">
+        <div className="max-w-4xl mx-auto text-center">
         <motion.div
-          className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: true }}
         >
-          <h2 className="text-4xl md:text-5xl mb-12 text-center text-white">Your Data Rights</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {dataRights.map((right, index) => (
-              <motion.div
-                key={right.title}
-                className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] rounded-3xl border border-white/10 p-6 shadow-2xl backdrop-blur-sm"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+            <h2 className="text-5xl font-bold text-white mb-8">Questions About Data Processing?</h2>
+            <p className="text-xl text-gray-300 mb-12 leading-relaxed">
+              Our data protection team is here to answer any questions about how we process your data.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <motion.button
+                className="group bg-gradient-to-r from-purple-500 to-pink-500 text-white px-12 py-6 rounded-full font-semibold text-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 flex items-center justify-center gap-3"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 25px 80px -15px rgba(168,85,247,0.8)"
+                }}
+                whileTap={{ scale: 0.95 }}
               >
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center mb-4">
-                  <right.icon className="w-6 h-6 text-purple-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">{right.title}</h3>
-                <p className="text-gray-400 mb-4 text-sm">{right.description}</p>
-                <button className="w-full py-2 px-4 bg-purple-500/20 text-purple-300 rounded-lg border border-purple-400/30 hover:bg-purple-500/30 transition-colors">
-                  {right.action}
-                </button>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Security Measures */}
-        <motion.div
-          className="mb-20"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-4xl md:text-5xl mb-12 text-center text-white">Security Measures</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {securityMeasures.map((measure, index) => (
-              <motion.div
-                key={measure.title}
-                className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] rounded-3xl border border-white/10 p-6 shadow-2xl backdrop-blur-sm"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                viewport={{ once: true }}
+                <Mail className="w-5 h-5" />
+                <span>Contact Data Team</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+              <motion.button
+                className="border-2 border-purple-500 text-purple-400 px-12 py-6 rounded-full font-semibold text-lg hover:bg-purple-500 hover:text-white transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500/20 to-blue-500/20 flex items-center justify-center mb-4">
-                  <measure.icon className="w-6 h-6 text-green-400" />
-                </div>
-                <h3 className="text-xl font-bold text-white mb-3">{measure.title}</h3>
-                <p className="text-gray-400 text-sm">{measure.description}</p>
-              </motion.div>
-            ))}
+                Data Rights
+              </motion.button>
           </div>
         </motion.div>
-
-        {/* Contact Information */}
-        <motion.div
-          className="text-center bg-gradient-to-br from-white/[0.05] to-white/[0.02] rounded-3xl border border-white/10 p-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-        >
-          <h2 className="text-3xl md:text-4xl mb-6 text-white">Questions About Your Data?</h2>
-          <p className="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-            Our Data Protection Officer is available to answer any questions about how we process your personal data.
-          </p>
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white rounded-2xl font-semibold hover:from-purple-600 hover:to-pink-600 transition-all">
-              Contact DPO
-            </button>
-            <button className="px-8 py-4 border border-white/20 text-white rounded-2xl font-semibold hover:bg-white/10 transition-all">
-              Download Full Agreement
-            </button>
-          </div>
-        </motion.div>
-        
-        {/* Animated Blob Background */}
-        <AnimatedBlob />
-    </PageTemplate>
+      </div>
+      </section>
+    </div>
   );
 }

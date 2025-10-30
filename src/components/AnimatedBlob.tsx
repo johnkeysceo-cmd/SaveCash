@@ -1,232 +1,166 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import { motion } from "motion/react";
 
 export function AnimatedBlob() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const blobRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Force hardware acceleration
-    if (containerRef.current) {
-      containerRef.current.style.transform = "translateZ(0)";
-      containerRef.current.style.willChange = "transform";
-      containerRef.current.style.backfaceVisibility = "hidden";
-    }
-    if (blobRef.current) {
-      blobRef.current.style.transform = "translateZ(0)";
-      blobRef.current.style.willChange = "transform";
-      blobRef.current.style.backfaceVisibility = "hidden";
-    }
-  }, []);
-
   return (
     <div 
-      ref={containerRef}
-      className="relative w-full h-96 flex items-center justify-center overflow-hidden"
+      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
       style={{
-        transform: "translateZ(0)",
-        willChange: "transform",
-        backfaceVisibility: "hidden",
-        isolation: "isolate",
-        contain: "layout style paint",
+        height: '100vh',
+        width: '100vw',
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        zIndex: 0
       }}
     >
-      {/* Animated 3D Blob */}
+      {/* First Blob - Top Left */}
       <motion.div
-        ref={blobRef}
-        className="relative w-80 h-80"
+        className="absolute w-96 h-96 rounded-full"
+        style={{
+          background: "linear-gradient(135deg, #8B5CF6 0%, #A855F7 25%, #EC4899 50%, #F97316 75%, #06B6D4 100%)",
+          filter: "blur(80px)",
+          top: "10%",
+          left: "10%",
+        }}
         animate={{
-          rotateX: [0, 360],
-          rotateY: [0, 360],
-          rotateZ: [0, 180],
-          scale: [1, 1.05, 1],
+          scale: [1, 1.3, 0.8, 1.2, 1],
+          rotate: [0, 90, 180, 270, 360],
+          x: [0, 50, -30, 40, 0],
+          y: [0, -40, 60, -20, 0],
+          borderRadius: [
+            "50% 50% 50% 50% / 50% 50% 50% 50%",
+            "60% 40% 30% 70% / 40% 60% 30% 70%",
+            "40% 60% 70% 30% / 60% 30% 70% 40%",
+            "30% 70% 60% 40% / 70% 30% 40% 60%",
+            "50% 50% 50% 50% / 50% 50% 50% 50%",
+          ],
         }}
         transition={{
           duration: 12,
           repeat: Infinity,
-          ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
-          type: "tween",
+          ease: "easeInOut",
         }}
+      />
+
+      {/* Second Blob - Top Right */}
+      <motion.div
+        className="absolute w-80 h-80 rounded-full"
         style={{
-          transformStyle: "preserve-3d",
-          perspective: "1000px",
-          willChange: "transform",
-          backfaceVisibility: "hidden",
-          transform: "translateZ(0)",
-          isolation: "isolate",
-          contain: "layout style paint",
+          background: "linear-gradient(135deg, #EC4899 0%, #F97316 25%, #06B6D4 50%, #8B5CF6 75%, #A855F7 100%)",
+          filter: "blur(70px)",
+          top: "15%",
+          right: "15%",
         }}
-      >
-        {/* Main blob shape */}
-        <motion.div
-          className="absolute inset-0 rounded-full"
-          animate={{
-            borderRadius: [
-              "40% 60% 70% 30% / 60% 30% 70% 40%",
-              "60% 40% 30% 70% / 40% 60% 30% 70%",
-              "30% 70% 60% 40% / 70% 30% 40% 60%",
-              "70% 30% 40% 60% / 30% 70% 60% 40%",
-              "40% 60% 70% 30% / 60% 30% 70% 40%",
-            ],
-            scale: [1, 1.1, 0.95, 1.05, 1],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
-            type: "tween",
-          }}
-          style={{
-            background: `
-              linear-gradient(135deg, 
-                #8B5CF6 0%, 
-                #A855F7 25%, 
-                #EC4899 50%, 
-                #F97316 75%, 
-                #F59E0B 100%
-              )
-            `,
-            filter: "blur(0px)",
-            boxShadow: `
-              0 0 60px rgba(168, 85, 247, 0.4),
-              0 0 120px rgba(236, 72, 153, 0.3),
-              0 0 180px rgba(249, 115, 22, 0.2)
-            `,
-            willChange: "transform",
-            backfaceVisibility: "hidden",
-            transform: "translateZ(0)",
-            isolation: "isolate",
-            contain: "layout style paint",
-          }}
-        />
-        
-        {/* Secondary blob for depth */}
-        <motion.div
-          className="absolute inset-4 rounded-full"
-          animate={{
-            borderRadius: [
-              "60% 40% 30% 70% / 40% 60% 30% 70%",
-              "40% 60% 70% 30% / 60% 30% 70% 40%",
-              "70% 30% 40% 60% / 30% 70% 60% 40%",
-              "30% 70% 60% 40% / 70% 30% 40% 60%",
-              "60% 40% 30% 70% / 40% 60% 30% 70%",
-            ],
-            scale: [0.8, 1.1, 0.9, 1.2, 0.8],
-          }}
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
-            type: "tween",
-            delay: 1,
-          }}
-          style={{
-            background: `
-              linear-gradient(45deg, 
-                #EC4899 0%, 
-                #F97316 30%, 
-                #F59E0B 60%, 
-                #8B5CF6 100%
-              )
-            `,
-            filter: "blur(1px)",
-            opacity: 0.7,
-            willChange: "transform",
-            backfaceVisibility: "hidden",
-            transform: "translateZ(0)",
-            isolation: "isolate",
-            contain: "layout style paint",
-          }}
-        />
-        
-        {/* Inner highlight blob */}
-        <motion.div
-          className="absolute inset-8 rounded-full"
-          animate={{
-            borderRadius: [
-              "30% 70% 60% 40% / 70% 30% 40% 60%",
-              "70% 30% 40% 60% / 30% 70% 60% 40%",
-              "40% 60% 70% 30% / 60% 30% 70% 40%",
-              "60% 40% 30% 70% / 40% 60% 30% 70%",
-              "30% 70% 60% 40% / 70% 30% 40% 60%",
-            ],
-            scale: [1, 0.8, 1.3, 0.9, 1],
-          }}
-          transition={{
-            duration: 5,
-            repeat: Infinity,
-            ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
-            type: "tween",
-            delay: 2,
-          }}
-          style={{
-            background: `
-              linear-gradient(225deg, 
-                #F59E0B 0%, 
-                #F97316 40%, 
-                #EC4899 80%, 
-                #A855F7 100%
-              )
-            `,
-            filter: "blur(0.5px)",
-            opacity: 0.8,
-            willChange: "transform",
-            backfaceVisibility: "hidden",
-            transform: "translateZ(0)",
-            isolation: "isolate",
-            contain: "layout style paint",
-          }}
-        />
-        
-        {/* Fourth outer glow blob */}
-        <motion.div
-          className="absolute inset-2 rounded-full"
-          animate={{
-            borderRadius: [
-              "50% 50% 50% 50% / 50% 50% 50% 50%",
-              "60% 40% 60% 40% / 40% 60% 40% 60%",
-              "40% 60% 40% 60% / 60% 40% 60% 40%",
-              "50% 50% 50% 50% / 50% 50% 50% 50%",
-            ],
-            scale: [1, 1.05, 0.98, 1],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
-            type: "tween",
-            delay: 0.5,
-          }}
-          style={{
-            background: `
-              linear-gradient(90deg, 
-                #8B5CF6 0%, 
-                #EC4899 50%, 
-                #F97316 100%
-              )
-            `,
-            filter: "blur(2px)",
-            opacity: 0.4,
-            willChange: "transform",
-            backfaceVisibility: "hidden",
-            transform: "translateZ(0)",
-            isolation: "isolate",
-            contain: "layout style paint",
-          }}
-        />
-      </motion.div>
-      
-      {/* Ambient lighting effect */}
-      <div 
-        className="absolute inset-0 pointer-events-none"
+        animate={{
+          scale: [1.2, 0.9, 1.4, 0.7, 1.2],
+          rotate: [360, 270, 180, 90, 0],
+          x: [0, -60, 40, -20, 0],
+          y: [0, 50, -30, 40, 0],
+          borderRadius: [
+            "50% 50% 50% 50% / 50% 50% 50% 50%",
+            "70% 30% 60% 40% / 30% 70% 40% 60%",
+            "30% 70% 40% 60% / 70% 30% 60% 40%",
+            "60% 40% 70% 30% / 40% 60% 30% 70%",
+            "50% 50% 50% 50% / 50% 50% 50% 50%",
+          ],
+        }}
+        transition={{
+          duration: 10,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2,
+        }}
+      />
+
+      {/* Third Blob - Bottom Left */}
+      <motion.div
+        className="absolute w-72 h-72 rounded-full"
         style={{
-          background: `
-            radial-gradient(ellipse at center, 
-              rgba(168, 85, 247, 0.1) 0%, 
-              rgba(236, 72, 153, 0.05) 50%, 
-              transparent 100%
-            )
-          `,
+          background: "linear-gradient(135deg, #06B6D4 0%, #8B5CF6 25%, #A855F7 50%, #EC4899 75%, #F97316 100%)",
+          filter: "blur(65px)",
+          bottom: "20%",
+          left: "20%",
+        }}
+        animate={{
+          scale: [0.8, 1.3, 0.9, 1.1, 0.8],
+          rotate: [180, 270, 0, 90, 180],
+          x: [0, 30, -50, 20, 0],
+          y: [0, -60, 40, -10, 0],
+          borderRadius: [
+            "50% 50% 50% 50% / 50% 50% 50% 50%",
+            "40% 60% 30% 70% / 60% 40% 70% 30%",
+            "60% 40% 70% 30% / 40% 60% 30% 70%",
+            "30% 70% 40% 60% / 70% 30% 60% 40%",
+            "50% 50% 50% 50% / 50% 50% 50% 50%",
+          ],
+        }}
+        transition={{
+          duration: 14,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 4,
+        }}
+      />
+
+      {/* Fourth Blob - Bottom Right */}
+      <motion.div
+        className="absolute w-88 h-88 rounded-full"
+        style={{
+          background: "linear-gradient(135deg, #F97316 0%, #06B6D4 25%, #8B5CF6 50%, #A855F7 75%, #EC4899 100%)",
+          filter: "blur(75px)",
+          bottom: "10%",
+          right: "10%",
+        }}
+        animate={{
+          scale: [1.1, 0.7, 1.3, 0.9, 1.1],
+          rotate: [270, 0, 90, 180, 270],
+          x: [0, -40, 60, -30, 0],
+          y: [0, 30, -50, 20, 0],
+          borderRadius: [
+            "50% 50% 50% 50% / 50% 50% 50% 50%",
+            "70% 30% 60% 40% / 30% 70% 40% 60%",
+            "30% 70% 40% 60% / 70% 30% 60% 40%",
+            "60% 40% 70% 30% / 40% 60% 30% 70%",
+            "50% 50% 50% 50% / 50% 50% 50% 50%",
+          ],
+        }}
+        transition={{
+          duration: 11,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 1,
+        }}
+      />
+
+      {/* Fifth Blob - Center */}
+      <motion.div
+        className="absolute w-64 h-64 rounded-full"
+        style={{
+          background: "linear-gradient(135deg, #A855F7 0%, #EC4899 25%, #F97316 50%, #06B6D4 75%, #8B5CF6 100%)",
+          filter: "blur(60px)",
+          top: "50%",
+          left: "50%",
+          transform: "translate(-50%, -50%)",
+        }}
+        animate={{
+          scale: [1, 1.4, 0.6, 1.2, 1],
+          rotate: [0, 180, 360, 180, 0],
+          x: [0, 40, -60, 30, 0],
+          y: [0, -30, 50, -20, 0],
+          borderRadius: [
+            "50% 50% 50% 50% / 50% 50% 50% 50%",
+            "60% 40% 70% 30% / 40% 60% 30% 70%",
+            "40% 60% 30% 70% / 60% 40% 70% 30%",
+            "70% 30% 40% 60% / 30% 70% 60% 40%",
+            "50% 50% 50% 50% / 50% 50% 50% 50%",
+          ],
+        }}
+        transition={{
+          duration: 9,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 3,
         }}
       />
     </div>

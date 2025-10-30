@@ -6,27 +6,23 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     question: "Is my data safe?",
-    answer: "We use bank-level encryption and never share your data without consent. Your privacy and security are our top priorities.",
+    answer: "Absolutely. SaveCash Pro uses bank-grade encryption (256-bit SSL) and never sells your data. Your privacy is our foundation.",
   },
   {
     question: "Can I cancel anytime?",
-    answer: "Yes, cancel your subscription or plan at any time without penalties. No hidden fees, no questions asked.",
+    answer: "100%. No contracts, no hidden fees — just savings on your terms.",
   },
   {
     question: "How does AI find savings?",
-    answer: "It analyzes spending patterns and identifies opportunities to save money through subscription optimization, fee detection, and smart recommendations.",
+    answer: "Our system monitors your transactions 24/7, detects patterns, and identifies hidden fees or better rates — automatically.",
   },
   {
     question: "Do I need a credit card to start?",
-    answer: "No, you can use free features without providing payment info. Only upgrade when you're ready.",
+    answer: "Nope. You can explore SaveCash Pro for free, no strings attached.",
   },
   {
     question: "How long does setup take?",
-    answer: "Most users complete setup in under 5 minutes. Simply connect your accounts and set your preferences.",
-  },
-  {
-    question: "What makes SaveCash different?",
-    answer: "Unlike other apps that just track spending, we actively prevent waste and automatically optimize your finances with AI.",
+    answer: "Under 2 minutes. Connect, verify, and let AI take over.",
   },
 ];
 

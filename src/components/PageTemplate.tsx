@@ -11,7 +11,7 @@ interface PageTemplateProps {
 
 export function PageTemplate({ title, subtitle, children }: PageTemplateProps) {
   return (
-    <div className="min-h-screen bg-black overflow-hidden">
+    <div className="min-h-screen overflow-hidden">
       {/* 3D Floating Blobs Background */}
       <FloatingBlobs />
       <div className="fixed inset-0 pointer-events-none">

@@ -30,9 +30,10 @@ const item = {
 };
 
 const benefits = [
-  "Automated subscription cancellations",
-  "Real-time spending insights",
-  "AI investment suggestions",
+  "24/7 AI Monitoring — Always on guard",
+  "Instant Insights — Smart alerts when patterns shift",
+  "Bank-Grade Security — 256-bit SSL encryption",
+  "Effortless Savings — Money grows on autopilot",
 ];
 
 export function HeroSection() {
@@ -92,49 +93,46 @@ export function HeroSection() {
 
         <motion.h1 
           variants={item}
-          className="text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tight leading-[1.05]"
+          className="text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tight leading-[1.05] relative"
+          whileHover={{ 
+            scale: 1.01,
+            transition: { duration: 0.3, ease: "easeOut" }
+          }}
         >
-          <span className="block text-white">
-            Automatically save
-          </span>
           <motion.span 
-            className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
-            animate={{
-              backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-            }}
-            transition={{
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            style={{
-              backgroundSize: "200% 100%"
+            className="block text-white"
+            whileHover={{ 
+              textShadow: "0 0 20px rgba(255, 255, 255, 0.3)",
+              transition: { duration: 0.2 }
             }}
           >
-            $500–$25,000
+            Your money.
           </motion.span>
-          <span className="block text-white">
-            every month.
-          </span>
+          <motion.span 
+            className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+          >
+            Smarter.
+          </motion.span>
         </motion.h1>
         
         <motion.p 
           variants={item}
           className="text-2xl md:text-3xl text-gray-400 mb-4 max-w-4xl mx-auto leading-relaxed"
         >
-          SaveCashPro uses AI to optimize your spending and savings. No apps, no manual tracking — just smarter money management.
+          SaveCash Pro watches, learns, and protects your wallet 24/7 — so you never miss a chance to save.
         </motion.p>
 
+        {/* Value Snapshot */}
         <motion.p 
           variants={item}
-          className="text-xl text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed"
+          className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
         >
-          Start your smarter financial future today.
+          Powered by real-time AI. Designed for people who want control, confidence, and compound savings — without lifting a finger.
         </motion.p>
         
         <motion.div 
           variants={item}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20"
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
         >
                  <motion.div
                    whileHover={{ 
@@ -196,7 +194,29 @@ export function HeroSection() {
                      />
                    </Button>
                  </motion.div>
+                 
+                 <Button
+                   variant="outline"
+                   onClick={() => {
+                     window.scrollTo({
+                       top: document.documentElement.scrollHeight,
+                       behavior: 'smooth'
+                     });
+                   }}
+                   className="group relative border-2 border-purple-500/30 text-white hover:bg-purple-500/10 px-12 py-8 text-lg rounded-full transition-all duration-500"
+                 >
+                   <span className="relative z-10 flex items-center">
+                     Activate AI Savings
+                   </span>
+                 </Button>
         </motion.div>
+
+        <motion.p 
+          variants={item}
+          className="text-sm text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed"
+        >
+          Early users get lifetime perks. Be among the first 500 to try SaveCash Pro.
+        </motion.p>
 
         {/* Animated rotating benefits */}
         <motion.div 

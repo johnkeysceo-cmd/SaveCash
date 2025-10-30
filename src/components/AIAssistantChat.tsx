@@ -83,7 +83,7 @@ export function AIAssistantChat() {
   };
 
   return (
-    <div className="min-h-screen bg-black flex flex-col">
+    <div className="min-h-screen flex flex-col">
       {/* Header with AI Assistant Animation */}
       <div className="bg-gradient-to-br from-white/[0.05] to-white/[0.02] border-b border-white/10 p-6">
         <div className="max-w-4xl mx-auto flex items-center gap-4">
@@ -121,7 +121,7 @@ export function AIAssistantChat() {
               {/* AI Assistant Video */}
               <video
                 ref={videoRef}
-                src="/vecteezy_3d-render-abstract-smooth-shape-holographic-color-on-black_31705729.mp4"
+                src="/lv_0_20251026134622.mp4"
                 autoPlay
                 loop
                 muted

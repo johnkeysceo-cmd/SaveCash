@@ -5,24 +5,24 @@ import { Quote } from "lucide-react";
 
 const testimonials = [
   {
-    quote: "SaveCash found over $12,000 in hidden fees I didn't know existed. Game changer.",
-    author: "David Chen",
-    role: "Tech Entrepreneur",
-    savings: "$12,000",
+    quote: "It's like having a financial assistant that never sleeps.",
+    author: "Sarah K.",
+    role: "Early Adopter",
+    savings: "$2,200",
     image: "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MDQ3NDY0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    quote: "Within the first month, I recovered $847 in unnecessary charges. The ROI is insane.",
-    author: "Rachel Martinez",
-    role: "Creative Director",
-    savings: "$847",
+    quote: "I found $220 in hidden charges in week one.",
+    author: "Mike R.",
+    role: "Beta User",
+    savings: "$220",
     image: "https://images.unsplash.com/photo-1634133472760-e5c2bd346787?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0ZWNoJTIwZW50cmVwcmVuZXVyJTIwaGVhZHNob3R8ZW58MXx8fHwxNzYwNTA3NjA1fDA&ixlib=rb-4.1.0&q=80&w=1080",
   },
   {
-    quote: "The AI saved me $23,000 annually. This isn't just an app, it's a revolution.",
-    author: "Marcus Johnson",
-    role: "Business Owner",
-    savings: "$23,000",
+    quote: "I actually *feel in control* of my money now.",
+    author: "Alex T.",
+    role: "Power User",
+    savings: "$1,500",
     image: "https://images.unsplash.com/photo-1581065178047-8ee15951ede6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMHBvcnRyYWl0fGVufDF8fHx8MTc2MDQ3NDY0Mnww&ixlib=rb-4.1.0&q=80&w=1080",
   },
 ];
@@ -60,43 +60,6 @@ export function TestimonialsSection() {
   return (
     <section className="py-32 px-6 relative">
       <div className="max-w-6xl mx-auto">
-        {/* As Seen On Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-16"
-        >
-          <motion.p 
-            className="text-sm text-gray-500 mb-8 tracking-wider uppercase"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            As Seen On
-          </motion.p>
-          
-          <motion.div 
-            className="flex flex-wrap items-center justify-center gap-8 opacity-60"
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 0.6, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            {pressLogos.map((press, index) => (
-              <motion.div
-                key={press.name}
-                className="text-2xl font-bold text-gray-400 hover:text-white transition-colors cursor-pointer"
-                whileHover={{ scale: 1.1 }}
-                transition={{ duration: 0.2 }}
-              >
-                {press.logo}
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -106,22 +69,13 @@ export function TestimonialsSection() {
           className="text-center mb-20"
         >
           <motion.h2 
-            className="text-5xl md:text-7xl mb-6 text-white tracking-tight"
+            className="text-5xl md:text-7xl mb-8 text-white tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Real people.
-          </motion.h2>
-          <motion.h2 
-            className="text-5xl md:text-7xl mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent tracking-tight"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            Real savings.
+            Why people love SaveCash Pro
           </motion.h2>
         </motion.div>
 
@@ -136,8 +90,18 @@ export function TestimonialsSection() {
             <motion.div
               key={index}
               variants={item}
-              className="group p-10 bg-white/[0.02] rounded-3xl border border-white/10 backdrop-blur-sm hover:bg-white/[0.04] hover:border-purple-500/30 transition-all duration-500"
+              className="group p-10 bg-white/[0.02] rounded-3xl border border-white/10 backdrop-blur-sm hover:bg-white/[0.04] hover:border-purple-500/30 transition-all duration-500 relative overflow-hidden"
+              whileHover={{ 
+                scale: 1.02,
+                y: -5,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
             >
+              {/* Subtle glow effect */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-pink-500/0 to-orange-500/0 opacity-0 group-hover:opacity-5 transition-opacity duration-500"
+                initial={false}
+              />
               <Quote className="w-10 h-10 text-purple-400/40 mb-6" />
               
               <motion.p 

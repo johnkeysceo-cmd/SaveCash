@@ -1,10 +1,11 @@
 import React, { useEffect, useState, useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { Button } from "./ui/button";
 import { MessageSquare, TrendingUp, Shield, Zap, Brain, BarChart3 } from "lucide-react";
 
 export function AIAssistantSection() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [showAIModal, setShowAIModal] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -41,57 +42,28 @@ export function AIAssistantSection() {
       }
       lastTimeRef.current = currentTime;
 
-      // SUBPIXEL SMOOTH FADE with cubic-bezier easing
-      if (video.currentTime >= video.duration - 0.05 && forwardRef.current) {
-        isTransitioningRef.current = true;
-        startTimeRef.current = currentTime;
-        
-        const fadeOut = () => {
-          const elapsed = performance.now() - startTimeRef.current;
-          const progress = Math.min(elapsed / 200, 1); // 200ms fade
-          const easedProgress = 1 - Math.pow(1 - progress, 4); // ultra-smooth cubic-bezier
-          
-          // Direct DOM manipulation - NO React re-renders
-          videoOpacityRef.current = easedProgress;
-          video.style.opacity = videoOpacityRef.current.toString();
-          
-          if (progress < 1) {
-            rafRef.current = requestAnimationFrame(fadeOut);
-          } else {
-            // Reset and ultra-smooth fade in
-            video.currentTime = 0;
-            startTimeRef.current = performance.now();
-            
-            const fadeIn = () => {
-              const inElapsed = performance.now() - startTimeRef.current;
-              const inProgress = Math.min(inElapsed / 300, 1); // 300ms fade in
-              const easedInProgress = Math.pow(inProgress, 3); // cubic-bezier ease-in
-              
-              videoOpacityRef.current = easedInProgress;
-              video.style.opacity = videoOpacityRef.current.toString();
-              
-              if (inProgress < 1) {
-                rafRef.current = requestAnimationFrame(fadeIn);
-              } else {
-                isTransitioningRef.current = false;
-              }
-            };
-            rafRef.current = requestAnimationFrame(fadeIn);
-          }
-        };
-        
-        rafRef.current = requestAnimationFrame(fadeOut);
-      }
-
-      // ULTRA-SMOOTH ping-pong with GPU acceleration
-      if (video.currentTime >= video.duration && forwardRef.current) {
+      // MICRO-PIXEL SMOOTHNESS - Ultra-precise ping-pong with seamless transitions
+      if (video.currentTime >= video.duration - 0.01 && forwardRef.current) {
+        // Micro-smooth transition to reverse
         forwardRef.current = false;
-        video.playbackRate = -1;
+        video.playbackRate = -0.5; // Slower reverse for smoothness
         video.play();
-      } else if (video.currentTime <= 0 && !forwardRef.current) {
+      } else if (video.currentTime <= 0.01 && !forwardRef.current) {
+        // Micro-smooth transition to forward
         forwardRef.current = true;
-        video.playbackRate = 1;
+        video.playbackRate = 0.5; // Slower forward for smoothness
         video.play();
+      }
+      
+      // Micro-pixel smooth interpolation for seamless looping
+      if (forwardRef.current && video.currentTime >= video.duration - 0.1) {
+        // Gradual slowdown before reverse
+        const progress = (video.currentTime - (video.duration - 0.1)) / 0.1;
+        video.playbackRate = 0.5 + (0.5 * (1 - progress)); // Smooth deceleration
+      } else if (!forwardRef.current && video.currentTime <= 0.1) {
+        // Gradual speedup after reverse
+        const progress = (0.1 - video.currentTime) / 0.1;
+        video.playbackRate = 0.5 + (0.5 * progress); // Smooth acceleration
       }
 
       rafRef.current = requestAnimationFrame(animate);
@@ -123,9 +95,11 @@ export function AIAssistantSection() {
   }, []);
 
   const handleStartChat = () => {
-    // Navigate to separate AI chat page
-    window.history.pushState({}, '', '/ai-chat');
-    window.dispatchEvent(new PopStateEvent('popstate'));
+    setShowAIModal(true);
+    // Auto close after 5 seconds
+    setTimeout(() => {
+      setShowAIModal(false);
+    }, 5000);
   };
 
   const features = [
@@ -136,6 +110,7 @@ export function AIAssistantSection() {
   ];
 
   return (
+    <>
     <section ref={sectionRef} className="py-32 px-6 relative">
       <div className="max-w-6xl mx-auto relative">
 
@@ -275,10 +250,11 @@ export function AIAssistantSection() {
                       >
                         <video
                           ref={videoRef}
-                          src="/vecteezy_3d-render-abstract-smooth-shape-holographic-color-on-black_31705729.mp4"
+                            src="/lv_0_20251026134622.mp4"
                           muted
                           playsInline
                           autoPlay
+                          loop
                           preload="auto"
                           className="w-full h-full object-cover"
                           style={{
@@ -381,7 +357,7 @@ export function AIAssistantSection() {
                     className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white px-12 py-6 text-lg rounded-full shadow-[0_20px_60px_-15px_rgba(168,85,247,0.4)] border border-white/10 hover:shadow-[0_25px_80px_-15px_rgba(168,85,247,0.6)] transition-all duration-300"
                   >
                     <MessageSquare className="mr-3 w-5 h-5" />
-                    Chat with AI Advisor
+                      Start AI Conversation
                   </Button>
                 </motion.div>
               </div>
@@ -393,5 +369,179 @@ export function AIAssistantSection() {
         </motion.div>
       </div>
     </section>
+
+      {/* Minimalist Animated Logo Modal - Positioned over AI Assistant Section */}
+      <AnimatePresence>
+        {showAIModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="absolute inset-0 z-20 flex items-center justify-center bg-gradient-to-br from-black/95 via-purple-900/20 to-black/95 backdrop-blur-md rounded-3xl"
+          >
+            {/* Subtle particle background */}
+            <div className="absolute inset-0 overflow-hidden rounded-3xl">
+              {[...Array(15)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-1 h-1 bg-purple-400/30 rounded-full"
+                  animate={{
+                    x: [0, Math.random() * 400],
+                    y: [0, Math.random() * 400],
+                    opacity: [0, 1, 0],
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    delay: i * 0.3,
+                    ease: "easeInOut"
+                  }}
+                  style={{
+                    left: Math.random() * 100 + '%',
+                    top: Math.random() * 100 + '%',
+                  }}
+                />
+              ))}
+            </div>
+
+            {/* Main content */}
+            <div className="text-center relative z-10">
+              {/* Animated Logo with Video */}
+              <motion.div
+                className="relative w-48 h-48 mx-auto mb-8"
+                initial={{ scale: 0.8, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.8, opacity: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                {/* Pulsing glow container */}
+                <motion.div
+                  className="relative w-full h-full rounded-full overflow-hidden"
+                  animate={{
+                    boxShadow: [
+                      "0 0 30px rgba(168, 85, 247, 0.4)",
+                      "0 0 60px rgba(168, 85, 247, 0.8)",
+                      "0 0 30px rgba(168, 85, 247, 0.4)"
+                    ],
+                    scale: [1, 1.05, 1],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "easeInOut"
+                  }}
+                >
+                  {/* Video background */}
+                  <video
+                    src="/lv_0_20251026134622.mp4"
+                    muted
+                    playsInline
+                    autoPlay
+                    loop
+                    className="w-full h-full object-cover rounded-full"
+                  />
+                  
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-black/20 rounded-full" />
+                </motion.div>
+
+                {/* Floating particles around logo */}
+                {[...Array(8)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1.5 h-1.5 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full"
+                    animate={{
+                      x: [0, Math.cos(i * 45 * Math.PI / 180) * 140, 0],
+                      y: [0, Math.sin(i * 45 * Math.PI / 180) * 140, 0],
+                      opacity: [0, 1, 0],
+                      scale: [0.5, 1, 0.5],
+                    }}
+                    transition={{
+                      duration: 4,
+                      repeat: Infinity,
+                      delay: i * 0.5,
+                      ease: "easeInOut"
+                    }}
+                    style={{
+                      left: '50%',
+                      top: '50%',
+                      transform: 'translate(-50%, -50%)',
+                    }}
+                  />
+                ))}
+
+                {/* Light streaks */}
+                <motion.div
+                  className="absolute inset-0 pointer-events-none"
+                  animate={{
+                    opacity: [0, 1, 0],
+                  }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: 1,
+                    ease: "easeInOut"
+                  }}
+                >
+                  {[...Array(3)].map((_, i) => (
+                    <motion.div
+                      key={i}
+                      className="absolute w-px h-16 bg-gradient-to-b from-purple-400 to-transparent"
+                      animate={{
+                        x: [0, 200, 0],
+                        opacity: [0, 1, 0],
+                      }}
+                      transition={{
+                        duration: 1.5,
+                        repeat: Infinity,
+                        delay: i * 0.7,
+                        ease: "easeInOut"
+                      }}
+                      style={{
+                        left: `${25 + i * 25}%`,
+                        top: '20%',
+                        transform: 'rotate(45deg)',
+                      }}
+                    />
+                  ))}
+                </motion.div>
+              </motion.div>
+
+              {/* Text */}
+              <motion.h1
+                className="text-3xl md:text-4xl text-white mb-3 font-bold"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+              >
+                Automated Financial Savings
+              </motion.h1>
+              
+              <motion.h2
+                className="text-xl md:text-2xl bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
+                Launching Soon
+              </motion.h2>
+              
+              <motion.p
+                className="text-base text-gray-300 max-w-sm mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.8, delay: 0.8 }}
+              >
+                The future of intelligent finance.
+              </motion.p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }

@@ -1,570 +1,346 @@
 import React from "react";
 import { motion } from "motion/react";
-import { PageTemplate } from "../components/PageTemplate";
+import { AlertTriangle, FileText, Shield, Scale, CheckCircle, Users, ArrowRight, Mail, Home } from "lucide-react";
 import { AnimatedBlob } from "../components/AnimatedBlob";
-import { AlertTriangle, Scale, Shield, FileText, Gavel, Users, Copyright, ExternalLink, Video, Image, Music, Code } from "lucide-react";
 
-export function LegalDisclaimer() {
+export default function LegalDisclaimer() {
   const disclaimers = [
     {
       icon: AlertTriangle,
-      title: "Not Financial Advice",
-      content: [
-        "SaveCash provides educational information and general guidance only",
-        "Our AI recommendations are not personalized financial advice",
-        "You should consult with qualified financial professionals before making decisions",
-        "We are not licensed financial advisors, investment advisors, or broker-dealers",
-        "All financial decisions are your sole responsibility"
-      ]
-    },
-    {
-      icon: Scale,
-      title: "Investment Risks",
-      content: [
-        "All investments carry risk, including the potential loss of principal",
-        "Past performance does not guarantee future results",
-        "Market conditions can change rapidly and unpredictably",
-        "Diversification does not eliminate investment risk",
-        "You should only invest money you can afford to lose"
-      ]
-    },
-    {
-      icon: Shield,
-      title: "Data and Security",
-      content: [
-        "We implement industry-standard security measures to protect your data",
-        "No system is 100% secure, and we cannot guarantee absolute security",
-        "You are responsible for maintaining the security of your account credentials",
-        "We are not liable for unauthorized access to your account",
-        "You should regularly monitor your account for suspicious activity"
-      ]
+      title: "General Information",
+      content: "The information provided on SaveCash Pro is for general informational purposes only. All information on the site is provided in good faith, however we make no representation or warranty of any kind, express or implied, regarding the accuracy, adequacy, validity, reliability, availability or completeness of any information on the site.",
+      color: "from-orange-400 to-red-500"
     },
     {
       icon: FileText,
-      title: "Service Availability",
-      content: [
-        "We strive for 99.9% uptime but cannot guarantee uninterrupted service",
-        "Scheduled maintenance may temporarily affect service availability",
-        "We are not liable for service interruptions or technical issues",
-        "Third-party integrations may experience outages beyond our control",
-        "We reserve the right to modify or discontinue services at any time"
-      ]
+      title: "Financial Advice",
+      content: "SaveCash Pro is not a financial advisor, investment advisor, or financial planner. The information provided is not intended as financial advice and should not be construed as such. Always consult with a qualified financial advisor before making any financial decisions.",
+      color: "from-blue-400 to-cyan-500"
+    },
+    {
+      icon: Shield,
+      title: "No Liability",
+      content: "Under no circumstance shall SaveCash Pro have any liability to you for any loss or damage of any kind incurred as a result of the use of the site or reliance on any information provided on the site. Your use of the site and your reliance on any information on the site is solely at your own risk.",
+      color: "from-purple-400 to-violet-500"
+    },
+    {
+      icon: Scale,
+      title: "External Links",
+      content: "Our site may contain links to external websites that are not provided or maintained by or in any way affiliated with SaveCash Pro. We do not guarantee the accuracy, relevance, timeliness, or completeness of any information on these external websites.",
+      color: "from-green-400 to-emerald-500"
     }
   ];
 
-  const limitations = [
+  const importantPoints = [
     {
-      title: "Limitation of Liability",
-      description: "SaveCash shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from your use of our services."
+      title: "Investment Risks",
+      description: "All investments carry risk. Past performance does not guarantee future results.",
+      icon: AlertTriangle,
+      color: "from-red-400 to-pink-500"
     },
     {
-      title: "No Warranties",
-      description: "Our services are provided 'as is' without warranties of any kind, either express or implied, including but not limited to warranties of merchantability or fitness for a particular purpose."
+      title: "Data Accuracy",
+      description: "We strive for accuracy but cannot guarantee all information is current or complete.",
+      icon: CheckCircle,
+      color: "from-green-400 to-emerald-500"
+    },
+    {
+      title: "Service Availability",
+      description: "We cannot guarantee uninterrupted service or that our platform will be error-free.",
+      icon: Shield,
+      color: "from-blue-400 to-cyan-500"
     },
     {
       title: "User Responsibility",
-      description: "You are solely responsible for your financial decisions and their consequences. We provide tools and information, but you make the final decisions."
-    },
-    {
-      title: "Third-Party Services",
-      description: "We are not responsible for the actions, content, or services of third-party providers, including banks, investment platforms, or other financial institutions."
+      description: "Users are responsible for their own financial decisions and should seek professional advice.",
+      icon: Users,
+      color: "from-purple-400 to-violet-500"
     }
   ];
 
   return (
-    <PageTemplate 
-      title="Legal Disclaimer" 
-      subtitle="Important legal information about using SaveCash and our AI-powered financial services."
-    >
-      {/* Introduction */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
+    <div className="min-h-screen bg-black relative">
+      <AnimatedBlob />
+      {/* Hero Section */}
+      <section className="relative py-32 px-6 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-orange-900/20" />
+        <div className="max-w-7xl mx-auto relative z-10">
+          {/* Back to Website Button */}
+          <motion.div 
+            className="mb-8"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
           >
-            <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center">
-              <Gavel className="w-10 h-10 text-red-400" />
-            </div>
-            <h2 className="text-4xl md:text-5xl mb-6 text-white">Legal Disclaimer</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              This Legal Disclaimer contains important information about the limitations of our services, 
-              your responsibilities as a user, and the legal framework governing your use of SaveCash.
-            </p>
-            <div className="mt-8 text-sm text-gray-500">
-              Last updated: January 15, 2025
-            </div>
+            <motion.a
+              href="/"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 border border-white/20 rounded-full text-white hover:bg-white/20 transition-all duration-300 backdrop-blur-sm"
+              whileHover={{ scale: 1.05, x: -5 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Home className="w-4 h-4" />
+              <span>Back to Website</span>
+            </motion.a>
+          </motion.div>
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+          >
+            <motion.h1 
+              className="text-6xl md:text-8xl font-bold text-white mb-8 tracking-tight"
+              whileHover={{ 
+                scale: 1.02,
+                textShadow: "0 0 40px rgba(255, 255, 255, 0.3)",
+                transition: { duration: 0.3 }
+              }}
+            >
+              Legal Disclaimer
+            </motion.h1>
+            <motion.p 
+              className="text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Important legal information about the use of our platform and services.
+            </motion.p>
+            <motion.div 
+              className="inline-flex items-center gap-2 mt-8 px-6 py-3 bg-orange-500/10 border border-orange-500/20 rounded-full text-orange-400"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              <AlertTriangle className="w-5 h-5" />
+              <span>Last updated: January 1, 2025</span>
+            </motion.div>
           </motion.div>
         </div>
       </section>
 
-      {/* Main Disclaimers */}
+      {/* Disclaimer Sections */}
       <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="text-4xl md:text-5xl mb-6 text-white">Important Disclaimers</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Please read these disclaimers carefully before using our services
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {disclaimers.map((disclaimer, index) => (
               <motion.div
                 key={disclaimer.title}
-                className="p-8 bg-white/[0.02] rounded-3xl border border-white/10 backdrop-blur-sm"
-                initial={{ opacity: 0, y: 20 }}
+                className="group bg-white/[0.02] rounded-3xl p-8 border border-white/10 backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500 relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
               >
-                <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500/20 to-orange-500/20 flex items-center justify-center flex-shrink-0">
-                    <disclaimer.icon className="w-6 h-6 text-red-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white mb-2">{disclaimer.title}</h3>
-                  </div>
-                </div>
-                <ul className="space-y-3">
-                  {disclaimer.content.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start gap-3 text-gray-400">
-                      <div className="w-2 h-2 rounded-full bg-red-400 mt-2 flex-shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                {/* Subtle glow effect */}
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-br ${disclaimer.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  initial={false}
+                />
+                
+                <motion.div 
+                  className={`w-16 h-16 bg-gradient-to-br ${disclaimer.color} rounded-2xl flex items-center justify-center mb-6 relative z-10`}
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: [0, -5, 5, 0],
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <disclaimer.icon className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-2xl font-bold text-white mb-6 relative z-10">{disclaimer.title}</h3>
+                <p className="text-gray-300 leading-relaxed relative z-10">{disclaimer.content}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Limitations */}
-      <section className="py-20 px-6 bg-white/[0.02]">
-        <div className="max-w-6xl mx-auto">
+      {/* Important Points */}
+      <section className="py-20 px-6 bg-gradient-to-br from-purple-900/10 to-pink-900/10">
+        <div className="max-w-7xl mx-auto">
           <motion.div
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl mb-6 text-white">Limitations and Exclusions</h2>
-            <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-              Understanding the scope and limitations of our services
+            <h2 className="text-5xl font-bold text-white mb-6">Important Points</h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Key information you should be aware of when using our platform
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {limitations.map((limitation, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {importantPoints.map((point, index) => (
               <motion.div
-                key={limitation.title}
-                className="p-8 bg-white/[0.02] rounded-3xl border border-white/10 backdrop-blur-sm"
-                initial={{ opacity: 0, y: 20 }}
+                key={point.title}
+                className="group bg-white/[0.02] rounded-3xl p-8 border border-white/10 backdrop-blur-sm hover:bg-white/[0.04] transition-all duration-500 text-center relative overflow-hidden"
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
+                whileHover={{ 
+                  scale: 1.02,
+                  y: -10,
+                  transition: { duration: 0.3 }
+                }}
               >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center flex-shrink-0">
-                    <Scale className="w-6 h-6 text-purple-400" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-semibold text-white mb-3">{limitation.title}</h3>
-                    <p className="text-gray-400">{limitation.description}</p>
-                  </div>
-                </div>
+                {/* Subtle glow effect */}
+                <motion.div
+                  className={`absolute inset-0 bg-gradient-to-br ${point.color} opacity-0 group-hover:opacity-5 transition-opacity duration-500`}
+                  initial={false}
+                />
+                
+                <motion.div 
+                  className={`w-16 h-16 bg-gradient-to-br ${point.color} rounded-2xl flex items-center justify-center mx-auto mb-6 relative z-10`}
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: [0, -5, 5, 0],
+                    transition: { duration: 0.3 }
+                  }}
+                >
+                  <point.icon className="w-8 h-8 text-white" />
+                </motion.div>
+                <h3 className="text-xl font-bold text-white mb-4 relative z-10">{point.title}</h3>
+                <p className="text-gray-300 relative z-10">{point.description}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Regulatory Information */}
+      {/* Professional Advice Section */}
       <section className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            className="p-8 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl border border-blue-500/20 backdrop-blur-sm"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-          >
-            <div className="flex items-start gap-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center flex-shrink-0">
-                <Shield className="w-8 h-8 text-blue-400" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-2xl font-semibold text-white mb-4">Regulatory Information</h3>
-                <div className="space-y-4 text-gray-400">
-                  <p>
-                    <strong className="text-blue-400">SaveCash is not a licensed financial advisor, investment advisor, or broker-dealer.</strong> 
-                    We provide educational information and general guidance only.
-                  </p>
-                  <p>
-                    <strong>No Investment Recommendations:</strong> We do not provide specific investment advice, 
-                    recommendations, or solicitations to buy or sell securities.
-                  </p>
-                  <p>
-                    <strong>Educational Purpose:</strong> Our AI and tools are designed for educational purposes 
-                    and general financial guidance, not personalized financial advice.
-                  </p>
-                  <p>
-                    <strong>Professional Consultation:</strong> We strongly recommend consulting with qualified 
-                    financial professionals, including certified financial planners, investment advisors, 
-                    and tax professionals, before making any financial decisions.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Licensing and Attributions */}
-      <section className="py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
+          <motion.div 
             className="text-center mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: true }}
           >
-            <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-green-500/20 to-blue-500/20 flex items-center justify-center">
-              <Copyright className="w-10 h-10 text-green-400" />
-            </div>
-            <h2 className="text-4xl md:text-5xl mb-6 text-white">Licensing & Attributions</h2>
-            <p className="text-xl text-gray-400 max-w-3xl mx-auto leading-relaxed">
-              SaveCash respects intellectual property rights and properly licenses all third-party content used in our platform. 
-              This section provides comprehensive information about our licensing agreements and attributions.
+            <h2 className="text-5xl font-bold text-white mb-6">Seek Professional Advice</h2>
+            <p className="text-xl text-gray-300 mb-12">
+              Always consult with qualified professionals before making financial decisions
             </p>
           </motion.div>
 
-          {/* Video Content Licensing */}
           <motion.div
-            className="mb-16"
-            initial={{ opacity: 0, y: 20 }}
+            className="bg-white/[0.02] rounded-3xl p-12 border border-white/10 backdrop-blur-sm"
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: true }}
           >
-            <div className="p-8 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-3xl border border-blue-500/20 backdrop-blur-sm">
-              <div className="flex items-start gap-6 mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 flex items-center justify-center flex-shrink-0">
-                  <Video className="w-8 h-8 text-blue-400" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-white mb-4">Video Content Licensing</h3>
-                  <p className="text-gray-400 mb-6">
-                    All video content used on SaveCash is properly licensed and attributed according to the respective licensing terms.
-                  </p>
+            <div className="space-y-8">
+              <div className="flex items-start gap-4 p-6 bg-white/[0.02] rounded-xl border border-white/10">
+                <AlertTriangle className="w-6 h-6 text-orange-400 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Financial Advisors</h3>
+                  <p className="text-gray-300">Consult with licensed financial advisors for personalized investment advice.</p>
                 </div>
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-6 bg-white/[0.05] rounded-2xl border border-white/10">
-                  <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <Video className="w-5 h-5 text-blue-400" />
-                    Vecteezy Video Content
-                  </h4>
-                  <div className="space-y-3 text-gray-400">
-                    <p><strong className="text-white">Source:</strong> Vecteezy.com</p>
-                    <p><strong className="text-white">License:</strong> Free License with Attribution Required</p>
-                    <p><strong className="text-white">Usage:</strong> Background videos for About page and promotional content</p>
-                    <div className="mt-4 p-3 bg-blue-500/10 rounded-lg border border-blue-500/20">
-                      <p className="text-sm text-blue-300 font-medium mb-2">Required Attribution:</p>
-                      <a 
-                        href="https://www.vecteezy.com/free-videos/holographic" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-blue-400 hover:text-blue-300 transition-colors flex items-center gap-2"
-                      >
-                        Holographic Stock Videos by Vecteezy
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
 
-                <div className="p-6 bg-white/[0.05] rounded-2xl border border-white/10">
-                  <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <Video className="w-5 h-5 text-purple-400" />
-                    About Page Video
-                  </h4>
-                  <div className="space-y-3 text-gray-400">
-                    <p><strong className="text-white">Source:</strong> Vecteezy Video ID 26659115</p>
-                    <p><strong className="text-white">Title:</strong> Sphere Liquid Iridescent Background</p>
-                    <p><strong className="text-white">Resolution:</strong> Multi-colour 4K</p>
-                    <div className="mt-4 p-3 bg-purple-500/10 rounded-lg border border-purple-500/20">
-                      <p className="text-sm text-purple-300 font-medium mb-2">Direct Link:</p>
-                      <a 
-                        href="https://www.vecteezy.com/video/26659115-sphere-liquid-iridescent-background-multi-colour-gradient-multi-colour-4k-resolution" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-purple-400 hover:text-purple-300 transition-colors flex items-center gap-2 text-sm"
-                      >
-                        View Original Video
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </div>
-                  </div>
+              <div className="flex items-start gap-4 p-6 bg-white/[0.02] rounded-xl border border-white/10">
+                <Shield className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Tax Professionals</h3>
+                  <p className="text-gray-300">Seek advice from qualified tax professionals for tax-related matters.</p>
                 </div>
               </div>
-            </div>
-          </motion.div>
 
-          {/* Image and Asset Licensing */}
-          <motion.div
-            className="mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            viewport={{ once: true }}
-          >
-            <div className="p-8 bg-gradient-to-br from-green-500/10 to-blue-500/10 rounded-3xl border border-green-500/20 backdrop-blur-sm">
-              <div className="flex items-start gap-6 mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500/20 to-blue-500/20 flex items-center justify-center flex-shrink-0">
-                  <Image className="w-8 h-8 text-green-400" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-white mb-4">Image and Asset Licensing</h3>
-                  <p className="text-gray-400 mb-6">
-                    All images, icons, and visual assets used on SaveCash are properly licensed and attributed.
-                  </p>
+              <div className="flex items-start gap-4 p-6 bg-white/[0.02] rounded-xl border border-white/10">
+                <Scale className="w-6 h-6 text-purple-400 mt-1 flex-shrink-0" />
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Legal Counsel</h3>
+                  <p className="text-gray-300">Consult with legal professionals for complex financial or legal matters.</p>
                 </div>
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="p-6 bg-white/[0.05] rounded-2xl border border-white/10">
-                  <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <Image className="w-5 h-5 text-green-400" />
-                    Unsplash Images
-                  </h4>
-                  <div className="space-y-3 text-gray-400">
-                    <p><strong className="text-white">Source:</strong> Unsplash.com</p>
-                    <p><strong className="text-white">License:</strong> Unsplash License (Free to use)</p>
-                    <p><strong className="text-white">Usage:</strong> Team member photos and stock imagery</p>
-                    <div className="mt-4 p-3 bg-green-500/10 rounded-lg border border-green-500/20">
-                      <p className="text-sm text-green-300 font-medium mb-2">Attribution:</p>
-                      <p className="text-sm text-green-400">Photos by Unsplash contributors</p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-6 bg-white/[0.05] rounded-2xl border border-white/10">
-                  <h4 className="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <Code className="w-5 h-5 text-orange-400" />
-                    Lucide Icons
-                  </h4>
-                  <div className="space-y-3 text-gray-400">
-                    <p><strong className="text-white">Source:</strong> Lucide.dev</p>
-                    <p><strong className="text-white">License:</strong> ISC License</p>
-                    <p><strong className="text-white">Usage:</strong> UI icons and interface elements</p>
-                    <div className="mt-4 p-3 bg-orange-500/10 rounded-lg border border-orange-500/20">
-                      <p className="text-sm text-orange-300 font-medium mb-2">License Details:</p>
-                      <a 
-                        href="https://lucide.dev/license" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="text-orange-400 hover:text-orange-300 transition-colors flex items-center gap-2 text-sm"
-                      >
-                        View ISC License
-                        <ExternalLink className="w-4 h-4" />
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Software and Technology Licensing */}
-          <motion.div
-            className="mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            viewport={{ once: true }}
-          >
-            <div className="p-8 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-3xl border border-purple-500/20 backdrop-blur-sm">
-              <div className="flex items-start gap-6 mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center flex-shrink-0">
-                  <Code className="w-8 h-8 text-purple-400" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-white mb-4">Software and Technology Licensing</h3>
-                  <p className="text-gray-400 mb-6">
-                    SaveCash is built using open-source technologies and libraries. All dependencies are properly licensed and compliant.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="p-6 bg-white/[0.05] rounded-2xl border border-white/10">
-                  <h4 className="text-lg font-semibold text-white mb-3">React & Dependencies</h4>
-                  <div className="space-y-2 text-gray-400 text-sm">
-                    <p><strong className="text-white">React:</strong> MIT License</p>
-                    <p><strong className="text-white">TypeScript:</strong> Apache 2.0</p>
-                    <p><strong className="text-white">Vite:</strong> MIT License</p>
-                    <p><strong className="text-white">Tailwind CSS:</strong> MIT License</p>
-                  </div>
-                </div>
-
-                <div className="p-6 bg-white/[0.05] rounded-2xl border border-white/10">
-                  <h4 className="text-lg font-semibold text-white mb-3">Animation Libraries</h4>
-                  <div className="space-y-2 text-gray-400 text-sm">
-                    <p><strong className="text-white">Framer Motion:</strong> MIT License</p>
-                    <p><strong className="text-white">Motion React:</strong> MIT License</p>
-                    <p><strong className="text-white">CSS Animations:</strong> Custom</p>
-                  </div>
-                </div>
-
-                <div className="p-6 bg-white/[0.05] rounded-2xl border border-white/10">
-                  <h4 className="text-lg font-semibold text-white mb-3">UI Components</h4>
-                  <div className="space-y-2 text-gray-400 text-sm">
-                    <p><strong className="text-white">Radix UI:</strong> MIT License</p>
-                    <p><strong className="text-white">Class Variance Authority:</strong> MIT License</p>
-                    <p><strong className="text-white">Tailwind Merge:</strong> MIT License</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Compliance and Standards */}
-          <motion.div
-            className="mb-16"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-          >
-            <div className="p-8 bg-gradient-to-br from-yellow-500/10 to-orange-500/10 rounded-3xl border border-yellow-500/20 backdrop-blur-sm">
-              <div className="flex items-start gap-6 mb-6">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500/20 to-orange-500/20 flex items-center justify-center flex-shrink-0">
-                  <Shield className="w-8 h-8 text-yellow-400" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-2xl font-semibold text-white mb-4">Compliance and Standards</h3>
-                  <p className="text-gray-400 mb-6">
-                    SaveCash maintains compliance with all applicable licensing requirements and industry standards.
-                  </p>
-                </div>
-              </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-white">Licensing Compliance</h4>
-                  <ul className="space-y-2 text-gray-400">
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0" />
-                      <span>All third-party content properly attributed</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0" />
-                      <span>Open-source licenses respected and complied with</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0" />
-                      <span>Commercial licenses obtained where required</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0" />
-                      <span>Regular audits of licensing compliance</span>
-                    </li>
-                  </ul>
-                </div>
-
-                <div className="space-y-4">
-                  <h4 className="text-lg font-semibold text-white">Industry Standards</h4>
-                  <ul className="space-y-2 text-gray-400">
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0" />
-                      <span>W3C accessibility standards compliance</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0" />
-                      <span>GDPR and CCPA privacy compliance</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0" />
-                      <span>Security best practices implementation</span>
-                    </li>
-                    <li className="flex items-start gap-3">
-                      <div className="w-2 h-2 rounded-full bg-yellow-400 mt-2 flex-shrink-0" />
-                      <span>Regular security and compliance audits</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Contact for Licensing Questions */}
-          <motion.div
-            className="text-center p-8 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-3xl border border-indigo-500/20 backdrop-blur-sm"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-indigo-500/20 to-purple-500/20 flex items-center justify-center">
-              <FileText className="w-8 h-8 text-indigo-400" />
-            </div>
-            <h3 className="text-2xl font-semibold text-white mb-4">Licensing Questions?</h3>
-            <p className="text-gray-400 mb-6 max-w-2xl mx-auto">
-              If you have questions about our licensing agreements, need to report a licensing issue, 
-              or want to discuss commercial licensing opportunities, please contact our legal team.
-            </p>
-            <div className="space-y-2 text-gray-400">
-              <p><strong className="text-white">Email:</strong> legal@savecash.com</p>
-              <p><strong className="text-white">Phone:</strong> +1 (555) 123-4567</p>
-              <p><strong className="text-white">Address:</strong> 123 Mission St, San Francisco, CA 94105</p>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Contact Information */}
-      <section className="py-20 px-6 bg-white/[0.02]">
-        <div className="max-w-4xl mx-auto">
+      {/* Contact Section */}
+      <section className="py-32 px-6">
+        <div className="max-w-4xl mx-auto text-center">
           <motion.div
-            className="text-center p-8 bg-white/[0.02] rounded-3xl border border-white/10 backdrop-blur-sm"
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: true }}
           >
-            <div className="w-16 h-16 mx-auto mb-6 rounded-2xl bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center">
-              <Users className="w-8 h-8 text-purple-400" />
-            </div>
-            <h3 className="text-2xl font-semibold text-white mb-4">Questions About This Disclaimer?</h3>
-            <p className="text-gray-400 mb-6">
-              If you have any questions about this Legal Disclaimer or need clarification on any points, 
-              please contact our legal team.
+            <h2 className="text-5xl font-bold text-white mb-8">Questions About This Disclaimer?</h2>
+            <p className="text-xl text-gray-300 mb-12 leading-relaxed">
+              Our legal team is available to answer any questions about this disclaimer.
             </p>
-            <div className="space-y-2 text-gray-400">
-              <p>Email: legal@savecash.com</p>
-              <p>Phone: +1 (555) 123-4567</p>
-              <p>Address: 123 Mission St, San Francisco, CA 94105</p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <motion.button
+                className="group bg-gradient-to-r from-purple-500 to-pink-500 text-white px-12 py-6 rounded-full font-semibold text-lg hover:from-purple-600 hover:to-pink-600 transition-all duration-300 flex items-center justify-center gap-3"
+                whileHover={{ 
+                  scale: 1.05,
+                  boxShadow: "0 25px 80px -15px rgba(168,85,247,0.8)"
+                }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Mail className="w-5 h-5" />
+                <span>Contact Legal Team</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </motion.button>
+              <motion.button
+                className="border-2 border-purple-500 text-purple-400 px-12 py-6 rounded-full font-semibold text-lg hover:bg-purple-500 hover:text-white transition-all duration-300"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                Download Disclaimer
+              </motion.button>
             </div>
           </motion.div>
         </div>
       </section>
-      
-      {/* Animated Blob Background */}
-      <AnimatedBlob />
-    </PageTemplate>
+    </div>
+  );
+}
+
+// Appended: Disclaimer Policy (Full Legal Text)
+export function DisclaimerPolicyAppendix() {
+  return (
+    <div className="border-t border-gray-800 bg-gray-900/40">
+      <div className="max-w-4xl mx-auto px-6 py-12 text-gray-300 leading-relaxed">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Disclaimer Policy (Full Legal Text)</h2>
+        <p className="mb-4">Effective Date: [Insert Date] · Company: SaveCash · Address: 600 California Street, 11th Floor, San Francisco, CA 94108</p>
+        <h3 className="text-2xl font-semibold text-white mb-3">1. Overview</h3>
+        <p className="mb-4">This Disclaimer governs your use of the SaveCash Platform. By using it, you agree to this Disclaimer.</p>
+        <h3 className="text-2xl font-semibold text-white mb-3">2. No Warranties</h3>
+        <p className="mb-4">Information and services are provided “as is” and “as available” without any warranties.</p>
+        <h3 className="text-2xl font-semibold text-white mb-3">3. External Links</h3>
+        <p className="mb-4">Links to third-party sites do not imply endorsement; review their policies before use.</p>
+        <h3 className="text-2xl font-semibold text-white mb-3">4. Professional Disclaimer</h3>
+        <p className="mb-4">Content is educational only and not legal, financial, or tax advice. Consult qualified professionals.</p>
+        <h3 className="text-2xl font-semibold text-white mb-3">5. Affiliate Programs</h3>
+        <p className="mb-4">We may use affiliate links; compensation does not influence editorial content. Disclosed per FTC rules.</p>
+        <h3 className="text-2xl font-semibold text-white mb-3">6. Testimonials</h3>
+        <p className="mb-4">Results vary; testimonials are real but not typical. Some edits for clarity/length.</p>
+        <h3 className="text-2xl font-semibold text-white mb-3">7. AI-Generated Information</h3>
+        <p className="mb-4">AI outputs may contain inaccuracies; verify independently before relying upon them.</p>
+        <h3 className="text-2xl font-semibold text-white mb-3">8. Limitation of Liability</h3>
+        <p className="mb-4">To the maximum extent permitted by law, SaveCash is not liable for indirect or consequential damages.</p>
+        <h3 className="text-2xl font-semibold text-white mb-3">9. User Conduct</h3>
+        <p className="mb-4">Users remain responsible for their actions and compliance with applicable laws.</p>
+        <h3 className="text-2xl font-semibold text-white mb-3">10. Changes</h3>
+        <p className="mb-4">Updates will be posted at https://savecashpro.vercel.app/disclaimer and are effective upon publication.</p>
+        <h3 className="text-2xl font-semibold text-white mb-3">11. Governing Law</h3>
+        <p className="mb-4">California law governs. Disputes resolved in San Francisco County, CA.</p>
+        <h3 className="text-2xl font-semibold text-white mb-3">12. Contact</h3>
+        <p>📧 privacy.savecashpro@gmail.com · 📞 (661) 812-3265 · 📍 600 California Street, 11th Floor, San Francisco, CA 94108</p>
+      </div>
+    </div>
   );
 }

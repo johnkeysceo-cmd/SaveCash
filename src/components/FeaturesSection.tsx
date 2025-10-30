@@ -1,41 +1,34 @@
 import { motion } from "motion/react";
-import { Sparkles, Zap, TrendingUp, Shield, Brain, CheckCircle2, Wallet, Coins, Target, Lock } from "lucide-react";
+import { Sparkles, Zap, TrendingUp, Shield, Brain, CheckCircle2, Wallet, Coins, Target, Lock, Eye, AlertCircle, DollarSign } from "lucide-react";
 
 const features = [
   {
-    icon: Wallet,
-    title: "Automated Savings",
-    description: "AI scans and saves surplus funds automatically.",
-    color: "from-green-400 to-emerald-500",
-    bgColor: "from-green-500/10 to-emerald-500/10",
-  },
-  {
     icon: Brain,
-    title: "Smart Recommendations",
-    description: "AI-powered insights to optimize your spending.",
+    title: "24/7 AI Monitoring",
+    description: "Always on guard — scanning every transaction to uncover hidden savings.",
     color: "from-purple-400 to-violet-500",
     bgColor: "from-purple-500/10 to-violet-500/10",
   },
   {
+    icon: Zap,
+    title: "Instant Insights",
+    description: "Smart alerts when spending patterns shift or opportunities appear.",
+    color: "from-yellow-400 to-orange-500",
+    bgColor: "from-yellow-500/10 to-orange-500/10",
+  },
+  {
     icon: Shield,
-    title: "No Hidden Fees",
-    description: "Transparent pricing with complete security.",
+    title: "Bank-Grade Security",
+    description: "256-bit SSL encryption and zero data-selling. Your privacy = our priority.",
     color: "from-blue-400 to-cyan-500",
     bgColor: "from-blue-500/10 to-cyan-500/10",
   },
   {
-    icon: TrendingUp,
-    title: "Investment AI",
-    description: "Curated investment ideas for your goals.",
-    color: "from-orange-400 to-red-500",
-    bgColor: "from-orange-500/10 to-red-500/10",
-  },
-  {
-    icon: Lock,
-    title: "Bank-Level Security",
-    description: "Complete privacy protection.",
-    color: "from-pink-400 to-rose-500",
-    bgColor: "from-pink-500/10 to-rose-500/10",
+    icon: DollarSign,
+    title: "Effortless Savings",
+    description: "Finds and stops waste automatically — so your money grows on autopilot.",
+    color: "from-green-400 to-emerald-500",
+    bgColor: "from-green-500/10 to-emerald-500/10",
   },
 ];
 
@@ -76,23 +69,23 @@ export function FeaturesSection() {
           className="text-center mb-20"
         >
           <motion.h2 
-            className="text-5xl md:text-7xl mb-6 text-white tracking-tight"
+            className="text-5xl md:text-7xl mb-8 text-white tracking-tight"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Everything you need.
+            AI that understands your finances.
           </motion.h2>
-          <motion.h2 
-            className="text-5xl md:text-7xl mb-8 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent tracking-tight"
+          <motion.p 
+            className="text-xl text-gray-400 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            Nothing you don't.
-          </motion.h2>
+            Real-time insights, automatic savings detection, and precision monitoring — all designed for people who want control, confidence, and compound growth without lifting a finger.
+          </motion.p>
         </motion.div>
 
         <motion.div 
@@ -100,7 +93,7 @@ export function FeaturesSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {features.map((feature, index) => (
             <motion.div
