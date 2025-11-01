@@ -1,7 +1,8 @@
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "./ui/button";
 import { ArrowRight, Play } from "lucide-react";
-import { useState, useEffect } from "react";
+import { scrollToSignup } from "../utils/scrollToSignup";
 
 const container = {
   hidden: { opacity: 0 },
@@ -10,8 +11,8 @@ const container = {
     transition: {
       staggerChildren: 0.05,
       delayChildren: 0.1,
-      ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
-      type: "tween",
+      ease: [0.25, 0.1, 0.25, 1] as const, // Ultra-smooth cubic-bezier
+      type: "tween" as const,
     },
   },
 };
@@ -23,8 +24,8 @@ const item = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
-      type: "tween",
+      ease: [0.25, 0.1, 0.25, 1] as const, // Ultra-smooth cubic-bezier
+      type: "tween" as const,
     },
   },
 };
@@ -45,11 +46,6 @@ export function HeroSection() {
     }, 3000);
     return () => clearInterval(interval);
   }, []);
-
-  const scrollToSignup = () => {
-    const signupSection = document.getElementById("signup");
-    signupSection?.scrollIntoView({ behavior: "smooth" });
-  };
 
   const handleDemo = () => {
     const howItWorks = document.querySelector("#how-it-works");
@@ -119,7 +115,7 @@ export function HeroSection() {
           variants={item}
           className="text-2xl md:text-3xl text-gray-400 mb-4 max-w-4xl mx-auto leading-relaxed"
         >
-          SaveCash Pro watches, learns, and protects your wallet 24/7 — so you never miss a chance to save.
+          SaveCash watches, learns, and protects your wallet 24/7 — so you never miss a chance to save.
         </motion.p>
 
         {/* Value Snapshot */}
@@ -167,12 +163,7 @@ export function HeroSection() {
                    }}
                  >
                    <Button
-                     onClick={() => {
-                       window.scrollTo({
-                         top: document.documentElement.scrollHeight,
-                         behavior: 'smooth'
-                       });
-                     }}
+                     onClick={scrollToSignup}
                      className="group relative bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white px-12 py-8 text-lg rounded-full transition-all duration-500 overflow-hidden"
                    >
                      <span className="relative z-10 flex items-center">
@@ -197,12 +188,7 @@ export function HeroSection() {
                  
                  <Button
                    variant="outline"
-                   onClick={() => {
-                     window.scrollTo({
-                       top: document.documentElement.scrollHeight,
-                       behavior: 'smooth'
-                     });
-                   }}
+                   onClick={scrollToSignup}
                    className="group relative border-2 border-purple-500/30 text-white hover:bg-purple-500/10 px-12 py-8 text-lg rounded-full transition-all duration-500"
                  >
                    <span className="relative z-10 flex items-center">
@@ -215,7 +201,7 @@ export function HeroSection() {
           variants={item}
           className="text-sm text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed"
         >
-          Early users get lifetime perks. Be among the first 500 to try SaveCash Pro.
+          Early users get lifetime perks. Be among the first 500 to try SaveCash.
         </motion.p>
 
         {/* Animated rotating benefits */}

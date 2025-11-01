@@ -16,7 +16,7 @@ const FeaturesHero = memo(() => {
           transition={{ delay: 0.2, duration: 0.6 }}
           className="text-5xl md:text-7xl font-bold text-white mb-6"
         >
-          SaveCash Pro
+          SaveCash
           <span className="block bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
             Features
           </span>

@@ -39,7 +39,7 @@ export function ClosingTaglineSection() {
             transition={{ duration: 0.8, delay: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             viewport={{ once: true, margin: "-100px" }}
           >
-            SaveCash Pro — AI that protects your wallet.
+            SaveCash — AI that protects your wallet.
           </motion.p>
         </motion.div>
       </div>

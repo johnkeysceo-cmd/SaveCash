@@ -18,8 +18,9 @@ export function SignupForm() {
     setIsSubmitting(true);
 
     try {
-      await fetch(
-        "https://script.google.com/macros/s/AKfycbyNXt9wJPgDo07DNa5mYmWMDm-dqw-ts7Dl6qXs9xMTGBRnFMLtRpmtEeQ2pEu4XpA6/exec",
+      // Submit to Google Sheets (existing)
+      const sheetsResponse = await fetch(
+        "https://script.google.com/macros/s/AKfycbyEkif3U-EzGAyv25uC5y-tdOAFeSL1KVA8bgt8zC1RkJMl6VKYdqfFr7kf3jp-iERG/exec",
         {
           method: "POST",
           mode: "no-cors",

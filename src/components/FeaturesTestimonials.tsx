@@ -5,13 +5,13 @@ const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Financial Advisor",
-    content: "SaveCash Pro has revolutionized how I manage my clients' finances. The AI insights are incredibly accurate and the automation saves hours of manual work.",
+    content: "SaveCash has revolutionized how I manage my clients' finances. The AI insights are incredibly accurate and the automation saves hours of manual work.",
     avatar: "SJ"
   },
   {
     name: "Michael Chen",
     role: "Small Business Owner",
-    content: "I've saved over $2,000 in the first month using SaveCash Pro's automated savings strategies. The predictive alerts have prevented several overspending incidents.",
+    content: "I've saved over $2,000 in the first month using SaveCash's automated savings strategies. The predictive alerts have prevented several overspending incidents.",
     avatar: "MC"
   },
   {
@@ -41,7 +41,7 @@ const FeaturesTestimonials = memo(() => {
             What Our Users Say
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Join thousands of satisfied users who have transformed their financial lives with SaveCash Pro.
+            Join thousands of satisfied users who have transformed their financial lives with SaveCash.
           </p>
         </motion.div>
 

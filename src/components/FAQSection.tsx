@@ -6,7 +6,7 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     question: "Is my data safe?",
-    answer: "Absolutely. SaveCash Pro uses bank-grade encryption (256-bit SSL) and never sells your data. Your privacy is our foundation.",
+    answer: "Absolutely. SaveCash uses bank-grade encryption (256-bit SSL) and never sells your data. Your privacy is our foundation.",
   },
   {
     question: "Can I cancel anytime?",
@@ -18,7 +18,7 @@ const faqs = [
   },
   {
     question: "Do I need a credit card to start?",
-    answer: "Nope. You can explore SaveCash Pro for free, no strings attached.",
+    answer: "Nope. You can explore SaveCash for free, no strings attached.",
   },
   {
     question: "How long does setup take?",

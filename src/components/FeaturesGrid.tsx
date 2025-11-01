@@ -85,7 +85,7 @@ const features = [
   {
     icon: Lock,
     title: "API & Developer Access",
-    description: "Integrate SaveCash Pro with your existing financial tools and workflows.",
+    description: "Integrate SaveCash with your existing financial tools and workflows.",
     color: "from-emerald-500 to-green-500"
   }
 ];

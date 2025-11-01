@@ -1,5 +1,6 @@
 import React, { useEffect, useState, Suspense, lazy, memo } from "react";
 import { FloatingBlobs } from "./components/FloatingBlobs";
+import { FloatingAIAssistant } from "./components/FloatingAIAssistant";
 import { initPerformanceOptimizations } from "./utils/performanceOptimizer";
 import { HoneycombLoader } from "./components/ui/honeycomb-loader";
 import { ErrorBoundary } from "./components/ErrorBoundary";
@@ -43,13 +44,24 @@ const Community = lazy(() => import("./pages/Community"));
 const Support = lazy(() => import("./pages/Support"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const SecurityOverview = lazy(() => import("./pages/SecurityOverview"));
+const EULA = lazy(() => import("./pages/EULA"));
+const ReturnPolicy = lazy(() => import("./pages/ReturnPolicy"));
+const ShippingPolicy = lazy(() => import("./pages/ShippingPolicy"));
+const Press = lazy(() => import("./pages/Press"));
+const Investors = lazy(() => import("./pages/Investors"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+const GettingStarted = lazy(() => import("./pages/GettingStarted"));
+const ConnectingAccounts = lazy(() => import("./pages/ConnectingAccounts"));
+const SavingsOpportunities = lazy(() => import("./pages/SavingsOpportunities"));
+const FinancialGoals = lazy(() => import("./pages/FinancialGoals"));
+const MobileApp = lazy(() => import("./pages/MobileApp"));
 
 // Optimized loading component (uses premium Honeycomb)
 const LoadingSpinner = memo(() => (
   <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-gray-900">
     <div className="flex flex-col items-center gap-4">
       <HoneycombLoader />
-      <div className="text-white text-lg font-medium">Loading SaveCash Pro...</div>
+      <div className="text-white text-lg font-medium">Loading SaveCash...</div>
     </div>
   </div>
 ));
@@ -62,9 +74,38 @@ export default function App() {
   useEffect(() => {
     const handleRouteChange = () => {
       setCurrentRoute(window.location.pathname);
+      
+      // Handle hash scrolling after route change
+      if (window.location.hash) {
+        setTimeout(() => {
+          const element = document.querySelector(window.location.hash);
+          if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 100);
+      }
     };
 
+    // Listen for popstate (browser back/forward)
     window.addEventListener("popstate", handleRouteChange);
+    
+    // Listen for custom navigation events (for programmatic navigation)
+    const handleNavigation = (event: Event) => {
+      const customEvent = event as CustomEvent;
+      if (customEvent.detail?.path) {
+        setCurrentRoute(customEvent.detail.path);
+        // Wait for components to load before scrolling
+        setTimeout(() => {
+          if (customEvent.detail.scrollToSignup) {
+            const signupSection = document.getElementById("signup");
+            if (signupSection) {
+              signupSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        }, 400);
+      }
+    };
+    window.addEventListener("navigate", handleNavigation as EventListener);
     
     // Handle initial route
     handleRouteChange();
@@ -79,12 +120,30 @@ export default function App() {
     document.body.style.isolation = "isolate";
     document.body.style.contain = "layout style paint";
 
-    return () => window.removeEventListener("popstate", handleRouteChange);
+    return () => {
+      window.removeEventListener("popstate", handleRouteChange);
+      window.removeEventListener("navigate", handleNavigation as EventListener);
+    };
   }, []);
+
+  // Render FloatingBlobs once for ALL routes at root level
+  const renderWithBlobs = (content: React.ReactNode) => (
+    <ErrorBoundary>
+      {/* Persistent background — mount once here */}
+      <FloatingBlobs />
+      
+      {/* Main app content above the background */}
+      <div className="relative z-10">
+        {content}
+        {/* FLOATING AI ASSISTANT BUTTON - ALWAYS VISIBLE ON ALL PAGES */}
+        <FloatingAIAssistant />
+      </div>
+    </ErrorBoundary>
+  );
 
   // Simple client-side routing with Suspense for lazy loading
   if (currentRoute === "/ai-chat") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <AIAssistantChat />
       </Suspense>
@@ -92,7 +151,7 @@ export default function App() {
   }
   
   if (currentRoute === "/about") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <About />
       </Suspense>
@@ -100,7 +159,7 @@ export default function App() {
   }
   
   if (currentRoute === "/privacy") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Privacy />
       </Suspense>
@@ -108,7 +167,7 @@ export default function App() {
   }
   
   if (currentRoute === "/terms") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Terms />
       </Suspense>
@@ -116,7 +175,7 @@ export default function App() {
   }
   
   if (currentRoute === "/contact") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Contact />
       </Suspense>
@@ -124,7 +183,7 @@ export default function App() {
   }
   
   if (currentRoute === "/careers") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Careers />
       </Suspense>
@@ -132,7 +191,7 @@ export default function App() {
   }
   
   if (currentRoute === "/features") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Features />
       </Suspense>
@@ -140,7 +199,7 @@ export default function App() {
   }
   
   if (currentRoute === "/cookies") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Cookies />
       </Suspense>
@@ -148,7 +207,7 @@ export default function App() {
   }
   
   if (currentRoute === "/accessibility") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Accessibility />
       </Suspense>
@@ -156,7 +215,7 @@ export default function App() {
   }
   
   if (currentRoute === "/legal-disclaimer") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <LegalDisclaimer />
       </Suspense>
@@ -164,7 +223,7 @@ export default function App() {
   }
   
   if (currentRoute === "/opt-out") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <OptOut />
       </Suspense>
@@ -172,7 +231,7 @@ export default function App() {
   }
   
   if (currentRoute === "/leadership") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Leadership />
       </Suspense>
@@ -180,7 +239,7 @@ export default function App() {
   }
   
   if (currentRoute === "/data-processing") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <DataProcessing />
       </Suspense>
@@ -188,7 +247,7 @@ export default function App() {
   }
   
   if (currentRoute === "/pricing") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Pricing />
       </Suspense>
@@ -196,7 +255,7 @@ export default function App() {
   }
   
   if (currentRoute === "/security") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Security />
       </Suspense>
@@ -204,7 +263,7 @@ export default function App() {
   }
   
   if (currentRoute === "/api") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <API />
       </Suspense>
@@ -212,7 +271,7 @@ export default function App() {
   }
   
   if (currentRoute === "/integrations") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Integrations />
       </Suspense>
@@ -220,7 +279,7 @@ export default function App() {
   }
   
   if (currentRoute === "/status") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Status />
       </Suspense>
@@ -228,7 +287,7 @@ export default function App() {
   }
   
   if (currentRoute === "/help") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Help />
       </Suspense>
@@ -236,7 +295,7 @@ export default function App() {
   }
   
   if (currentRoute === "/faq") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <FAQ />
       </Suspense>
@@ -244,7 +303,7 @@ export default function App() {
   }
   
   if (currentRoute === "/documentation") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Documentation />
       </Suspense>
@@ -252,7 +311,7 @@ export default function App() {
   }
   
   if (currentRoute === "/blog") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Blog />
       </Suspense>
@@ -260,7 +319,7 @@ export default function App() {
   }
   
   if (currentRoute === "/community") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Community />
       </Suspense>
@@ -268,7 +327,7 @@ export default function App() {
   }
   
   if (currentRoute === "/support") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <Support />
       </Suspense>
@@ -276,7 +335,7 @@ export default function App() {
   }
   
   if (currentRoute === "/privacy-policy") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <PrivacyPolicy />
       </Suspense>
@@ -284,70 +343,153 @@ export default function App() {
   }
 
   if (currentRoute === "/security-overview") {
-    return (
+    return renderWithBlobs(
       <Suspense fallback={<LoadingSpinner />}>
         <SecurityOverview />
       </Suspense>
     );
   }
 
-        return (
-          <ErrorBoundary>
-            <div className="min-h-screen overflow-hidden">
-              {/* PERMANENT FLOATING BLOBS BACKGROUND */}
-              <FloatingBlobs />
-              
-              <main 
-                className="relative z-10"
-                style={{
-                  transform: "translate3d(0, 0, 0)",
-                  willChange: "transform",
-                  backfaceVisibility: "hidden",
-                  isolation: "isolate",
-                  contain: "layout style paint",
-                }}
-              >
-                <Suspense fallback={<HoneycombLoader className="h-screen" />}>
-                  <HeroSection />
-                </Suspense>
-                
-                <Suspense fallback={<HoneycombLoader className="h-96" />}>
-                  <SavingsImpactSection />
-                </Suspense>
-                
-                <Suspense fallback={<HoneycombLoader className="h-96" />}>
-                  <FeaturesSection />
-                </Suspense>
-                
-                <Suspense fallback={<HoneycombLoader className="h-96" />}>
-                  <HowItWorksSection />
-                </Suspense>
-                
-                <Suspense fallback={<HoneycombLoader className="h-96" />}>
-                  <TestimonialsSection />
-                </Suspense>
-                
-                <Suspense fallback={<HoneycombLoader className="h-96" />}>
-                  <AIAssistantSection />
-                </Suspense>
-                
-                <Suspense fallback={<HoneycombLoader className="h-96" />}>
-                  <FAQSection />
-                </Suspense>
-                
-                <Suspense fallback={<HoneycombLoader className="h-96" />}>
-                  <ClosingTaglineSection />
-                </Suspense>
-                
-                <Suspense fallback={<HoneycombLoader className="h-96" />}>
-                  <SignupForm />
-                </Suspense>
-                
-                <Suspense fallback={<HoneycombLoader className="h-64" />}>
-                  <Footer />
-                </Suspense>
-              </main>
-            </div>
-          </ErrorBoundary>
-        );
+  if (currentRoute === "/eula") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <EULA />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/return-policy") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <ReturnPolicy />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/shipping-policy") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <ShippingPolicy />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/press") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <Press />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/investors") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <Investors />
+      </Suspense>
+    );
+  }
+
+  // Help Center Pages
+  if (currentRoute === "/help/getting-started") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <GettingStarted />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/connecting-accounts") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <ConnectingAccounts />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/savings-opportunities") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <SavingsOpportunities />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/financial-goals") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <FinancialGoals />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/mobile-app") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <MobileApp />
+      </Suspense>
+    );
+  }
+
+  // Home page (default route)
+  if (currentRoute === "/" || currentRoute === "") {
+    return renderWithBlobs(
+      <main 
+        style={{
+          transform: "translate3d(0, 0, 0)",
+          willChange: "transform",
+          backfaceVisibility: "hidden",
+          isolation: "isolate",
+          contain: "layout style paint",
+        }}
+      >
+        <Suspense fallback={<HoneycombLoader className="h-screen" />}>
+          <HeroSection />
+        </Suspense>
+        
+        <Suspense fallback={<HoneycombLoader className="h-96" />}>
+          <SavingsImpactSection />
+        </Suspense>
+        
+        <Suspense fallback={<HoneycombLoader className="h-96" />}>
+          <FeaturesSection />
+        </Suspense>
+        
+        <Suspense fallback={<HoneycombLoader className="h-96" />}>
+          <HowItWorksSection />
+        </Suspense>
+        
+        <Suspense fallback={<HoneycombLoader className="h-96" />}>
+          <TestimonialsSection />
+        </Suspense>
+        
+        <Suspense fallback={<HoneycombLoader className="h-96" />}>
+          <AIAssistantSection />
+        </Suspense>
+        
+        <Suspense fallback={<HoneycombLoader className="h-96" />}>
+          <FAQSection />
+        </Suspense>
+        
+        <Suspense fallback={<HoneycombLoader className="h-96" />}>
+          <ClosingTaglineSection />
+        </Suspense>
+        
+        <Suspense fallback={<HoneycombLoader className="h-96" />}>
+          <SignupForm />
+        </Suspense>
+        
+        <Suspense fallback={<HoneycombLoader className="h-64" />}>
+          <Footer />
+        </Suspense>
+      </main>
+    );
+  }
+
+  // Catch-all: Not Found
+  return renderWithBlobs(
+    <Suspense fallback={<LoadingSpinner />}>
+      <NotFound />
+    </Suspense>
+  );
 }
