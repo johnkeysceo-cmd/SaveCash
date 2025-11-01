@@ -167,6 +167,18 @@ export default function App() {
         setCurrentRoute(newPath);
         // Wait for components to load before scrolling
         setTimeout(() => {
+          // Handle hash navigation first (for anchor links)
+          if (customEvent.detail?.hash || window.location.hash) {
+            const hash = customEvent.detail?.hash || window.location.hash.substring(1);
+            if (hash) {
+              const element = document.getElementById(hash);
+              if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                return;
+              }
+            }
+          }
+          
           if (customEvent.detail.scrollToSignup) {
             const signupSection = document.getElementById("signup");
             if (signupSection) {
@@ -187,28 +199,74 @@ export default function App() {
     };
     window.addEventListener("navigate", handleNavigation as EventListener);
     
-    // Intercept all clicks on links to home page and restore scroll
+    // Intercept ALL clicks on internal links for client-side routing
     const handleLinkClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const link = target.closest('a[href="/"]') || target.closest('a[href=""]');
+      const link = target.closest('a[href]') as HTMLAnchorElement;
       
       if (link) {
         const href = link.getAttribute('href');
-        if (href === "/" || href === "") {
-          // Save current route scroll position before navigating
-          const currentPath = window.location.pathname;
-          if (currentPath !== "/" && currentPath !== "") {
-            saveScrollPosition(currentPath);
-          }
-          
+        
+        // Skip external links, mailto, tel, and hash-only links
+        if (!href || 
+            href.startsWith('http://') || 
+            href.startsWith('https://') || 
+            href.startsWith('mailto:') || 
+            href.startsWith('tel:') ||
+            href.startsWith('javascript:') ||
+            (href.startsWith('#') && href !== '#') ||
+            link.target === '_blank' ||
+            link.hasAttribute('download')) {
+          return; // Let browser handle external links normally
+        }
+        
+        // Check if it's an internal link (starts with / or is relative)
+        const isInternalLink = href.startsWith('/') || (!href.startsWith('http') && !href.startsWith('mailto') && !href.startsWith('tel'));
+        
+        // Check if it's a hash-only link on the same page
+        const isSamePageHash = href.startsWith('#') && href.length > 1;
+        const currentPath = window.location.pathname;
+        
+        if (isSamePageHash) {
+          // Let browser handle same-page anchor links for smooth scrolling
+          return;
+        }
+        
+        if (isInternalLink) {
           // Prevent default navigation
           e.preventDefault();
           
-          // Navigate and restore scroll
-          window.history.pushState({}, "", "/");
-          window.dispatchEvent(new CustomEvent("navigate", {
-            detail: { path: "/", restoreScroll: true }
-          }));
+          // Get the actual path (remove hash if present)
+          let path = href.split('#')[0];
+          const hash = href.includes('#') ? href.split('#')[1] : '';
+          
+          // Handle root path
+          if (path === '' || path === '/') {
+            // Save current route scroll position before navigating
+            if (currentPath !== "/" && currentPath !== "") {
+              saveScrollPosition(currentPath);
+            }
+            
+            // Navigate and restore scroll
+            const newUrl = hash ? `/${hash}` : "/";
+            window.history.pushState({}, "", newUrl);
+            window.dispatchEvent(new CustomEvent("navigate", {
+              detail: { path: "/", restoreScroll: true, hash: hash }
+            }));
+          } else {
+            // For other internal pages, navigate client-side
+            // Save scroll position of current page
+            if (currentPath !== "/" && currentPath !== "") {
+              saveScrollPosition(currentPath);
+            }
+            
+            // Navigate to new page
+            const newUrl = hash ? `${path}#${hash}` : path;
+            window.history.pushState({}, "", newUrl);
+            window.dispatchEvent(new CustomEvent("navigate", {
+              detail: { path: path, hash: hash }
+            }));
+          }
         }
       }
     };
