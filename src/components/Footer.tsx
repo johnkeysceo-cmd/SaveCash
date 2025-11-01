@@ -14,7 +14,6 @@ import {
   FileText,
   BookOpen,
   MessageSquare,
-  Users2,
   LifeBuoy,
   Lock,
   Scale,
@@ -51,7 +50,6 @@ export default function Footer() {
     { title: "FAQs", href: "/faq", icon: HelpCircle },
     { title: "Documentation", href: "/documentation", icon: FileText },
     { title: "Blog", href: "/blog", icon: BookOpen },
-    { title: "Community", href: "/community", icon: Users2 },
     { title: "Support", href: "/support", icon: LifeBuoy }
   ];
 
@@ -142,7 +140,7 @@ export default function Footer() {
             viewport={{ once: true }}
           >
             <h4 className="text-gray-900 font-semibold text-lg mb-6">Resources</h4>
-            <p className="text-xs text-gray-600 mb-4">Help, docs, and community for your success.</p>
+            <p className="text-xs text-gray-600 mb-4">Help, docs, and resources for your success.</p>
             <div className="space-y-4">
               {resourceLinks.map((link, index) => (
                 <motion.a
@@ -184,11 +182,8 @@ export default function Footer() {
                   viewport={{ once: true }}
                 >
                   <link.icon className="w-4 h-4 text-gray-500 group-hover:text-purple-600 transition-colors duration-300" />
-                  <span className="group-hover:underline flex items-center gap-2">
+                  <span className="group-hover:underline">
                     {link.title}
-                    {(link.title === "Privacy Policy" || link.title === "Cookie Policy") && (
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-green-100 text-green-700 border border-green-300">Updated</span>
-                    )}
                   </span>
                 </motion.a>
               ))}
@@ -285,6 +280,13 @@ export default function Footer() {
                 <SecuritySwitch />
               </div>
             </motion.div>
+            
+            {/* Official Tagline */}
+            <div className="mt-8 pt-8 border-t border-gray-200 text-center">
+              <p className="text-gray-900 font-semibold text-base">
+                SaveCash — Built in California. Operating globally.
+              </p>
+            </div>
           </div>
         </div>
       </div>

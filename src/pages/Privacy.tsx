@@ -21,8 +21,6 @@ export default function Privacy() {
             Privacy Policy
           </h1>
           
-          <h4 className="text-base font-normal text-gray-600 mb-12">Last updated: [Month DD, YYYY]</h4>
-          
           <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
             Thank you for choosing to be part of our community at SaveCash ("Company", "we", "us", or "our"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website https://savecashpro.vercel.app, use our mobile application, or engage with our services (collectively, the "Services").
           </p>
@@ -140,7 +138,7 @@ export default function Privacy() {
                   <li style={{ marginBottom: "12px", color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8" }}>File a complaint with a data protection authority.</li>
                 </ul>
                 <p className="mt-4" style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-                  To exercise these rights, contact us at <a href="mailto:privacy.savecashpro@gmail.com" className="text-blue-600 hover:underline">privacy.savecashpro@gmail.com</a>.
+                  To exercise these rights, contact us at <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a>.
                 </p>
               </div>
             </section>
@@ -175,15 +173,15 @@ export default function Privacy() {
               </div>
             </section>
 
-            {/* 10. Updates to This Policy */}
+            {/* 10. Changes to This Policy */}
             <section id="policy-updates" className="scroll-mt-8">
-              <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>10. Updates to This Policy</h2>
+              <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>10. Changes to This Policy</h2>
               <div className="space-y-4">
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-                  We may update this Privacy Policy periodically. The latest version will always be available at <a href="https://savecashpro.vercel.app/privacy-policy" className="text-blue-600 hover:underline">https://savecashpro.vercel.app/privacy-policy</a>.
+                  We may modify this Privacy Policy periodically. The latest version will always be available at <a href="https://savecashpro.vercel.app/privacy-policy" className="text-blue-600 hover:underline">https://savecashpro.vercel.app/privacy-policy</a>.
                 </p>
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-                  Material updates will be notified via email or platform alerts.
+                  Material changes will be notified via email or platform alerts.
                 </p>
               </div>
             </section>
@@ -197,12 +195,19 @@ export default function Privacy() {
                 </p>
                 <div className="space-y-2">
                   <p className="font-semibold text-gray-900" style={{ color: "#1a1a1a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>SaveCash</p>
-                  <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 8px 0" }}>600 California Street, San Francisco, CA</p>
-                  <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 8px 0" }}>Email: <a href="mailto:privacy.savecashpro@gmail.com" className="text-blue-600 hover:underline">privacy.savecashpro@gmail.com</a></p>
+                  <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 8px 0" }}>Built in California. Operating globally.</p>
+                  <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 8px 0" }}>Email: <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></p>
                   <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 8px 0" }}>Website: <a href="https://savecashpro.vercel.app" className="text-blue-600 hover:underline">https://savecashpro.vercel.app</a></p>
                 </div>
               </div>
             </section>
+            
+            {/* Tagline */}
+            <div className="border-t border-gray-200 mt-16 pt-12 text-center">
+              <p style={{ color: "#1a1a1a", fontSize: "18px", fontWeight: 600, lineHeight: "1.6", margin: "0" }}>
+                SaveCash — Built in California. Operating globally.
+              </p>
+            </div>
         </div>
       </div>
     </div>
@@ -219,7 +224,7 @@ export function PrivacyPolicyLegalAppendix() {
       <div className="max-w-4xl mx-auto px-8 py-16">
         <div className="mb-12">
           <h2 style={{ color: "#1a1a1a", fontSize: "28px", fontWeight: 600, margin: "0 0 16px 0", lineHeight: "1.4" }}>SaveCash Privacy Policy (Full Legal Text)</h2>
-          <p className="text-base text-gray-600">Effective Date: [Insert Effective Date] · Last Updated: [Insert Last Updated Date]</p>
+          <p className="text-base text-gray-600">Effective Date: [Insert Effective Date]</p>
         </div>
 
         <div className="space-y-10 text-base text-gray-700 leading-relaxed">
@@ -293,7 +298,7 @@ export function PrivacyPolicyLegalAppendix() {
               <li style={{ marginBottom: "12px", color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8" }}>Data Portability</li>
               <li style={{ marginBottom: "12px", color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8" }}>Withdraw Consent</li>
             </ul>
-            <p className="mt-2" style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "24px 0 28px 0" }}>Contact: <a href="mailto:privacy.savecashpro@gmail.com" className="text-blue-600 hover:underline">privacy.savecashpro@gmail.com</a></p>
+            <p className="mt-2" style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "24px 0 28px 0" }}>Contact: <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></p>
           </section>
 
           <section>
@@ -323,8 +328,8 @@ export function PrivacyPolicyLegalAppendix() {
 
           <section>
             <h3 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>13. Contact Us</h3>
-            <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 8px 0" }}>Email: privacy.savecashpro@gmail.com</p>
-            <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Address: 600 California Street, Floor 11, San Francisco, CA 94108, United States</p>
+            <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 8px 0" }}>Email: privacy.savecash@gmail.com</p>
+            <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Address: Built in California. Operating globally.</p>
           </section>
         </div>
       </div>
@@ -342,7 +347,6 @@ export function PrivacyPolicyAdditionalText() {
       <div className="max-w-4xl mx-auto px-8 py-16 space-y-8 text-base text-gray-700 leading-relaxed">
         <div>
           <h2 style={{ color: "#1a1a1a", fontSize: "28px", fontWeight: 600, margin: "0 0 16px 0", lineHeight: "1.4" }}>Privacy Policy</h2>
-          <p className="text-base text-gray-600">Last updated: [Month DD, YYYY]</p>
           <p className="mt-4" style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "16px 0 28px 0" }}>
             Thank you for choosing to be part of our community at SaveCash ("Company", "we", "us", or "our"). We respect your privacy and are committed to protecting your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website https://savecashpro.vercel.app, use our mobile application, or engage with our services (collectively, the "Services"). By using our Services, you agree to the terms of this Privacy Policy.
           </p>
@@ -400,7 +404,7 @@ export function PrivacyPolicyAdditionalText() {
 
         <section>
           <h3 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>6. Your Privacy Rights</h3>
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Depending on your location, you may have the right to access, correct, delete, object, or withdraw consent. Contact: privacy.savecashpro@gmail.com.</p>
+          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Depending on your location, you may have the right to access, correct, delete, object, or withdraw consent. Contact: privacy.savecash@gmail.com.</p>
         </section>
 
         <section>
@@ -425,7 +429,7 @@ export function PrivacyPolicyAdditionalText() {
 
         <section>
           <h3 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>11. Contact Us</h3>
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>SaveCash · 600 California Street, San Francisco, CA · Email: privacy.savecashpro@gmail.com · Website: https://savecashpro.vercel.app</p>
+          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>SaveCash · Built in California. Operating globally. · Email: privacy.savecash@gmail.com · Website: https://savecashpro.vercel.app</p>
         </section>
       </div>
     </div>
@@ -444,7 +448,7 @@ export function PrivacyInvestorComplianceAppendix() {
 
         <section>
           <h3 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>Data Protection Officer (DPO)</h3>
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Contact: privacy.savecashpro@gmail.com · Address: 600 California Street, 11th Floor, San Francisco, CA 94108</p>
+          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Contact: privacy.savecash@gmail.com · Address: Built in California. Operating globally.</p>
         </section>
 
         <section>

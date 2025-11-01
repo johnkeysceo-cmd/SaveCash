@@ -40,7 +40,7 @@ export default function Support() {
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Support</h3>
                     <p>
-                      <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a>
+                      <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a>
                     </p>
                     <p className="text-sm text-gray-600">Average response time: 2-4 hours</p>
                   </div>
@@ -54,10 +54,17 @@ export default function Support() {
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone Support</h3>
                     <p>
-                      <a href="tel:+15551234567" className="text-blue-600 hover:underline">+1 (555) 123-4567</a>
+                      <a href="tel:+16618123265" className="text-blue-600 hover:underline">(661) 812-3265</a>
                     </p>
                     <p className="text-sm text-gray-600">Monday-Friday, 9AM-6PM PST</p>
                   </div>
+                      <div>
+                        <h3 className="text-lg font-semibold text-gray-900 mb-2">Location</h3>
+                        <p className="text-base text-gray-700">
+                          Built in California. Operating globally.
+                        </p>
+                        <p className="text-sm text-gray-600">Virtual HQ — global operations</p>
+                      </div>
                 </div>
               </div>
             </section>
@@ -120,24 +127,9 @@ export default function Support() {
               </div>
             </section>
 
-            {/* 4. Community Support */}
-            <section id="community-support" className="scroll-mt-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Community Support</h2>
-              <div className="space-y-4">
-                <p>
-                  Connect with other SaveCash users and get help from the community.
-                </p>
-                <ul className="list-disc pl-6 space-y-2 text-base text-gray-700">
-                  <li><a href="/community" className="text-blue-600 hover:underline">Community Forums</a> - Ask questions and share tips</li>
-                  <li>Community Discord - Real-time chat with other users</li>
-                  <li>User Groups - Local and online meetups</li>
-                </ul>
-              </div>
-            </section>
-
-            {/* 5. Enterprise Support */}
+            {/* 4. Enterprise Support */}
             <section id="enterprise" className="scroll-mt-8">
-              <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Enterprise Support</h2>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Enterprise Support</h2>
               <div className="space-y-4">
                 <p>
                   Enterprise customers receive dedicated support with guaranteed response times and priority handling.
@@ -150,7 +142,7 @@ export default function Support() {
                   <li>Onboarding and training assistance</li>
                 </ul>
                 <p>
-                  <strong>Enterprise Sales:</strong> <a href="mailto:enterprise@savecash.com" className="text-blue-600 hover:underline">enterprise@savecash.com</a>
+                  <strong>Enterprise Sales:</strong> <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a> or call <a href="tel:+16618123265" className="text-blue-600 hover:underline">(661) 812-3265</a>
                 </p>
               </div>
             </section>

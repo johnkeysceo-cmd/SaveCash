@@ -29,6 +29,26 @@ export default function FinancialGoals() {
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="space-y-12 text-base text-gray-700 leading-relaxed">
             
+            {/* Quick Start Section */}
+            <section className="scroll-mt-8">
+              <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-8 mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Quick Start: Set Your First Financial Goal</h2>
+                <ol className="list-decimal pl-6 space-y-3 text-base">
+                  <li><strong>Log in to SaveCash</strong> and navigate to the Goals section</li>
+                  <li><strong>Click "Create New Goal"</strong> or "Set Financial Goal"</li>
+                  <li><strong>Choose your goal type</strong> (Emergency Fund, Vacation, Down Payment, etc.)</li>
+                  <li><strong>Enter your target amount</strong> (how much you want to save)</li>
+                  <li><strong>Set your target date</strong> (when you want to achieve this goal)</li>
+                  <li><strong>Set priority level</strong> (High, Medium, or Low)</li>
+                  <li><strong>Choose funding accounts</strong> (which accounts to save from)</li>
+                  <li><strong>Save and start tracking!</strong> SaveCash will help you achieve your goal</li>
+                </ol>
+                <p className="mt-4 text-sm text-gray-600">
+                  <strong>Tip:</strong> You can create multiple goals at once. SaveCash will help you allocate your savings optimally across all goals.
+                </p>
+              </div>
+            </section>
+            
             {/* Section 1: Why Set Financial Goals */}
             <section className="scroll-mt-8">
               <h2 className="text-3xl font-semibold text-gray-900 mb-6">1. Why Set Financial Goals with SaveCash?</h2>

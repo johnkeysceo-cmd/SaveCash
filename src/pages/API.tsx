@@ -39,9 +39,10 @@ export default function API() {
                 <p>
                   Our API follows RESTful principles and uses JSON for request and response formats. All API requests require authentication via API keys.
                 </p>
-                <p>
-                  <strong>Base URL:</strong> <code className="bg-gray-100 px-2 py-1 rounded text-sm">https://api.savecash.com/v1</code>
-            </p>
+                <div className="bg-gray-50 border-l-4 border-purple-500 p-4 rounded-r-lg my-4">
+                  <p className="font-bold text-black text-lg mb-2">Base URL:</p>
+                  <code className="bg-gray-900 text-white px-4 py-2 rounded text-base font-bold block text-center">https://api.savecash.com/v1</code>
+                </div>
           </div>
             </section>
 

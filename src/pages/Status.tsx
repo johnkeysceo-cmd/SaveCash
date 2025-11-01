@@ -41,9 +41,6 @@ export default function Status() {
                   <p className="text-base text-gray-700">
                     All SaveCash services are running normally. No known issues or maintenance windows at this time.
                   </p>
-                  <p className="text-sm text-gray-600 mt-2">
-                    Last updated: {new Date().toLocaleString()}
-                  </p>
                 </div>
               </div>
             </section>

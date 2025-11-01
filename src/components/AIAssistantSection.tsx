@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
-import { Button } from "./ui/button";
-import { MessageSquare, TrendingUp, Shield, Zap, Brain, BarChart3 } from "lucide-react";
+import { TrendingUp, Shield, Zap, Brain, BarChart3 } from "lucide-react";
 
 export function AIAssistantSection() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
@@ -93,14 +92,6 @@ export function AIAssistantSection() {
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
-
-  const handleStartChat = () => {
-    setShowAIModal(true);
-    // Auto close after 5 seconds
-    setTimeout(() => {
-      setShowAIModal(false);
-    }, 5000);
-  };
 
   const features = [
     { icon: Brain, label: "Advanced AI" },
@@ -330,35 +321,6 @@ export function AIAssistantSection() {
                       <span>{topic}</span>
                     </div>
                   ))}
-                </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.5, 
-                    delay: 0.9,
-                    ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
-                    type: "tween",
-                  }}
-                  viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  style={{
-                    transform: "translateZ(0)",
-                    willChange: "transform",
-                    backfaceVisibility: "hidden",
-                    isolation: "isolate",
-                    contain: "layout style paint",
-                  }}
-                >
-                  <Button
-                    onClick={handleStartChat}
-                    className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white px-12 py-6 text-lg rounded-full shadow-[0_20px_60px_-15px_rgba(168,85,247,0.4)] border border-white/10 hover:shadow-[0_25px_80px_-15px_rgba(168,85,247,0.6)] transition-all duration-300"
-                  >
-                    <MessageSquare className="mr-3 w-5 h-5" />
-                      Start AI Conversation
-                  </Button>
                 </motion.div>
               </div>
             </div>

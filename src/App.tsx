@@ -4,6 +4,8 @@ import { FloatingAIAssistant } from "./components/FloatingAIAssistant";
 import { initPerformanceOptimizations } from "./utils/performanceOptimizer";
 import { HoneycombLoader } from "./components/ui/honeycomb-loader";
 import { ErrorBoundary } from "./components/ErrorBoundary";
+import { saveScrollPosition, restoreScrollPosition } from "./utils/scrollRestore";
+import { ScrollTracker } from "./components/ScrollTracker";
 
 // Lazy load ALL components for maximum performance
 const HeroSection = lazy(() => import("./components/HeroSection").then(module => ({ default: module.HeroSection })));
@@ -32,6 +34,15 @@ const OptOut = lazy(() => import("./pages/OptOut"));
 const Leadership = lazy(() => import("./pages/Leadership"));
 const DataProcessing = lazy(() => import("./pages/DataProcessing"));
 const Pricing = lazy(() => import("./pages/Pricing"));
+const PlansFeatures = lazy(() => import("./pages/PlansFeatures"));
+const ROIValueCalculator = lazy(() => import("./pages/ROIValueCalculator"));
+const PricingPhilosophy = lazy(() => import("./pages/PricingPhilosophy"));
+const PricingFAQ = lazy(() => import("./pages/PricingFAQ"));
+const EnterpriseSolutions = lazy(() => import("./pages/EnterpriseSolutions"));
+const EarlyAccessPricing = lazy(() => import("./pages/EarlyAccessPricing"));
+const CostComparison = lazy(() => import("./pages/CostComparison"));
+const RequestQuote = lazy(() => import("./pages/RequestQuote"));
+const ContactSupport = lazy(() => import("./pages/ContactSupport"));
 const Security = lazy(() => import("./pages/Security"));
 const API = lazy(() => import("./pages/API"));
 const Integrations = lazy(() => import("./pages/Integrations"));
@@ -42,6 +53,7 @@ const Documentation = lazy(() => import("./pages/Documentation"));
 const Blog = lazy(() => import("./pages/Blog"));
 const Community = lazy(() => import("./pages/Community"));
 const Support = lazy(() => import("./pages/Support"));
+const Licenses = lazy(() => import("./pages/Licenses"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const SecurityOverview = lazy(() => import("./pages/SecurityOverview"));
 const EULA = lazy(() => import("./pages/EULA"));
@@ -49,12 +61,38 @@ const ReturnPolicy = lazy(() => import("./pages/ReturnPolicy"));
 const ShippingPolicy = lazy(() => import("./pages/ShippingPolicy"));
 const Press = lazy(() => import("./pages/Press"));
 const Investors = lazy(() => import("./pages/Investors"));
+const FinBotsMarketplace = lazy(() => import("./pages/FinBotsMarketplace"));
+const CaseStudies = lazy(() => import("./pages/CaseStudies"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const GettingStarted = lazy(() => import("./pages/GettingStarted"));
 const ConnectingAccounts = lazy(() => import("./pages/ConnectingAccounts"));
 const SavingsOpportunities = lazy(() => import("./pages/SavingsOpportunities"));
 const FinancialGoals = lazy(() => import("./pages/FinancialGoals"));
 const MobileApp = lazy(() => import("./pages/MobileApp"));
+// Account Management
+const CreatingAccount = lazy(() => import("./pages/CreatingAccount"));
+const UpdatingProfile = lazy(() => import("./pages/UpdatingProfile"));
+const ManagingAccounts = lazy(() => import("./pages/ManagingAccounts"));
+const ChangingPassword = lazy(() => import("./pages/ChangingPassword"));
+const DeletingAccount = lazy(() => import("./pages/DeletingAccount"));
+// Features & Functionality
+const AIMonitoringAlerts = lazy(() => import("./pages/AIMonitoringAlerts"));
+const AutomatedSavings = lazy(() => import("./pages/AutomatedSavings"));
+const BillManagement = lazy(() => import("./pages/BillManagement"));
+const GoalTracking = lazy(() => import("./pages/GoalTracking"));
+const ReportsAnalytics = lazy(() => import("./pages/ReportsAnalytics"));
+// Troubleshooting
+const ConnectionIssues = lazy(() => import("./pages/ConnectionIssues"));
+const SyncProblems = lazy(() => import("./pages/SyncProblems"));
+const SavingsNotDetected = lazy(() => import("./pages/SavingsNotDetected"));
+const AppIssues = lazy(() => import("./pages/AppIssues"));
+const BillingIssues = lazy(() => import("./pages/BillingIssues"));
+// Security & Privacy
+const DataProtection = lazy(() => import("./pages/DataProtection"));
+const BankSecurity = lazy(() => import("./pages/BankSecurity"));
+const PrivacySettings = lazy(() => import("./pages/PrivacySettings"));
+const TwoFactorAuth = lazy(() => import("./pages/TwoFactorAuth"));
+const DataExportDeletion = lazy(() => import("./pages/DataExportDeletion"));
 
 // Optimized loading component (uses premium Honeycomb)
 const LoadingSpinner = memo(() => (
@@ -72,10 +110,28 @@ export default function App() {
   const [currentRoute, setCurrentRoute] = useState(window.location.pathname);
 
   useEffect(() => {
+    let previousRoute = window.location.pathname;
+    
+    // Save scroll position when navigating away from home
+    const saveScrollOnNavigate = () => {
+      if (previousRoute === "/" || previousRoute === "") {
+        // Save home page scroll position
+        saveScrollPosition("/");
+      }
+    };
+
     const handleRouteChange = () => {
-      setCurrentRoute(window.location.pathname);
+      const newRoute = window.location.pathname;
       
-      // Handle hash scrolling after route change
+      // Save scroll position of the previous route before changing
+      if (previousRoute !== newRoute) {
+        saveScrollPosition(previousRoute);
+        previousRoute = newRoute;
+      }
+      
+      setCurrentRoute(newRoute);
+      
+      // Handle hash scrolling after route change (takes priority)
       if (window.location.hash) {
         setTimeout(() => {
           const element = document.querySelector(window.location.hash);
@@ -83,6 +139,15 @@ export default function App() {
             element.scrollIntoView({ behavior: 'smooth', block: 'start' });
           }
         }, 100);
+      } else {
+        // Restore scroll position if no hash
+        if (newRoute === "/" || newRoute === "") {
+          // Restore home page scroll position
+          restoreScrollPosition("/", 200);
+        } else {
+          // For other pages, scroll to top initially
+          window.scrollTo({ top: 0, behavior: 'auto' });
+        }
       }
     };
 
@@ -93,7 +158,13 @@ export default function App() {
     const handleNavigation = (event: Event) => {
       const customEvent = event as CustomEvent;
       if (customEvent.detail?.path) {
-        setCurrentRoute(customEvent.detail.path);
+        const newPath = customEvent.detail.path;
+        
+        // Save current route scroll position
+        saveScrollPosition(previousRoute);
+        previousRoute = newPath;
+        
+        setCurrentRoute(newPath);
         // Wait for components to load before scrolling
         setTimeout(() => {
           if (customEvent.detail.scrollToSignup) {
@@ -101,11 +172,48 @@ export default function App() {
             if (signupSection) {
               signupSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
+          } else if (customEvent.detail.restoreScroll && (newPath === "/" || newPath === "")) {
+            // Restore scroll position for home page
+            restoreScrollPosition("/", 300);
+          } else if (newPath === "/" || newPath === "") {
+            // Try to restore scroll position for home
+            restoreScrollPosition("/", 300);
+          } else {
+            // For other pages, scroll to top
+            window.scrollTo({ top: 0, behavior: 'auto' });
           }
         }, 400);
       }
     };
     window.addEventListener("navigate", handleNavigation as EventListener);
+    
+    // Intercept all clicks on links to home page and restore scroll
+    const handleLinkClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a[href="/"]') || target.closest('a[href=""]');
+      
+      if (link) {
+        const href = link.getAttribute('href');
+        if (href === "/" || href === "") {
+          // Save current route scroll position before navigating
+          const currentPath = window.location.pathname;
+          if (currentPath !== "/" && currentPath !== "") {
+            saveScrollPosition(currentPath);
+          }
+          
+          // Prevent default navigation
+          e.preventDefault();
+          
+          // Navigate and restore scroll
+          window.history.pushState({}, "", "/");
+          window.dispatchEvent(new CustomEvent("navigate", {
+            detail: { path: "/", restoreScroll: true }
+          }));
+        }
+      }
+    };
+    
+    document.addEventListener("click", handleLinkClick);
     
     // Handle initial route
     handleRouteChange();
@@ -123,6 +231,7 @@ export default function App() {
     return () => {
       window.removeEventListener("popstate", handleRouteChange);
       window.removeEventListener("navigate", handleNavigation as EventListener);
+      document.removeEventListener("click", handleLinkClick);
     };
   }, []);
 
@@ -253,6 +362,70 @@ export default function App() {
       </Suspense>
     );
   }
+
+  if (currentRoute === "/pricing/plans-features") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <PlansFeatures />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/pricing/roi-calculator") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <ROIValueCalculator />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/pricing/philosophy") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <PricingPhilosophy />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/pricing/faq") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <PricingFAQ />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/pricing/enterprise") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <EnterpriseSolutions />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/pricing/early-access") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <EarlyAccessPricing />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/pricing/comparison") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <CostComparison />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/pricing/quote" || currentRoute === "/request-quote") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <RequestQuote />
+      </Suspense>
+    );
+  }
   
   if (currentRoute === "/security") {
     return renderWithBlobs(
@@ -333,6 +506,22 @@ export default function App() {
       </Suspense>
     );
   }
+
+  if (currentRoute === "/contact-support" || currentRoute === "/support-center") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <ContactSupport />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/licenses" || currentRoute === "/licenses-credits") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <Licenses />
+      </Suspense>
+    );
+  }
   
   if (currentRoute === "/privacy-policy") {
     return renderWithBlobs(
@@ -390,6 +579,22 @@ export default function App() {
     );
   }
 
+  if (currentRoute === "/finbots-marketplace" || currentRoute === "/marketplace") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <FinBotsMarketplace />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/case-studies") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <CaseStudies />
+      </Suspense>
+    );
+  }
+
   // Help Center Pages
   if (currentRoute === "/help/getting-started") {
     return renderWithBlobs(
@@ -431,6 +636,170 @@ export default function App() {
     );
   }
 
+  // Account Management Help Pages
+  if (currentRoute === "/help/creating-account") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <CreatingAccount />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/updating-profile") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <UpdatingProfile />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/managing-accounts") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <ManagingAccounts />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/changing-password") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <ChangingPassword />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/deleting-account") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <DeletingAccount />
+      </Suspense>
+    );
+  }
+
+  // Features & Functionality Help Pages
+  if (currentRoute === "/help/ai-monitoring-alerts") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <AIMonitoringAlerts />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/automated-savings") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <AutomatedSavings />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/bill-management") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <BillManagement />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/goal-tracking") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <GoalTracking />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/reports-analytics") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <ReportsAnalytics />
+      </Suspense>
+    );
+  }
+
+  // Troubleshooting Help Pages
+  if (currentRoute === "/help/connection-issues") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <ConnectionIssues />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/sync-problems") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <SyncProblems />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/savings-not-detected") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <SavingsNotDetected />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/app-issues") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <AppIssues />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/billing-issues") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <BillingIssues />
+      </Suspense>
+    );
+  }
+
+  // Security & Privacy Help Pages
+  if (currentRoute === "/help/data-protection") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <DataProtection />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/bank-security") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <BankSecurity />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/privacy-settings") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <PrivacySettings />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/two-factor-auth") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <TwoFactorAuth />
+      </Suspense>
+    );
+  }
+
+  if (currentRoute === "/help/data-export-deletion") {
+    return renderWithBlobs(
+      <Suspense fallback={<LoadingSpinner />}>
+        <DataExportDeletion />
+      </Suspense>
+    );
+  }
+
   // Home page (default route)
   if (currentRoute === "/" || currentRoute === "") {
     return renderWithBlobs(
@@ -443,6 +812,7 @@ export default function App() {
           contain: "layout style paint",
         }}
       >
+        <ScrollTracker />
         <Suspense fallback={<HoneycombLoader className="h-screen" />}>
           <HeroSection />
         </Suspense>

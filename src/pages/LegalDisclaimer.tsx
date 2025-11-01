@@ -19,8 +19,6 @@ export default function LegalDisclaimer() {
           
           <h1 style={{ color: "#1a1a1a", fontSize: "28px", fontWeight: 600, margin: "0 0 32px 0", lineHeight: "1.4" }}>Legal Disclaimer</h1>
           
-          <h4 className="text-base font-normal text-gray-600 mb-12">Last updated: January 1, 2025</h4>
-          
           <div className="mt-6 space-y-2 text-sm text-gray-600">
             <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Company:</strong> SaveCash ("Company", "we", "us", or "our")</p>
             <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Website:</strong> <a href="https://savecashpro.vercel.app" className="text-blue-600 hover:underline">https://savecashpro.vercel.app</a></p>

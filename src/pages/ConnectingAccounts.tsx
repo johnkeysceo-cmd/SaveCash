@@ -29,6 +29,25 @@ export default function ConnectingAccounts() {
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="space-y-12 text-base text-gray-700 leading-relaxed">
             
+            {/* Quick Start Section */}
+            <section className="scroll-mt-8">
+              <div className="bg-purple-50 border-2 border-purple-200 rounded-lg p-8 mb-8">
+                <h2 className="text-2xl font-semibold text-gray-900 mb-4">Quick Start: Connect Your Account</h2>
+                <ol className="list-decimal pl-6 space-y-3 text-base">
+                  <li><strong>Log in to SaveCash</strong> and go to the Accounts section</li>
+                  <li><strong>Click "Add Account"</strong> or "Connect Bank Account"</li>
+                  <li><strong>Search for your bank</strong> or financial institution</li>
+                  <li><strong>Enter your bank credentials</strong> (same as you use for online banking)</li>
+                  <li><strong>Select which accounts</strong> to connect (checking, savings, credit cards)</li>
+                  <li><strong>Authorize the connection</strong> and wait for verification</li>
+                  <li><strong>Start saving!</strong> SaveCash will begin analyzing your accounts within 24 hours</li>
+                </ol>
+                <p className="mt-4 text-sm text-gray-600">
+                  <strong>Note:</strong> The connection process takes 2-5 minutes and is completely secure. We use bank-level encryption and never store your passwords.
+                </p>
+              </div>
+            </section>
+            
             {/* Section 1: Security Overview */}
             <section className="scroll-mt-8">
               <h2 className="text-3xl font-semibold text-gray-900 mb-6">1. Security and Privacy First</h2>

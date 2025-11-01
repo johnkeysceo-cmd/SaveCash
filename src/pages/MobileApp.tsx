@@ -37,6 +37,35 @@ export default function MobileApp() {
                 The SaveCash mobile app is available for both iOS and Android devices. Getting started is quick and easy.
               </p>
               
+              {/* Quick Download Links */}
+              <div className="grid md:grid-cols-2 gap-4 mb-8">
+                <a 
+                  href="https://apps.apple.com/app/savecash"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg p-6 text-center transition-colors flex items-center justify-center gap-3"
+                >
+                  <Smartphone className="w-6 h-6" />
+                  <div>
+                    <div className="font-semibold text-lg">Download for iOS</div>
+                    <div className="text-sm opacity-90">App Store</div>
+                  </div>
+                </a>
+                
+                <a 
+                  href="https://play.google.com/store/apps/details?id=com.savecash"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-green-600 hover:bg-green-700 text-white rounded-lg p-6 text-center transition-colors flex items-center justify-center gap-3"
+                >
+                  <Smartphone className="w-6 h-6" />
+                  <div>
+                    <div className="font-semibold text-lg">Download for Android</div>
+                    <div className="text-sm opacity-90">Google Play</div>
+                  </div>
+                </a>
+              </div>
+              
               <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-4">1.1 iOS (iPhone and iPad)</h3>
               <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
                 <p className="mb-3">

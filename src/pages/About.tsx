@@ -10,6 +10,17 @@ export default function About() {
           <div className="mb-6">
             <a 
               href="/"
+              onClick={(e) => {
+                e.preventDefault();
+                // Save current scroll before navigating
+                const scrollPos = window.scrollY || document.documentElement.scrollTop;
+                sessionStorage.setItem('savecash_scroll_position_about', scrollPos.toString());
+                // Navigate and restore home scroll
+                window.history.pushState({}, "", "/");
+                window.dispatchEvent(new CustomEvent("navigate", {
+                  detail: { path: "/", restoreScroll: true }
+                }));
+              }}
               className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
@@ -20,8 +31,6 @@ export default function About() {
           <h1 style={{ color: "#1a1a1a", fontSize: "28px", fontWeight: 600, margin: "0 0 32px 0", lineHeight: "1.4" }}>
             About SaveCash
           </h1>
-          
-          <h4 className="text-base font-normal text-gray-600 mb-12">Last updated: January 2025</h4>
           
           <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
             SaveCash is redefining how people experience money. Our mission is simple: make every dollar smarter.
@@ -253,24 +262,24 @@ export default function About() {
               <div>
                 <h3 className="text-xl font-semibold text-gray-900" style={{ marginBottom: "16px", marginTop: "0" }}>Security and Compliance Partners</h3>
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 24px 0" }}>
-                  We work with leading cybersecurity firms and compliance experts to ensure our platform meets or exceeds industry standards. Our security partners conduct regular audits, penetration testing, and vulnerability assessments, helping us maintain the highest levels of data protection.
+                  As we prepare for launch, we're actively establishing partnerships with the world's leading cybersecurity firms and compliance experts to ensure our platform meets or exceeds industry standards from day one. We're building relationships with security partners who will conduct regular audits, penetration testing, and vulnerability assessments, ensuring we maintain the highest levels of data protection as we scale.
                 </p>
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 24px 0" }}>
-                  Our compliance partnerships ensure we stay ahead of evolving financial regulations across multiple jurisdictions, from GDPR in Europe to CCPA in California and beyond.
+                  Our compliance strategy is designed to stay ahead of evolving financial regulations across multiple jurisdictions—from GDPR in Europe to CCPA in California and beyond. Built in California, we're operating globally with a commitment to meeting regional standards wherever we serve. We're positioning SaveCash to be the most trusted, compliant financial AI platform in the market, and we're seeking partnerships with compliance experts who share our vision for the future of financial technology.
                 </p>
               </div>
               
               <div>
                 <h3 className="text-xl font-semibold text-gray-900" style={{ marginBottom: "16px", marginTop: "0" }}>Technology Infrastructure</h3>
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 24px 0" }}>
-                  We leverage partnerships with leading cloud providers and infrastructure companies to build a scalable, reliable platform. These partnerships give us access to cutting-edge AI and machine learning tools, powerful data processing capabilities, and global infrastructure that ensures fast performance regardless of where our users are located.
+                  We're building SaveCash on a foundation designed to scale to millions of users from the start. Our architecture leverages partnerships with leading cloud providers and infrastructure companies to create a platform that's not just scalable and reliable—it's revolutionary. These strategic partnerships will give us access to cutting-edge AI and machine learning tools, powerful data processing capabilities, and global infrastructure that ensures lightning-fast performance regardless of where our users are located. We're not just building an app; we're building the infrastructure for the next generation of financial technology.
                 </p>
               </div>
               
               <div>
                 <h3 className="text-xl font-semibold text-gray-900" style={{ marginBottom: "16px", marginTop: "0" }}>Research and Development</h3>
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 24px 0" }}>
-                  We collaborate with academic institutions and research organizations to advance the state of financial AI. These partnerships enable us to incorporate the latest research findings into our products, ensuring SaveCash remains at the forefront of financial technology innovation.
+                  Innovation is at the core of everything we do. We're actively engaging with top academic institutions and research organizations to advance the state of financial AI. These partnerships will enable us to incorporate the latest research findings directly into our products, ensuring SaveCash doesn't just keep up with financial technology innovation—we're setting the pace. We're not following trends; we're creating them. Join us as we redefine what's possible in personal finance.
                 </p>
               </div>
             </div>
@@ -376,6 +385,13 @@ export default function About() {
               </div>
             </div>
           </section>
+          
+          {/* Tagline */}
+          <div className="border-t border-gray-200 mt-16 pt-12 text-center">
+            <p style={{ color: "#1a1a1a", fontSize: "18px", fontWeight: 600, lineHeight: "1.6", margin: "0" }}>
+              SaveCash — Built in California. Operating globally.
+            </p>
+          </div>
 
         </div>
       </div>

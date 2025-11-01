@@ -20,7 +20,7 @@ export default function Help() {
           <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">Help Center</h1>
           
           <p className="text-base text-gray-700 leading-relaxed">
-            The SaveCash Help Center is the fastest route to expert guidance. Each article is written, verified, and continuously updated by our product and support teams to ensure clarity, accuracy, and real-world relevance.
+            The SaveCash Help Center is the fastest route to expert guidance. Each article is written and verified by our product and support teams to ensure clarity, accuracy, and real-world relevance.
           </p>
         </div>
       </div>
@@ -48,11 +48,11 @@ export default function Help() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Account Management</h2>
               <div className="space-y-4">
                 <ul className="list-disc pl-6 space-y-2 text-base text-gray-700">
-                  <li>Creating and verifying your account</li>
-                  <li>Updating your profile and preferences</li>
-                  <li>Managing connected accounts</li>
-                  <li>Changing your password</li>
-                  <li>Deleting your account</li>
+                  <li><a href="/help/creating-account" className="text-blue-600 hover:underline">Creating and verifying your account</a></li>
+                  <li><a href="/help/updating-profile" className="text-blue-600 hover:underline">Updating your profile and preferences</a></li>
+                  <li><a href="/help/managing-accounts" className="text-blue-600 hover:underline">Managing connected accounts</a></li>
+                  <li><a href="/help/changing-password" className="text-blue-600 hover:underline">Changing your password</a></li>
+                  <li><a href="/help/deleting-account" className="text-blue-600 hover:underline">Deleting your account</a></li>
                 </ul>
               </div>
             </section>
@@ -62,11 +62,11 @@ export default function Help() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">3. Features & Functionality</h2>
               <div className="space-y-4">
                 <ul className="list-disc pl-6 space-y-2 text-base text-gray-700">
-                  <li>Using AI monitoring and alerts</li>
-                  <li>Automated savings features</li>
-                  <li>Bill management and reminders</li>
-                  <li>Financial goal tracking</li>
-                  <li>Reports and analytics</li>
+                  <li><a href="/help/ai-monitoring-alerts" className="text-blue-600 hover:underline">Using AI monitoring and alerts</a></li>
+                  <li><a href="/help/automated-savings" className="text-blue-600 hover:underline">Automated savings features</a></li>
+                  <li><a href="/help/bill-management" className="text-blue-600 hover:underline">Bill management and reminders</a></li>
+                  <li><a href="/help/goal-tracking" className="text-blue-600 hover:underline">Financial goal tracking</a></li>
+                  <li><a href="/help/reports-analytics" className="text-blue-600 hover:underline">Reports and analytics</a></li>
                 </ul>
               </div>
             </section>
@@ -76,11 +76,11 @@ export default function Help() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">4. Troubleshooting</h2>
               <div className="space-y-4">
                 <ul className="list-disc pl-6 space-y-2 text-base text-gray-700">
-                  <li>Account connection issues</li>
-                  <li>Transaction sync problems</li>
-                  <li>Savings not being detected</li>
-                  <li>App not working correctly</li>
-                  <li>Payment or billing issues</li>
+                  <li><a href="/help/connection-issues" className="text-blue-600 hover:underline">Account connection issues</a></li>
+                  <li><a href="/help/sync-problems" className="text-blue-600 hover:underline">Transaction sync problems</a></li>
+                  <li><a href="/help/savings-not-detected" className="text-blue-600 hover:underline">Savings not being detected</a></li>
+                  <li><a href="/help/app-issues" className="text-blue-600 hover:underline">App not working correctly</a></li>
+                  <li><a href="/help/billing-issues" className="text-blue-600 hover:underline">Payment or billing issues</a></li>
                 </ul>
               </div>
             </section>
@@ -90,11 +90,11 @@ export default function Help() {
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Security & Privacy</h2>
               <div className="space-y-4">
                 <ul className="list-disc pl-6 space-y-2 text-base text-gray-700">
-                  <li>How we protect your data</li>
-                  <li>Bank-level security features</li>
-                  <li>Managing your privacy settings</li>
-                  <li>Two-factor authentication</li>
-                  <li>Data export and deletion</li>
+                  <li><a href="/help/data-protection" className="text-blue-600 hover:underline">How we protect your data</a></li>
+                  <li><a href="/help/bank-security" className="text-blue-600 hover:underline">Bank-level security features</a></li>
+                  <li><a href="/help/privacy-settings" className="text-blue-600 hover:underline">Managing your privacy settings</a></li>
+                  <li><a href="/help/two-factor-auth" className="text-blue-600 hover:underline">Two-factor authentication</a></li>
+                  <li><a href="/help/data-export-deletion" className="text-blue-600 hover:underline">Data export and deletion</a></li>
                 </ul>
               </div>
             </section>
