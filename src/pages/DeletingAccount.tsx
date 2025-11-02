@@ -219,7 +219,7 @@ export default function DeletingAccount() {
             <h2 className="text-3xl font-semibold text-gray-900 mb-6">8. Need Help?</h2>
             <p className="mb-4">If you're considering account deletion due to issues, please contact us first:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li>Email support at <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a></li>
+              <li>Email support at <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></li>
               <li>Visit our <a href="/support" className="text-blue-600 hover:underline">Support page</a></li>
               <li>Check our <a href="/help" className="text-blue-600 hover:underline">Help Center</a> for solutions to common issues</li>
             </ul>

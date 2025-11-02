@@ -233,7 +233,7 @@ export default function About() {
               <div>
                 <h3 className="text-xl font-semibold text-gray-900" style={{ marginBottom: "16px", marginTop: "0" }}>Join Our Team</h3>
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 24px 0" }}>
-                  We're always looking for talented individuals who share our passion for financial empowerment. Whether you're an engineer, designer, data scientist, or have expertise in finance and compliance, we'd love to hear from you. Visit our <a href="/careers" className="text-blue-600 hover:underline">Careers page</a> to explore open positions and learn more about what it's like to work at SaveCash.
+                  We're always looking for talented individuals who share our passion for financial empowerment. Whether you're an engineer, designer, data scientist, or have expertise in finance and compliance, we'd love to hear from you. <a href="/contact" className="text-blue-600 hover:underline">Contact us</a> to learn more about career opportunities at SaveCash.
                 </p>
               </div>
             </div>
@@ -380,7 +380,7 @@ export default function About() {
                   Have questions or want to learn more? We'd love to hear from you. Our team is always available to help you understand how SaveCash can work for your unique financial situation.
                 </p>
             <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-                  Reach out to our team at <a href="mailto:support.savecashpro@gmail.com" className="text-blue-600 hover:underline">support.savecashpro@gmail.com</a>, visit our <a href="/help" className="text-blue-600 hover:underline">Help Center</a>, or join our <a href="/community" className="text-blue-600 hover:underline">Community</a> to connect with other SaveCash users and share tips, strategies, and success stories.
+                  Reach out to our team at <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a>, visit our <a href="/help" className="text-blue-600 hover:underline">Help Center</a>, or join our <a href="/community" className="text-blue-600 hover:underline">Community</a> to connect with other SaveCash users and share tips, strategies, and success stories.
             </p>
               </div>
             </div>

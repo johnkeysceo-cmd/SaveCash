@@ -107,7 +107,7 @@ export default function Help() {
                   Can't find the answer you're looking for? Our support team is available 24/7 to assist you.
                 </p>
                 <p>
-                  <strong>Support Email:</strong> <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a>
+                  <strong>Support Email:</strong> <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a>
                 </p>
                 <p>
                   <strong>Support Page:</strong> <a href="/support" className="text-blue-600 hover:underline">Visit Support Page</a>

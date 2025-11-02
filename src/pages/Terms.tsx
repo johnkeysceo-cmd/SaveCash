@@ -1,46 +1,27 @@
 import React from "react";
-import { ArrowLeft } from "lucide-react";
+import LegalPageLayout from "../components/LegalPageLayout";
 
 export default function Terms() {
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif", lineHeight: "1.6", color: "#1a1a1a" }}>
-      {/* Header */}
-      <div className="border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-8 py-16">
-          <div className="mb-6">
-            <a 
-              href="/"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </a>
-          </div>
-          
-          <h1 style={{ color: "#1a1a1a", fontSize: "28px", fontWeight: 600, margin: "0 0 32px 0", lineHeight: "1.4" }}>Terms of Service</h1>
-          
-          <h4 className="text-base font-normal text-gray-600 mb-12">Effective Date: October 28, 2025</h4>
-          
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-            By accessing, downloading, installing, or using the SaveCash website, mobile application, APIs, or any related software, tools, or services (collectively, the "Services"), you ("User", "you", or "your") agree to be bound by these Terms and Conditions ("Terms"), our Privacy Policy, and any additional terms incorporated by reference.
-          </p>
-          
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-            If you do not agree, you must not access or use the Services.
-          </p>
-          
-          <div className="mt-6 space-y-2 text-sm text-gray-600">
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 12px 0" }}><strong>Company:</strong> SaveCash ("Company", "we", "us", "our")</p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Website:</strong> <a href="https://savecashpro.vercel.app" className="text-blue-600 hover:underline">https://savecashpro.vercel.app</a></p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Address:</strong> 600 California Street, 11th Floor, San Francisco, CA 94108, United States</p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Email:</strong> <a href="mailto:privacy.savecashpro@gmail.com" className="text-blue-600 hover:underline">privacy.savecashpro@gmail.com</a></p>
-          </div>
+    <LegalPageLayout title="Terms of Service" currentPath="/terms">
+      <div style={{ marginBottom: "32px" }}>
+        <h4 className="text-base font-normal text-gray-600 mb-6" style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 24px 0" }}>
+          Effective Date: October 28, 2025
+        </h4>
+        <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
+          By accessing, downloading, installing, or using the SaveCash website, mobile application, APIs, or any related software, tools, or services (collectively, the "Services"), you ("User", "you", or "your") agree to be bound by these Terms and Conditions ("Terms"), our Privacy Policy, and any additional terms incorporated by reference.
+        </p>
+        <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
+          If you do not agree, you must not access or use the Services.
+        </p>
+        <div className="mt-6 space-y-2 text-sm text-gray-600">
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 12px 0" }}><strong>Company:</strong> SaveCash ("Company", "we", "us", "our")</p>
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Email:</strong> <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></p>
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Address:</strong> Built in California. Operating globally.</p>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-8 py-16">
-        <div className="space-y-10 text-base text-gray-700 leading-relaxed">
+      <div className="space-y-10 text-base text-gray-700 leading-relaxed">
             
             {/* 1. Acceptance of Terms */}
             <section id="acceptance" className="scroll-mt-8">
@@ -60,7 +41,7 @@ export default function Terms() {
               <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>2. Eligibility</h2>
               <div className="space-y-4">
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-                  You must be at least <strong>13 years of age</strong> (or older, where required by local law) to use the Services.
+                  You must be at least <strong>18 years of age</strong> (or older, where required by local law) to use the Services.
                 </p>
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
                   By using the Services, you affirm that you are capable of forming a binding contract with the Company and are not barred from doing so under any applicable law or regulation.
@@ -125,7 +106,7 @@ export default function Terms() {
                   <li style={{ marginBottom: "12px", color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8" }}>Cancel subscriptions prior to renewal dates to avoid automatic billing.</li>
                 </ul>
                 <p className="mt-4" style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-                  All fees are non-refundable except as expressly stated in our <a href="/return-policy" className="text-purple-400 hover:underline">Return Policy</a> or required by law.
+                  All fees are non-refundable except as expressly stated in our <a href="/terms" className="text-purple-400 hover:underline">Terms of Service</a> or required by law. For questions, please <a href="/contact" className="text-purple-400 hover:underline">contact us</a>.
                 </p>
               </div>
             </section>
@@ -187,7 +168,7 @@ export default function Terms() {
               <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>10. Privacy and Data Protection</h2>
               <div className="space-y-4">
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-                  Your use of the Services is also governed by our <a href="/privacy" className="text-purple-400 hover:underline">Privacy Policy</a>.
+                  Your use of the Services is also governed by our <a href="/" className="text-purple-400 hover:underline">Privacy Policy</a>.
                 </p>
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
                   We implement administrative, technical, and organizational measures to safeguard personal data and comply with applicable privacy laws including the <strong>GDPR</strong>, <strong>CCPA</strong>, and other data-protection regulations.
@@ -299,18 +280,16 @@ export default function Terms() {
                   SaveCash
                 </p>
                 <div className="space-y-2">
-                  <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>600 California Street, 11th Floor</p>
-                  <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>San Francisco, CA 94108, United States</p>
-                  <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Email: <a href="mailto:privacy.savecashpro@gmail.com" className="text-blue-600 hover:underline">privacy.savecashpro@gmail.com</a></p>
+                  <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Built in California. Operating globally.</p>
+                  <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Email: <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></p>
                 </div>
               </div>
             </section>
 
             {/* Contact section removed per request */}
 
-        </div>
       </div>
-    </div>
+    </LegalPageLayout>
   );
 }
 
@@ -336,7 +315,7 @@ export function TermsInvestorLegalAppendix() {
 
         <section>
           <h3 className="text-2xl font-semibold text-gray-900 mb-3">Notices</h3>
-          <p>Formal notices to SaveCash must be sent to privacy.savecashpro@gmail.com and to 600 California Street, 11th Floor, San Francisco, CA 94108. We may provide notices via email, in‑app messaging, or posting on the website.</p>
+          <p>Formal notices to SaveCash must be sent to privacy.savecash@gmail.com. We may provide notices via email, in‑app messaging, or posting on the website.</p>
         </section>
 
         <section>
@@ -382,7 +361,6 @@ export function TermsInvestorLegalAppendix() {
     </div>
   );
 }
-
 // ---------------------------------------------------------------------------
 // Appended: Full Terms & Conditions (Additional Legal Text) – no deletions
 // ---------------------------------------------------------------------------
@@ -394,7 +372,7 @@ export function TermsAdditionalLegalText() {
         <div>
           <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-2">Terms and Conditions</h2>
           <p className="text-base text-gray-600">Effective Date: October 28, 2025</p>
-          <p className="text-base text-gray-700 mt-2">Company: SaveCash · Website: https://savecashpro.vercel.app · Address: 600 California Street, 11th Floor, San Francisco, CA 94108, United States · Email: privacy.savecashpro@gmail.com</p>
+          <p className="text-base text-gray-700 mt-2">Company: SaveCash · Address: Built in California. Operating globally. · Email: privacy.savecash@gmail.com</p>
         </div>
 
         <section>
@@ -492,7 +470,7 @@ export function TermsAdditionalLegalText() {
 
         <section>
           <h3 className="text-2xl font-semibold text-gray-900 mb-3">18. Contact Information</h3>
-          <p>SaveCash · 600 California Street, 11th Floor, San Francisco, CA 94108 · Email: privacy.savecashpro@gmail.com</p>
+          <p>SaveCash · Built in California. Operating globally. · Email: privacy.savecash@gmail.com</p>
         </section>
       </div>
     </div>

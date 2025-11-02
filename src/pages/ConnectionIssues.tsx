@@ -268,7 +268,7 @@ export default function ConnectionIssues() {
             <h2 className="text-3xl font-semibold text-gray-900 mb-6">8. Still Having Issues?</h2>
             <p className="mb-4">If you've tried all troubleshooting steps and still can't connect:</p>
             <ul className="list-disc pl-6 space-y-2">
-              <li>Contact SaveCash support at <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a></li>
+              <li>Contact SaveCash support at <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></li>
               <li>Include your bank name and any error messages you received</li>
               <li>Visit our <a href="/support" className="text-blue-600 hover:underline">Support page</a> for additional resources</li>
               <li>See our <a href="/help/connecting-accounts" className="text-blue-600 hover:underline">Connecting Accounts guide</a> for detailed instructions</li>

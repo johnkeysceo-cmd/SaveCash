@@ -583,7 +583,7 @@ export default function ConnectingAccounts() {
                 <li>Compliance with legal requirements</li>
               </ul>
               <p>
-                Your personally identifiable information is never included in these aggregated reports. For complete details, see our <a href="/privacy" className="text-blue-600 hover:underline">Privacy Policy</a>.
+                Your personally identifiable information is never included in these aggregated reports. For complete details, see our <a href="/" className="text-blue-600 hover:underline">Privacy Policy</a>.
               </p>
               
               <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-4">9.3 Data Retention</h3>
@@ -638,7 +638,7 @@ export default function ConnectingAccounts() {
                   If you're having trouble connecting your accounts or have questions about the process:
                 </p>
                 <ul className="list-disc pl-6 space-y-1 text-sm">
-                  <li>Contact support at <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a></li>
+                  <li>Contact support at <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></li>
                   <li>Visit our <a href="/support" className="text-blue-600 hover:underline">Support page</a></li>
                   <li>Check our <a href="/faq" className="text-blue-600 hover:underline">FAQ</a> for common questions</li>
                 </ul>

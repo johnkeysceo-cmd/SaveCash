@@ -214,7 +214,7 @@ export default function AppIssues() {
             
             <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-4">7.3 Where to Report</h3>
             <ul className="list-disc pl-6 space-y-2">
-              <li>Email: <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a></li>
+              <li>Email: <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></li>
               <li>In-app: Settings → Help & Support → Report Issue</li>
               <li>Support page: <a href="/support" className="text-blue-600 hover:underline">Visit Support</a></li>
             </ul>
@@ -224,7 +224,7 @@ export default function AppIssues() {
             <h2 className="text-3xl font-semibold text-gray-900 mb-6">8. Need More Help?</h2>
             <ul className="list-disc pl-6 space-y-2">
               <li>See our <a href="/help/mobile-app" className="text-blue-600 hover:underline">Mobile App guide</a></li>
-              <li>Contact support at <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a></li>
+              <li>Contact support at <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></li>
               <li>Visit our <a href="/help" className="text-blue-600 hover:underline">Help Center</a></li>
             </ul>
           </section>

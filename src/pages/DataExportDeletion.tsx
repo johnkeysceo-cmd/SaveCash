@@ -299,7 +299,7 @@ export default function DataExportDeletion() {
             <p className="mb-4">If you have questions about exporting or deleting your data:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Email: <a href="mailto:privacy@savecash.com" className="text-blue-600 hover:underline">privacy@savecash.com</a></li>
-              <li>Contact support: <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a></li>
+              <li>Contact support: <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></li>
               <li>See our <a href="/help/data-protection" className="text-blue-600 hover:underline">Data Protection guide</a></li>
               <li>Visit our <a href="/help" className="text-blue-600 hover:underline">Help Center</a></li>
             </ul>

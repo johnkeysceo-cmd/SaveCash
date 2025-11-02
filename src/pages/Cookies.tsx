@@ -1,42 +1,24 @@
 import React from "react";
-import { ArrowLeft } from "lucide-react";
+import LegalPageLayout from "../components/LegalPageLayout";
 
 export default function Cookies() {
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif", lineHeight: "1.6", color: "#1a1a1a" }}>
-      {/* Header */}
-      <div className="border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-8 py-16">
-          <div className="mb-6">
-            <a 
-              href="/"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </a>
-          </div>
-          
-          <h1 style={{ color: "#1a1a1a", fontSize: "28px", fontWeight: 600, margin: "0 0 32px 0", lineHeight: "1.4" }}>Cookie Policy</h1>
-          
-          <h4 className="text-base font-normal text-gray-600 mb-12">Effective Date: October 29, 2025</h4>
-          
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-            This Cookie Policy explains how SaveCash uses cookies and similar technologies to recognize you when you visit our website, use our mobile app, or interact with our services ("Services"). It details what these technologies are, why we use them, and your rights to control their use in accordance with applicable data protection laws, including GDPR, CCPA, and the ePrivacy Directive.
-          </p>
-          
-          <div className="mt-6 space-y-2 text-sm text-gray-600">
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Company:</strong> SaveCash ("Company", "we", "us", "our")</p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Website:</strong> <a href="https://savecashpro.vercel.app" className="text-blue-600 hover:underline">https://savecashpro.vercel.app</a></p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Email:</strong> <a href="mailto:privacy.savecashpro@gmail.com" className="text-blue-600 hover:underline">privacy.savecashpro@gmail.com</a></p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Address:</strong> 600 California Street, 11th Floor, San Francisco, CA 94108, United States</p>
-          </div>
+    <LegalPageLayout title="Cookie Policy" currentPath="/cookies">
+      <div style={{ marginBottom: "32px" }}>
+        <h4 className="text-base font-normal text-gray-600 mb-6" style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 24px 0" }}>
+          Effective Date: October 29, 2025
+        </h4>
+        <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
+          This Cookie Policy explains how SaveCash uses cookies and similar technologies to recognize you when you visit our website, use our mobile app, or interact with our services ("Services"). It details what these technologies are, why we use them, and your rights to control their use in accordance with applicable data protection laws, including GDPR, CCPA, and the ePrivacy Directive.
+        </p>
+        <div className="mt-6 space-y-2 text-sm text-gray-600">
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Company:</strong> SaveCash ("Company", "we", "us", "our")</p>
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Email:</strong> <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></p>
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Address:</strong> Built in California. Operating globally.</p>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-8 py-16">
-        <div className="space-y-10 text-base text-gray-700 leading-relaxed">
+      <div className="space-y-10 text-base text-gray-700 leading-relaxed">
             
             {/* 1. Introduction */}
             <section id="what-are-cookies" className="scroll-mt-8">
@@ -254,7 +236,6 @@ export default function Cookies() {
               </div>
             </section>
 
-        </div>
       </div>
 
       {/* Appended: Full Legal Cookie Policy (no deletions) */}
@@ -264,7 +245,7 @@ export default function Cookies() {
             <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-2">Cookie Policy (Full Legal Text)</h2>
             <p className="text-base text-gray-600">Effective Date: October 29, 2025</p>
             <p className="text-base text-gray-700 mt-3">
-              Company: SaveCash ("Company", "we", "us", "our") · Website: https://savecashpro.vercel.app · Email: privacy.savecashpro@gmail.com · Address: 600 California Street, 11th Floor, San Francisco, CA 94108, United States
+              Company: SaveCash ("Company", "we", "us", "our") · Email: privacy.savecash@gmail.com · Address: Built in California. Operating globally.
             </p>
           </div>
 
@@ -527,18 +508,17 @@ export default function Cookies() {
 
             <section>
               <h3 className="text-2xl font-semibold text-gray-900 mb-3">10. Updates</h3>
-              <p>The latest version will always be available at https://savecashpro.vercel.app/cookie-policy. Significant updates will be notified via banner or email.</p>
+              <p>The latest version will always be available on our Cookie Policy page. Significant updates will be notified via banner or email.</p>
             </section>
 
             <section>
               <h3 className="text-2xl font-semibold text-gray-900 mb-3">11. Contact Us</h3>
-              <p>Email: privacy.savecashpro@gmail.com</p>
-              <p>Address: SaveCash Privacy Office, 600 California Street, 11th Floor, San Francisco, CA 94108, United States</p>
+              <p>Email: privacy.savecash@gmail.com</p>
+              <p>Address: Built in California. Operating globally.</p>
             </section>
           </div>
         </div>
       </div>
-
-    </div>
+    </LegalPageLayout>
   );
 }

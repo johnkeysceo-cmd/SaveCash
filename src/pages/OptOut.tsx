@@ -1,33 +1,16 @@
 import React from "react";
-import { ArrowLeft } from "lucide-react";
+import LegalPageLayout from "../components/LegalPageLayout";
 
 export default function OptOut() {
   return (
-    <div className="min-h-screen bg-white">
-      {/* Header */}
-      <div className="border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-6 py-12">
-          <div className="mb-6">
-            <a 
-              href="/"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </a>
-          </div>
-          
-          <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">Opt Out Options</h1>
-          
-          <p className="text-base text-gray-700 leading-relaxed">
-            You have the right to opt out of certain data processing and communications. Learn about your options.
-          </p>
-        </div>
+    <LegalPageLayout title="Opt Out Options" currentPath="/opt-out">
+      <div style={{ marginBottom: "32px" }}>
+        <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
+          You have the right to opt out of certain data processing and communications. Learn about your options.
+        </p>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <div className="space-y-10 text-base text-gray-700 leading-relaxed">
+      <div className="space-y-10 text-base text-gray-700 leading-relaxed">
             
           {/* Opt-Out Options */}
           <section>
@@ -122,7 +105,6 @@ export default function OptOut() {
           </section>
 
         </div>
-      </div>
-    </div>
+    </LegalPageLayout>
   );
 }

@@ -139,7 +139,7 @@ export default function Documentation() {
                   Can't find what you're looking for? Our support team is here to help.
                 </p>
                 <p>
-                  <strong>Support Email:</strong> <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a>
+                  <strong>Support Email:</strong> <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a>
                 </p>
                 <p>
                   <strong>Help Center:</strong> <a href="/help" className="text-blue-600 hover:underline">Visit Help Center</a>

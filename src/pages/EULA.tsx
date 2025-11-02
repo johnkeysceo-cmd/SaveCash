@@ -1,29 +1,21 @@
 import React from "react";
-import { ArrowLeft } from "lucide-react";
+import LegalPageLayout from "../components/LegalPageLayout";
 
 export default function EULA() {
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif", lineHeight: "1.6", color: "#1a1a1a" }}>
-      <div className="border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-8 py-16">
-          <div className="mb-6">
-            <a href="/" className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </a>
-          </div>
-          <h1 style={{ color: "#1a1a1a", fontSize: "28px", fontWeight: 600, margin: "0 0 32px 0", lineHeight: "1.4" }}>End User License Agreement (EULA)</h1>
-          <h4 className="text-base font-normal text-gray-600 mb-12">Effective Date: October 28, 2025</h4>
-          <div className="mt-6 space-y-2 text-sm text-gray-600">
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Company:</strong> SaveCash ("Company", "we", "us", or "our")</p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Website:</strong> <a href="https://savecashpro.vercel.app" className="text-blue-600 hover:underline">https://savecashpro.vercel.app</a></p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Email:</strong> <a href="mailto:support.savecashpro@gmail.com" className="text-blue-600 hover:underline">support.savecashpro@gmail.com</a></p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Address:</strong> 600 California Street, 11th Floor, San Francisco, CA 94108, United States</p>
-          </div>
+    <LegalPageLayout title="End User License Agreement (EULA)" currentPath="/eula">
+      <div style={{ marginBottom: "32px" }}>
+        <h4 className="text-base font-normal text-gray-600 mb-6" style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 24px 0" }}>
+          Effective Date: October 28, 2025
+        </h4>
+        <div className="mt-6 space-y-2 text-sm text-gray-600">
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Company:</strong> SaveCash ("Company", "we", "us", or "our")</p>
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Email:</strong> <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></p>
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Address:</strong> Built in California. Operating globally.</p>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-12 space-y-8 text-base text-gray-700 leading-relaxed">
+      <div className="space-y-8 text-base text-gray-700 leading-relaxed">
         <section>
           <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>1. Introduction</h2>
           <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
@@ -65,7 +57,7 @@ export default function EULA() {
         <section>
           <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>5. Maintenance and Support</h2>
           <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-            The Company may provide updates, bug fixes, and maintenance releases at its sole discretion. No guarantee of continuous availability or error-free performance. Support inquiries: privacy.savecashpro@gmail.com.
+            The Company may provide updates, bug fixes, and maintenance releases at its sole discretion. No guarantee of continuous availability or error-free performance. Support inquiries: privacy.savecash@gmail.com.
           </p>
         </section>
 
@@ -92,7 +84,7 @@ export default function EULA() {
 
         <section>
           <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>9. Warranty Period</h2>
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Defects must be notified within 90 days of discovery at privacy.savecashpro@gmail.com. Beyond this period, no warranty for performance or error correction is provided.</p>
+          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Defects must be notified within 90 days of discovery at privacy.savecash@gmail.com. Beyond this period, no warranty for performance or error correction is provided.</p>
         </section>
 
         <section>
@@ -116,13 +108,13 @@ export default function EULA() {
 
         <section>
           <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>13. Business Information</h2>
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Registered Address: 600 California Street, San Francisco, CA, United States · ZIP: [Insert ZIP Code]</p>
+          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Registered Address: Built in California. Operating globally.</p>
         </section>
 
         <section>
           <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>14. Contact Information</h2>
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Email: privacy.savecashpro@gmail.com · Business Name: SaveCash</p>
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Address: 600 California Street, San Francisco, CA, USA</p>
+          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Email: privacy.savecash@gmail.com · Business Name: SaveCash</p>
+          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Address: Built in California. Operating globally.</p>
         </section>
 
         <section>
@@ -140,7 +132,7 @@ export default function EULA() {
           <div>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">End User License Agreement (EULA)</h2>
             <p className="text-sm text-gray-500">Effective Date: October 28, 2025</p>
-            <p className="text-gray-400 mt-2">Company: SaveCash · Website: https://savecashpro.vercel.app · Email: support.savecashpro@gmail.com · Address: 600 California Street, 11th Floor, San Francisco, CA 94108, United States</p>
+            <p className="text-gray-400 mt-2">Company: SaveCash · Email: privacy.savecash@gmail.com · Address: Built in California. Operating globally.</p>
           </div>
 
           <section>
@@ -232,11 +224,11 @@ export default function EULA() {
               <li>Entire Agreement; Severability; Waiver</li>
               <li>No assignment without consent</li>
             </ul>
-            <p className="text-sm text-gray-500 mt-2">Contact: SaveCash Legal Department · 600 California Street, 11th Floor, San Francisco, CA 94108 · legal.savecashpro@gmail.com</p>
+            <p className="text-sm text-gray-500 mt-2">Contact: SaveCash Legal Department · Built in California. Operating globally. · privacy.savecash@gmail.com</p>
           </section>
         </div>
       </div>
-    </div>
+    </LegalPageLayout>
   );
 }
 

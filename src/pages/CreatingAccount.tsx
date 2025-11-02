@@ -67,7 +67,7 @@ export default function CreatingAccount() {
             <p className="mb-4">Email verification is a critical security step that ensures you own the email address you used to sign up.</p>
             
             <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-4">2.1 Receiving the Verification Email</h3>
-            <p className="mb-4">After signing up, you'll receive an email from SaveCash (from support@savecash.com) with the subject line "Verify Your SaveCash Account."</p>
+            <p className="mb-4">After signing up, you'll receive an email from SaveCash (from privacy.savecash@gmail.com) with the subject line "Verify Your SaveCash Account."</p>
             
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
               <div className="flex items-start gap-3">
@@ -90,7 +90,7 @@ export default function CreatingAccount() {
               <li>Check your inbox for an email from SaveCash</li>
               <li>If you don't see it, check your spam or junk folder</li>
               <li>Search for "SaveCash" or "verify" in your email search</li>
-              <li>Add support@savecash.com to your contacts to prevent future emails from going to spam</li>
+              <li>Add privacy.savecash@gmail.com to your contacts to prevent future emails from going to spam</li>
             </ol>
             
             <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-4">2.3 Clicking the Verification Link</h3>
@@ -292,7 +292,7 @@ export default function CreatingAccount() {
             <ul className="list-disc pl-6 space-y-2">
               <li>Visit our <a href="/help" className="text-blue-600 hover:underline">Help Center</a> for more guides</li>
               <li>Check our <a href="/faq" className="text-blue-600 hover:underline">FAQ page</a> for common questions</li>
-              <li>Contact support at <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a></li>
+              <li>Contact support at <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></li>
               <li>Visit our <a href="/support" className="text-blue-600 hover:underline">Support page</a> for additional resources</li>
             </ul>
           </section>

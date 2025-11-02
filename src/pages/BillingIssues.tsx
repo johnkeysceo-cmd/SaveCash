@@ -298,7 +298,7 @@ export default function BillingIssues() {
             <p className="mb-4">For billing questions or issues:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>Email: <a href="mailto:billing@savecash.com" className="text-blue-600 hover:underline">billing@savecash.com</a></li>
-              <li>General Support: <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a></li>
+              <li>General Support: <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></li>
               <li>Response time: Within 24 hours for billing inquiries</li>
               <li>Visit our <a href="/support" className="text-blue-600 hover:underline">Support page</a></li>
             </ul>

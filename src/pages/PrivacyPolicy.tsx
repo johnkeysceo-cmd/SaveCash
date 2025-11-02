@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
           <h1 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">Privacy Policy</h1>
           
           <p className="text-base text-gray-700 leading-relaxed">
-            See our <a href="/privacy" className="text-blue-600 hover:underline">Privacy Policy page</a> for detailed information.
+            See our <a href="/" className="text-blue-600 hover:underline">Privacy Policy page</a> for detailed information.
           </p>
         </div>
       </div>
@@ -28,7 +28,7 @@ export default function PrivacyPolicy() {
       {/* Main Content */}
       <div className="max-w-4xl mx-auto px-6 py-12">
         <div className="space-y-10 text-base text-gray-700 leading-relaxed">
-          <p>Please visit the <a href="/privacy" className="text-blue-600 hover:underline">Privacy page</a> for the full privacy policy.</p>
+          <p>Please visit the <a href="/" className="text-blue-600 hover:underline">Privacy page</a> for the full privacy policy.</p>
         </div>
       </div>
     </div>

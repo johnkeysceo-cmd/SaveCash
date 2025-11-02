@@ -1,36 +1,18 @@
 import React from "react";
-import { ArrowLeft } from "lucide-react";
+import LegalPageLayout from "../components/LegalPageLayout";
 
 export default function LegalDisclaimer() {
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif", lineHeight: "1.6", color: "#1a1a1a" }}>
-      {/* Header */}
-      <div className="border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-8 py-16">
-          <div className="mb-6">
-            <a 
-              href="/"
-              className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </a>
-          </div>
-          
-          <h1 style={{ color: "#1a1a1a", fontSize: "28px", fontWeight: 600, margin: "0 0 32px 0", lineHeight: "1.4" }}>Legal Disclaimer</h1>
-          
-          <div className="mt-6 space-y-2 text-sm text-gray-600">
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Company:</strong> SaveCash ("Company", "we", "us", or "our")</p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Website:</strong> <a href="https://savecashpro.vercel.app" className="text-blue-600 hover:underline">https://savecashpro.vercel.app</a></p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Email:</strong> <a href="mailto:privacy.savecashpro@gmail.com" className="text-blue-600 hover:underline">privacy.savecashpro@gmail.com</a></p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Address:</strong> 600 California Street, 11th Floor, San Francisco, CA 94108, United States</p>
-          </div>
+    <LegalPageLayout title="Legal Disclaimer" currentPath="/legal-disclaimer">
+      <div style={{ marginBottom: "32px" }}>
+        <div className="mt-6 space-y-2 text-sm text-gray-600">
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Company:</strong> SaveCash ("Company", "we", "us", or "our")</p>
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Email:</strong> <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></p>
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Address:</strong> Built in California. Operating globally.</p>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <div className="space-y-10 text-base text-gray-700 leading-relaxed">
+      <div className="space-y-10 text-base text-gray-700 leading-relaxed">
             
             {/* 1. General Information */}
             <section id="general-information" className="scroll-mt-8">
@@ -157,10 +139,10 @@ export default function LegalDisclaimer() {
                   If you have any questions about this Legal Disclaimer, please contact us at:
                 </p>
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-                  <strong>Email:</strong> <a href="mailto:privacy.savecashpro@gmail.com" className="text-blue-600 hover:underline">privacy.savecashpro@gmail.com</a>
+                  <strong>Email:</strong> <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a>
                 </p>
                 <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
-                  <strong>Address:</strong> 600 California Street, 11th Floor, San Francisco, CA 94108, United States
+                  <strong>Address:</strong> Built in California. Operating globally.
                 </p>
               </div>
             </section>
@@ -177,9 +159,7 @@ export default function LegalDisclaimer() {
                 </p>
               </div>
             </div>
-
         </div>
-      </div>
-    </div>
+    </LegalPageLayout>
   );
 }

@@ -67,7 +67,7 @@
       chunkSizeWarningLimit: 1000,
     },
     server: {
-      port: 3000,
+      port: 5173, // Changed from 3000 to avoid conflict with Next.js app
       open: true,
     },
   });

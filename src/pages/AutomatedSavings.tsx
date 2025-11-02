@@ -249,7 +249,7 @@ export default function AutomatedSavings() {
             <h2 className="text-3xl font-semibold text-gray-900 mb-6">Need More Help?</h2>
             <ul className="list-disc pl-6 space-y-2">
               <li>See our <a href="/help/savings-opportunities" className="text-blue-600 hover:underline">Savings Opportunities guide</a></li>
-              <li>Contact support at <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a></li>
+              <li>Contact support at <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></li>
               <li>Visit our <a href="/help" className="text-blue-600 hover:underline">Help Center</a></li>
             </ul>
           </section>

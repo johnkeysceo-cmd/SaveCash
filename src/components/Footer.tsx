@@ -26,43 +26,30 @@ import {
 import { SecuritySwitch } from "./ui/SecuritySwitch";
 
 export default function Footer() {
+  // Next.js app URL - points to stripe-privacy-clone-main folder
+  const NEXTJS_APP_URL = (import.meta as any).env?.VITE_NEXTJS_APP_URL || 'http://localhost:3000';
+
   const companyLinks = [
-    { title: "About Us", href: "/about", icon: Users },
-    { title: "Careers", href: "/careers", icon: Briefcase },
-    { title: "Contact", href: "/contact", icon: Mail },
-    { title: "Leadership", href: "/leadership", icon: Users },
-    { title: "Press", href: "/press", icon: Newspaper },
-    { title: "Investors", href: "/investors", icon: TrendingUp }
+    { title: "About Us", href: `${NEXTJS_APP_URL}/about`, icon: Users },
+    { title: "Contact", href: `${NEXTJS_APP_URL}/contact`, icon: Mail }
   ];
 
   const productLinks = [
-    { title: "Features", href: "/features", icon: TrendingUp },
-    { title: "Pricing", href: "/pricing", icon: TrendingUp },
-    { title: "Security", href: "/security", icon: Shield },
-    { title: "Security Overview", href: "/security-overview", icon: Shield },
-    { title: "API", href: "/api", icon: Code },
-    { title: "Integrations", href: "/integrations", icon: Link },
-    { title: "Status", href: "/status", icon: Activity }
+    { title: "Security", href: `${NEXTJS_APP_URL}/security`, icon: Shield }
   ];
 
   const resourceLinks = [
-    { title: "Help Center", href: "/help", icon: HelpCircle },
-    { title: "FAQs", href: "/faq", icon: HelpCircle },
-    { title: "Documentation", href: "/documentation", icon: FileText },
-    { title: "Blog", href: "/blog", icon: BookOpen },
-    { title: "Support", href: "/support", icon: LifeBuoy }
+    { title: "Accessibility", href: `${NEXTJS_APP_URL}/accessibility`, icon: Accessibility }
   ];
 
   const legalLinks = [
-    { title: "Privacy Policy", href: "/privacy#privacy-investor-compliance", icon: Lock },
-    { title: "Terms of Service", href: "/terms#terms-investor-appendix", icon: Scale },
-    { title: "Cookie Policy", href: "/cookies#cookie-policy-full", icon: Cookie },
-    { title: "Do Not Sell My Info", href: "/opt-out", icon: Eye },
-    { title: "Accessibility", href: "/accessibility", icon: Accessibility },
-    { title: "Legal Disclaimer", href: "/legal-disclaimer#disclaimer-appendix", icon: AlertTriangle },
-    { title: "EULA", href: "/eula#eula-appendix", icon: FileText },
-    { title: "Return Policy", href: "/return-policy", icon: FileText },
-    { title: "Shipping Policy", href: "/shipping-policy", icon: FileText }
+    { title: "Privacy Policy", href: `${NEXTJS_APP_URL}/`, icon: Lock },
+    { title: "Terms of Service", href: `${NEXTJS_APP_URL}/terms`, icon: Scale },
+    { title: "Cookie Policy", href: `${NEXTJS_APP_URL}/cookies`, icon: Cookie },
+    { title: "EULA", href: `${NEXTJS_APP_URL}/eula`, icon: FileText },
+    { title: "Acceptable Use", href: `${NEXTJS_APP_URL}/acceptable-use`, icon: AlertTriangle },
+    { title: "Disclaimer", href: `${NEXTJS_APP_URL}/disclaimer`, icon: AlertTriangle },
+    { title: "Accessibility", href: `${NEXTJS_APP_URL}/accessibility`, icon: Accessibility }
   ];
 
   return (
@@ -85,6 +72,8 @@ export default function Footer() {
                 <motion.a
                   key={link.title}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 text-gray-700 hover:text-gray-900 transition-colors duration-300 group"
                   aria-label={`Company · ${link.title}`}
                   initial={{ opacity: 0, x: -10 }}
@@ -113,6 +102,8 @@ export default function Footer() {
                 <motion.a
                   key={link.title}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 text-gray-700 hover:text-gray-900 transition-colors duration-300 group"
                   aria-label={`Product · ${link.title}`}
                   initial={{ opacity: 0, x: -10 }}
@@ -146,6 +137,8 @@ export default function Footer() {
                 <motion.a
                   key={link.title}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 text-gray-700 hover:text-gray-900 transition-colors duration-300 group"
                   aria-label={`Resources · ${link.title}`}
                   initial={{ opacity: 0, x: -10 }}
@@ -174,6 +167,8 @@ export default function Footer() {
                 <motion.a
                   key={link.title}
                   href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 text-gray-700 hover:text-gray-900 transition-colors duration-300 group"
                   aria-label={`Legal · ${link.title}`}
                   initial={{ opacity: 0, x: -10 }}
@@ -223,7 +218,9 @@ export default function Footer() {
               className="flex items-center gap-6 text-sm"
             >
               <motion.a
-                href="/privacy"
+                href={`${NEXTJS_APP_URL}/`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-600 hover:text-purple-600 transition-colors duration-300"
                 whileHover={{ 
                   scale: 1.05
@@ -236,7 +233,9 @@ export default function Footer() {
                 Privacy
               </motion.a>
               <motion.a
-                href="/terms"
+                href={`${NEXTJS_APP_URL}/terms`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-600 hover:text-purple-600 transition-colors duration-300"
                 whileHover={{ 
                   scale: 1.05
@@ -249,7 +248,9 @@ export default function Footer() {
                 Terms
               </motion.a>
               <motion.a
-                href="/licenses"
+                href={`${NEXTJS_APP_URL}/cookies`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-600 hover:text-purple-600 transition-colors duration-300"
                 whileHover={{ 
                   scale: 1.05
@@ -259,10 +260,12 @@ export default function Footer() {
                 transition={{ duration: 0.3, delay: 0.8 }}
                 viewport={{ once: true }}
               >
-                Licenses & Credits
+                Cookies
               </motion.a>
               <motion.a
-                href="/contact"
+                href={`${NEXTJS_APP_URL}/contact`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-600 hover:text-purple-600 transition-colors duration-300"
                 whileHover={{ 
                   scale: 1.05

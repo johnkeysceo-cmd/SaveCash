@@ -415,7 +415,7 @@ export default function ContactSupport() {
                 <p className="text-sm text-gray-600">Read our terms and conditions</p>
               </a>
               
-              <a href="/privacy" className="border border-gray-200 rounded-lg p-4 hover:border-purple-300 hover:shadow-md transition-all">
+              <a href="/" className="border border-gray-200 rounded-lg p-4 hover:border-purple-300 hover:shadow-md transition-all">
                 <Shield className="w-6 h-6 text-blue-600 mb-2" />
                 <h3 className="font-semibold text-gray-900 mb-1">Privacy Policy</h3>
                 <p className="text-sm text-gray-600">View our privacy statement</p>

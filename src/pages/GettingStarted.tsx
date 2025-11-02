@@ -473,7 +473,7 @@ export default function GettingStarted() {
               <ul className="list-disc pl-6 space-y-2 mb-6">
                 <li>Visit our <a href="/help" className="text-blue-600 hover:underline">Help Center</a> for more guides</li>
                 <li>Check our <a href="/faq" className="text-blue-600 hover:underline">FAQ page</a> for common questions</li>
-                <li>Contact support at <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a></li>
+                <li>Contact support at <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></li>
                 <li>Visit our <a href="/support" className="text-blue-600 hover:underline">Support page</a> for additional resources</li>
               </ul>
             </section>

@@ -1,27 +1,20 @@
 import React from "react";
-import { ArrowLeft } from "lucide-react";
+import LegalPageLayout from "../components/LegalPageLayout";
 
 export default function ReturnPolicy() {
   return (
-    <div className="min-h-screen bg-white" style={{ fontFamily: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif", lineHeight: "1.6", color: "#1a1a1a" }}>
-      <div className="border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-8 py-16">
-          <div className="mb-6">
-            <a href="/" className="inline-flex items-center gap-2 text-gray-600 hover:text-gray-900 transition-colors">
-              <ArrowLeft className="w-4 h-4" />
-              Back to Home
-            </a>
-          </div>
-          <h1 style={{ color: "#1a1a1a", fontSize: "28px", fontWeight: 600, margin: "0 0 32px 0", lineHeight: "1.4" }}>Return Policy</h1>
-          <h4 className="text-base font-normal text-gray-600 mb-12">Effective Date: October 29, 2025</h4>
-          <div className="mt-6 space-y-2 text-sm text-gray-600">
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Company:</strong> SaveCash ("we," "our," "us")</p>
-            <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Address:</strong> 600 California Street, 11th Floor, San Francisco, CA 94108, United States</p>
-          </div>
+    <LegalPageLayout title="Return Policy" currentPath="/return-policy">
+      <div style={{ marginBottom: "32px" }}>
+        <h4 className="text-base font-normal text-gray-600 mb-6" style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 24px 0" }}>
+          Effective Date: October 29, 2025
+        </h4>
+        <div className="mt-6 space-y-2 text-sm text-gray-600">
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Company:</strong> SaveCash ("we," "our," "us")</p>
+          <p style={{ color: "#6b7280", fontSize: "14px", lineHeight: "1.6", margin: "0 0 8px 0" }}><strong>Address:</strong> Built in California. Operating globally.</p>
         </div>
       </div>
 
-      <div className="max-w-4xl mx-auto px-6 py-12 space-y-8 text-base text-gray-700 leading-relaxed">
+      <div className="space-y-8 text-base text-gray-700 leading-relaxed">
         <section>
           <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>1. Overview</h2>
           <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>
@@ -40,7 +33,7 @@ export default function ReturnPolicy() {
 
         <section>
           <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>3. Return Authorization</h2>
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Obtain authorization before sending any item back. Email privacy.savecashpro@gmail.com with:</p>
+          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>Obtain authorization before sending any item back. Email privacy.savecash@gmail.com with:</p>
           <ul style={{ margin: "24px 0", paddingLeft: "24px" }}>
             <li style={{ marginBottom: "12px", color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8" }}>Your full name and order number</li>
             <li style={{ marginBottom: "12px", color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8" }}>Item(s) to be returned</li>
@@ -90,7 +83,7 @@ export default function ReturnPolicy() {
 
         <section>
           <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>9. Return Address</h2>
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>SaveCash, 600 California Street, San Francisco, CA, United States · ZIP: [Insert ZIP Code]</p>
+          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>SaveCash · Built in California. Operating globally.</p>
         </section>
 
         <section>
@@ -109,12 +102,12 @@ export default function ReturnPolicy() {
 
         <section>
           <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>12. Customer Service Contact</h2>
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>privacy.savecashpro@gmail.com · (661) 812-3265</p>
+          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>privacy.savecash@gmail.com · (661) 812-3265</p>
         </section>
 
         <section>
           <h2 style={{ color: "#1a1a1a", fontSize: "22px", fontWeight: 600, margin: "48px 0 24px 0", lineHeight: "1.4" }}>13. Policy Modifications</h2>
-          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>We may amend this policy. Changes will be posted at https://savecashpro.vercel.app/return-policy. Continued use indicates acceptance.</p>
+          <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>We may amend this policy. Changes will be posted on our Return Policy page. Continued use indicates acceptance.</p>
         </section>
 
         <section>
@@ -122,7 +115,7 @@ export default function ReturnPolicy() {
           <p style={{ color: "#4a4a4a", fontSize: "17px", lineHeight: "1.8", margin: "0 0 28px 0" }}>This Policy forms part of the broader Terms of Use and is governed by the laws of California, United States.</p>
         </section>
       </div>
-    </div>
+    </LegalPageLayout>
   );
 }
 

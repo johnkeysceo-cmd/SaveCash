@@ -293,7 +293,7 @@ export default function PrivacySettings() {
             <ul className="list-disc pl-6 space-y-2">
               <li>See our <a href="/help/data-protection" className="text-blue-600 hover:underline">Data Protection guide</a></li>
               <li>Contact privacy team: <a href="mailto:privacy@savecash.com" className="text-blue-600 hover:underline">privacy@savecash.com</a></li>
-              <li>Read our <a href="/privacy" className="text-blue-600 hover:underline">Privacy Policy</a></li>
+              <li>Read our <a href="/" className="text-blue-600 hover:underline">Privacy Policy</a></li>
               <li>Visit our <a href="/help" className="text-blue-600 hover:underline">Help Center</a></li>
             </ul>
           </section>

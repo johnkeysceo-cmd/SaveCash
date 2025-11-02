@@ -2,13 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "../components/ui/card";
 import { Badge } from "../components/ui/badge";
-import { Bot, Code, TrendingUp, Shield, Zap, BookOpen, Calendar, Clock, Sparkles, ArrowRight } from "lucide-react";
-import { getLatestPosts } from "../utils/blog-data";
+import { Bot, Code, TrendingUp, Shield, Zap, BookOpen, Calendar, Clock, Sparkles, ArrowRight, Search } from "lucide-react";
+import { blogPosts, blogCategories, BlogPost } from "../utils/blog-data";
 
 export default function Blog() {
-  const latestPosts = getLatestPosts(3);
   const [mounted, setMounted] = useState(false);
   const [typedCode, setTypedCode] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [displayedPosts, setDisplayedPosts] = useState<BlogPost[]>([]);
   
   const fullCode = `import { SaveCash } from '@savecash/finbots';
 
@@ -43,6 +45,32 @@ console.log(insights.recommendations);`;
 
     return () => clearInterval(typingInterval);
   }, []);
+
+  // Filter and search posts
+  useEffect(() => {
+    let filtered = [...blogPosts];
+
+    // Sort by date (newest first)
+    filtered.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+
+    // Filter by category
+    if (selectedCategory !== "All") {
+      filtered = filtered.filter(post => post.category === selectedCategory);
+    }
+
+    // Filter by search query
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(post => 
+        post.title.toLowerCase().includes(query) ||
+        post.excerpt.toLowerCase().includes(query) ||
+        post.tags.some(tag => tag.toLowerCase().includes(query)) ||
+        post.content.toLowerCase().includes(query)
+      );
+    }
+
+    setDisplayedPosts(filtered);
+  }, [selectedCategory, searchQuery]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-black via-gray-900 to-black text-white relative overflow-hidden">
@@ -207,27 +235,61 @@ console.log(insights.recommendations);`;
         </div>
       </section>
 
-      {/* Latest Blog Posts Section */}
+      {/* All Blog Posts Section */}
       <section className="container mx-auto px-4 py-16 md:py-24 relative">
-        <div className="flex items-center justify-between mb-12">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">
-              Latest from the Blog
-            </h2>
-            <p className="text-lg text-gray-400">
-              Insights on AI finance, FinBots tutorials, and savings strategies
+        <div className="mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            All Blog Posts
+          </h2>
+          <p className="text-lg text-gray-400 mb-8">
+            Insights on AI finance, FinBots tutorials, and savings strategies
+          </p>
+
+          {/* Search Bar */}
+          <div className="mb-6 max-w-2xl">
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search posts by title, content, or tags..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 bg-gray-900/50 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 transition-all"
+              />
+            </div>
+          </div>
+
+          {/* Category Filter */}
+          <div className="flex flex-wrap gap-3 mb-8">
+            {blogCategories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                  selectedCategory === category
+                    ? "bg-purple-600 text-white border-2 border-purple-400 shadow-lg shadow-purple-500/20"
+                    : "bg-gray-900/50 text-gray-300 border border-white/10 hover:border-purple-500/30 hover:bg-gray-800/50"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
+
+          {/* Results Count */}
+          <div className="mb-6">
+            <p className="text-sm text-gray-400">
+              Showing <span className="text-purple-400 font-semibold">{displayedPosts.length}</span> {displayedPosts.length === 1 ? 'post' : 'posts'}
+              {selectedCategory !== "All" && ` in "${selectedCategory}"`}
+              {searchQuery && ` matching "${searchQuery}"`}
             </p>
           </div>
-          <a href="/blog">
-            <Button variant="outline" className="border-white/20 hover:border-white/40 hover:bg-white/5 group transition-all duration-300 bg-transparent text-white">
-              <BookOpen className="h-4 w-4 mr-2 group-hover:scale-110 transition-transform" />
-              View All Posts
-            </Button>
-          </a>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {latestPosts.map((post, index) => (
+        {/* Blog Posts Grid */}
+        {displayedPosts.length > 0 ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {displayedPosts.map((post, index) => (
             <a 
               key={post.slug} 
               href={`/blog/${post.slug}`} 
@@ -238,6 +300,13 @@ console.log(insights.recommendations);`;
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
                 <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-purple-500/20 to-purple-500/5">
+                  {post.image && (
+                    <img 
+                      src={post.image} 
+                      alt={post.title}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-br from-purple-500/30 to-purple-500/10 group-hover:scale-110 transition-transform duration-700" />
                   <div className="absolute inset-0" style={{
                     backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 1px, transparent 1px)',
@@ -278,7 +347,28 @@ console.log(insights.recommendations);`;
               </Card>
             </a>
           ))}
-        </div>
+          </div>
+        ) : (
+          <div className="text-center py-16">
+            <BookOpen className="h-16 w-16 text-gray-600 mx-auto mb-4 opacity-50" />
+            <h3 className="text-xl font-semibold text-gray-400 mb-2">No posts found</h3>
+            <p className="text-gray-500">
+              {searchQuery 
+                ? `Try a different search term or clear the search.`
+                : `No posts in this category yet. Check back soon!`
+              }
+            </p>
+            {searchQuery && (
+              <Button
+                variant="outline"
+                onClick={() => setSearchQuery("")}
+                className="mt-4 border-white/20 hover:border-white/40 hover:bg-white/5 text-white"
+              >
+                Clear Search
+              </Button>
+            )}
+          </div>
+        )}
       </section>
 
       {/* CTA Section */}
@@ -354,7 +444,7 @@ console.log(insights.recommendations);`;
                 <li><a href="/about" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">About Us</a></li>
                 <li><a href="/careers" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">Careers</a></li>
                 <li><a href="/press" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">Press Kit</a></li>
-                <li><a href="/privacy" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">Privacy Policy</a></li>
+                <li><a href="/" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">Privacy Policy</a></li>
                 <li><a href="/terms" className="text-gray-400 hover:text-white transition-colors duration-300 hover:translate-x-1 inline-block">Terms of Service</a></li>
               </ul>
             </div>

@@ -162,7 +162,7 @@ export default function ChangingPassword() {
                   <li>Verify you're using the correct email address</li>
                   <li>Wait up to 10 minutes for delivery</li>
                   <li>Check if your email provider is blocking our emails</li>
-                  <li>Add support@savecash.com to your contacts</li>
+                  <li>Add privacy.savecash@gmail.com to your contacts</li>
                 </ul>
               </div>
               
@@ -194,7 +194,7 @@ export default function ChangingPassword() {
             <h2 className="text-3xl font-semibold text-gray-900 mb-6">Need More Help?</h2>
             <ul className="list-disc pl-6 space-y-2">
               <li>See our <a href="/help/security-privacy" className="text-blue-600 hover:underline">Security & Privacy guide</a></li>
-              <li>Contact support at <a href="mailto:support@savecash.com" className="text-blue-600 hover:underline">support@savecash.com</a></li>
+              <li>Contact support at <a href="mailto:privacy.savecash@gmail.com" className="text-blue-600 hover:underline">privacy.savecash@gmail.com</a></li>
               <li>Visit our <a href="/help" className="text-blue-600 hover:underline">Help Center</a></li>
             </ul>
           </section>
