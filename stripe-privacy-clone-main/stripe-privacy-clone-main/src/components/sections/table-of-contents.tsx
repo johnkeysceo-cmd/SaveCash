@@ -1,0 +1,64 @@
+"use client";
+
+import { Inter } from 'next/font/google';
+import React from 'react';
+
+const inter = Inter({ subsets: ['latin'], weight: '400' });
+
+const tocItems = [
+  { text: "Personal Data that we collect and how we use and share it", href: "#personal-data-we-collect-and-how-we-use-and-share-it" },
+  { text: "More ways we collect, use and share Personal Data", href: "#more-ways-we-collect-use-and-share-personal-data" },
+  { text: "Legal bases for processing data", href: "#legal-bases-for-processing-data" },
+  { text: "Your rights and choices", href: "#your-rights-and-choices" },
+  { text: "Security and retention", href: "#security-and-retention" },
+  { text: "International data transfers", href: "#international-data-transfers" },
+  { text: "Updates and notifications", href: "#updates-and-notifications" },
+  { text: "Jurisdiction-specific provisions", href: "#jurisdiction-specific-provisions" },
+  { text: "Contact us", href: "#contact-us" },
+  { text: "US Consumer Privacy Notice", href: "#us-consumer-privacy-notice" },
+];
+
+const TableOfContents = () => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      // Offset to account for the sticky header (~80px per design doc)
+      const headerOffset = 80;
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  return (
+    <nav aria-label="Table of contents" className={`${inter.className} mt-8`}>
+      <ol className="list-none space-y-3">
+        {tocItems.map((item, index) => (
+          <li key={item.href} className="text-base font-normal">
+            <a
+              href={item.href}
+              onClick={(e) => handleLinkClick(e, item.href)}
+              className="group flex transition-colors duration-150 ease-in-out text-primary hover:text-foreground focus-visible:outline-none focus:rounded-sm focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            >
+              <span className="w-7 flex-shrink-0 tabular-nums">
+                {index + 1}.
+              </span>
+              <span className="group-hover:underline">
+                {item.text}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ol>
+    </nav>
+  );
+};
+
+export default TableOfContents;

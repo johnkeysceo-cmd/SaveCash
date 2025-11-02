@@ -1,0 +1,20 @@
+# Development files
+*.log
+
+# IDE
+.vscode
+.idea
+*.swp
+
+# Testing
+coverage
+.nyc_output
+__tests__
+*.test.*
+
+# Documentation
+docs/
+
+# Misc
+.env.example
+
