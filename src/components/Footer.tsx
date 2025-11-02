@@ -45,14 +45,31 @@ export default function Footer() {
   }
  
   // Ensure we always have a full URL (http:// or https://) so links open in new tab
+  // In production, you MUST set VITE_NEXTJS_APP_URL environment variable in Vercel
+  // to point to your deployed Next.js app (from stripe-privacy-clone-main folder)
   const NEXTJS_APP_URL = envUrl ||
-    (isProduction ? 'https://your-nextjs-app.vercel.app' : 'http://localhost:3000');
+    (isProduction 
+      ? (() => {
+          // If no env var set in production, log warning but don't break
+          if (typeof window !== 'undefined') {
+            console.warn('⚠️ VITE_NEXTJS_APP_URL not set! Footer links will not work in production.');
+            console.warn('   Deploy the Next.js app from stripe-privacy-clone-main (1) to Vercel');
+            console.warn('   Then set VITE_NEXTJS_APP_URL in your Vercel project environment variables');
+          }
+          // Return empty string so links fail gracefully instead of going to placeholder
+          return '';
+        })()
+      : 'http://localhost:3000');
  
   // Helper function to ensure URL is absolute
   const getAbsoluteUrl = (path: string) => {
     // If path already starts with http:// or https://, return as is
     if (path.startsWith('http://') || path.startsWith('https://')) {
       return path;
+    }
+    // If NEXTJS_APP_URL is empty (production without env var), return '#' to prevent broken links
+    if (!NEXTJS_APP_URL) {
+      return '#';
     }
     // Otherwise, prepend the base URL
     return `${NEXTJS_APP_URL}${path.startsWith('/') ? path : '/' + path}`;
