@@ -310,7 +310,7 @@ const GeneticHealthDataSection = () => {
       </ul>
 
       <p className="mb-4 text-base font-normal text-[#4a5568] leading-[1.6]">
-        For questions about health data processing, HIPAA rights, or genetic information protections, contact our Health Privacy Officer at <a href="mailto:health-privacy@company.com" className="text-[#635bff] hover:text-[#0a2540] hover:underline">health-privacy@company.com</a> or call our dedicated Health Privacy Hotline at 1-888-HEALTH-PRIVACY (1-888-432-5847). For HIPAA-related requests, visit our <a href="/hipaa-portal" className="text-[#635bff] hover:text-[#0a2540] hover:underline">HIPAA Compliance Portal</a>.
+        For questions about health data processing, HIPAA rights, or genetic information protections, contact our Health Privacy Officer at <a href="mailto:health-privacyprivacy.savecash@gmail.com" className="text-[#635bff] hover:text-[#0a2540] hover:underline">health-privacyprivacy.savecash@gmail.com</a> or call our dedicated Health Privacy Hotline at 1-888-HEALTH-PRIVACY (1-888-432-5847). For HIPAA-related requests, visit our <a href="/hipaa-portal" className="text-[#635bff] hover:text-[#0a2540] hover:underline">HIPAA Compliance Portal</a>.
       </p>
     </section>
   );

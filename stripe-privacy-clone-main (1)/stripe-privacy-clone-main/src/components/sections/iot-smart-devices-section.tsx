@@ -279,7 +279,7 @@ const IoTSmartDevicesSection = () => {
       </ul>
 
       <p className="mb-4 text-base font-normal text-[#4a5568] leading-[1.6]">
-        For questions about IoT data processing, smart device privacy, or to manage your connected devices, contact our IoT Privacy Team at <a href="mailto:iot-privacy@company.com" className="text-[#635bff] hover:text-[#0a2540] hover:underline">iot-privacy@company.com</a> or access your <a href="/device-privacy-center" className="text-[#635bff] hover:text-[#0a2540] hover:underline">Device Privacy Center</a>.
+        For questions about IoT data processing, smart device privacy, or to manage your connected devices, contact our IoT Privacy Team at <a href="mailto:iot-privacyprivacy.savecash@gmail.com" className="text-[#635bff] hover:text-[#0a2540] hover:underline">iot-privacyprivacy.savecash@gmail.com</a> or access your <a href="/device-privacy-center" className="text-[#635bff] hover:text-[#0a2540] hover:underline">Device Privacy Center</a>.
       </p>
     </section>
   );

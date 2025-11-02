@@ -19,12 +19,9 @@ import UpdatesNotifications from '@/components/sections/updates-notifications';
 import JurisdictionProvisions from '@/components/sections/jurisdiction-provisions';
 import ContactInfo from '@/components/sections/contact-info';
 import USConsumerNotice from '@/components/sections/us-consumer-notice';
-import BiometricDataSection from '@/components/sections/biometric-data-section';
 import AIMLProcessingSection from '@/components/sections/ai-ml-processing-section';
 import QuantumComputingSection from '@/components/sections/quantum-computing-section';
 import BlockchainCryptocurrencySection from '@/components/sections/blockchain-cryptocurrency-section';
-import IoTSmartDevicesSection from '@/components/sections/iot-smart-devices-section';
-import GeneticHealthDataSection from '@/components/sections/genetic-health-data-section';
 
 export default function PrivacyPolicyPage() {
   return (
@@ -48,12 +45,9 @@ export default function PrivacyPolicyPage() {
               <SecurityAndRetentionSection />
               <InternationalTransfersSection />
               <UpdatesNotifications />
-              <BiometricDataSection />
               <AIMLProcessingSection />
               <QuantumComputingSection />
               <BlockchainCryptocurrencySection />
-              <IoTSmartDevicesSection />
-              <GeneticHealthDataSection />
               <JurisdictionProvisions />
               <ContactInfo />
               <USConsumerNotice />

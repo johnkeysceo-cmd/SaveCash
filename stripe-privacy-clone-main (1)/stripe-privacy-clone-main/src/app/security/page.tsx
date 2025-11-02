@@ -151,7 +151,7 @@ export default function SecurityPage() {
               </p>
               <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
                 <p className="text-[var(--color-text-primary)] mb-3">
-                  <strong className="font-medium">Email:</strong> security@company.com
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
                 </p>
                 <p className="text-[var(--color-text-primary)]">
                   Please include detailed information about the vulnerability and steps to reproduce it. We commit to responding within 48 hours and will work with you to resolve the issue promptly.

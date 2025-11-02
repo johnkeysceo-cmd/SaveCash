@@ -26,7 +26,7 @@ export default function ContactPage() {
               </p>
               <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
                 <p className="text-[var(--color-text-primary)] mb-3">
-                  <strong className="font-medium">Email:</strong> support@company.com
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
                 </p>
                 <p className="text-[var(--color-text-primary)] mb-3">
                   <strong className="font-medium">Phone:</strong> 1-888-XXX-XXXX
@@ -44,7 +44,7 @@ export default function ContactPage() {
               </p>
               <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
                 <p className="text-[var(--color-text-primary)] mb-3">
-                  <strong className="font-medium">Email:</strong> sales@company.com
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
                 </p>
                 <p className="text-[var(--color-text-primary)] mb-3">
                   <strong className="font-medium">Phone:</strong> 1-888-XXX-XXXX
@@ -62,10 +62,10 @@ export default function ContactPage() {
               </p>
               <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
                 <p className="text-[var(--color-text-primary)] mb-3">
-                  <strong className="font-medium">Email:</strong> privacy@company.com
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
                 </p>
                 <p className="text-[var(--color-text-primary)]">
-                  <strong className="font-medium">Legal Email:</strong> legal@company.com
+                  <strong className="font-medium">Legal Email:</strong> privacy.savecash@gmail.com
                 </p>
               </div>
             </section>
@@ -77,7 +77,7 @@ export default function ContactPage() {
               </p>
               <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
                 <p className="text-[var(--color-text-primary)]">
-                  <strong className="font-medium">Email:</strong> press@company.com
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
                 </p>
               </div>
             </section>
@@ -151,7 +151,7 @@ export default function ContactPage() {
               </p>
               <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
                 <p className="text-[var(--color-text-primary)]">
-                  <strong className="font-medium">Email:</strong> security@company.com
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
                 </p>
               </div>
             </section>

@@ -12,7 +12,7 @@ const ContactInfo = (): JSX.Element => {
       <div className="space-y-4">
         <p className="text-[16px] font-normal leading-[1.6] text-[#4a5568]">
           If you have any questions or complaints about this Policy, please{' '}
-          <a href="mailto:privacy@SaveCash.com" className="text-primary no-underline hover:underline">
+          <a href="mailto:privacy.savecash@gmail.com" className="text-primary no-underline hover:underline">
             contact us
           </a>
           .

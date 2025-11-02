@@ -279,7 +279,7 @@ const BlockchainCryptocurrencySection = () => {
       </ul>
 
       <p className="mb-4 text-base font-normal text-[#4a5568] leading-[1.6]">
-        For questions about blockchain privacy, cryptocurrency transaction data, or Web3 privacy practices, contact our Blockchain Privacy Office at <a href="mailto:blockchain-privacy@company.com" className="text-[#635bff] hover:text-[#0a2540] hover:underline">blockchain-privacy@company.com</a> or visit our <a href="/web3-privacy-center" className="text-[#635bff] hover:text-[#0a2540] hover:underline">Web3 Privacy Center</a>.
+        For questions about blockchain privacy, cryptocurrency transaction data, or Web3 privacy practices, contact our Blockchain Privacy Office at <a href="mailto:blockchain-privacyprivacy.savecash@gmail.com" className="text-[#635bff] hover:text-[#0a2540] hover:underline">blockchain-privacyprivacy.savecash@gmail.com</a> or visit our <a href="/web3-privacy-center" className="text-[#635bff] hover:text-[#0a2540] hover:underline">Web3 Privacy Center</a>.
       </p>
     </section>
   );

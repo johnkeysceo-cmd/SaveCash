@@ -23,8 +23,8 @@ const JurisdictionProvisions = () => {
       <ul className="mt-4 list-disc space-y-3 pl-[16px] text-base font-normal text-[#4a5568] leading-[1.6]">
         <li><strong className="font-medium text-[#1a1f36]">Data Controller:</strong> SaveCash Technology Europe Limited (Dublin, Ireland) serves as data controller for EU/EEA users.</li>
         <li><strong className="font-medium text-[#1a1f36]">Legal Bases:</strong> Processing based on contract performance, legal obligations, legitimate interests (with balancing test), consent, and substantial public interest.</li>
-        <li><strong className="font-medium text-[#1a1f36]">Data Protection Officer:</strong> Contact our DPO at dpo@company.com or DPO, Attn: Privacy, 1 Grand Canal Street Lower, Dublin 2, Ireland.</li>
-        <li><strong className="font-medium text-[#1a1f36]">EU Representative:</strong> Our EU representative pursuant to Article 27 GDPR available at eu-representative@company.com.</li>
+        <li><strong className="font-medium text-[#1a1f36]">Data Protection Officer:</strong> Contact our DPO at dpoprivacy.savecash@gmail.com or DPO, Attn: Privacy, 1 Grand Canal Street Lower, Dublin 2, Ireland.</li>
+        <li><strong className="font-medium text-[#1a1f36]">EU Representative:</strong> Our EU representative pursuant to Article 27 GDPR available at eu-representativeprivacy.savecash@gmail.com.</li>
         <li><strong className="font-medium text-[#1a1f36]">Supervisory Authority:</strong> Right to lodge complaints with your national data protection authority (list available at edpb.europa.eu).</li>
         <li><strong className="font-medium text-[#1a1f36]">International Transfers:</strong> Data transfers outside EU/EEA use Standard Contractual Clauses (SCCs), Adequacy Decisions, or Binding Corporate Rules with supplementary measures.</li>
         <li><strong className="font-medium text-[#1a1f36]">GDPR Rights:</strong> Access, rectification, erasure, restriction, portability, objection, and automated decision-making rights fully supported.</li>
@@ -44,7 +44,7 @@ const JurisdictionProvisions = () => {
       <ul className="mt-4 list-disc space-y-3 pl-[16px] text-base font-normal text-[#4a5568] leading-[1.6]">
         <li><strong className="font-medium text-[#1a1f36]">UK Data Controller:</strong> SaveCash Payments UK Limited serves as data controller for UK users.</li>
         <li><strong className="font-medium text-[#1a1f36]">ICO Registration:</strong> Registered with Information Commissioner's Office (ICO), registration number available upon request.</li>
-        <li><strong className="font-medium text-[#1a1f36]">UK Representative:</strong> UK representative pursuant to Article 27 UK GDPR at uk-representative@company.com.</li>
+        <li><strong className="font-medium text-[#1a1f36]">UK Representative:</strong> UK representative pursuant to Article 27 UK GDPR at uk-representativeprivacy.savecash@gmail.com.</li>
         <li><strong className="font-medium text-[#1a1f36]">Supervisory Authority:</strong> Information Commissioner's Office (ICO), Wycliffe House, Water Lane, Wilmslow, Cheshire SK9 5AF. ico.org.uk</li>
         <li><strong className="font-medium text-[#1a1f36]">International Transfers:</strong> UK International Data Transfer Agreement (IDTA) or Addendum to SCCs for transfers to non-adequate countries.</li>
         <li><strong className="font-medium text-[#1a1f36]">Brexit Adequacy:</strong> EU-UK adequacy decision enables free flow of data between UK and EU without additional safeguards.</li>
@@ -73,7 +73,7 @@ const JurisdictionProvisions = () => {
       <ul className="mt-4 list-disc space-y-3 pl-[16px] text-base font-normal text-[#4a5568] leading-[1.6]">
         <li><strong className="font-medium text-[#1a1f36]">Consumer Rights:</strong> Right to know, delete, correct, opt-out of sale/sharing, limit sensitive data use, and non-discrimination.</li>
         <li><strong className="font-medium text-[#1a1f36]">Sensitive Personal Information:</strong> SSN, driver's license, biometrics, health data, geolocation - opt-in required for secondary uses.</li>
-        <li><strong className="font-medium text-[#1a1f36]">Do Not Sell/Share:</strong> We do not sell personal information. Opt-out available at donotsell@company.com.</li>
+        <li><strong className="font-medium text-[#1a1f36]">Do Not Sell/Share:</strong> We do not sell personal information. Opt-out available at donotsellprivacy.savecash@gmail.com.</li>
         <li><strong className="font-medium text-[#1a1f36]">Authorized Agent:</strong> Authorized agents may submit requests with proof of authorization.</li>
         <li><strong className="font-medium text-[#1a1f36]">CPRA Enhancements:</strong> Risk assessments, data minimization, automated decision-making disclosures.</li>
         <li><strong className="font-medium text-[#1a1f36]">California Privacy Rights Act (CPRA) Metrics:</strong> Annual privacy metrics report available at privacy-metrics.company.com.</li>
@@ -84,7 +84,7 @@ const JurisdictionProvisions = () => {
         <li>Rights: Access, correction, deletion, portability, opt-out of targeted advertising and sale.</li>
         <li>Sensitive data consent required for: racial/ethnic origin, religious beliefs, health diagnosis, sexual orientation, citizenship, genetic/biometric data.</li>
         <li>Data protection assessments conducted for high-risk processing activities.</li>
-        <li>Appeal process: Email appeals@company.com within 15 days of request decision.</li>
+        <li>Appeal process: Email appealsprivacy.savecash@gmail.com within 15 days of request decision.</li>
       </ul>
 
       <h4 className="mt-6 mb-4 text-[20px] font-semibold text-[#1a1f36]">Colorado (CPA)</h4>
@@ -115,7 +115,7 @@ const JurisdictionProvisions = () => {
         <li><strong>Illinois (BIPA):</strong> Biometric Information Privacy Act - written consent before biometric collection (see Section 11).</li>
         <li><strong>New York (SHIELD Act):</strong> Enhanced data security requirements and breach notification.</li>
         <li><strong>Massachusetts:</strong> 201 CMR 17.00 comprehensive information security program requirements.</li>
-        <li><strong>Nevada:</strong> Opt-out right for sale of covered information. Email nevada-optout@company.com.</li>
+        <li><strong>Nevada:</strong> Opt-out right for sale of covered information. Email nevada-optoutprivacy.savecash@gmail.com.</li>
         <li><strong>Maine:</strong> Opt-in consent required for sale of internet service provider customer data.</li>
         <li><strong>Washington:</strong> My Health My Data Act - consumer health data protections.</li>
         <li><strong>Delaware, Indiana, Iowa, Kentucky, Minnesota, Nebraska, New Hampshire, New Jersey, Rhode Island, Tennessee:</strong> State-specific privacy and security requirements fully complied with.</li>
@@ -130,7 +130,7 @@ const JurisdictionProvisions = () => {
         <li><strong className="font-medium text-[#1a1f36]">Provincial Laws:</strong> Alberta PIPA, British Columbia PIPA, Quebec Law 25 (Bill 64) compliance for applicable provinces.</li>
         <li><strong className="font-medium text-[#1a1f36]">Privacy Commissioner:</strong> Office of the Privacy Commissioner of Canada complaint process available.</li>
         <li><strong className="font-medium text-[#1a1f36]">Quebec Law 25:</strong> Enhanced rights for Quebec residents including data portability, de-indexing, and privacy impact assessments.</li>
-        <li><strong className="font-medium text-[#1a1f36]">Canadian Representative:</strong> Canadian privacy representative at canada-privacy@company.com.</li>
+        <li><strong className="font-medium text-[#1a1f36]">Canadian Representative:</strong> Canadian privacy representative at canada-privacyprivacy.savecash@gmail.com.</li>
       </ul>
 
       {/* LATIN AMERICA */}
@@ -138,7 +138,7 @@ const JurisdictionProvisions = () => {
         8.6 Brazil (LGPD)</h3>
       <ul className="mt-4 list-disc space-y-3 pl-[16px] text-base font-normal text-[#4a5568] leading-[1.6]">
         <li><strong className="font-medium text-[#1a1f36]">Lei Geral de Proteção de Dados:</strong> Brazilian General Data Protection Law compliance.</li>
-        <li><strong className="font-medium text-[#1a1f36]">Data Protection Officer:</strong> DPO for Brazil (encarregado) at brazil-dpo@company.com.</li>
+        <li><strong className="font-medium text-[#1a1f36]">Data Protection Officer:</strong> DPO for Brazil (encarregado) at brazil-dpoprivacy.savecash@gmail.com.</li>
         <li><strong className="font-medium text-[#1a1f36]">Legal Bases:</strong> Consent, contract, legal obligation, legitimate interest, credit protection, health protection, or other LGPD bases.</li>
         <li><strong className="font-medium text-[#1a1f36]">ANPD Authority:</strong> National Data Protection Authority (Autoridade Nacional de Proteção de Dados) oversight.</li>
         <li><strong className="font-medium text-[#1a1f36]">Sensitive Data:</strong> Explicit consent required for racial/ethnic origin, religious beliefs, political opinions, health, biometric, genetic data.</li>
@@ -222,7 +222,7 @@ const JurisdictionProvisions = () => {
       </p>
       <ul className="mt-4 list-disc space-y-3 pl-[16px] text-base font-normal text-[#4a5568] leading-[1.6]">
         <li><strong className="font-medium text-[#1a1f36]">Global Privacy Portal:</strong> <a href="/global-privacy-rights" className="text-[#635bff] hover:text-[#0a2540] hover:underline">global-privacy-rights.company.com</a> - Automated rights request system with jurisdiction detection.</li>
-        <li><strong className="font-medium text-[#1a1f36]">Email:</strong> privacy@company.com with subject line "Jurisdiction: [Your Country/State]"</li>
+        <li><strong className="font-medium text-[#1a1f36]">Email:</strong> privacyprivacy.savecash@gmail.com with subject line "Jurisdiction: [Your Country/State]"</li>
         <li><strong className="font-medium text-[#1a1f36]">Phone:</strong> Global Privacy Hotline +1-888-PRIVACY-1 (24/7, multilingual support in 50+ languages)</li>
         <li><strong className="font-medium text-[#1a1f36]">Mail:</strong> Regional privacy offices listed at company.com/privacy-contacts</li>
         <li><strong className="font-medium text-[#1a1f36]">Authorized Agents:</strong> Authorized agent submission process with verification at company.com/authorized-agents</li>

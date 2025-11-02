@@ -207,7 +207,7 @@ const BiometricDataSection = () => {
       
       <ul className="mt-4 list-disc space-y-3 pl-[16px] text-base font-normal text-[#4a5568] leading-[1.6]">
         <li>
-          <strong className="font-medium text-[#1a1f36]">Right to Withdraw Consent:</strong> You may withdraw your consent for biometric collection and processing at any time by contacting us at privacy@company.com. Withdrawal will not affect the lawfulness of processing before withdrawal.
+          <strong className="font-medium text-[#1a1f36]">Right to Withdraw Consent:</strong> You may withdraw your consent for biometric collection and processing at any time by contacting us at privacyprivacy.savecash@gmail.com. Withdrawal will not affect the lawfulness of processing before withdrawal.
         </li>
         <li>
           <strong className="font-medium text-[#1a1f36]">Right to Deletion:</strong> You may request deletion of your Biometric Data at any time. We will permanently delete your Biometric Data within 30 days unless retention is required by law.
@@ -273,7 +273,7 @@ const BiometricDataSection = () => {
       </p>
 
       <p className="mb-4 text-base font-normal text-[#4a5568] leading-[1.6]">
-        For questions about our biometric data practices or to exercise your rights, contact us at <a href="mailto:biometrics@company.com" className="text-[#635bff] hover:text-[#0a2540] hover:underline">biometrics@company.com</a> or submit a request through our <a href="/privacy-center" className="text-[#635bff] hover:text-[#0a2540] hover:underline">Privacy Center</a>.
+        For questions about our biometric data practices or to exercise your rights, contact us at <a href="mailto:biometricsprivacy.savecash@gmail.com" className="text-[#635bff] hover:text-[#0a2540] hover:underline">biometricsprivacy.savecash@gmail.com</a> or submit a request through our <a href="/privacy-center" className="text-[#635bff] hover:text-[#0a2540] hover:underline">Privacy Center</a>.
       </p>
     </section>
   );

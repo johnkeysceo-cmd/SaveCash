@@ -250,7 +250,7 @@ const QuantumComputingSection = () => {
       </ul>
 
       <p className="mb-4 text-base font-normal text-[#4a5568] leading-[1.6]">
-        For questions about our quantum computing preparedness or to request additional information about quantum-safe measures protecting your Personal Data, contact our Quantum Security Team at <a href="mailto:quantum-security@company.com" className="text-[#635bff] hover:text-[#0a2540] hover:underline">quantum-security@company.com</a> or visit our <a href="/quantum-readiness-center" className="text-[#635bff] hover:text-[#0a2540] hover:underline">Quantum Readiness Center</a>.
+        For questions about our quantum computing preparedness or to request additional information about quantum-safe measures protecting your Personal Data, contact our Quantum Security Team at <a href="mailto:quantum-securityprivacy.savecash@gmail.com" className="text-[#635bff] hover:text-[#0a2540] hover:underline">quantum-securityprivacy.savecash@gmail.com</a> or visit our <a href="/quantum-readiness-center" className="text-[#635bff] hover:text-[#0a2540] hover:underline">Quantum Readiness Center</a>.
       </p>
     </section>
   );

@@ -129,7 +129,7 @@ export default function USConsumerNotice() {
         <div className="p-4 border-t border-[#e6e6e6]">
           <p className="font-bold">Questions?</p>
           <p>
-            Contact us at <a href="mailto:privacy@SaveCash.com" className="text-primary hover:text-accent-hover hover:underline">privacy@SaveCash.com</a> or visit us at{' '}
+            Contact us at <a href="mailto:privacy.savecash@gmail.com" className="text-primary hover:text-accent-hover hover:underline">privacy.savecash@gmail.com</a> or visit us at{' '}
             <a href="https://support.link.com" className="text-primary hover:text-accent-hover hover:underline">https://support.link.com</a>
           </p>
         </div>

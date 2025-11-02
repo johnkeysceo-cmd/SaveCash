@@ -76,7 +76,7 @@ export default function AccessibilityPage() {
               </p>
               <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
                 <p className="text-[var(--color-text-primary)] mb-3">
-                  <strong className="font-medium">Email:</strong> accessibility@company.com
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
                 </p>
                 <p className="text-[var(--color-text-primary)]">
                   <strong className="font-medium">Phone:</strong> 1-888-XXX-XXXX

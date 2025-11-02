@@ -323,7 +323,7 @@ const AIMLProcessingSection = () => {
       </ul>
 
       <p className="mb-4 text-base font-normal text-[#4a5568] leading-[1.6]">
-        To exercise your AI-related rights or ask questions about our AI practices, contact our AI Ethics and Governance team at <a href="mailto:ai-ethics@company.com" className="text-[#635bff] hover:text-[#0a2540] hover:underline">ai-ethics@company.com</a> or submit a request through our <a href="/ai-transparency-center" className="text-[#635bff] hover:text-[#0a2540] hover:underline">AI Transparency Center</a>.
+        To exercise your AI-related rights or ask questions about our AI practices, contact our AI Ethics and Governance team at <a href="mailto:ai-ethicsprivacy.savecash@gmail.com" className="text-[#635bff] hover:text-[#0a2540] hover:underline">ai-ethicsprivacy.savecash@gmail.com</a> or submit a request through our <a href="/ai-transparency-center" className="text-[#635bff] hover:text-[#0a2540] hover:underline">AI Transparency Center</a>.
       </p>
     </section>
   );

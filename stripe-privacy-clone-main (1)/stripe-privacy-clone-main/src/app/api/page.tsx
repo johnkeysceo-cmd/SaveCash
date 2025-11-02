@@ -1,0 +1,77 @@
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function APIPage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[900px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">API Reference</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">
+                Complete REST API documentation for developers.
+              </p>
+            </div>
+
+            <section className="space-y-4">
+              <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-6">Getting Started</h2>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6">
+                <p className="text-sm text-[var(--color-text-secondary)] mb-4">
+                  Our API is built on REST principles and returns JSON responses. Get your API key from the dashboard.
+                </p>
+                <div className="bg-[#1e1e1e] text-gray-100 p-4 rounded font-mono text-sm overflow-x-auto">
+                  <div>$ curl https://api.savecash.com/v1/accounts</div>
+                  <div className="mt-2 text-xs text-gray-400">  -H "Authorization: Bearer YOUR_API_KEY"</div>
+                </div>
+              </div>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-6">Endpoints</h2>
+              <div className="space-y-4">
+                <div className="border-l-4 border-[var(--color-accent-primary)] pl-4">
+                  <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">Accounts</h3>
+                  <p className="text-sm text-[var(--color-text-secondary)]">Retrieve and manage account information</p>
+                </div>
+                <div className="border-l-4 border-[var(--color-accent-primary)] pl-4">
+                  <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">Transactions</h3>
+                  <p className="text-sm text-[var(--color-text-secondary)]">Access transaction history and details</p>
+                </div>
+                <div className="border-l-4 border-[var(--color-accent-primary)] pl-4">
+                  <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">Savings Opportunities</h3>
+                  <p className="text-sm text-[var(--color-text-secondary)]">Get AI-powered savings recommendations</p>
+                </div>
+                <div className="border-l-4 border-[var(--color-accent-primary)] pl-4">
+                  <h3 className="text-lg font-semibold text-[var(--color-text-primary)]">Webhooks</h3>
+                  <p className="text-sm text-[var(--color-text-secondary)]">Receive real-time event notifications</p>
+                </div>
+              </div>
+            </section>
+
+            <section className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-8 mt-12">
+              <h2 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-4">Ready to Get Started?</h2>
+              <p className="text-[var(--color-text-primary)] mb-4">
+                Sign up for an API key and start building.
+              </p>
+              <a 
+                href="/contact" 
+                className="inline-block px-6 py-3 bg-[var(--color-accent-primary)] text-white rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors"
+              >
+                Get API Access
+              </a>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+
