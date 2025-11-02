@@ -27,6 +27,9 @@ import { SecuritySwitch } from "./ui/SecuritySwitch";
 
 export default function Footer() {
   // Next.js app URL - points to stripe-privacy-clone-main folder
+  // IMPORTANT: In Vercel, set environment variable VITE_NEXTJS_APP_URL to your deployed Next.js app URL
+  // Example: https://your-nextjs-app.vercel.app
+  // For development, defaults to http://localhost:3000
   const NEXTJS_APP_URL = (import.meta as any).env?.VITE_NEXTJS_APP_URL || 'http://localhost:3000';
 
   const companyLinks = [
