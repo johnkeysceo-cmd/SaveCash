@@ -63,7 +63,7 @@
       "scripts": {
             "dev": "concurrently -n \"REACT,NEXTJS\" -c \"cyan,magenta\" \"npm run dev:react\" \"npm run dev:nextjs\"",
             "dev:react": "vite",
-            "dev:nextjs": "npm --prefix stripe-privacy-clone-main/stripe-privacy-clone-main run dev",
+            "dev:nextjs": "npm --prefix \"stripe-privacy-clone-main (1)/stripe-privacy-clone-main\" run dev",
             "build": "vite build"
       }
 }

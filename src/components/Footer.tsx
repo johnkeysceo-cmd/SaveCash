@@ -1,14 +1,14 @@
 import React from "react";
 import { motion } from "motion/react";
-import { 
-  Mail, 
-  Briefcase, 
-  Users, 
-  Newspaper, 
-  TrendingUp, 
-  Shield, 
-  Code, 
-  Link, 
+import {
+  Mail,
+  Briefcase,
+  Users,
+  Newspaper,
+  TrendingUp,
+  Shield,
+  Code,
+  Link,
   Activity,
   HelpCircle,
   FileText,
@@ -25,56 +25,73 @@ import {
 } from "lucide-react";
 import { SecuritySwitch } from "./ui/SecuritySwitch";
 
+
 export default function Footer() {
   // Next.js app URL - points to stripe-privacy-clone-main folder
   // IMPORTANT: In Vercel, set environment variable VITE_NEXTJS_APP_URL to your deployed Next.js app URL
   // Example: https://your-nextjs-app.vercel.app
   // For development, defaults to http://localhost:3000
-  
+ 
   // Access Vite environment variable correctly
-  const envUrl = import.meta.env.VITE_NEXTJS_APP_URL;
-  const isProduction = typeof window !== 'undefined' && 
-    window.location.hostname !== 'localhost' && 
+  const envUrl = (import.meta as any).env?.VITE_NEXTJS_APP_URL;
+  const isProduction = typeof window !== 'undefined' &&
+    window.location.hostname !== 'localhost' &&
     window.location.hostname !== '127.0.0.1';
-  
+ 
   // Debug: Log the URL being used (remove in production if desired)
   if (typeof window !== 'undefined') {
     console.log('Next.js App URL:', envUrl || 'Using fallback');
     console.log('Is Production:', isProduction);
   }
-  
-  const NEXTJS_APP_URL = envUrl || 
+ 
+  // Ensure we always have a full URL (http:// or https://) so links open in new tab
+  const NEXTJS_APP_URL = envUrl ||
     (isProduction ? 'https://your-nextjs-app.vercel.app' : 'http://localhost:3000');
+ 
+  // Helper function to ensure URL is absolute
+  const getAbsoluteUrl = (path: string) => {
+    // If path already starts with http:// or https://, return as is
+    if (path.startsWith('http://') || path.startsWith('https://')) {
+      return path;
+    }
+    // Otherwise, prepend the base URL
+    return `${NEXTJS_APP_URL}${path.startsWith('/') ? path : '/' + path}`;
+  };
+
 
   const companyLinks = [
-    { title: "About Us", href: `${NEXTJS_APP_URL}/about`, icon: Users },
-    { title: "Contact", href: `${NEXTJS_APP_URL}/contact`, icon: Mail }
+    { title: "About Us", href: getAbsoluteUrl('/about'), icon: Users },
+    { title: "Contact", href: getAbsoluteUrl('/contact'), icon: Mail }
   ];
+
 
   const productLinks = [
-    { title: "Security", href: `${NEXTJS_APP_URL}/security`, icon: Shield }
+    { title: "Security", href: getAbsoluteUrl('/security'), icon: Shield }
   ];
+
 
   const resourceLinks = [
-    { title: "Accessibility", href: `${NEXTJS_APP_URL}/accessibility`, icon: Accessibility }
+    { title: "Accessibility", href: getAbsoluteUrl('/accessibility'), icon: Accessibility }
   ];
 
+
   const legalLinks = [
-    { title: "Privacy Policy", href: `${NEXTJS_APP_URL}/`, icon: Lock },
-    { title: "Terms of Service", href: `${NEXTJS_APP_URL}/terms`, icon: Scale },
-    { title: "Cookie Policy", href: `${NEXTJS_APP_URL}/cookies`, icon: Cookie },
-    { title: "EULA", href: `${NEXTJS_APP_URL}/eula`, icon: FileText },
-    { title: "Acceptable Use", href: `${NEXTJS_APP_URL}/acceptable-use`, icon: AlertTriangle },
-    { title: "Disclaimer", href: `${NEXTJS_APP_URL}/disclaimer`, icon: AlertTriangle },
-    { title: "Accessibility", href: `${NEXTJS_APP_URL}/accessibility`, icon: Accessibility }
+    { title: "Privacy Policy", href: getAbsoluteUrl('/'), icon: Lock },
+    { title: "Terms of Service", href: getAbsoluteUrl('/terms'), icon: Scale },
+    { title: "Cookie Policy", href: getAbsoluteUrl('/cookies'), icon: Cookie },
+    { title: "EULA", href: getAbsoluteUrl('/eula'), icon: FileText },
+    { title: "Acceptable Use", href: getAbsoluteUrl('/acceptable-use'), icon: AlertTriangle },
+    { title: "Disclaimer", href: getAbsoluteUrl('/disclaimer'), icon: AlertTriangle },
+    { title: "Accessibility", href: getAbsoluteUrl('/accessibility'), icon: Accessibility }
   ];
+
 
   return (
     <footer className="bg-white border-t border-gray-200">
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
-          
+         
           {/* Company Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -104,6 +121,7 @@ export default function Footer() {
               ))}
             </div>
           </motion.div>
+
 
           {/* Product Section */}
           <motion.div
@@ -140,6 +158,7 @@ export default function Footer() {
             </div>
           </motion.div>
 
+
           {/* Resources Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -169,6 +188,7 @@ export default function Footer() {
               ))}
             </div>
           </motion.div>
+
 
           {/* Legal Section */}
           <motion.div
@@ -202,8 +222,10 @@ export default function Footer() {
             </div>
           </motion.div>
 
+
         </div>
       </div>
+
 
       {/* Footer Base */}
       <div className="border-t border-gray-200 bg-white">
@@ -226,7 +248,7 @@ export default function Footer() {
                 SaveCash is a registered trademark.
               </div>
             </motion.div>
-            
+           
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -235,11 +257,11 @@ export default function Footer() {
               className="flex items-center gap-6 text-sm"
             >
               <motion.a
-                href={`${NEXTJS_APP_URL}/`}
+                href={getAbsoluteUrl('/')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-purple-600 transition-colors duration-300"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05
                 }}
                 initial={{ opacity: 0, x: -10 }}
@@ -250,11 +272,11 @@ export default function Footer() {
                 Privacy
               </motion.a>
               <motion.a
-                href={`${NEXTJS_APP_URL}/terms`}
+                href={getAbsoluteUrl('/terms')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-purple-600 transition-colors duration-300"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05
                 }}
                 initial={{ opacity: 0, x: -10 }}
@@ -265,11 +287,11 @@ export default function Footer() {
                 Terms
               </motion.a>
               <motion.a
-                href={`${NEXTJS_APP_URL}/cookies`}
+                href={getAbsoluteUrl('/cookies')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-purple-600 transition-colors duration-300"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05
                 }}
                 initial={{ opacity: 0, x: -10 }}
@@ -280,11 +302,11 @@ export default function Footer() {
                 Cookies
               </motion.a>
               <motion.a
-                href={`${NEXTJS_APP_URL}/contact`}
+                href={getAbsoluteUrl('/contact')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-purple-600 transition-colors duration-300"
-                whileHover={{ 
+                whileHover={{
                   scale: 1.05
                 }}
                 initial={{ opacity: 0, x: -10 }}
@@ -300,7 +322,7 @@ export default function Footer() {
                 <SecuritySwitch />
               </div>
             </motion.div>
-            
+           
             {/* Official Tagline */}
             <div className="mt-8 pt-8 border-t border-gray-200 text-center">
               <p className="text-gray-900 font-semibold text-base">
