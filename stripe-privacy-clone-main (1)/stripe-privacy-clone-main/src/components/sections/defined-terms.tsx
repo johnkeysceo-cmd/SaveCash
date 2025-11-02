@@ -5,13 +5,13 @@ const DefinedTerms = () => {
         Defined Terms
       </h2>
       <p className="text-[16px] leading-[1.6] text-[#4a5568] mb-6">
-        In this Policy, <strong className="font-medium text-foreground">&ldquo;Stripe&rdquo;</strong>, <strong className="font-medium text-foreground">&ldquo;we&rdquo;</strong>, <strong className="font-medium text-foreground">&ldquo;our,&rdquo;</strong> or <strong className="font-medium text-foreground">&ldquo;us&rdquo;</strong> refers to the Stripe entity responsible for the collection, use, and handling of Personal Data as described in this document. Depending on your jurisdiction, the specific Stripe entity accountable for your Personal Data might vary. <a href="https://stripe.com/legal/privacy-center#which-stripe-entities-are-involved" className="text-primary hover:text-foreground hover:underline">Learn More</a>.
+        In this Policy, <strong className="font-medium text-foreground">&ldquo;SaveCash&rdquo;</strong>, <strong className="font-medium text-foreground">&ldquo;we&rdquo;</strong>, <strong className="font-medium text-foreground">&ldquo;our,&rdquo;</strong> or <strong className="font-medium text-foreground">&ldquo;us&rdquo;</strong> refers to the SaveCash entity responsible for the collection, use, and handling of Personal Data as described in this document. Depending on your jurisdiction, the specific SaveCash entity accountable for your Personal Data might vary. <a href="https://savecash.com/legal/privacy-center#which-savecash-entities-are-involved" className="text-primary hover:text-foreground hover:underline">Learn More</a>.
       </p>
       <p className="text-[16px] leading-[1.6] text-[#4a5568] mb-6">
         <strong className="font-medium text-foreground">&ldquo;Personal Data&rdquo;</strong> refers to any information associated with an identified or identifiable individual, which can include data that you provide to us, and that we collect about you during your interaction with our Services (such as device information, IP address, etc.).
       </p>
       <p className="text-[16px] leading-[1.6] text-[#4a5568] mb-6">
-        <strong className="font-medium text-foreground">&ldquo;Services&rdquo;</strong> refers to the products, services, devices, and applications, that we provide under the Stripe Services Agreement (“Business Services”) or the Stripe Consumer Terms of Service (“End User Services”); websites (“Sites”) like Stripe.com and Link.com; and other Stripe applications and online services. We provide Business Services to entities (“Business Users”). We provide End User Services directly to individuals for their personal use.
+        <strong className="font-medium text-foreground">&ldquo;Services&rdquo;</strong> refers to the products, services, devices, and applications, that we provide under the SaveCash Services Agreement ("Business Services") or the SaveCash Consumer Terms of Service ("End User Services"); websites ("Sites") like SaveCash.com and our mobile applications; and other SaveCash applications and online services. We provide Business Services to entities ("Business Users"). We provide End User Services directly to individuals for their personal use.
       </p>
       <p className="text-[16px] leading-[1.6] text-[#4a5568] mb-6">
         <strong className="font-medium text-foreground">&ldquo;Financial Partners&rdquo;</strong> are financial institutions, banks, and other partners such as payment method acquirers, payout providers, and card networks that we partner with to provide the Services.
@@ -24,17 +24,17 @@ const DefinedTerms = () => {
           <strong className="font-medium text-foreground">End Users.</strong> When you use an End User Service, such as saving a payment method with Link, for personal use we refer to you as an &ldquo;End User.&rdquo;
         </li>
         <li>
-          <strong className="font-medium text-foreground">End Customers.</strong> When you are not directly transacting with Stripe, but we receive your Personal Data to provide Services to a Business User, including when you make a purchase from a Business User on a Stripe Checkout page or receive payments from a Business User, we refer to you as an &ldquo;End Customer.&rdquo;
+          <strong className="font-medium text-foreground">End Customers.</strong> When you are not directly transacting with SaveCash, but we receive your Personal Data to provide Services to a Business User, including when you make a purchase from a Business User or receive payments from a Business User, we refer to you as an &ldquo;End Customer.&rdquo;
         </li>
         <li>
-          <strong className="font-medium text-foreground">Representatives.</strong> When you are acting on behalf of an existing or potential Business User—perhaps as a company founder, account administrator for a Business User, or a recipient of an employee credit card from a Business User via Stripe Issuing—we refer to you as a &ldquo;Representative.&rdquo;
+          <strong className="font-medium text-foreground">Representatives.</strong> When you are acting on behalf of an existing or potential Business User—perhaps as a company founder, account administrator for a Business User, or a recipient of an employee credit card from a Business User—we refer to you as a &ldquo;Representative.&rdquo;
         </li>
         <li>
-          <strong className="font-medium text-foreground">Visitors.</strong> When you interact with Stripe by visiting a Site without being logged into a Stripe account, or when your interaction with Stripe does not involve you being an End User, End Customer, or Representative, we refer to you as a &ldquo;Visitor.&rdquo; For example, you are a Visitor when you send a message to Stripe asking for more information about our Services.
+          <strong className="font-medium text-foreground">Visitors.</strong> When you interact with SaveCash by visiting a Site without being logged into a SaveCash account, or when your interaction with SaveCash does not involve you being an End User, End Customer, or Representative, we refer to you as a &ldquo;Visitor.&rdquo; For example, you are a Visitor when you send a message to SaveCash asking for more information about our Services.
         </li>
       </ul>
       <p className="text-[16px] leading-[1.6] text-[#4a5568] mb-6">
-        In this Policy, <strong className="font-medium text-foreground">&ldquo;Transaction Data&rdquo;</strong> refers to data collected and used by Stripe to facilitate transactions you request. Some Transaction Data is Personal Data and may include: your name, email address, contact number, billing and shipping address, payment method information (like credit or debit card number, bank account details, or payment card image chosen by you), merchant and location details, amount and date of purchase, and in some instances, information about what was purchased.
+        In this Policy, <strong className="font-medium text-foreground">&ldquo;Transaction Data&rdquo;</strong> refers to data collected and used by SaveCash to facilitate transactions you request. Some Transaction Data is Personal Data and may include: your name, email address, contact number, billing and shipping address, payment method information (like credit or debit card number, bank account details, or payment card image chosen by you), merchant and location details, amount and date of purchase, and in some instances, information about what was purchased.
       </p>
     </section>
   );

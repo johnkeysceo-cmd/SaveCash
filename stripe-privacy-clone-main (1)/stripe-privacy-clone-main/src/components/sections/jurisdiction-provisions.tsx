@@ -21,7 +21,7 @@ const JurisdictionProvisions = () => {
       </p>
       
       <ul className="mt-4 list-disc space-y-3 pl-[16px] text-base font-normal text-[#4a5568] leading-[1.6]">
-        <li><strong className="font-medium text-[#1a1f36]">Data Controller:</strong> Stripe Technology Europe Limited (Dublin, Ireland) serves as data controller for EU/EEA users.</li>
+        <li><strong className="font-medium text-[#1a1f36]">Data Controller:</strong> SaveCash Technology Europe Limited (Dublin, Ireland) serves as data controller for EU/EEA users.</li>
         <li><strong className="font-medium text-[#1a1f36]">Legal Bases:</strong> Processing based on contract performance, legal obligations, legitimate interests (with balancing test), consent, and substantial public interest.</li>
         <li><strong className="font-medium text-[#1a1f36]">Data Protection Officer:</strong> Contact our DPO at dpo@company.com or DPO, Attn: Privacy, 1 Grand Canal Street Lower, Dublin 2, Ireland.</li>
         <li><strong className="font-medium text-[#1a1f36]">EU Representative:</strong> Our EU representative pursuant to Article 27 GDPR available at eu-representative@company.com.</li>
@@ -42,7 +42,7 @@ const JurisdictionProvisions = () => {
       </p>
       
       <ul className="mt-4 list-disc space-y-3 pl-[16px] text-base font-normal text-[#4a5568] leading-[1.6]">
-        <li><strong className="font-medium text-[#1a1f36]">UK Data Controller:</strong> Stripe Payments UK Limited serves as data controller for UK users.</li>
+        <li><strong className="font-medium text-[#1a1f36]">UK Data Controller:</strong> SaveCash Payments UK Limited serves as data controller for UK users.</li>
         <li><strong className="font-medium text-[#1a1f36]">ICO Registration:</strong> Registered with Information Commissioner's Office (ICO), registration number available upon request.</li>
         <li><strong className="font-medium text-[#1a1f36]">UK Representative:</strong> UK representative pursuant to Article 27 UK GDPR at uk-representative@company.com.</li>
         <li><strong className="font-medium text-[#1a1f36]">Supervisory Authority:</strong> Information Commissioner's Office (ICO), Wycliffe House, Water Lane, Wilmslow, Cheshire SK9 5AF. ico.org.uk</li>

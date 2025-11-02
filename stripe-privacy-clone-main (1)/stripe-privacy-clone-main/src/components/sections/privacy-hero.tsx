@@ -9,11 +9,11 @@ const PrivacyHero = () => {
 
       <div className="mb-6 rounded-lg bg-secondary p-4">
         <p className="text-[15px] leading-relaxed text-muted-foreground">
-          We've recently added a new data controller, Stripe Technology Company
-          Limited, to our Privacy Center. For an overview of current Stripe data
+          We've recently added a new data controller, SaveCash Technology Company
+          Limited, to our Privacy Center. For an overview of current SaveCash data
           controllers please visit our{' '}
           <a
-            href="https://stripe.com/legal/privacy-center#which-stripe-entities-are-involved"
+            href="https://savecash.com/legal/privacy-center#which-savecash-entities-are-involved"
             className="text-primary"
           >
             Privacy Center

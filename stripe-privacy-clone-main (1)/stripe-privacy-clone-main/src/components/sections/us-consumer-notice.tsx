@@ -58,7 +58,7 @@ export default function USConsumerNotice() {
         10. US Consumer Privacy Notice
       </h2>
       <p className="text-base text-text-secondary mb-4">
-        The following Consumer Privacy Notice applies to you if you are an individual who resides in the United States and obtains financial services from Stripe primarily for your own personal, family, or household purposes.
+        The following Consumer Privacy Notice applies to you if you are an individual who resides in the United States and obtains financial services from SaveCash primarily for your own personal, family, or household purposes.
       </p>
       <p className="text-base text-text-secondary mb-8">Last updated: January 16, 2025</p>
 
@@ -67,7 +67,7 @@ export default function USConsumerNotice() {
           <h3 className="text-center font-bold text-xl uppercase">FACTS</h3>
         </div>
         <div className="p-4 border-b border-[#e6e6e6]">
-          <h3 className="font-bold text-base mb-2">WHAT DOES STRIPE DO WITH YOUR PERSONAL INFORMATION?</h3>
+          <h3 className="font-bold text-base mb-2">WHAT DOES SaveCash DO WITH YOUR PERSONAL INFORMATION?</h3>
           <p className="mb-4">
             <span className="font-bold">Why?</span> Financial companies choose how they share your personal information. Federal law gives consumers the right to limit some but not all sharing. Federal law also requires us to tell you how we collect, share, and protect your personal information. Please read this notice carefully to understand what we do.
           </p>
@@ -86,7 +86,7 @@ export default function USConsumerNotice() {
         </div>
         <div className="p-4 border-b border-[#e6e6e6]">
           <p>
-            <span className="font-bold">How?</span> All financial companies need to share customers' personal information to run their everyday business. In the section below, we list the reasons financial companies can share their customers' personal information; the reasons Stripe chooses to share; and whether you can limit this sharing.
+            <span className="font-bold">How?</span> All financial companies need to share customers' personal information to run their everyday business. In the section below, we list the reasons financial companies can share their customers' personal information; the reasons SaveCash chooses to share; and whether you can limit this sharing.
           </p>
         </div>
 
@@ -94,7 +94,7 @@ export default function USConsumerNotice() {
           <thead>
             <tr className="bg-white">
               <th className="p-4 text-sm font-semibold text-[#424770] border-b border-[#e6e6e6] align-top">Reasons we can share your personal information</th>
-              <th className="p-4 text-sm font-semibold text-[#424770] border-b border-[#e6e6e6] align-top">Does Stripe Share?</th>
+              <th className="p-4 text-sm font-semibold text-[#424770] border-b border-[#e6e6e6] align-top">Does SaveCash Share?</th>
               <th className="p-4 text-sm font-semibold text-[#424770] border-b border-[#e6e6e6] align-top">Can you limit this sharing</th>
             </tr>
           </thead>
@@ -129,7 +129,7 @@ export default function USConsumerNotice() {
         <div className="p-4 border-t border-[#e6e6e6]">
           <p className="font-bold">Questions?</p>
           <p>
-            Contact us at <a href="mailto:privacy@stripe.com" className="text-primary hover:text-accent-hover hover:underline">privacy@stripe.com</a> or visit us at{' '}
+            Contact us at <a href="mailto:privacy@SaveCash.com" className="text-primary hover:text-accent-hover hover:underline">privacy@SaveCash.com</a> or visit us at{' '}
             <a href="https://support.link.com" className="text-primary hover:text-accent-hover hover:underline">https://support.link.com</a>
           </p>
         </div>
@@ -140,20 +140,20 @@ export default function USConsumerNotice() {
           <div>
             <h3 className="text-xl font-semibold mb-4">Who we are</h3>
             <p className="font-bold mb-1">Who is providing this notice?</p>
-            <p>Stripe, Inc., Stripe Payments Company, and their affiliates that provide consumers services in the U.S.</p>
+            <p>SaveCash, Inc., SaveCash Payments Company, and their affiliates that provide consumers services in the U.S.</p>
           </div>
           <div>
             <h3 className="text-xl font-semibold mb-4">What we do</h3>
-            <p className="font-bold mb-1">How does Stripe protect my personal information?</p>
+            <p className="font-bold mb-1">How does SaveCash protect my personal information?</p>
             <p>To protect your personal information from unauthorized access, destruction, loss, alteration, or misuse we use security measures to comply with federal law. These measures include computer safeguards and secured files and buildings. We impose access controls along with ongoing monitoring to prevent data misuse, and we require our service providers to take similar steps to protect your information.</p>
           </div>
           <div>
-            <p className="font-bold mb-1">How does Stripe collect my personal information?</p>
+            <p className="font-bold mb-1">How does SaveCash collect my personal information?</p>
             <p className="mb-2">We collect your personal information, for example, when you</p>
             <ul className="list-disc pl-5 mb-2 space-y-1">
               <li>open a Link account;</li>
-              <li>ask Stripe to process a payment for goods or services;</li>
-              <li>provide bank account information to Stripe using Financial Connections</li>
+              <li>ask SaveCash to process a payment for goods or services;</li>
+              <li>provide bank account information to SaveCash using Financial Connections</li>
             </ul>
             <p>We also collect your personal information from others, such as affiliates or other companies.</p>
           </div>
@@ -179,7 +179,7 @@ export default function USConsumerNotice() {
             <p className="font-bold mb-1">Affiliates</p>
             <p className="mb-2">Companies related by common ownership or control. They can be financial and nonfinancial companies.</p>
             <ul className="list-disc pl-5 space-y-1">
-              <li>Our affiliates include companies operating under the Stripe name, such as Stripe Technology Europe, Ltd. and Stripe Payments UK, Ltd.</li>
+              <li>Our affiliates include companies operating under the SaveCash name, such as SaveCash Technology Europe, Ltd. and SaveCash Payments UK, Ltd.</li>
             </ul>
           </div>
           <div>
@@ -206,7 +206,7 @@ export default function USConsumerNotice() {
           <span className="font-bold">California:</span> If your account with us is associated with a California billing address, we will not disclose Personal Data we collect about you except to the extent permitted under California law. For instance, we may disclose your Personal Data as necessary to process transactions or provide products and services you request, at your instruction, as required for institution risk control, and to safeguard against fraud, identity theft, and unauthorized transactions.
         </p>
         <p className="pb-12">
-          For additional information about our privacy practices, please visit the Stripe Privacy Center.
+          For additional information about our privacy practices, please visit the SaveCash Privacy Center.
         </p>
       </div>
     </section>

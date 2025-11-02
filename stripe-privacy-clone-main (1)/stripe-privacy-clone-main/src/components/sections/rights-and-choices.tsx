@@ -19,19 +19,19 @@ export const RightsAndChoices = () => {
       </p>
       <ul className="list-disc pl-4 text-base font-normal leading-[1.6] space-y-2">
         <li>
-          <strong className="font-medium">The right to request confirmation</strong> of whether Stripe is processing Personal Data associated with you, the categories of personal data it has processed, and the third parties or categories of third parties with which your Personal Data is shared;
+          <strong className="font-medium">The right to request confirmation</strong> of whether SaveCash is processing Personal Data associated with you, the categories of personal data it has processed, and the third parties or categories of third parties with which your Personal Data is shared;
         </li>
         <li>
-          <strong className="font-medium">The right to request access</strong> to the Personal Data Stripe processes about you (<a href="#" className="text-primary hover:text-foreground hover:underline">Learn More</a>);
+          <strong className="font-medium">The right to request access</strong> to the Personal Data SaveCash processes about you (<a href="#" className="text-primary hover:text-foreground hover:underline">Learn More</a>);
         </li>
         <li>
-          <strong className="font-medium">The right to request that Stripe rectify or update your Personal Data</strong> if it's inaccurate, incomplete, or outdated;
+          <strong className="font-medium">The right to request that SaveCash rectify or update your Personal Data</strong> if it's inaccurate, incomplete, or outdated;
         </li>
         <li>
-          <strong className="font-medium">The right to request that Stripe erase your Personal Data</strong> in certain circumstances as provided by law (<a href="#" className="text-primary hover:text-foreground hover:underline">Learn More</a>);
+          <strong className="font-medium">The right to request that SaveCash erase your Personal Data</strong> in certain circumstances as provided by law (<a href="#" className="text-primary hover:text-foreground hover:underline">Learn More</a>);
         </li>
         <li>
-          <strong className="font-medium">The right to request that Stripe restrict the use of your Personal Data</strong> in certain circumstances, such as while Stripe is considering another request you've submitted (for instance, a request that Stripe update your Personal Data);
+          <strong className="font-medium">The right to request that SaveCash restrict the use of your Personal Data</strong> in certain circumstances, such as while SaveCash is considering another request you've submitted (for instance, a request that SaveCash update your Personal Data);
         </li>
         <li>
           <strong className="font-medium">The right to request that we export the Personal Data</strong> we hold about you to another company, provided it's technically feasible;

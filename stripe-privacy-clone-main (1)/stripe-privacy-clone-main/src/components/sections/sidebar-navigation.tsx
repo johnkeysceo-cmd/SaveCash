@@ -24,9 +24,9 @@ interface NavGroup {
 }
 
 const navigationData: NavGroup[] = [
-  { title: 'Stripe Services Agreement', href: '/legal/ssa', isTopLevelLink: true },
-  { title: 'Stripe Connected Account Agreement', href: '/legal/connect-account', isTopLevelLink: true },
-  { title: 'Stripe Payments Company Terms', href: '/legal/spc', isTopLevelLink: true },
+  { title: 'SaveCash Services Agreement', href: '/legal/ssa', isTopLevelLink: true },
+  { title: 'SaveCash Connected Account Agreement', href: '/legal/connect-account', isTopLevelLink: true },
+  { title: 'SaveCash Payments Company Terms', href: '/legal/spc', isTopLevelLink: true },
   {
     title: 'Acquirer Terms',
     items: [
@@ -34,27 +34,27 @@ const navigationData: NavGroup[] = [
       { title: 'Cross River Bank', href: '/legal/crb' },
       { title: 'Deutsche Bank', href: '/legal/deutsche-bank' },
       { title: 'Pathward N.A.', href: '/legal/pathward' },
-      { title: 'PNC Bank', href: 'https://stripe.com/pnc/legal' },
+      { title: 'PNC Bank', href: 'https://SaveCash.com/pnc/legal' },
     ],
   },
   { title: 'Issuing Bank Terms', href: '/legal/celtic-spend-card', isTopLevelLink: true },
   { title: 'Payment Method Terms', href: '/legal/payment-terms', isTopLevelLink: true },
   { title: 'User Bank Debit Authorizations', href: '/legal/bank-debit-authorizations', isTopLevelLink: true },
-  { title: 'Prohibited & Restricted Businesses', href: 'https://stripe.com/restricted-businesses', isTopLevelLink: true },
+  { title: 'Prohibited & Restricted Businesses', href: 'https://SaveCash.com/restricted-businesses', isTopLevelLink: true },
   {
     title: 'Other Products and Programs',
     items: [
-      { title: 'Stripe Terminal Device EULA', href: '/legal/terminal-device-eula' },
-      { title: 'Stripe Terminal Purchase Terms', href: '/legal/terminal-purchase' },
-      { title: 'Stripe Terminal Reseller Terms', href: '/legal/terminal-reseller' },
-      { title: 'Stripe Atlas Agreement', href: '/legal/atlas' },
-      { title: 'Stripe Climate Contribution Terms', href: '/legal/climate-contributions' },
-      { title: 'Stripe Fee Credit Terms', href: '/legal/fee-credits' },
-      { title: 'Stripe Partner Ecosystem', href: 'https://stripe.com/partners/legal' },
+      { title: 'SaveCash Terminal Device EULA', href: '/legal/terminal-device-eula' },
+      { title: 'SaveCash Terminal Purchase Terms', href: '/legal/terminal-purchase' },
+      { title: 'SaveCash Terminal Reseller Terms', href: '/legal/terminal-reseller' },
+      { title: 'SaveCash Atlas Agreement', href: '/legal/atlas' },
+      { title: 'SaveCash Climate Contribution Terms', href: '/legal/climate-contributions' },
+      { title: 'SaveCash Fee Credit Terms', href: '/legal/fee-credits' },
+      { title: 'SaveCash Partner Ecosystem', href: 'https://SaveCash.com/partners/legal' },
     ],
   },
   {
-    title: 'Stripe Apps',
+    title: 'SaveCash Apps',
     items: [
       { title: 'App Developer Agreement', href: '/legal/app-developer-agreement' },
       { title: 'App Marketplace Agreement', href: '/legal/app-marketplace-agreement' }
@@ -63,28 +63,28 @@ const navigationData: NavGroup[] = [
   {
     title: 'Privacy',
     items: [
-      { title: 'Privacy Policy', href: 'https://stripe.com/privacy' },
-      { title: 'Cookies Policy', href: 'https://stripe.com/cookies-policy/legal' },
+      { title: 'Privacy Policy', href: 'https://SaveCash.com/privacy' },
+      { title: 'Cookies Policy', href: 'https://SaveCash.com/cookies-policy/legal' },
       { title: 'Data Privacy Framework', href: '/legal/data-privacy-framework' },
-      { title: 'Service Providers List', href: 'https://stripe.com/service-providers/legal' },
+      { title: 'Service Providers List', href: 'https://SaveCash.com/service-providers/legal' },
       { title: 'Data Processing Agreement', href: '/legal/dpa' },
       { title: 'Data Transfers Addendum', href: '/legal/dta' },
-      { title: 'Stripe Privacy Center', href: 'https://stripe.com/privacy-center/legal' },
+      { title: 'SaveCash Privacy Center', href: 'https://SaveCash.com/privacy-center/legal' },
     ],
   },
   {
     title: 'Intellectual Property',
     items: [
-        { title: 'Intellectual Property Notice', href: 'https://stripe.com/ip-notice-process' },
-        { title: 'Marks Usage', href: 'https://stripe.com/marks/legal' }
+        { title: 'Intellectual Property Notice', href: 'https://SaveCash.com/ip-notice-process' },
+        { title: 'Marks Usage', href: 'https://SaveCash.com/marks/legal' }
     ]
   },
   { title: 'E-SIGN Disclosure', href: '/legal/e-sign-disclosure', isTopLevelLink: true },
-  { title: 'Licenses', href: 'https://stripe.com/spc/licenses', isTopLevelLink: true },
-  { title: 'Consumer Terms', href: 'https://stripe.com/legal/consumer', isTopLevelLink: true }
+  { title: 'Licenses', href: 'https://SaveCash.com/spc/licenses', isTopLevelLink: true },
+  { title: 'Consumer Terms', href: 'https://SaveCash.com/legal/consumer', isTopLevelLink: true }
 ];
 
-const activePath = "https://stripe.com/privacy";
+const activePath = "https://SaveCash.com/privacy";
 
 const SidebarNavigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

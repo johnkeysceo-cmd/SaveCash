@@ -22,10 +22,10 @@ const LegalBasesSection = () => {
       </p>
       <ul className="mt-4 list-disc space-y-3 pl-[16px] text-base font-normal text-[#4a5568] leading-[1.6]">
         <li>
-          Creation and management of Stripe accounts and Stripe account credentials, including the assessment of applications to initiate or expand the use of our Services;
+          Creation and management of SaveCash accounts and SaveCash account credentials, including the assessment of applications to initiate or expand the use of our Services;
         </li>
         <li>
-          Creation and management of Stripe Checkout accounts;
+          Creation and management of SaveCash Checkout accounts;
         </li>
         <li>
           Accounting, auditing, and billing activities; and
@@ -53,10 +53,10 @@ const LegalBasesSection = () => {
           Detection, monitoring, and prevention of fraud and unauthorized payment transactions.
         </li>
         <li>
-          Mitigation of financial loss, claims, liabilities or other harm to End Customers, End Users, Business Users, Financial Partners, and Stripe;
+          Mitigation of financial loss, claims, liabilities or other harm to End Customers, End Users, Business Users, Financial Partners, and SaveCash;
         </li>
         <li>
-          Determination of eligibility for and offering new Stripe Services (
+          Determination of eligibility for and offering new SaveCash Services (
           <a href="#" className="text-[#635bff] hover:text-[#0a2540] hover:underline">
             Learn More
           </a>
@@ -85,7 +85,7 @@ const LegalBasesSection = () => {
           ).
         </li>
         <li>
-          Enabling network and information security throughout Stripe and our Services; and
+          Enabling network and information security throughout SaveCash and our Services; and
         </li>
         <li>
           Sharing of Personal Data among our affiliates.

@@ -12,11 +12,11 @@ const SecurityAndRetentionSection = () => {
       </p>
 
       <p className="text-[16px] font-normal leading-[1.6] text-[#4a5568] mb-4">
-        We encourage you to assist us in protecting your Personal Data. If you hold a Stripe account, you can do so by using a <span className="font-medium">strong password</span>, <span className="font-medium">safeguarding your password</span> against unauthorized use, and avoiding using identical login credentials you use for other services or accounts for your Stripe account. If you suspect that your interaction with us is no longer secure (for instance, you believe that your Stripe account's security has been compromised), please contact us immediately.
+        We encourage you to assist us in protecting your Personal Data. If you hold a SaveCash account, you can do so by using a <span className="font-medium">strong password</span>, <span className="font-medium">safeguarding your password</span> against unauthorized use, and avoiding using identical login credentials you use for other services or accounts for your SaveCash account. If you suspect that your interaction with us is no longer secure (for instance, you believe that your SaveCash account's security has been compromised), please contact us immediately.
       </p>
 
       <p className="text-[16px] font-normal leading-[1.6] text-[#4a5568] mb-4">
-        We retain your Personal Data for as long as we continue to provide the Services to you or our Business Users, or for a period in which we reasonably foresee continuing to provide the Services. Even after we stop providing Services directly to you or to a Business User that you're doing business with, and even after you close your Stripe account or complete a transaction with a Business User, we may continue to retain your Personal Data to:
+        We retain your Personal Data for as long as we continue to provide the Services to you or our Business Users, or for a period in which we reasonably foresee continuing to provide the Services. Even after we stop providing Services directly to you or to a Business User that you're doing business with, and even after you close your SaveCash account or complete a transaction with a Business User, we may continue to retain your Personal Data to:
       </p>
       
       <ul className="list-disc pl-4 mb-4 text-[16px] font-normal leading-[1.6] text-[#4a5568] space-y-2">
