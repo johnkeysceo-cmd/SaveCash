@@ -30,7 +30,21 @@ export default function Footer() {
   // IMPORTANT: In Vercel, set environment variable VITE_NEXTJS_APP_URL to your deployed Next.js app URL
   // Example: https://your-nextjs-app.vercel.app
   // For development, defaults to http://localhost:3000
-  const NEXTJS_APP_URL = (import.meta as any).env?.VITE_NEXTJS_APP_URL || 'http://localhost:3000';
+  
+  // Access Vite environment variable correctly
+  const envUrl = import.meta.env.VITE_NEXTJS_APP_URL;
+  const isProduction = typeof window !== 'undefined' && 
+    window.location.hostname !== 'localhost' && 
+    window.location.hostname !== '127.0.0.1';
+  
+  // Debug: Log the URL being used (remove in production if desired)
+  if (typeof window !== 'undefined') {
+    console.log('Next.js App URL:', envUrl || 'Using fallback');
+    console.log('Is Production:', isProduction);
+  }
+  
+  const NEXTJS_APP_URL = envUrl || 
+    (isProduction ? 'https://your-nextjs-app.vercel.app' : 'http://localhost:3000');
 
   const companyLinks = [
     { title: "About Us", href: `${NEXTJS_APP_URL}/about`, icon: Users },
