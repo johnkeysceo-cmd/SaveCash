@@ -1,0 +1,236 @@
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function DataRetentionPage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Data Retention & Deletion Policy</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: January 16, 2025</p>
+            </div>
+
+            <section className="space-y-4">
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                This Data Retention & Deletion Policy explains how long SaveCash retains your data and how you can request deletion. Our retention practices balance your privacy rights, regulatory compliance requirements, business operational needs, and security obligations.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Data Retention Periods</h2>
+              
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.1 Active Account Data</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                While your account is active, we retain data necessary to provide our services and comply with legal obligations:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Account profile and identity information: Retained for duration of account plus regulatory requirements</li>
+                <li>Transaction history and financial data: 7 years after account closure (IRS and AML requirements)</li>
+                <li>Communication records: 2 years</li>
+                <li>Marketing preferences and consents: Until you opt out or withdraw consent</li>
+                <li>Security logs and audit trails: 2-7 years depending on data type</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.2 Regulatory Retention Requirements</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Certain data must be retained for extended periods to comply with financial regulations:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Bank Secrecy Act (BSA):</strong> Transaction records and SARs retained for 5 years</li>
+                <li><strong>Internal Revenue Service (IRS):</strong> Financial records retained for 7 years</li>
+                <li><strong>SEC & FINRA:</strong> Securities-related records retained for 6 years</li>
+                <li><strong>State Money Transmitter Laws:</strong> Varies by state; typically 5-7 years</li>
+                <li><strong>AML/CTF Regulations:</strong> Customer identification records retained for 5 years after account closure</li>
+                <li><strong>GDPR:</strong> Retention based on legitimate business need or legal requirement</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.3 Suspended or Closed Accounts</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                When you close your account or it is suspended:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Identity and profile data: Retained for 5-7 years after account closure for regulatory compliance</li>
+                <li>Transaction data: Retained for 7 years after last transaction (IRS and AML requirements)</li>
+                <li>Financial records: Retained for 7 years after account closure</li>
+                <li>Dispute and complaint records: Retained for 2 years after resolution</li>
+                <li>Security event logs: Retained for 2 years after account closure</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.4 Marketing and Analytics Data</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We retain marketing and analytics data for shorter periods:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Marketing preferences: Until opt-out or 3 years of inactivity</li>
+                <li>Website analytics: 26 months</li>
+                <li>Cookie data: Per cookie policy (typically 1-2 years)</li>
+                <li>Marketing campaign data: 2 years after campaign end</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Right to Deletion</h2>
+              
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.1 When You Can Request Deletion</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                You may request deletion of your personal data in the following circumstances:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>The data is no longer necessary for the original purpose</li>
+                <li>You withdraw consent (where processing was based on consent)</li>
+                <li>You object to processing and there are no overriding legitimate grounds</li>
+                <li>The data was processed unlawfully</li>
+                <li>Deletion is required to comply with a legal obligation</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.2 Exceptions to Deletion Rights</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We may decline deletion requests when:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Legal compliance:</strong> Retention required by law (tax, AML, banking regulations)</li>
+                <li><strong>Ongoing legal proceedings:</strong> Data relevant to current or anticipated litigation</li>
+                <li><strong>Risk management:</strong> Data necessary for fraud prevention, security, or risk assessment</li>
+                <li><strong>Public interest:</strong> Retention serves important public policy goals</li>
+                <li><strong>Exercise of legal claims:</strong> Data needed to establish, exercise, or defend legal rights</li>
+                <li><strong>Anonymous data:</strong> Data has been anonymized and cannot be linked to you</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.3 How to Request Deletion</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                To request data deletion:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Submit a request through your account dashboard settings</li>
+                <li>Email privacy.savecash@gmail.com with subject line: "Data Deletion Request"</li>
+                <li>Include your full name, email, and account verification details</li>
+                <li>Specify what data you want deleted (if not requesting full deletion)</li>
+                <li>We will respond within 30 days (GDPR) or 45 days (CCPA)</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Deletion Process</h2>
+              
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.1 What We Delete</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                When deletion is possible, we permanently remove:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Personal identification information</li>
+                <li>Account preferences and settings</li>
+                <li>Contact information</li>
+                <li>Marketing data and analytics</li>
+                <li>Communications and support tickets</li>
+                <li>User-generated content</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.2 What We Retain</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Even after deletion requests, we may retain:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Transaction records required by IRS (7 years)</li>
+                <li>AML/KYC compliance records (5 years after account closure)</li>
+                <li>Security logs and audit trails</li>
+                <li>Anonymized, aggregated analytics data</li>
+                <li>Data subject to legal holds or disputes</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.3 Technical Deletion Methods</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We ensure secure deletion through:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Logical deletion from production databases</li>
+                <li>Secure data wiping of backup systems during retention periods</li>
+                <li>Cryptographic erasure where applicable</li>
+                <li>Destruction of physical media containing deleted data</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. International Data Transfers</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                If you reside outside the United States, your data may be transferred, stored, and processed in the U.S. or other jurisdictions. We maintain appropriate safeguards (Standard Contractual Clauses, Privacy Shield successors) to ensure your data receives adequate protection consistent with your jurisdiction's laws.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">5. Automated Decision-Making Deletion</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                If you delete your account, we will also delete:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>AI/ML training data derived from your account (where technically feasible)</li>
+                <li>Personalized recommendations and profile information</li>
+                <li>Automated decision-making histories</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">6. Third-Party Data Sharing</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                When we delete your data, we also request deletion from third-party service providers who process data on our behalf. However, third parties may maintain your data according to their own retention policies or legal requirements.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">7. Account Closure</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                When you close your SaveCash account:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Account access is immediately suspended</li>
+                <li>Recurring transactions and subscriptions are cancelled</li>
+                <li>Pending withdrawals and settlements are processed</li>
+                <li>You can export your data before closure</li>
+                <li>Regulatory retention periods begin from closure date</li>
+                <li>We may retain your email for account recovery purposes for 12 months</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">8. Children's Data</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash does not knowingly collect data from children under 13. If we learn we have inadvertently collected such data, we will delete it immediately upon discovery.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">9. Updates to This Policy</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We may update this Data Retention & Deletion Policy periodically. We will notify you of material changes by email or through our platform. Continued use after changes constitutes acceptance.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">10. Contact Information</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                For questions about data retention or deletion requests:
+              </p>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)] mb-3">
+                  <strong className="font-medium">Privacy Team:</strong> privacy.savecash@gmail.com
+                </p>
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Subject Line:</strong> Data Retention Inquiry or Data Deletion Request
+                </p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+

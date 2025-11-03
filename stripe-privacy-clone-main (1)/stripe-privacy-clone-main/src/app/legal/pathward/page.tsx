@@ -19,15 +19,45 @@ export default function PathwardPage() {
 
             <section className="space-y-4">
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                These terms govern your relationship with Pathward N.A. as an acquiring partner of SaveCash. Pathward N.A. facilitates payment processing for transactions processed through SaveCash services.
+                These Pathward N.A. Terms ("Terms") govern your relationship with Pathward, National Association ("Pathward," "Bank," "we," "us," or "our") as the acquiring bank facilitating payment processing for your SaveCash transactions. Pathward is a national banking association that provides merchant acquiring and payment processing services.
               </p>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Acquiring Services</h2>
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. About Pathward N.A.</h2>
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                Pathward N.A. provides acquiring services for payment card transactions processed through SaveCash, subject to network rules and regulations.
+                Pathward N.A. is a full-service financial institution offering banking services including merchant acquiring. As your acquiring bank, Pathward facilitates payment card transactions and provides reliable settlement services.
               </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Acquiring Services</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Pathward provides merchant acquiring services for transactions processed through SaveCash, including authorization, settlement, chargeback processing, and compliance with card network rules and banking regulations.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Compliance</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                All transactions are processed in accordance with applicable federal banking regulations, OCC oversight, and card network requirements. Pathward maintains comprehensive compliance programs and regulatory reporting.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Banking Services</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Pathward provides full-service banking capabilities including merchant accounts, deposit accounts, and payment processing with regulatory oversight from the OCC.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">5. Contact Information</h2>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
             </section>
           </article>
         </div>
@@ -37,4 +67,3 @@ export default function PathwardPage() {
     </div>
   );
 }
-

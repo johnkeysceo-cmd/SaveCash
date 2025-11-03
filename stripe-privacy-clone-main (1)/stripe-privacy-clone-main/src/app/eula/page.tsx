@@ -49,13 +49,18 @@ export default function EULAPage() {
                 <li>Attempt to gain unauthorized access to any services or systems</li>
                 <li>Use the Software to transmit viruses, malware, or other harmful code</li>
                 <li>Rent, lease, lend, or sublicense the Software to third parties</li>
+                <li>Extract or exploit proprietary algorithms, data models, or business methods</li>
+                <li>Create derivative works based on the Software's functionality</li>
               </ul>
             </section>
 
             <section className="space-y-4">
               <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Ownership</h2>
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                The Software is licensed, not sold. We and our licensors retain all right, title, and interest in and to the Software, including all intellectual property rights. This Agreement does not grant you any rights to our trademarks, service marks, or brand names.
+                The Software is licensed, not sold. We and our licensors retain all right, title, and interest in and to the Software, including all intellectual property rights, proprietary algorithms, AI models, trade secrets, and business methods. This Agreement does not grant you any rights to our trademarks, service marks, or brand names.
+              </p>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Any unauthorized use, copying, or exploitation of our intellectual property constitutes infringement and will result in immediate termination of this license and severe legal consequences including injunctive relief and monetary damages.
               </p>
             </section>
 

@@ -1,0 +1,70 @@
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function PNCPage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">PNC Bank Terms</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: January 16, 2025</p>
+            </div>
+
+            <section className="space-y-4">
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                These PNC Bank Terms ("Terms") govern your relationship with PNC Bank, National Association ("PNC," "Bank," "we," "us," or "our") as the acquiring bank facilitating payment processing for your SaveCash transactions. PNC is a major U.S. financial institution that provides comprehensive merchant acquiring services.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. About PNC Bank</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                PNC Bank is one of the largest diversified financial services institutions in the United States, serving millions of customers with a comprehensive range of banking, lending, and payment services. As your acquiring bank, PNC provides:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Reliable and secure payment card processing</li>
+                <li>Full-service merchant acquiring solutions</li>
+                <li>Comprehensive regulatory compliance and oversight</li>
+                <li>Advanced fraud prevention and risk management</li>
+                <li>FDIC-insured banking services</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Acquiring Services</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                PNC provides comprehensive merchant acquiring services for your SaveCash transactions, including authorization, settlement, dispute handling, and compliance with all applicable card network rules and banking regulations.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Regulatory Oversight</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                PNC Bank operates under the supervision of the Office of the Comptroller of the Currency (OCC) and maintains FDIC insurance. All services comply with federal banking regulations.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Contact Information</h2>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+

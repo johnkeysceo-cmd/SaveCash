@@ -19,22 +19,57 @@ export default function CRBPage() {
 
             <section className="space-y-4">
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                These terms govern your relationship with Cross River Bank as an acquiring partner of SaveCash. Cross River Bank facilitates payment processing for transactions processed through SaveCash services.
+                These Cross River Bank Terms ("Terms") govern your relationship with Cross River Bank, N.A. ("Cross River," "Bank," "we," "us," or "our") as the acquiring bank facilitating payment processing for your SaveCash transactions. Cross River is a federally chartered bank that provides merchant acquiring services in partnership with SaveCash.
               </p>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Acquiring Services</h2>
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. About Cross River Bank</h2>
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                Cross River Bank provides acquiring services for payment card transactions processed through SaveCash, subject to network rules and regulations.
+                Cross River Bank is a New Jersey state-chartered, FDIC-insured financial institution specializing in technology-forward banking services. As your acquiring bank, Cross River:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Processes your payment card transactions through card networks</li>
+                <li>Settles funds from card networks and disburses to your designated account</li>
+                <li>Complies with all federal and state banking regulations</li>
+                <li>Maintains FDIC insurance and regulatory oversight</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Acquiring Services</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Cross River provides merchant acquiring services for transactions you process through SaveCash, including:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Transaction authorization and settlement</li>
+                <li>Funds disbursement to your account</li>
+                <li>Chargeback and dispute processing</li>
+                <li>Compliance with card network rules</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Regulatory Compliance</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                As an FDIC-insured bank, Cross River operates under comprehensive federal regulation and oversight. All transactions are processed in accordance with applicable banking regulations, card network requirements, and consumer protection laws.
               </p>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Regulatory Compliance</h2>
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. FDIC Insurance</h2>
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                All transactions are processed in accordance with applicable banking regulations and card network requirements.
+                Cross River Bank is a member of the Federal Deposit Insurance Corporation (FDIC). Deposits are insured up to the maximum amount allowed by law per depositor, per insured bank.
               </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">5. Contact Information</h2>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
             </section>
           </article>
         </div>
@@ -44,4 +79,3 @@ export default function CRBPage() {
     </div>
   );
 }
-

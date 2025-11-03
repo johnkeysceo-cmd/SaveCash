@@ -19,15 +19,51 @@ export default function AppMarketplacePage() {
 
             <section className="space-y-4">
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                This agreement governs participation in the SaveCash App Marketplace. By listing your app, you agree to these terms.
+                This App Marketplace Agreement ("Agreement") governs developers ("Developers") who wish to list their applications in the SaveCash App Marketplace. The marketplace enables users to discover and install applications that integrate with SaveCash services.
               </p>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Marketplace Participation</h2>
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Listing Requirements</h2>
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                Apps listed in the marketplace must meet quality standards, provide accurate documentation, and comply with all applicable terms and policies.
+                To list your app in the marketplace, it must:
               </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Meet quality and functionality standards</li>
+                <li>Provide accurate descriptions and documentation</li>
+                <li>Comply with all SaveCash policies and guidelines</li>
+                <li>Maintain adequate customer support</li>
+                <li>Regularly update and maintain functionality</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Marketplace Policies</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Listed apps are subject to SaveCash's marketplace policies regarding content, security, privacy, and user experience. SaveCash may remove apps that violate these policies or fail to meet quality standards.
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Apps must not compete directly with SaveCash's core services</li>
+                <li>Apps must maintain accurate and current information</li>
+                <li>Apps must provide adequate customer support</li>
+                <li>Apps must comply with all applicable laws and regulations</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Prohibited Apps</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Apps that compete with or copy SaveCash's proprietary functionality will not be approved for listing in the marketplace.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Contact Information</h2>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
             </section>
           </article>
         </div>
@@ -37,4 +73,3 @@ export default function AppMarketplacePage() {
     </div>
   );
 }
-

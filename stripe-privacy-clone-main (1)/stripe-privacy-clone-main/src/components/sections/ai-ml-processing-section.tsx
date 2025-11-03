@@ -80,7 +80,15 @@ const AIMLProcessingSection = () => {
       </ul>
 
       <h4 className="mt-6 mb-4 text-[20px] font-semibold text-[#1a1f36]">
-        c. AI Model Training and Personal Data Usage
+        c. Proprietary AI Technology and Competitive Advantages
+      </h4>
+      
+      <p className="mb-4 text-base font-normal text-[#4a5568] leading-[1.6]">
+        SaveCash's AI/ML systems represent proprietary technology developed over years of research and substantial investment. Our algorithms, models, and training methodologies constitute valuable trade secrets and competitive advantages. You acknowledge that unauthorized access to, copying of, or derivation from our AI technology is strictly prohibited and will result in severe legal consequences.
+      </p>
+
+      <h4 className="mt-6 mb-4 text-[20px] font-semibold text-[#1a1f36]">
+        d. AI Model Training and Personal Data Usage
       </h4>
       
       <p className="mb-4 text-base font-normal text-[#4a5568] leading-[1.6]">
@@ -115,7 +123,7 @@ const AIMLProcessingSection = () => {
       </ul>
 
       <h4 className="mt-6 mb-4 text-[20px] font-semibold text-[#1a1f36]">
-        d. AI Bias Mitigation and Fairness
+        e. AI Bias Mitigation and Fairness
       </h4>
       
       <p className="mb-4 text-base font-normal text-[#4a5568] leading-[1.6]">

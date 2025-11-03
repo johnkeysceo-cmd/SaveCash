@@ -34,6 +34,21 @@ export default function PrivacyPolicyPage() {
         <main className="flex-1 lg:ml-[280px] xl:mr-[280px]">
           <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
             <article className="space-y-12">
+              {/* SaveCash Introduction */}
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mb-8">
+                <p className="text-[var(--color-text-primary)] leading-relaxed mb-4">
+                  <strong className="font-semibold">SaveCash</strong> is a beta-stage automated savings platform built to help users protect and grow their money securely.
+                </p>
+                <p className="text-[var(--color-text-primary)] leading-relaxed mb-4">
+                  By using SaveCash, you agree that we may securely process transactions, analyze data to prevent fraud, and maintain compliance with U.S. and global financial standards.
+                </p>
+                <p className="text-[var(--color-text-primary)] leading-relaxed mb-4">
+                  We never sell personal data. You remain the legal owner of your funds.
+                </p>
+                <p className="text-[var(--color-text-primary)] leading-relaxed">
+                  Full terms below cover privacy, fraud protection, AI security, and account policies.
+                </p>
+              </div>
               <PrivacyHero />
               <WelcomeSection />
               <DefinedTerms />

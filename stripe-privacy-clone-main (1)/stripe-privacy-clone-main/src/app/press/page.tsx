@@ -27,28 +27,6 @@ export default function PressPage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Press Kit</h2>
-              <p className="text-[var(--color-text-primary)] leading-relaxed mb-4">
-                Download our press kit for logos, product screenshots, and company information:
-              </p>
-              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
-                <li>Company Logo (PNG, SVG, PDF)</li>
-                <li>Product Screenshots</li>
-                <li>Executive Headshots</li>
-                <li>Company Fact Sheet</li>
-                <li>Brand Guidelines</li>
-              </ul>
-              <div className="mt-6">
-                <a 
-                  href="#" 
-                  className="inline-block px-6 py-3 bg-[var(--color-accent-primary)] text-white rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors"
-                >
-                  Download Press Kit
-                </a>
-              </div>
-            </section>
-
-            <section className="space-y-4">
               <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Media Contact</h2>
               <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6">
                 <p className="text-[var(--color-text-primary)] mb-3">
@@ -60,30 +38,6 @@ export default function PressPage() {
                 <p className="text-[var(--color-text-primary)]">
                   <strong className="font-medium">Response Time:</strong> We aim to respond to all press inquiries within 24 hours.
                 </p>
-              </div>
-            </section>
-
-            <section className="space-y-4">
-              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">In the News</h2>
-              <div className="space-y-6">
-                <div className="border-l-4 border-[var(--color-accent-primary)] pl-4">
-                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-                    SaveCash Raises $10M Series A to Transform Personal Finance with AI
-                  </h3>
-                  <p className="text-[var(--color-text-secondary)] text-sm">TechCrunch • January 20, 2025</p>
-                </div>
-                <div className="border-l-4 border-[var(--color-accent-primary)] pl-4">
-                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-                    How AI is Helping Users Save More Money
-                  </h3>
-                  <p className="text-[var(--color-text-secondary)] text-sm">Forbes • January 15, 2025</p>
-                </div>
-                <div className="border-l-4 border-[var(--color-accent-primary)] pl-4">
-                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">
-                    The Future of Automated Financial Management
-                  </h3>
-                  <p className="text-[var(--color-text-secondary)] text-sm">The Wall Street Journal • January 10, 2025</p>
-                </div>
               </div>
             </section>
 

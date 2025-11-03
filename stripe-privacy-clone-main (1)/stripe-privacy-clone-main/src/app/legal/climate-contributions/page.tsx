@@ -13,21 +13,44 @@ export default function ClimateContributionsPage() {
         <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
           <article className="space-y-8">
             <div>
-              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">SaveCash Climate Contribution Terms</h1>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Climate Contribution Terms</h1>
               <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: January 16, 2025</p>
             </div>
 
             <section className="space-y-4">
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                These terms govern voluntary climate contribution features in SaveCash. You may opt to contribute a percentage of your transactions to climate initiatives.
+                These Climate Contribution Terms govern SaveCash's voluntary climate contribution program. This program allows you to contribute a percentage of your transactions to verified carbon removal and climate solutions.
               </p>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Contributions</h2>
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. How It Works</h2>
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                Climate contributions are voluntary and can be enabled or disabled at any time through your SaveCash dashboard.
+                When you enable climate contributions, a specified percentage of each transaction is automatically contributed to verified carbon removal projects. You can set your contribution percentage and enable or disable contributions at any time through your SaveCash dashboard.
               </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Carbon Removal Projects</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Contributions support verified, high-quality carbon removal projects including direct air capture, enhanced weathering, and other scientifically validated methods. All projects meet rigorous quality and verification standards.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Transparency and Reporting</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash provides transparency in our climate contribution program through regular reporting, impact metrics, and detailed information about supported projects.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Contact Information</h2>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
             </section>
           </article>
         </div>
@@ -37,4 +60,3 @@ export default function ClimateContributionsPage() {
     </div>
   );
 }
-

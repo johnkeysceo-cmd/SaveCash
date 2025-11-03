@@ -1,0 +1,201 @@
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function RiskDisclosurePage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Risk Disclosure Statement</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: January 16, 2025</p>
+            </div>
+
+            <section className="space-y-4">
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                This Risk Disclosure Statement describes material risks associated with using SaveCash's automated savings and financial management platform. By using SaveCash services, you acknowledge that you have read, understood, and accept these risks.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Not a Bank</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash is a financial technology company, not a bank. Banking services, including deposit accounts and FDIC insurance, are provided by partner financial institutions. SaveCash facilitates access to these services but does not itself hold deposits, extend credit, or provide banking services.
+              </p>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                FDIC insurance coverage applies to deposits held at partner banks, subject to applicable limits (typically $250,000 per depositor per bank).
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Automated Decision-Making Risks</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Our AI-powered savings recommendations are based on machine learning models and algorithms. Risks include:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Inaccurate predictions:</strong> Models may not accurately predict optimal savings amounts or timing</li>
+                <li><strong>Over-saving:</strong> Automated transfers may deplete your checking account below minimum balances</li>
+                <li><strong>Under-saving:</strong> Recommendations may be conservative and miss savings opportunities</li>
+                <li><strong>Market changes:</strong> Economic conditions and spending patterns may change faster than models can adapt</li>
+                <li><strong>Technical failures:</strong> Model errors, bugs, or system malfunctions may cause incorrect transfers</li>
+              </ul>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                You should monitor your accounts regularly and adjust settings as needed. SaveCash recommendations are estimates, not guarantees.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Financial Risks</h2>
+              
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.1 Liquidity Risks</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Automated savings transfers may reduce your available checking balance. Ensure you maintain sufficient funds for:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Automatic bill payments and recurring debits</li>
+                <li>Emergency expenses and unexpected costs</li>
+                <li>Overdraft fees if balances are insufficient</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.2 Loss of Funds</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                While SaveCash uses bank-level security, no system is 100% secure. Risks include:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Unauthorized access to your account (reduce risk by enabling MFA)</li>
+                <li>Fraud or identity theft</li>
+                <li>Technical failures or system errors</li>
+                <li>Partner bank failures (though FDIC insurance applies)</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.3 Interest Rate Risks</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Interest rates on savings accounts fluctuate with market conditions. High yields today may decrease tomorrow.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Operational Risks</h2>
+              
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">4.1 Service Availability</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash services may be temporarily unavailable due to:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Scheduled maintenance or updates</li>
+                <li>Technical failures or cyberattacks</li>
+                <li>Third-party service outages (banks, payment processors)</li>
+                <li>Force majeure events beyond our control</li>
+              </ul>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                While we maintain 99.9% uptime targets, brief outages may occur, potentially delaying transfers or account access.
+              </p>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">4.2 Partner Bank Risks</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash relies on partner financial institutions to provide banking services. Risks include:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Partner bank service changes or discontinuation</li>
+                <li>Disputes between SaveCash and partners</li>
+                <li>Regulatory action against partners</li>
+                <li>Bank failures (though FDIC insurance applies)</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">5. Regulatory and Legal Risks</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Financial regulations evolve. Changes in laws, regulations, or enforcement actions could:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Restrict or eliminate certain SaveCash features</li>
+                <li>Impose additional fees or requirements</li>
+                <li>Require changes to service terms</li>
+                <li>Affect tax treatment of savings or interest</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">6. Data and Privacy Risks</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash collects and processes financial and personal data. Risks include:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Data breaches or unauthorized access</li>
+                <li>Third-party service providers mishandling data</li>
+                <li>Identity theft or fraud</li>
+                <li>Regulatory investigations or legal proceedings</li>
+              </ul>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We use bank-level encryption, security controls, and comply with applicable privacy laws to minimize these risks.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">7. No Investment Advice</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash does not provide investment, tax, legal, or financial planning advice. Savings recommendations are based on algorithms and do not consider your complete financial situation, tax status, investment objectives, or risk tolerance. Consult qualified advisors before making major financial decisions.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">8. Limitation of Liability</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash disclaims liability for:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Consequential, indirect, or incidental damages</li>
+                <li>Loss of profits, revenue, or data</li>
+                <li>Investment losses or missed opportunities</li>
+                <li>Decisions made based on SaveCash recommendations</li>
+                <li>Third-party actions or failures</li>
+              </ul>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Our liability is limited as set forth in our Terms of Service.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">9. Acknowledgment</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                By using SaveCash services, you acknowledge that:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>You have read and understood this Risk Disclosure Statement</li>
+                <li>You accept all disclosed risks</li>
+                <li>You use SaveCash services at your own risk</li>
+                <li>You will monitor your accounts regularly</li>
+                <li>You will not hold SaveCash liable for losses except as permitted by law</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">10. Contact Information</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                For questions about risks or to report concerns:
+              </p>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)] mb-3">
+                  <strong className="font-medium">Customer Support:</strong> privacy.savecash@gmail.com
+                </p>
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Phone:</strong> 1-888-XXX-XXXX
+                </p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+

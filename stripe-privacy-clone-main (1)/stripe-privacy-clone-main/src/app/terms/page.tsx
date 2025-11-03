@@ -108,12 +108,15 @@ export default function TermsOfServicePage() {
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">6. Intellectual Property</h2>
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">6. Intellectual Property and Anti-Competition</h2>
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                All content, features, and functionality of our services, including but not limited to software, text, graphics, logos, and trademarks, are owned by us or our licensors and are protected by intellectual property laws.
+                All content, features, and functionality of our services, including but not limited to software, text, graphics, logos, trademarks, proprietary AI algorithms, business methods, and trade secrets, are owned by us or our licensors and are protected by intellectual property laws.
               </p>
               <p className="text-[var(--color-text-primary)] leading-relaxed">
                 We grant you a limited, non-exclusive, non-transferable license to access and use our services for your business purposes. This license does not include any rights to copy, modify, distribute, or create derivative works from our intellectual property.
+              </p>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                You expressly agree NOT to copy, reverse engineer, or create competing products using our proprietary technology, algorithms, or business methods. SaveCash's intellectual property represents our core competitive advantages, and any unauthorized use will result in immediate termination and legal action.
               </p>
             </section>
 

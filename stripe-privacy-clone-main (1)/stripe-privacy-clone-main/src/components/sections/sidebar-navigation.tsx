@@ -34,13 +34,13 @@ const navigationData: NavGroup[] = [
       { title: 'Cross River Bank', href: '/legal/crb' },
       { title: 'Deutsche Bank', href: '/legal/deutsche-bank' },
       { title: 'Pathward N.A.', href: '/legal/pathward' },
-      { title: 'PNC Bank', href: 'https://SaveCash.com/pnc/legal' },
+      { title: 'PNC Bank', href: '/legal/pnc' },
     ],
   },
   { title: 'Issuing Bank Terms', href: '/legal/celtic-spend-card', isTopLevelLink: true },
   { title: 'Payment Method Terms', href: '/legal/payment-terms', isTopLevelLink: true },
   { title: 'User Bank Debit Authorizations', href: '/legal/bank-debit-authorizations', isTopLevelLink: true },
-  { title: 'Prohibited & Restricted Businesses', href: 'https://SaveCash.com/restricted-businesses', isTopLevelLink: true },
+  { title: 'Prohibited & Restricted Businesses', href: '/legal/prohibited-restricted-businesses', isTopLevelLink: true },
   {
     title: 'Other Products and Programs',
     items: [
@@ -50,7 +50,7 @@ const navigationData: NavGroup[] = [
       { title: 'SaveCash Atlas Agreement', href: '/legal/atlas' },
       { title: 'SaveCash Climate Contribution Terms', href: '/legal/climate-contributions' },
       { title: 'SaveCash Fee Credit Terms', href: '/legal/fee-credits' },
-      { title: 'SaveCash Partner Ecosystem', href: 'https://SaveCash.com/partners/legal' },
+      { title: 'SaveCash Partner Ecosystem', href: '/legal/partner-ecosystem' },
     ],
   },
   {
@@ -61,30 +61,41 @@ const navigationData: NavGroup[] = [
     ]
   },
   {
-    title: 'Privacy',
+    title: 'Privacy & Data',
     items: [
-      { title: 'Privacy Policy', href: 'https://SaveCash.com/privacy' },
-      { title: 'Cookies Policy', href: 'https://SaveCash.com/cookies-policy/legal' },
+      { title: 'Privacy Policy', href: '/' },
+      { title: 'Cookies Policy', href: '/cookies' },
       { title: 'Data Privacy Framework', href: '/legal/data-privacy-framework' },
-      { title: 'Service Providers List', href: 'https://SaveCash.com/service-providers/legal' },
+      { title: 'Service Providers List', href: '/legal/service-providers' },
       { title: 'Data Processing Agreement', href: '/legal/dpa' },
       { title: 'Data Transfers Addendum', href: '/legal/dta' },
-      { title: 'SaveCash Privacy Center', href: 'https://SaveCash.com/privacy-center/legal' },
+      { title: 'Data Retention & Deletion', href: '/legal/data-retention' },
+    ],
+  },
+  {
+    title: 'Compliance & Security',
+    items: [
+      { title: 'Regulatory Compliance', href: '/legal/compliance' },
+      { title: 'KYC / AML Policy', href: '/legal/kyc-aml' },
+      { title: 'Risk Disclosure', href: '/legal/risk-disclosure' },
+      { title: 'Complaints & Disputes', href: '/legal/disputes' },
+      { title: 'Transparency Report', href: '/legal/transparency' },
     ],
   },
   {
     title: 'Intellectual Property',
     items: [
-        { title: 'Intellectual Property Notice', href: 'https://SaveCash.com/ip-notice-process' },
-        { title: 'Marks Usage', href: 'https://SaveCash.com/marks/legal' }
+        { title: 'Intellectual Property Notice', href: '/legal/ip-notice' },
+        { title: 'Marks Usage', href: '/legal/marks-usage' },
+        { title: 'Anti-Competition Policy', href: '/legal/anti-competition' }
     ]
   },
   { title: 'E-SIGN Disclosure', href: '/legal/e-sign-disclosure', isTopLevelLink: true },
-  { title: 'Licenses', href: 'https://SaveCash.com/spc/licenses', isTopLevelLink: true },
-  { title: 'Consumer Terms', href: 'https://SaveCash.com/legal/consumer', isTopLevelLink: true }
+  { title: 'Licenses', href: '/legal/licenses', isTopLevelLink: true },
+  { title: 'Consumer Terms', href: '/legal/consumer-terms', isTopLevelLink: true }
 ];
 
-const activePath = "https://SaveCash.com/privacy";
+const activePath = "/";
 
 const SidebarNavigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);

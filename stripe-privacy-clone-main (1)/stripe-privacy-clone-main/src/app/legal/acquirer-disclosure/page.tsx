@@ -19,15 +19,70 @@ export default function AcquirerDisclosurePage() {
 
             <section className="space-y-4">
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                This disclosure provides important information about the acquiring bank relationships that facilitate payment processing through SaveCash.
+                This Acquirer Disclosure provides important information about the acquiring bank relationships that facilitate payment processing through SaveCash. Understanding these relationships helps clarify how your payment transactions are processed and which financial institutions are involved.
               </p>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Acquiring Banks</h2>
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. What is an Acquiring Bank?</h2>
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                SaveCash works with various acquiring banks to process payments on your behalf. Each acquirer has specific terms and disclosure requirements that apply to your transactions.
+                An acquiring bank is a financial institution that processes credit and debit card transactions on behalf of merchants. The acquirer settles funds from card networks to your bank account and may provide additional services such as merchant accounts and payment processing infrastructure.
               </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Our Acquiring Partners</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash partners with various acquiring banks to provide comprehensive payment processing services. These partnerships ensure reliable transaction processing and regulatory compliance.
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Cross River Bank</strong> - A federally chartered bank providing acquiring services</li>
+                <li><strong>Deutsche Bank</strong> - Global financial institution providing acquiring services</li>
+                <li><strong>Pathward N.A.</strong> - National bank offering acquiring and payment solutions</li>
+                <li><strong>PNC Bank</strong> - Major U.S. bank providing acquiring services</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. How Transactions Flow</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Payment transactions processed through SaveCash involve multiple parties:
+              </p>
+              <ol className="list-decimal pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Customer initiates payment with you</li>
+                <li>Transaction is routed to SaveCash for processing</li>
+                <li>SaveCash submits transaction to acquiring bank</li>
+                <li>Acquiring bank submits to card network</li>
+                <li>Card network routes to issuing bank for authorization</li>
+                <li>Authorization response flows back through the chain</li>
+                <li>Settlement funds flow from acquiring bank to your account</li>
+              </ol>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Regulatory Compliance</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Our acquiring bank partners are all federally regulated financial institutions subject to oversight by federal banking regulators including the FDIC, OCC, and Federal Reserve. These banks comply with all applicable banking regulations, security standards, and consumer protection requirements.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">5. Your Relationship with Acquirers</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                While SaveCash partners with acquiring banks to facilitate your transactions, your primary relationship remains with SaveCash. We manage all aspects of the acquiring relationship on your behalf, including compliance, settlement, and issue resolution.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">6. Contact Information</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                For questions about acquiring relationships, contact us at:
+              </p>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
             </section>
           </article>
         </div>
@@ -37,4 +92,3 @@ export default function AcquirerDisclosurePage() {
     </div>
   );
 }
-

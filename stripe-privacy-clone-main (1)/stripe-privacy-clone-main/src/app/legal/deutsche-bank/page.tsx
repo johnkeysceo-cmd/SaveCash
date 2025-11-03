@@ -19,15 +19,51 @@ export default function DeutscheBankPage() {
 
             <section className="space-y-4">
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                These terms govern your relationship with Deutsche Bank as an acquiring partner of SaveCash. Deutsche Bank facilitates payment processing for transactions processed through SaveCash services.
+                These Deutsche Bank Terms ("Terms") govern your relationship with Deutsche Bank AG ("Deutsche Bank," "Bank," "we," "us," or "our") as the acquiring bank facilitating payment processing for your SaveCash transactions in certain jurisdictions. Deutsche Bank is a global financial institution providing comprehensive banking and payment services.
               </p>
             </section>
 
             <section className="space-y-4">
-              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Acquiring Services</h2>
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. About Deutsche Bank</h2>
               <p className="text-[var(--color-text-primary)] leading-relaxed">
-                Deutsche Bank provides acquiring services for payment card transactions processed through SaveCash, subject to network rules and regulations.
+                Deutsche Bank is a leading global banking and financial services company headquartered in Germany. As your acquiring bank, Deutsche Bank provides merchant acquiring services including transaction processing, settlement, and compliance with international banking regulations.
               </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Acquiring Services</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Deutsche Bank provides comprehensive acquiring services for international and cross-border transactions processed through SaveCash, including:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Multi-currency transaction processing</li>
+                <li>International settlement services</li>
+                <li>Regulatory compliance across multiple jurisdictions</li>
+                <li>Advanced fraud and risk management</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. International Services</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Deutsche Bank's global presence enables efficient processing of international transactions with support for multiple currencies, local regulations, and cross-border settlement.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Global Compliance</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Deutsche Bank maintains compliance with banking regulations across all jurisdictions where it operates, including European Union regulations, local banking laws, and international standards.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">5. Contact Information</h2>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
             </section>
           </article>
         </div>
@@ -37,4 +73,3 @@ export default function DeutscheBankPage() {
     </div>
   );
 }
-
