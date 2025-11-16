@@ -95,11 +95,18 @@ export const performanceOptimizer = {
   // Enable hardware acceleration
   enableHardwareAcceleration: () => {
     if (typeof document !== 'undefined') {
-      document.body.style.transform = 'translate3d(0, 0, 0)';
-      document.body.style.willChange = 'transform';
-      document.body.style.backfaceVisibility = 'hidden';
-      document.body.style.isolation = 'isolate';
-      document.body.style.contain = 'layout style paint';
+      // Use requestAnimationFrame to avoid forced reflow
+      requestAnimationFrame(() => {
+        document.body.style.transform = 'translate3d(0, 0, 0)';
+        document.body.style.willChange = 'auto'; // Set to auto to avoid overuse
+        document.body.style.backfaceVisibility = 'hidden';
+        document.body.style.isolation = 'isolate';
+        document.body.style.contain = 'layout style paint';
+        
+        // Optimize root element
+        document.documentElement.style.overflowX = 'hidden';
+        document.documentElement.style.transform = 'translate3d(0, 0, 0)';
+      });
     }
   },
 

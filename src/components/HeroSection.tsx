@@ -11,7 +11,7 @@ const container = {
     transition: {
       staggerChildren: 0.05,
       delayChildren: 0.1,
-      ease: [0.25, 0.1, 0.25, 1] as const, // Ultra-smooth cubic-bezier
+      ease: [0.4, 0, 0.2, 1] as const, // Smoother cubic-bezier
       type: "tween" as const,
     },
   },
@@ -24,7 +24,7 @@ const item = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.25, 0.1, 0.25, 1] as const, // Ultra-smooth cubic-bezier
+      ease: [0.4, 0, 0.2, 1] as const, // Smoother cubic-bezier
       type: "tween" as const,
     },
   },
@@ -92,14 +92,14 @@ export function HeroSection() {
           className="text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tight leading-[1.05] relative"
           whileHover={{ 
             scale: 1.01,
-            transition: { duration: 0.3, ease: "easeOut" }
+            transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] as const }
           }}
         >
           <motion.span 
             className="block text-white"
             whileHover={{ 
               textShadow: "0 0 20px rgba(255, 255, 255, 0.3)",
-              transition: { duration: 0.2 }
+              transition: { duration: 0.2, ease: [0.4, 0, 0.2, 1] as const }
             }}
           >
             Your money.
@@ -145,13 +145,14 @@ export function HeroSection() {
                    }}
                    transition={{
                      duration: 0.2,
-                     ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
+                     ease: [0.4, 0, 0.2, 1], // Smoother cubic-bezier
                      type: "tween",
                      boxShadow: {
                        duration: 2,
                        repeat: Infinity,
-                       ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
+                       ease: [0.4, 0, 0.2, 1] as const, // Smoother cubic-bezier
                        type: "tween",
+                       repeatType: "loop" as const,
                      }
                    }}
                    style={{
@@ -180,7 +181,8 @@ export function HeroSection() {
                        transition={{
                          duration: 2,
                          repeat: Infinity,
-                         ease: "easeInOut"
+                         ease: [0.4, 0, 0.2, 1] as const,
+                         repeatType: "loop" as const,
                        }}
                      />
                    </Button>
@@ -217,8 +219,8 @@ export function HeroSection() {
               exit={{ opacity: 0, x: -100 }}
               transition={{ 
                 duration: 0.5, 
-                ease: [0.25, 0.1, 0.25, 1], // Ultra-smooth cubic-bezier
-                type: "tween",
+                ease: [0.4, 0, 0.2, 1] as const, // Smoother cubic-bezier
+                type: "tween" as const,
               }}
               style={{
                 transform: "translateZ(0)",

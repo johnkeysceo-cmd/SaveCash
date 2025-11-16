@@ -132,55 +132,80 @@ export function SavingsImpactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: true, margin: "-100px" }}
-          className="relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-orange-500/5 p-16"
+          className="relative rounded-3xl overflow-hidden border border-purple-500/20 bg-gradient-to-br from-purple-500/10 via-purple-600/5 to-violet-500/10 p-12 md:p-16 lg:p-20"
           style={{
-            boxShadow: "0 30px 80px -20px rgba(168, 85, 247, 0.3)",
+            boxShadow: "0 30px 80px -20px rgba(168, 85, 247, 0.4), 0 0 40px -10px rgba(139, 92, 246, 0.3)",
           }}
         >
-          <div className="relative z-10 text-center">
-            <div className="relative inline-block mb-8">
-              {/* BlenderKit-Level Quality Video Animation */}
-              <div className="w-16 h-16 mx-auto rounded-full overflow-hidden">
-                <video
-                  src="/lv_0_20251026134622.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  className="w-full h-full object-cover"
-                  style={{
-                    transform: "translateZ(0)",
-                    willChange: "auto",
-                    backfaceVisibility: "hidden",
-                    imageRendering: "crisp-edges",
-                    filter: "contrast(1.4) brightness(1.2) saturate(1.3) hue-rotate(5deg)",
-                    isolation: "isolate",
-                    contain: "layout style paint",
-                    perspective: "1000px",
-                  }}
-                />
-              </div>
-            </div>
-
-            <motion.p
+          <div className="relative z-10 text-center max-w-4xl mx-auto">
+            {/* Main Headline */}
+            <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
               viewport={{ once: true }}
-              className="text-2xl md:text-3xl text-white mb-2"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 tracking-tight"
             >
               AI-powered financial intelligence
-            </motion.p>
+            </motion.h3>
+            
+            {/* Subheadline */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
-              className="text-gray-400"
+              className="text-lg md:text-xl text-gray-400 mb-8 font-medium"
             >
               Monitoring 24/7
             </motion.p>
+            
+            {/* Supporting Text */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.5 }}
+              viewport={{ once: true }}
+              className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed"
+            >
+              Get real-time insights into your spending, saving, and investment opportunities — anytime, anywhere.
+            </motion.p>
+
+            {/* Bullet Points */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto"
+            >
+              <div className="flex flex-col items-center md:items-start gap-3 p-6 rounded-2xl bg-purple-500/5 border border-purple-500/20 hover:bg-purple-500/10 hover:border-purple-400/30 transition-all duration-300">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-400 to-violet-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-purple-500/50">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-gray-200 font-medium text-center md:text-left">Real-time monitoring of your accounts</p>
+              </div>
+              
+              <div className="flex flex-col items-center md:items-start gap-3 p-6 rounded-2xl bg-purple-500/5 border border-purple-500/20 hover:bg-purple-500/10 hover:border-purple-400/30 transition-all duration-300">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-400 to-violet-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-purple-500/50">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-gray-200 font-medium text-center md:text-left">Smart alerts for unusual activity</p>
+              </div>
+              
+              <div className="flex flex-col items-center md:items-start gap-3 p-6 rounded-2xl bg-purple-500/5 border border-purple-500/20 hover:bg-purple-500/10 hover:border-purple-400/30 transition-all duration-300">
+                <div className="w-8 h-8 rounded-full bg-gradient-to-r from-purple-400 to-violet-500 flex items-center justify-center flex-shrink-0 shadow-lg shadow-purple-500/50">
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <p className="text-gray-200 font-medium text-center md:text-left">Personalized recommendations to grow your savings</p>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </div>

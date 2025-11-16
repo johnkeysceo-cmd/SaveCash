@@ -36,15 +36,16 @@ export function ParticleBackground() {
           }}
           animate={{
             y: [0, -100, 0],
-            x: [0, Math.random() * 50 - 25, 0],
-            opacity: [0, 0.6, 0],
+            x: [0, Math.random() * 30 - 15, 0],
+            opacity: [0, 0.5, 0],
             scale: [0.5, 1, 0.5],
           }}
           transition={{
             duration: 8 + Math.random() * 4,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: [0.4, 0, 0.2, 1] as const,
             delay: Math.random() * 5,
+            repeatType: "loop" as const,
           }}
         />
       ))}
@@ -60,15 +61,16 @@ export function ParticleBackground() {
           }}
           animate={{
             y: [0, -200, 0],
-            x: [0, Math.random() * 100 - 50, 0],
-            opacity: [0, 0.3, 0],
-            scale: [0.8, 1.2, 0.8],
+            x: [0, Math.random() * 60 - 30, 0],
+            opacity: [0, 0.25, 0],
+            scale: [0.8, 1.1, 0.8],
           }}
           transition={{
             duration: 12 + Math.random() * 6,
             repeat: Infinity,
-            ease: "easeInOut",
+            ease: [0.4, 0, 0.2, 1] as const,
             delay: Math.random() * 8,
+            repeatType: "loop" as const,
           }}
         />
       ))}
@@ -89,7 +91,8 @@ export function ParticleBackground() {
         transition={{
           duration: 20,
           repeat: Infinity,
-          ease: "linear",
+          ease: "linear" as const,
+          repeatType: "loop" as const,
         }}
       />
     </div>
