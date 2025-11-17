@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "motion/react";
 
 const blobs = [
@@ -36,49 +36,72 @@ const blobs = [
   },
 ];
 
-export function FloatingBlobs() {
+const BlobItem = memo(({ blob }: { blob: typeof blobs[0] }) => (
+  <motion.div
+    key={blob.id}
+    className={`absolute ${blob.size} rounded-[40%_60%_70%_30%/60%_30%_70%_40%]`}
+    style={{
+      left: blob.initialX,
+      top: blob.initialY,
+      background: `linear-gradient(135deg, var(--tw-gradient-stops))`,
+      filter: "blur(60px)",
+      transform: "translate3d(0, 0, 0)",
+      mixBlendMode: "screen",
+      willChange: "transform, filter",
+      backfaceVisibility: "hidden",
+      perspective: 1000,
+      contain: "layout style paint",
+    }}
+    animate={{
+      x: [0, 150, -100, 120, -80, 0],
+      y: [0, -120, 100, -80, 120, 0],
+      rotate: [0, 90, 180, 270, 360],
+      scale: [1, 1.3, 0.85, 1.2, 0.9, 1],
+      borderRadius: [
+        "40% 60% 70% 30% / 60% 30% 70% 40%",
+        "60% 40% 30% 70% / 40% 60% 30% 70%",
+        "30% 70% 60% 40% / 70% 30% 40% 60%",
+        "70% 30% 40% 60% / 30% 70% 60% 40%",
+        "50% 50% 50% 50% / 50% 50% 50% 50%",
+        "40% 60% 70% 30% / 60% 30% 70% 40%",
+      ],
+    }}
+    transition={{
+      duration: blob.duration,
+      repeat: Infinity,
+      ease: [0.4, 0, 0.2, 1] as const, // Apple-style cubic-bezier
+      type: "tween" as const,
+    }}
+  >
+    <div 
+      className={`w-full h-full bg-gradient-to-br ${blob.gradient} rounded-[inherit] opacity-70`} 
+      style={{
+        boxShadow: "0 20px 60px rgba(0, 0, 0, 0.3), 0 0 80px rgba(139, 92, 246, 0.2)",
+        transform: "translate3d(0, 0, 0)",
+        backfaceVisibility: "hidden",
+      }}
+    />
+  </motion.div>
+));
+
+BlobItem.displayName = 'BlobItem';
+
+export const FloatingBlobs = memo(() => {
   return (
-    <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div 
+      className="fixed inset-0 pointer-events-none overflow-hidden z-0"
+      style={{
+        transform: "translate3d(0, 0, 0)",
+        willChange: "auto",
+        backfaceVisibility: "hidden",
+        contain: "layout style paint",
+      }}
+    >
       {blobs.map((blob) => (
-        <motion.div
-          key={blob.id}
-          className={`absolute ${blob.size} rounded-[40%_60%_70%_30%/60%_30%_70%_40%]`}
-          style={{
-            left: blob.initialX,
-            top: blob.initialY,
-            background: `linear-gradient(135deg, var(--tw-gradient-stops))`,
-            filter: "blur(60px)",
-            transform: "translateZ(50px)",
-            mixBlendMode: "screen",
-          }}
-          animate={{
-            x: [0, 150, -100, 120, -80, 0],
-            y: [0, -120, 100, -80, 120, 0],
-            rotate: [0, 90, 180, 270, 360],
-            scale: [1, 1.3, 0.85, 1.2, 0.9, 1],
-            borderRadius: [
-              "40% 60% 70% 30% / 60% 30% 70% 40%",
-              "60% 40% 30% 70% / 40% 60% 30% 70%",
-              "30% 70% 60% 40% / 70% 30% 40% 60%",
-              "70% 30% 40% 60% / 30% 70% 60% 40%",
-              "50% 50% 50% 50% / 50% 50% 50% 50%",
-              "40% 60% 70% 30% / 60% 30% 70% 40%",
-            ],
-          }}
-          transition={{
-            duration: blob.duration,
-            repeat: Infinity,
-            ease: "easeInOut" as const,
-          }}
-        >
-          <div 
-            className={`w-full h-full bg-gradient-to-br ${blob.gradient} rounded-[inherit] opacity-70`} 
-            style={{
-              boxShadow: "0 20px 60px rgba(0, 0, 0, 0.3), 0 0 80px rgba(139, 92, 246, 0.2)",
-            }}
-          />
-        </motion.div>
+        <BlobItem key={blob.id} blob={blob} />
       ))}
     </div>
   );
-}
+});
+
+FloatingBlobs.displayName = 'FloatingBlobs';

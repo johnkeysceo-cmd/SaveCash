@@ -155,8 +155,15 @@ export const initPerformanceOptimizations = () => {
   // Track initial page load
   performanceMonitor.trackPageLoad('Homepage');
   
-  // Monitor memory usage periodically
+  // Monitor memory usage periodically (reduced frequency for better performance)
   setInterval(() => {
     performanceMonitor.trackMemoryUsage();
-  }, 30000); // Every 30 seconds
+  }, 60000); // Every 60 seconds (reduced from 30s)
+  
+  // Optimize scroll performance
+  if (typeof window !== 'undefined') {
+    import('./scrollOptimizer').then(({ optimizeScrollPerformance }) => {
+      optimizeScrollPerformance();
+    });
+  }
 };

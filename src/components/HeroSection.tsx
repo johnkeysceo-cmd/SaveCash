@@ -11,7 +11,7 @@ const container = {
     transition: {
       staggerChildren: 0.05,
       delayChildren: 0.1,
-      ease: [0.25, 0.1, 0.25, 1] as const, // Ultra-smooth cubic-bezier
+      ease: [0.4, 0, 0.2, 1] as const, // Apple-style cubic-bezier
       type: "tween" as const,
     },
   },
@@ -24,7 +24,7 @@ const item = {
     y: 0,
     transition: {
       duration: 0.6,
-      ease: [0.25, 0.1, 0.25, 1] as const, // Ultra-smooth cubic-bezier
+      ease: [0.4, 0, 0.2, 1] as const, // Apple-style cubic-bezier
       type: "tween" as const,
     },
   },
@@ -92,7 +92,7 @@ export function HeroSection() {
           className="text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tight leading-[1.05] relative"
           whileHover={{ 
             scale: 1.01,
-            transition: { duration: 0.3, ease: "easeOut" }
+            transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] as const }
           }}
         >
           <motion.span 

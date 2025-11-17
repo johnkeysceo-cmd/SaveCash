@@ -1,10 +1,59 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Header from '@/components/sections/header';
 import Footer from '@/components/sections/footer';
 
 export default function BlogPage() {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email || !email.includes('@')) {
+      setSubmitStatus('error');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const response = await fetch('https://script.google.com/macros/s/AKfycbxI5mo_0yAaKOpx4borTucZsWRA9gqFEEIwMG6SzRmnq2hGY9SCoggSbd348p7S5H7yLQ/exec', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams({
+          email: email,
+        }),
+      });
+
+      // Since we're using no-cors, we can't read the response
+      // But we'll assume success if no error is thrown
+      setSubmitStatus('success');
+      setEmail('');
+      
+      // Reset success message after 3 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 3000);
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+      setSubmitStatus('error');
+      
+      // Reset error message after 3 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle');
+      }, 3000);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const blogPosts = [
     {
       title: 'Introducing AI-Powered Savings Recommendations',
@@ -67,16 +116,34 @@ export default function BlogPage() {
               <p className="text-[var(--color-text-primary)] leading-relaxed">
                 Stay updated with the latest from SaveCash. Subscribe to our newsletter.
               </p>
-              <div className="flex gap-4 mt-4">
+              <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-4 mt-4">
                 <input
                   type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   placeholder="Enter your email"
-                  className="flex-1 px-4 py-2 border border-[var(--color-border-divider)] rounded-lg focus:outline-none focus:border-[var(--color-accent-primary)]"
+                  required
+                  disabled={isSubmitting}
+                  className="flex-1 px-4 py-2 border border-[var(--color-border-divider)] rounded-lg focus:outline-none focus:border-[var(--color-accent-primary)] disabled:opacity-50 disabled:cursor-not-allowed"
                 />
-                <button className="px-6 py-2 bg-[var(--color-accent-primary)] text-white rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors">
-                  Subscribe
+                <button 
+                  type="submit"
+                  disabled={isSubmitting || !email}
+                  className="px-6 py-2 bg-[var(--color-accent-primary)] text-white rounded-lg hover:bg-[var(--color-accent-hover)] transition-colors disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                >
+                  {isSubmitting ? 'Subscribing...' : 'Subscribe'}
                 </button>
-              </div>
+              </form>
+              {submitStatus === 'success' && (
+                <p className="text-green-600 text-sm mt-2">
+                  ✓ Successfully subscribed! Check your email for confirmation.
+                </p>
+              )}
+              {submitStatus === 'error' && (
+                <p className="text-red-600 text-sm mt-2">
+                  ✗ Something went wrong. Please try again.
+                </p>
+              )}
             </section>
           </article>
         </div>

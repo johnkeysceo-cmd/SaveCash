@@ -1,82 +1,178 @@
-/* Performance Optimizations for Smooth Animations */
+/* ============================================
+   APPLE/TESLA-LEVEL PERFORMANCE OPTIMIZATIONS
+   Ultra-Smooth, Professional-Grade Animations
+   ============================================ */
 
-/* Hardware acceleration for all animated elements */
+/* Hardware acceleration for ALL elements */
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
-/* Optimize motion components */
-[data-motion] {
-  will-change: transform, opacity;
-  transform: translateZ(0);
+/* Ultra-smooth scroll performance */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-padding-top: 0;
+}
+
+body {
+  transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  contain: layout style paint;
 }
 
-/* Optimize video elements */
+/* Optimize ALL motion components with GPU acceleration */
+[data-motion],
+[class*="motion"],
+[class*="animate"] {
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  isolation: isolate;
+  contain: layout style paint;
+}
+
+/* Optimize video elements - Apple-level smoothness */
 video {
   will-change: transform;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
-  -webkit-transform: translateZ(0);
-  -moz-transform: translateZ(0);
-  -ms-transform: translateZ(0);
-  -o-transform: translateZ(0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  image-rendering: -webkit-optimize-contrast;
+  contain: layout style paint;
 }
 
 /* Optimize gradients and backgrounds */
 .bg-gradient-to-br,
-.bg-gradient-to-r {
+.bg-gradient-to-r,
+[class*="gradient"] {
   will-change: auto;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
-/* Optimize backdrop filters */
-.backdrop-blur-sm {
+/* Optimize backdrop filters - GPU accelerated */
+.backdrop-blur-sm,
+[class*="backdrop"] {
   will-change: auto;
-  transform: translateZ(0);
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
-/* Optimize motion animations */
+/* Ultra-smooth motion animations with Apple-style easing */
 .motion-safe\:animate-fade-in {
-  animation: fadeIn 0.6s ease-out;
+  animation: fadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: opacity;
+  transform: translate3d(0, 0, 0);
 }
 
 .motion-safe\:animate-slide-up {
-  animation: slideUp 0.6s ease-out;
+  animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translate3d(0, 0, 0);
   }
   to {
     opacity: 1;
+    transform: translate3d(0, 0, 0);
   }
 }
 
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate3d(0, 20px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
-/* Optimize scroll performance */
-html {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-}
-
-/* Optimize image and video loading */
+/* Optimize image and video loading - Tesla-level quality */
 img, video {
   image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: auto;
+  contain: layout style paint;
+}
+
+/* Optimize all sections for smooth scrolling */
+section {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: auto;
+  contain: layout style paint;
+}
+
+/* Optimize transform animations - GPU accelerated */
+.transform-gpu,
+[class*="transform"] {
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Optimize blur effects - Hardware accelerated */
+.blur-optimized,
+[style*="blur"] {
+  filter: blur(60px);
+  will-change: filter, transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  contain: layout style paint;
+}
+
+/* Optimize shadow effects */
+.shadow-optimized,
+[class*="shadow"] {
+  will-change: box-shadow;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  contain: layout style paint;
+}
+
+/* Optimize fixed/absolute positioned elements */
+.fixed,
+.absolute {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform;
+  contain: layout style paint;
+}
+
+/* Optimize rounded elements */
+.rounded-full,
+[class*="rounded"] {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  contain: layout style paint;
+}
+
+/* Optimize flex/grid containers */
+.flex,
+.grid {
+  contain: layout style;
+  transform: translate3d(0, 0, 0);
 }
 
 /* Reduce motion for users who prefer it */
@@ -91,22 +187,55 @@ img, video {
   }
 }
 
-/* Optimize transform animations */
-.transform-gpu {
+/* Optimize canvas elements */
+canvas {
   transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: contents;
+  image-rendering: auto;
+  contain: layout style paint;
+}
+
+/* Optimize SVG elements */
+svg {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: auto;
+  contain: layout style paint;
+}
+
+/* Optimize buttons and interactive elements */
+button,
+a,
+[role="button"] {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  will-change: transform;
+  contain: layout style paint;
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Optimize hover states */
+button:hover,
+a:hover,
+[role="button"]:hover {
+  transform: translate3d(0, 0, 0) scale(1.02);
   will-change: transform;
 }
 
-/* Optimize blur effects */
-.blur-optimized {
-  filter: blur(60px);
-  will-change: filter;
-  transform: translateZ(0);
+/* Optimize focus states */
+button:focus,
+a:focus,
+[role="button"]:focus {
+  transform: translate3d(0, 0, 0);
+  outline: none;
 }
 
-/* Optimize shadow effects */
-.shadow-optimized {
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 80px rgba(139, 92, 246, 0.2);
-  will-change: box-shadow;
-  transform: translateZ(0);
+/* Optimize active states */
+button:active,
+a:active,
+[role="button"]:active {
+  transform: translate3d(0, 0, 0) scale(0.98);
+  transition-duration: 0.1s;
 }

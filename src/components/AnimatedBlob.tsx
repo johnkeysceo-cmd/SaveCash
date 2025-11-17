@@ -1,7 +1,7 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "motion/react";
 
-export function AnimatedBlob() {
+export const AnimatedBlob = memo(() => {
   return (
     <div 
       className="fixed inset-0 pointer-events-none overflow-hidden z-0"
@@ -11,7 +11,11 @@ export function AnimatedBlob() {
         position: 'fixed',
         top: 0,
         left: 0,
-        zIndex: 0
+        zIndex: 0,
+        transform: "translate3d(0, 0, 0)",
+        willChange: "auto",
+        backfaceVisibility: "hidden",
+        contain: "layout style paint",
       }}
     >
       {/* First Blob - Top Left */}
@@ -22,6 +26,11 @@ export function AnimatedBlob() {
           filter: "blur(80px)",
           top: "10%",
           left: "10%",
+          transform: "translate3d(0, 0, 0)",
+          willChange: "transform, filter",
+          backfaceVisibility: "hidden",
+          perspective: 1000,
+          contain: "layout style paint",
         }}
         animate={{
           scale: [1, 1.3, 0.8, 1.2, 1],
@@ -39,7 +48,8 @@ export function AnimatedBlob() {
         transition={{
           duration: 12,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: [0.4, 0, 0.2, 1] as const, // Apple-style cubic-bezier
+          type: "tween" as const,
         }}
       />
 
@@ -51,6 +61,11 @@ export function AnimatedBlob() {
           filter: "blur(70px)",
           top: "15%",
           right: "15%",
+          transform: "translate3d(0, 0, 0)",
+          willChange: "transform, filter",
+          backfaceVisibility: "hidden",
+          perspective: 1000,
+          contain: "layout style paint",
         }}
         animate={{
           scale: [1.2, 0.9, 1.4, 0.7, 1.2],
@@ -68,7 +83,8 @@ export function AnimatedBlob() {
         transition={{
           duration: 10,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: [0.4, 0, 0.2, 1] as const,
+          type: "tween" as const,
           delay: 2,
         }}
       />
@@ -81,6 +97,11 @@ export function AnimatedBlob() {
           filter: "blur(65px)",
           bottom: "20%",
           left: "20%",
+          transform: "translate3d(0, 0, 0)",
+          willChange: "transform, filter",
+          backfaceVisibility: "hidden",
+          perspective: 1000,
+          contain: "layout style paint",
         }}
         animate={{
           scale: [0.8, 1.3, 0.9, 1.1, 0.8],
@@ -98,7 +119,8 @@ export function AnimatedBlob() {
         transition={{
           duration: 14,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: [0.4, 0, 0.2, 1] as const,
+          type: "tween" as const,
           delay: 4,
         }}
       />
@@ -111,6 +133,11 @@ export function AnimatedBlob() {
           filter: "blur(75px)",
           bottom: "10%",
           right: "10%",
+          transform: "translate3d(0, 0, 0)",
+          willChange: "transform, filter",
+          backfaceVisibility: "hidden",
+          perspective: 1000,
+          contain: "layout style paint",
         }}
         animate={{
           scale: [1.1, 0.7, 1.3, 0.9, 1.1],
@@ -128,7 +155,8 @@ export function AnimatedBlob() {
         transition={{
           duration: 11,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: [0.4, 0, 0.2, 1] as const,
+          type: "tween" as const,
           delay: 1,
         }}
       />
@@ -141,7 +169,11 @@ export function AnimatedBlob() {
           filter: "blur(60px)",
           top: "50%",
           left: "50%",
-          transform: "translate(-50%, -50%)",
+          transform: "translate3d(-50%, -50%, 0)",
+          willChange: "transform, filter",
+          backfaceVisibility: "hidden",
+          perspective: 1000,
+          contain: "layout style paint",
         }}
         animate={{
           scale: [1, 1.4, 0.6, 1.2, 1],
@@ -159,10 +191,13 @@ export function AnimatedBlob() {
         transition={{
           duration: 9,
           repeat: Infinity,
-          ease: "easeInOut",
+          ease: [0.4, 0, 0.2, 1] as const,
+          type: "tween" as const,
           delay: 3,
         }}
       />
     </div>
   );
-}
+});
+
+AnimatedBlob.displayName = 'AnimatedBlob';
