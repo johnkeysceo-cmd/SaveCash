@@ -6,43 +6,45 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Optimize motion components - only when needed */
-[data-motion],
-[style*="transform"] {
+/* Optimize motion components */
+[data-motion] {
   will-change: transform, opacity;
-  transform: translate3d(0, 0, 0);
+  transform: translateZ(0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
 
 /* Optimize video elements */
 video {
-  will-change: auto;
-  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  transform: translateZ(0);
   backface-visibility: hidden;
-  -webkit-transform: translate3d(0, 0, 0);
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
 }
 
-/* Optimize gradients and backgrounds - only when animating */
-.bg-gradient-to-br.animating,
-.bg-gradient-to-r.animating {
-  will-change: transform;
-  transform: translate3d(0, 0, 0);
+/* Optimize gradients and backgrounds */
+.bg-gradient-to-br,
+.bg-gradient-to-r {
+  will-change: auto;
+  transform: translateZ(0);
 }
 
 /* Optimize backdrop filters */
 .backdrop-blur-sm {
   will-change: auto;
-  transform: translate3d(0, 0, 0);
+  transform: translateZ(0);
 }
 
 /* Optimize motion animations */
 .motion-safe\:animate-fade-in {
-  animation: fadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fadeIn 0.6s ease-out;
 }
 
 .motion-safe\:animate-slide-up {
-  animation: slideUp 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slideUp 0.6s ease-out;
 }
 
 @keyframes fadeIn {
@@ -57,11 +59,11 @@ video {
 @keyframes slideUp {
   from {
     opacity: 0;
-    transform: translate3d(0, 20px, 0);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
-    transform: translate3d(0, 0, 0);
+    transform: translateY(0);
   }
 }
 
@@ -69,19 +71,12 @@ video {
 html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  overflow-x: hidden;
-}
-
-body {
-  overflow-x: hidden;
-  transform: translate3d(0, 0, 0);
 }
 
 /* Optimize image and video loading */
 img, video {
   image-rendering: -webkit-optimize-contrast;
-  max-width: 100%;
-  height: auto;
+  image-rendering: crisp-edges;
 }
 
 /* Reduce motion for users who prefer it */
@@ -100,34 +95,18 @@ img, video {
 .transform-gpu {
   transform: translate3d(0, 0, 0);
   will-change: transform;
-  backface-visibility: hidden;
 }
 
-/* Optimize blur effects - only set will-change when needed */
+/* Optimize blur effects */
 .blur-optimized {
   filter: blur(60px);
-  transform: translate3d(0, 0, 0);
-  backface-visibility: hidden;
+  will-change: filter;
+  transform: translateZ(0);
 }
 
 /* Optimize shadow effects */
 .shadow-optimized {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 80px rgba(139, 92, 246, 0.2);
-  transform: translate3d(0, 0, 0);
-}
-
-/* GPU acceleration for animated elements */
-.motion-div,
-[data-framer-name] {
-  transform: translate3d(0, 0, 0);
-  will-change: transform, opacity;
-  backface-visibility: hidden;
-  isolation: isolate;
-}
-
-/* Improve animation performance with compositor hints */
-.animated-element {
-  contain: layout style paint;
-  transform: translate3d(0, 0, 0);
-  will-change: transform;
+  will-change: box-shadow;
+  transform: translateZ(0);
 }

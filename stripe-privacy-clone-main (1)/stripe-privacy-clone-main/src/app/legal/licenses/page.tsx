@@ -1,1 +1,63 @@
-'use client';import React from 'react';import Header from '@/components/sections/header';import Footer from '@/components/sections/footer';export default function LicensesPage() {  return (    <div className="min-h-screen bg-background font-['Inter']">      <Header />            <main className="flex-1">        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">          <article className="space-y-8">            <div>              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Licenses</h1>              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: November 3, 2025</p>            </div>            <section className="space-y-4">              <p className="text-[var(--color-text-primary)] leading-relaxed">                This Licenses page provides information about licenses, registrations, and regulatory approvals that SaveCash will obtain and maintain to operate our payment processing services. As we prepare for launch, we are committed to securing all necessary regulatory approvals and maintaining compliance with applicable laws.              </p>              <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mt-4">                <p className="text-blue-900 font-semibold mb-2">Pre-Launch Status</p>                <p className="text-blue-800 text-sm">                  SaveCash is currently in pre-launch phase. We are actively working to obtain all necessary licenses, registrations, and certifications required for operation. This page will be updated as we complete our regulatory approvals.                </p>              </div>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Money Transmitter Licenses</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                SaveCash will obtain and maintain money transmitter licenses in all U.S. states and jurisdictions where required by applicable laws. We are committed to securing the necessary licensing to enable us to provide payment processing and money transmission services nationwide in compliance with all state and federal regulations.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Our licensing strategy includes working with state regulators, submitting required applications, maintaining adequate bonding and capital requirements, and implementing robust compliance programs to meet all regulatory obligations.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Regulatory Registration</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                SaveCash will register with FinCEN (Financial Crimes Enforcement Network) as a money services business and will comply with all applicable federal regulations including anti-money laundering (AML) and Bank Secrecy Act (BSA) requirements. We are preparing our registration materials and compliance programs to meet these federal obligations.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We will implement comprehensive AML compliance programs, suspicious activity reporting systems, and customer due diligence procedures as required by federal law and regulations.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Compliance Certifications</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                SaveCash is committed to obtaining and maintaining industry-leading compliance certifications and standards. We will pursue the following certifications and compliance standards:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li><strong>PCI DSS Level 1:</strong> We will achieve and maintain Payment Card Industry Data Security Standard (PCI DSS) Level 1 certification to ensure the highest level of security for payment card data processing.</li>                <li><strong>SOC 2 Type II:</strong> We will obtain System and Organization Controls (SOC 2) Type II certification to demonstrate our commitment to security, availability, processing integrity, confidentiality, and privacy of our systems.</li>                <li><strong>GDPR Compliance:</strong> We will implement comprehensive data protection measures and comply with the General Data Protection Regulation (GDPR) for users in the European Economic Area.</li>                <li><strong>CCPA Compliance:</strong> We will comply with the California Consumer Privacy Act (CCPA) and similar state privacy laws to protect consumer privacy rights.</li>                <li><strong>Other Privacy Regulations:</strong> We will maintain compliance with other applicable privacy regulations in jurisdictions where we operate, including PIPEDA (Canada), LGPD (Brazil), and other regional data protection laws.</li>              </ul>              <p className="text-[var(--color-text-primary)] leading-relaxed mt-4">                Our compliance program is being designed to meet or exceed these standards, with regular audits, assessments, and continuous improvement processes to maintain our certifications and compliance status.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Ongoing Compliance</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                SaveCash is committed to maintaining the highest standards of regulatory compliance and will continuously monitor changes in applicable laws and regulations. We will:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Regularly review and update our compliance programs to reflect regulatory changes</li>                <li>Conduct periodic audits and assessments to ensure continued compliance</li>                <li>Provide ongoing training to our team members on compliance requirements</li>                <li>Maintain transparent communication with regulators and industry bodies</li>                <li>Update this page as we obtain licenses, registrations, and certifications</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">5. Contact Information</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                For questions about our licensing status, regulatory compliance, or to verify our credentials, please contact us:              </p>              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">                <p className="text-[var(--color-text-primary)] mb-2">                  <strong className="font-medium">SaveCash</strong>                </p>                <p className="text-[var(--color-text-primary)] mb-2">                  Compliance & Regulatory Affairs: <a href="mailto:compliance@savecash.com" className="text-[var(--color-accent-primary)] hover:underline">compliance@savecash.com</a>                </p>                <p className="text-[var(--color-text-primary)] mb-2">                  General Inquiries: <a href="mailto:legal@savecash.com" className="text-[var(--color-accent-primary)] hover:underline">legal@savecash.com</a>                </p>              </div>            </section>            <section className="space-y-2 mt-16 pt-8 border-t border-[var(--color-border-divider)]">              <div className="opacity-30 hover:opacity-60 transition-opacity duration-200">                <p className="text-[8px] text-[var(--color-text-secondary)] leading-tight font-extralight">                  <a href="https://www.vecteezy.com/free-videos/blob" className="underline decoration-dotted underline-offset-2" target="_blank" rel="noopener noreferrer">Blob Stock Videos by Vecteezy</a>                </p>              </div>            </section>          </article>        </div>      </main>      <Footer />    </div>  );}
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function LicensesPage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Licenses</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: January 16, 2025</p>
+            </div>
+
+            <section className="space-y-4">
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                This Licenses page provides information about licenses, registrations, and regulatory approvals held by SaveCash and our payment processing entities.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Money Transmitter Licenses</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash maintains money transmitter licenses in various U.S. states and jurisdictions as required by applicable laws. Our licensing enables us to provide payment processing and money transmission services nationwide.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Regulatory Registration</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash is registered with FinCEN (Financial Crimes Enforcement Network) as a money services business and complies with all applicable federal regulations including anti-money laundering and Bank Secrecy Act requirements.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Compliance Certifications</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash maintains compliance certifications including PCI DSS Level 1, SOC 2 Type II, and meets standards for GDPR, CCPA, and other applicable privacy regulations.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Contact Information</h2>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+

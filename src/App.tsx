@@ -287,15 +287,12 @@ export default function App() {
     // Initialize performance optimizations
     initPerformanceOptimizations();
     
-    // Force hardware acceleration on body for smooth performance
-    // Use requestAnimationFrame to avoid forced reflow
-    requestAnimationFrame(() => {
-      document.body.style.transform = "translate3d(0, 0, 0)";
-      document.body.style.willChange = "auto"; // Use auto to avoid overuse
-      document.body.style.backfaceVisibility = "hidden";
-      document.body.style.isolation = "isolate";
-      document.body.style.contain = "layout style paint";
-    });
+    // Force hardware acceleration on body for ultra-smooth performance
+    document.body.style.transform = "translate3d(0, 0, 0)";
+    document.body.style.willChange = "transform";
+    document.body.style.backfaceVisibility = "hidden";
+    document.body.style.isolation = "isolate";
+    document.body.style.contain = "layout style paint";
 
     return () => {
       window.removeEventListener("popstate", handleRouteChange);
@@ -328,7 +325,7 @@ export default function App() {
       <main 
         style={{
           transform: "translate3d(0, 0, 0)",
-          willChange: "auto", // Use auto to avoid overuse
+          willChange: "transform",
           backfaceVisibility: "hidden",
           isolation: "isolate",
         }}
@@ -367,19 +364,7 @@ export default function App() {
           <ClosingTaglineSection />
         </Suspense>
         
-        {/* Security Headline Section */}
-        <section className="py-16 px-6 bg-black">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight">
-              Your Data. Fully Protected.
-            </h2>
-            <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
-              All sensitive information is encrypted with industry-standard protocols before leaving your device. Your card details are never stored — we keep your payments safe and private.
-            </p>
-          </div>
-        </section>
-        
-        <Suspense fallback={<HoneycombLoader className="h-[300px]" />}>
+        <Suspense fallback={<HoneycombLoader className="h-96" />}>
           <CardStreamScanner />
         </Suspense>
         

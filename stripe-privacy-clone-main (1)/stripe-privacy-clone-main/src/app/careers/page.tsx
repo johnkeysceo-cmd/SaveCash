@@ -1,1 +1,93 @@
-'use client';import React from 'react';import Header from '@/components/sections/header';import Footer from '@/components/sections/footer';export default function CareersPage() {  return (    <div className="min-h-screen bg-background font-['Inter']">      <Header />            <main className="flex-1">        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">          <article className="space-y-8">            <div>              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Careers at SaveCash</h1>              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Join us in building the future of AI-powered financial management.</p>            </div>            <section className="space-y-4">              <p className="text-[var(--color-text-primary)] leading-relaxed">                We will be assembling a founding team of talented individuals who want to help us revolutionize how people manage their finances.                If you're passionate about artificial intelligence, financial technology, and creating real impact, we encourage you to reach out early.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Open Positions</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We expect to open roles across many teams as we approach launch. Planned early openings include:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Software Engineers (Frontend, Backend, Full Stack)</li>                <li>AI/ML Engineers</li>                <li>Data Scientists</li>                <li>Product Managers</li>                <li>Designers</li>                <li>Customer Success Managers</li>                <li>Marketing Specialists</li>                <li>Security Engineers</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Why Work at SaveCash?</h2>              <div className="space-y-6">                <div>                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">Innovative Technology</h3>                  <p className="text-[var(--color-text-primary)] leading-relaxed">                    You will work with cutting-edge AI and machine learning technologies that will transform the financial industry.                  </p>                </div>                <div>                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">Real Impact</h3>                  <p className="text-[var(--color-text-primary)] leading-relaxed">                    You will help millions of people save money and achieve their financial goals through our intelligent platform once we launch.                  </p>                </div>                <div>                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">Competitive Benefits</h3>                  <p className="text-[var(--color-text-primary)] leading-relaxed">                    We plan to offer comprehensive health coverage, flexible work arrangements, and competitive compensation packages.                  </p>                </div>                <div>                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">Growth Opportunities</h3>                  <p className="text-[var(--color-text-primary)] leading-relaxed">                    As SaveCash scales, there will be plenty of opportunities for career advancement and skill development.                  </p>                </div>              </div>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">How to Apply</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Want to be among the first to know when roles open? Share your resume and a note about your interests with us:              </p>              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">                <p className="text-[var(--color-text-primary)]">                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com                </p>              </div>            </section>          </article>        </div>      </main>      <Footer />    </div>  );}
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function CareersPage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Careers at SaveCash</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Join us in building the future of AI-powered financial management.</p>
+            </div>
+
+            <section className="space-y-4">
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We're always looking for talented individuals who want to help us revolutionize how people manage their finances. 
+                If you're passionate about artificial intelligence, financial technology, and making a real impact, we'd love to hear from you.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Open Positions</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We're growing fast and looking for people across all departments. Current openings include:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Software Engineers (Frontend, Backend, Full Stack)</li>
+                <li>AI/ML Engineers</li>
+                <li>Data Scientists</li>
+                <li>Product Managers</li>
+                <li>Designers</li>
+                <li>Customer Success Managers</li>
+                <li>Marketing Specialists</li>
+                <li>Security Engineers</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Why Work at SaveCash?</h2>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">Innovative Technology</h3>
+                  <p className="text-[var(--color-text-primary)] leading-relaxed">
+                    Work with cutting-edge AI and machine learning technologies that are transforming the financial industry.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">Real Impact</h3>
+                  <p className="text-[var(--color-text-primary)] leading-relaxed">
+                    Help millions of people save money and achieve their financial goals through our intelligent platform.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">Competitive Benefits</h3>
+                  <p className="text-[var(--color-text-primary)] leading-relaxed">
+                    Enjoy comprehensive health insurance, flexible work arrangements, and competitive compensation.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-3">Growth Opportunities</h3>
+                  <p className="text-[var(--color-text-primary)] leading-relaxed">
+                    Fast-growing company means plenty of opportunities for career advancement and skill development.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">How to Apply</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Interested in joining our team? Send your resume and cover letter to:
+              </p>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+

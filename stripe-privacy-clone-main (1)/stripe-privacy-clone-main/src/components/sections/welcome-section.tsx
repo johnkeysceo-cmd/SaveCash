@@ -1,1 +1,40 @@
-import React from 'react';const WelcomeSection = () => {  return (    <section className="max-w-[800px]" aria-labelledby="welcome">      <h2        id="welcome"        className="font-bold text-[#1a1f36] mb-6 text-[32px]"        style={{ fontFamily: 'Inter, sans-serif' }}      >        Welcome      </h2>      <div className="space-y-4">        <p className="text-[16px] font-normal text-[#4a5568] leading-[1.6]">          SaveCash will revolutionize the financial technology industry through our proprietary AI-powered platform that will deliver unprecedented value to users worldwide. We will be positioned to become the absolute best and most successful startup in fintech, combining cutting-edge artificial intelligence with deep financial expertise to create a category-defining platform. Our innovative approach to automated savings and financial optimization will represent the future of personal finance, and we will be committed to setting the highest standards in the industry while maintaining ironclad protections of our intellectual property and competitive advantages.        </p>        <p className="text-[16px] font-normal text-[#4a5568] leading-[1.6]">          We will provide AI-powered financial management tools for individuals and businesses. Our platform will help users automatically save money, optimize spending, and achieve their financial goals through state-of-the-art technology that will analyze millions of transaction data points in real-time to identify savings opportunities invisible to traditional methods.        </p>        <p className="text-[16px] font-normal text-[#4a5568] leading-[1.6]">          This Privacy Policy ("Policy") describes the Personal Data that we will collect, how we will use and share it, and          details on how you can reach us with privacy-related inquiries. The Policy also outlines your rights and          choices as a data subject, including the right to object to certain uses of your Personal Data.        </p>        <p className="text-[16px] font-normal text-[#4a5568] leading-[1.6]">          Depending on the activity, SaveCash assumes the role of a "data controller" and/or "data processor" (or          "service provider"). For more details about our privacy practices, including our role, the specific          SaveCash entity responsible under this Policy, and our legal bases for processing your Personal Data, please          visit our{' '}          <a href="/privacy-center">            Privacy Center          </a>          .        </p>      </div>    </section>  );};export default WelcomeSection;
+import React from 'react';
+
+const WelcomeSection = () => {
+  return (
+    <section className="max-w-[800px]" aria-labelledby="welcome">
+      <h2
+        id="welcome"
+        className="font-bold text-[#1a1f36] mb-6 text-[32px]"
+        style={{ fontFamily: 'Inter, sans-serif' }}
+      >
+        Welcome
+      </h2>
+      <div className="space-y-4">
+        <p className="text-[16px] font-normal text-[#4a5568] leading-[1.6]">
+          SaveCash is revolutionizing the financial technology industry through our proprietary AI-powered platform that delivers unprecedented value to users worldwide. We are positioned to become the absolute best and most successful startup in fintech, combining cutting-edge artificial intelligence with deep financial expertise to create a category-defining platform. Our innovative approach to automated savings and financial optimization represents the future of personal finance, and we are committed to setting the highest standards in the industry while maintaining ironclad protections of our intellectual property and competitive advantages.
+        </p>
+        <p className="text-[16px] font-normal text-[#4a5568] leading-[1.6]">
+          We provide AI-powered financial management tools for individuals and businesses. Our platform helps users automatically save money, optimize spending, and achieve their financial goals through state-of-the-art technology that analyzes millions of transaction data points in real-time to identify savings opportunities invisible to traditional methods.
+        </p>
+        <p className="text-[16px] font-normal text-[#4a5568] leading-[1.6]">
+          This Privacy Policy ("Policy") describes the Personal Data that we collect, how we use and share it, and
+          details on how you can reach us with privacy-related inquiries. The Policy also outlines your rights and
+          choices as a data subject, including the right to object to certain uses of your Personal Data.
+        </p>
+        <p className="text-[16px] font-normal text-[#4a5568] leading-[1.6]">
+          Depending on the activity, SaveCash assumes the role of a "data controller" and/or "data processor" (or
+          "service provider"). For more details about our privacy practices, including our role, the specific
+          SaveCash entity responsible under this Policy, and our legal bases for processing your Personal Data, please
+          visit our{' '}
+          <a href="https://savecash.com/legal/privacy-center">
+            Privacy Center
+          </a>
+          .
+        </p>
+      </div>
+    </section>
+  );
+};
+
+export default WelcomeSection;

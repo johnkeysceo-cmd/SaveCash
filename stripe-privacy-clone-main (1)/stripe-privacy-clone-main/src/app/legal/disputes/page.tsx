@@ -1,1 +1,158 @@
-'use client';import React from 'react';import Header from '@/components/sections/header';import Footer from '@/components/sections/footer';export default function DisputesPage() {  return (    <div className="min-h-screen bg-background font-['Inter']">      <Header />            <main className="flex-1">        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">          <article className="space-y-8">            <div>              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Complaints & Disputes Policy</h1>              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: November 3, 2025</p>            </div>            <section className="space-y-4">              <p className="text-[var(--color-text-primary)] leading-relaxed">                SaveCash is committed to resolving customer complaints and disputes fairly, promptly, and transparently. This policy outlines the procedures for reporting, investigating, and resolving disputes related to our services.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Filing a Complaint</h2>                            <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.1 How to File</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                You can file a complaint through any of the following channels:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li><strong>Online:</strong> Submit through your account dashboard</li>                <li><strong>Email:</strong> Send to privacy.savecash@gmail.com with subject line "Complaint"</li>                <li><strong>Mail:</strong> SaveCash Inc., 123 Business Street, San Francisco, CA 94103</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.2 Required Information</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Please include the following in your complaint:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Your full name and account information</li>                <li>Date and description of the issue</li>                <li>Transaction ID or reference numbers (if applicable)</li>                <li>Steps you've already taken to resolve the issue</li>                <li>Documentation supporting your complaint (screenshots, emails, etc.)</li>                <li>Desired resolution</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Complaint Resolution Process</h2>                            <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.1 Acknowledgment</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We will acknowledge receipt of your complaint within 2 business days and provide a reference number for tracking.              </p>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.2 Initial Review</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Our customer relations team will conduct an initial review within 5 business days and may request additional information if needed.              </p>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.3 Investigation</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Complex complaints may require a detailed investigation, including:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Review of account activity and transaction history</li>                <li>Analysis of system logs and technical data</li>                <li>Consultation with relevant departments</li>                <li>Contact with third-party service providers (if applicable)</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.4 Resolution Timeline</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We strive to resolve complaints within the following timeframes:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li><strong>Simple issues:</strong> 5-10 business days</li>                <li><strong>Moderate complexity:</strong> 15-30 business days</li>                <li><strong>Complex cases:</strong> Up to 60 business days (we will provide progress updates every 15 days)</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Dispute Resolution Options</h2>                            <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.1 Internal Resolution</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Most disputes are resolved internally through our customer service process. We may offer:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Account corrections or adjustments</li>                <li>Refunds or credits</li>                <li>Enhanced account services or features</li>                <li>Written explanation of actions taken</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.2 Arbitration</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                If internal resolution is unsuccessful, disputes will be resolved through binding arbitration in accordance with the American Arbitration Association (AAA) Commercial Arbitration Rules. Arbitration will take place in San Francisco, California, unless both parties agree otherwise.              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>You waive any right to a jury trial</li>                <li>Class action waivers apply</li>                <li>Costs will be allocated as determined by the arbitrator</li>                <li>The arbitrator's decision is final and binding</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.3 Regulatory Escalation</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                You may also file complaints with regulatory authorities:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li><strong>Consumer Financial Protection Bureau (CFPB):</strong> consumerfinance.gov/complaint</li>                <li><strong>Federal Trade Commission (FTC):</strong> reportfraud.ftc.gov</li>                <li><strong>Your State Attorney General's Office</strong></li>                <li><strong>Department of Financial Protection and Innovation (California):</strong> dfpi.ca.gov</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Governing Law</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                This policy and all disputes are governed by the laws of the State of California, United States, without regard to conflict of law principles.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">5. Contact Information</h2>              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">                <p className="text-[var(--color-text-primary)] mb-3">                  <strong className="font-medium">Customer Relations:</strong> privacy.savecash@gmail.com                </p>                <p className="text-[var(--color-text-primary)] mb-3">                  <strong className="font-medium">Hours:</strong> Monday-Friday, 9am-6pm EST                </p>                <p className="text-[var(--color-text-primary)]">                  <strong className="font-medium">Mailing Address:</strong> SaveCash Inc., 123 Business Street, San Francisco, CA 94103                </p>              </div>            </section>          </article>        </div>      </main>      <Footer />    </div>  );}
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function DisputesPage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Complaints & Disputes Policy</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: January 16, 2025</p>
+            </div>
+
+            <section className="space-y-4">
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash is committed to resolving customer complaints and disputes fairly, promptly, and transparently. This policy outlines the procedures for reporting, investigating, and resolving disputes related to our services.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Filing a Complaint</h2>
+              
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.1 How to File</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                You can file a complaint through any of the following channels:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Online:</strong> Submit through your account dashboard</li>
+                <li><strong>Email:</strong> Send to privacy.savecash@gmail.com with subject line "Complaint"</li>
+                <li><strong>Phone:</strong> Call 1-888-XXX-XXXX (Monday-Friday, 9am-6pm EST)</li>
+                <li><strong>Mail:</strong> SaveCash Inc., 123 Business Street, San Francisco, CA 94103</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.2 Required Information</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Please include the following in your complaint:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Your full name and account information</li>
+                <li>Date and description of the issue</li>
+                <li>Transaction ID or reference numbers (if applicable)</li>
+                <li>Steps you've already taken to resolve the issue</li>
+                <li>Documentation supporting your complaint (screenshots, emails, etc.)</li>
+                <li>Desired resolution</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Complaint Resolution Process</h2>
+              
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.1 Acknowledgment</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We will acknowledge receipt of your complaint within 2 business days and provide a reference number for tracking.
+              </p>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.2 Initial Review</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Our customer relations team will conduct an initial review within 5 business days and may request additional information if needed.
+              </p>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.3 Investigation</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Complex complaints may require a detailed investigation, including:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Review of account activity and transaction history</li>
+                <li>Analysis of system logs and technical data</li>
+                <li>Consultation with relevant departments</li>
+                <li>Contact with third-party service providers (if applicable)</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.4 Resolution Timeline</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We strive to resolve complaints within the following timeframes:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Simple issues:</strong> 5-10 business days</li>
+                <li><strong>Moderate complexity:</strong> 15-30 business days</li>
+                <li><strong>Complex cases:</strong> Up to 60 business days (we will provide progress updates every 15 days)</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Dispute Resolution Options</h2>
+              
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.1 Internal Resolution</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Most disputes are resolved internally through our customer service process. We may offer:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Account corrections or adjustments</li>
+                <li>Refunds or credits</li>
+                <li>Enhanced account services or features</li>
+                <li>Written explanation of actions taken</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.2 Arbitration</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                If internal resolution is unsuccessful, disputes will be resolved through binding arbitration in accordance with the American Arbitration Association (AAA) Commercial Arbitration Rules. Arbitration will take place in San Francisco, California, unless both parties agree otherwise.
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>You waive any right to a jury trial</li>
+                <li>Class action waivers apply</li>
+                <li>Costs will be allocated as determined by the arbitrator</li>
+                <li>The arbitrator's decision is final and binding</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.3 Regulatory Escalation</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                You may also file complaints with regulatory authorities:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Consumer Financial Protection Bureau (CFPB):</strong> consumerfinance.gov/complaint</li>
+                <li><strong>Federal Trade Commission (FTC):</strong> reportfraud.ftc.gov</li>
+                <li><strong>Your State Attorney General's Office</strong></li>
+                <li><strong>Department of Financial Protection and Innovation (California):</strong> dfpi.ca.gov</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Governing Law</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                This policy and all disputes are governed by the laws of the State of California, United States, without regard to conflict of law principles.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">5. Contact Information</h2>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)] mb-3">
+                  <strong className="font-medium">Customer Relations:</strong> privacy.savecash@gmail.com
+                </p>
+                <p className="text-[var(--color-text-primary)] mb-3">
+                  <strong className="font-medium">Phone:</strong> 1-888-XXX-XXXX
+                </p>
+                <p className="text-[var(--color-text-primary)] mb-3">
+                  <strong className="font-medium">Hours:</strong> Monday-Friday, 9am-6pm EST
+                </p>
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Mailing Address:</strong> SaveCash Inc., 123 Business Street, San Francisco, CA 94103
+                </p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+

@@ -1,1 +1,96 @@
-'use client';import React from 'react';import Header from '@/components/sections/header';import Footer from '@/components/sections/footer';export default function AboutPage() {  return (    <div className="min-h-screen bg-background font-['Inter']">      <Header />            <main className="flex-1">        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">          <article className="space-y-8">            <div>              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">About Us</h1>              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: November 3, 2025</p>            </div>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Our Mission</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We are engineering SaveCash to make money pile up automatically—no spreadsheets, no manual budgeting, no second guessing. Our mission is to deliver an autonomous finance co-pilot that quietly optimizes every dollar while you stay focused on living your life.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Who We Are</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Founded with the vision of making financial wellness automatic, SaveCash will use cutting-edge artificial intelligence to scan your spending patterns and surface invisible savings opportunities in real time. We are preparing to launch an experience where the system quietly moves money to the right places before you even notice it needed doing.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We believe wealth should build itself the moment you connect your accounts. Our AI will watch every transaction, move surplus into smart vaults, and coach you toward whatever objective matters—your first home, early retirement, or simply spending smarter without the mental load.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Think of it as autopilot for your net worth: precise, relentless, and always learning from your behavior so saving money happens without you lifting a finger.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Our Values</h2>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li><strong className="font-medium">Move fast, with quality:</strong> We will ship audacious ideas at the pace of a Tesla launch while obsessing over the polish that earns user trust.</li>                <li><strong className="font-medium">Think rigorously:</strong> We will model every scenario, pressure-test assumptions, and let data—not ego—guide the roadmap.</li>                <li><strong className="font-medium">Trust and amplify:</strong> We will trust our teammates and multiply their output through deep collaboration and radical transparency.</li>                <li><strong className="font-medium">Global optimization:</strong> We will optimize for SaveCash as a system, not for siloed wins.</li>                <li><strong className="font-medium">Be an owner:</strong> We will own every customer outcome end-to-end, even when it means stretching beyond our roles.</li>                <li><strong className="font-medium">Earned intensity:</strong> We believe in 18–22 hours of focused execution when we are in build mode—this is the standard for teams serious about bending the future.</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Global Presence</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We are architecting a launch plan that will anchor teams across North America, Europe, Asia-Pacific, and Latin America so we can support businesses in more than 45 countries and territories from day one.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Our expansion roadmap is designed to chase opportunity—wherever customers need autonomous savings infrastructure, SaveCash will spin up presence, talent, and localized expertise.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Innovation & Technology</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We will invest heavily in artificial intelligence and machine learning to continually tune our savings-detection engines. Our proprietary stack will read transaction patterns, merchant relationships, and market dynamics to trigger autonomous moves that keep more cash compounding for you.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Privacy and security will remain non-negotiable. We will deploy bank-level encryption, local processing, and privacy-first architecture so intelligent recommendations arrive without ever compromising your data.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Security & Privacy</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Security will be the core of everything we build. We will employ bank-level encryption, multi-factor authentication, hardware-backed secrets, and industry-leading practices to protect your financial data. Our compliance roadmap targets SOC 2, GDPR, CCPA, and every regulation relevant to the markets we enter.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Your privacy will always be the priority. We will never sell your data. We will rely on read-only access for analysis and never store sensitive credentials. Data will be encrypted in transit and at rest so peace of mind is automatic.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Join Our Mission</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We are assembling a founding team obsessed with autonomous finance. If you thrive on machine learning, financial technology, and building products that feel inevitable, now is the time to raise your hand.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed">                <a href="/careers" className="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-hover)] hover:underline transition-all duration-150">                  Explore career opportunities                </a> and help us ship the future of hands-off financial management.              </p>            </section>          </article>        </div>      </main>      <Footer />    </div>  );}
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function AboutPage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">About Us</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: January 16, 2025</p>
+            </div>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Our Mission</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We are committed to helping individuals and businesses automatically save more money through AI-powered financial insights. Our mission is to make financial management effortless, intelligent, and accessible to everyone, empowering people to achieve their financial goals.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Who We Are</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Founded with the vision of making financial wellness accessible to everyone, SaveCash uses cutting-edge artificial intelligence to analyze spending patterns and identify savings opportunities automatically. We serve thousands of users across the United States, helping them optimize their finances without the hassle.
+              </p>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We believe that everyone deserves to build wealth effortlessly. Our AI-powered platform continuously monitors your accounts, finds ways to save, and helps you achieve your financial goals—whether that's saving for a home, funding your retirement, or simply spending smarter.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Our Values</h2>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong className="font-medium">Move fast, with quality:</strong> We balance speed with craftsmanship, shipping products that we're proud of.</li>
+                <li><strong className="font-medium">Think rigorously:</strong> We apply clear thinking to complex problems and make principled decisions.</li>
+                <li><strong className="font-medium">Trust and amplify:</strong> We trust our colleagues and amplify their impact through collaboration.</li>
+                <li><strong className="font-medium">Global optimization:</strong> We optimize for the company as a whole, not just our individual teams.</li>
+                <li><strong className="font-medium">Be an owner:</strong> We act like owners, taking initiative and responsibility for our work.</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Global Presence</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                With offices across North America, Europe, Asia-Pacific, and Latin America, we support businesses in over 45 countries and territories. Our global infrastructure ensures reliable service and local expertise wherever you operate.
+              </p>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We're continuously expanding our reach to help more businesses around the world access the tools they need to succeed in the digital economy.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Innovation & Technology</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We invest heavily in artificial intelligence and machine learning to continuously improve our savings detection algorithms. Our proprietary technology analyzes transaction patterns, merchant relationships, and market trends to identify the best opportunities for our users to save money.
+              </p>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Privacy and security are paramount. We use bank-level encryption and never share your personal financial data. Our AI works locally and securely to provide you with intelligent recommendations without compromising your privacy.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Security & Privacy</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Security is at the core of everything we do. We use bank-level encryption, multi-factor authentication, and industry-leading security practices to protect your financial data. We're compliant with all major financial regulations including SOC 2, GDPR, and CCPA.
+              </p>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Your privacy is our priority. We never sell your data. We use read-only access to analyze your transactions and never store sensitive credentials. Your data is encrypted in transit and at rest, giving you complete peace of mind.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Join Our Mission</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We're always looking for talented individuals who want to help democratize financial wellness through AI. If you're passionate about machine learning, financial technology, and making a real difference in people's lives, we'd love to hear from you.
+              </p>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                <a href="/careers" className="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-hover)] hover:underline transition-all duration-150">
+                  Explore career opportunities
+                </a> and help us build the future of financial management.
+              </p>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}

@@ -1,1 +1,119 @@
-'use client';import React from 'react';interface LegalSummaryModalProps {  isOpen: boolean;  onClose: () => void;  type: string;}// Helper function to get absolute URL for Next.js app// This ensures links open the ENTIRE Next.js app in a completely new browser tabconst getAbsoluteUrl = (path: string) => {  // Always construct the full URL to the Next.js app  // Since this component is IN the Next.js app, we can use window.location.origin  // This will work for both dev (localhost:3000) and production  if (typeof window !== 'undefined') {    // Client-side: use the current origin (which is the Next.js app)    return `${window.location.origin}${path.startsWith('/') ? path : '/' + path}`;  }    // Server-side: default to localhost:3000 for development  // In production, Next.js will use the actual origin  return `http://localhost:3000${path.startsWith('/') ? path : '/' + path}`;};const legalSummaries: Record<string, { title: string; summary: string; href: string }> = {  privacy: {    title: 'Privacy Policy',    summary: 'How SaveCash collects, uses, and protects your personal and financial data. Includes GDPR/CCPA compliance, data retention policies, AI/ML processing disclosures, and your rights to access, delete, or port your data.',    href: '/'  },  terms: {    title: 'Terms of Service',    summary: 'Governs your use of SaveCash services. Includes user obligations, intellectual property rights, anti-scraping and anti-competition protections, dispute resolution, and limitations of liability.',    href: '/terms'  },  cookies: {    title: 'Cookie Policy',    summary: 'Details about cookies and tracking technologies we use, including analytics, authentication, and personalization cookies. Explains how to manage your cookie preferences.',    href: '/cookies'  },  eula: {    title: 'End User License Agreement',    summary: 'License terms for SaveCash software and applications. Defines permitted uses, restrictions on reverse engineering, ownership of intellectual property, and warranty disclaimers.',    href: '/eula'  },  'acceptable-use': {    title: 'Acceptable Use Policy',    summary: 'Prohibited activities and restricted business types. Includes fraud prevention, compliance requirements, technical restrictions, and consequences for violations including account termination.',    href: '/acceptable-use'  },  disclaimer: {    title: 'Disclaimer',    summary: 'Legal disclaimers regarding SaveCash services. Includes no warranties, limitation of liability, risk disclosures for financial services, and disclaimers about investment advice.',    href: '/disclaimer'  },  security: {    title: 'Security',    summary: 'Bank-grade security practices including encryption, certifications (SOC 2, PCI DSS, ISO 27001), infrastructure security, fraud detection, and responsible disclosure policy.',    href: '/security'  },  accessibility: {    title: 'Accessibility',    summary: 'SaveCash commitment to WCAG 2.1 AA compliance, accessible design principles, and accommodations for users with disabilities.',    href: '/accessibility'  }};export default function LegalSummaryModal({ isOpen, onClose, type }: LegalSummaryModalProps) {  if (!isOpen) return null;  const content = legalSummaries[type];  if (!content) return null;  return (    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" onClick={onClose}>      <div         className="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 p-6 md:p-8 max-h-[90vh] overflow-y-auto"        onClick={(e) => e.stopPropagation()}      >        <div className="flex justify-between items-start mb-6">          <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-text-primary)]">            {content.title}          </h2>          <button            onClick={onClose}            className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors text-2xl leading-none"            aria-label="Close"          >            ×          </button>        </div>        <div className="space-y-6">          <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6">            <h3 className="text-sm font-semibold text-[var(--color-text-primary)] mb-3 uppercase tracking-wide">              Summary            </h3>            <p className="text-[var(--color-text-primary)] leading-relaxed">              {content.summary}            </p>          </div>          <div className="flex flex-col sm:flex-row gap-4">            <a              href={getAbsoluteUrl(content.href)}              target="_blank"              rel="noopener noreferrer"              className="flex-1 bg-[var(--color-accent-primary)] text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-[var(--color-accent-hover)] transition-colors duration-150"              onClick={onClose}            >              Read Full {content.title}            </a>            <button              onClick={onClose}              className="flex-1 border border-[var(--color-border-divider)] text-[var(--color-text-primary)] px-6 py-3 rounded-lg font-semibold hover:bg-[var(--color-background-secondary)] transition-colors duration-150"            >              Close            </button>          </div>          <p className="text-xs text-[var(--color-text-secondary)] text-center">            Last updated: January 16, 2025          </p>        </div>      </div>    </div>  );}
+'use client';
+
+import React from 'react';
+import Link from 'next/link';
+
+interface LegalSummaryModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  type: string;
+}
+
+const legalSummaries: Record<string, { title: string; summary: string; href: string }> = {
+  privacy: {
+    title: 'Privacy Policy',
+    summary: 'How SaveCash collects, uses, and protects your personal and financial data. Includes GDPR/CCPA compliance, data retention policies, AI/ML processing disclosures, and your rights to access, delete, or port your data.',
+    href: '/'
+  },
+  terms: {
+    title: 'Terms of Service',
+    summary: 'Governs your use of SaveCash services. Includes user obligations, intellectual property rights, anti-scraping and anti-competition protections, dispute resolution, and limitations of liability.',
+    href: '/terms'
+  },
+  cookies: {
+    title: 'Cookie Policy',
+    summary: 'Details about cookies and tracking technologies we use, including analytics, authentication, and personalization cookies. Explains how to manage your cookie preferences.',
+    href: '/cookies'
+  },
+  eula: {
+    title: 'End User License Agreement',
+    summary: 'License terms for SaveCash software and applications. Defines permitted uses, restrictions on reverse engineering, ownership of intellectual property, and warranty disclaimers.',
+    href: '/eula'
+  },
+  'acceptable-use': {
+    title: 'Acceptable Use Policy',
+    summary: 'Prohibited activities and restricted business types. Includes fraud prevention, compliance requirements, technical restrictions, and consequences for violations including account termination.',
+    href: '/acceptable-use'
+  },
+  disclaimer: {
+    title: 'Disclaimer',
+    summary: 'Legal disclaimers regarding SaveCash services. Includes no warranties, limitation of liability, risk disclosures for financial services, and disclaimers about investment advice.',
+    href: '/disclaimer'
+  },
+  security: {
+    title: 'Security',
+    summary: 'Bank-grade security practices including encryption, certifications (SOC 2, PCI DSS, ISO 27001), infrastructure security, fraud detection, and responsible disclosure policy.',
+    href: '/security'
+  },
+  'bug-bounty': {
+    title: 'Bug Bounty & Responsible Disclosure',
+    summary: 'Security vulnerability reporting program. Includes scope, safe harbor for researchers, response times, reward structure (up to $10,000), and reporting guidelines.',
+    href: '/bug-bounty'
+  },
+  accessibility: {
+    title: 'Accessibility',
+    summary: 'SaveCash commitment to WCAG 2.1 AA compliance, accessible design principles, and accommodations for users with disabilities.',
+    href: '/accessibility'
+  }
+};
+
+export default function LegalSummaryModal({ isOpen, onClose, type }: LegalSummaryModalProps) {
+  if (!isOpen) return null;
+
+  const content = legalSummaries[type];
+  if (!content) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50" onClick={onClose}>
+      <div 
+        className="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-4 p-6 md:p-8 max-h-[90vh] overflow-y-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex justify-between items-start mb-6">
+          <h2 className="text-2xl md:text-3xl font-semibold text-[var(--color-text-primary)]">
+            {content.title}
+          </h2>
+          <button
+            onClick={onClose}
+            className="text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors text-2xl leading-none"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+
+        <div className="space-y-6">
+          <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6">
+            <h3 className="text-sm font-semibold text-[var(--color-text-primary)] mb-3 uppercase tracking-wide">
+              Summary
+            </h3>
+            <p className="text-[var(--color-text-primary)] leading-relaxed">
+              {content.summary}
+            </p>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href={content.href}
+              className="flex-1 bg-[var(--color-accent-primary)] text-white px-6 py-3 rounded-lg font-semibold text-center hover:bg-[var(--color-accent-hover)] transition-colors duration-150"
+              onClick={onClose}
+            >
+              Read Full {content.title}
+            </Link>
+            <button
+              onClick={onClose}
+              className="flex-1 border border-[var(--color-border-divider)] text-[var(--color-text-primary)] px-6 py-3 rounded-lg font-semibold hover:bg-[var(--color-background-secondary)] transition-colors duration-150"
+            >
+              Close
+            </button>
+          </div>
+
+          <p className="text-xs text-[var(--color-text-secondary)] text-center">
+            Last updated: January 16, 2025
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+

@@ -1,1 +1,194 @@
-'use client';import React from 'react';import Header from '@/components/sections/header';import Footer from '@/components/sections/footer';export default function CookiePolicyPage() {  return (    <div className="min-h-screen bg-background font-['Inter']">      <Header />            <main className="flex-1">        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">          <article className="space-y-8">            <div>              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Cookie Policy</h1>              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: November 3, 2025 | Version 1.0</p>            </div>            <section className="space-y-4">              <p className="text-[var(--color-text-primary)] leading-relaxed">                This Cookie Policy explains how we use cookies and similar tracking technologies on our website and services. By using our services, you consent to the use of cookies as described in this policy.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">What Are Cookies?</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Cookies are small text files that are placed on your device when you visit a website. They are widely used to make websites work more efficiently and provide information to website owners.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Cookies can be "persistent" or "session" cookies. Persistent cookies remain on your device after you close your browser, while session cookies are deleted when you close your browser.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">How We Use Cookies</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We use cookies for various purposes to enhance your experience and improve our services:              </p>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Essential Cookies</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                These cookies are necessary for our website to function properly. They enable core functionality such as:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Authentication and security</li>                <li>Session management and user preferences</li>                <li>Load balancing and performance optimization</li>                <li>Fraud prevention and detection</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Analytics Cookies</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                These cookies help us understand how visitors interact with our website by collecting anonymous information such as:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Pages visited and time spent on each page</li>                <li>Traffic sources and navigation patterns</li>                <li>Device and browser information</li>                <li>Error messages and performance metrics</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Functional Cookies</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                These cookies enable enhanced functionality and personalization, such as:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Remembering your preferences and settings</li>                <li>Language and region selection</li>                <li>Customized content and features</li>                <li>Video and chat functionality</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Marketing Cookies</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                These cookies are used to deliver relevant advertisements and measure campaign effectiveness:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Tracking ad impressions and clicks</li>                <li>Retargeting and remarketing</li>                <li>Social media integration</li>                <li>Campaign performance analysis</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Third-Party Cookies</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We may use third-party services that set cookies on our website. These services include:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li><strong className="font-medium">Google Analytics:</strong> For website analytics and user behavior tracking</li>                <li><strong className="font-medium">Advertising Partners:</strong> For delivering targeted advertisements</li>                <li><strong className="font-medium">Social Media Platforms:</strong> For social sharing and integration features</li>                <li><strong className="font-medium">Payment Processors:</strong> For secure payment processing</li>                <li><strong className="font-medium">Customer Support Tools:</strong> For live chat and support services</li>              </ul>              <p className="text-[var(--color-text-primary)] leading-relaxed">                These third parties have their own privacy policies governing how they use information collected through their cookies.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed mt-4">                <strong className="font-semibold">THIRD-PARTY LIABILITY DISCLAIMER:</strong> SaveCash ("SaveCash," "we," "us," or "our") expressly disclaims any and all liability for third-party cookies, scripts, tracking technologies, or services. We are not responsible for the privacy practices, data collection, or use of information by third-party services that set cookies on our website. Your use of third-party services is subject to their respective privacy policies and terms of service.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Managing Your Cookie Preferences</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                You have several options for managing cookies:              </p>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Browser Settings</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Most web browsers allow you to control cookies through their settings. You can:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>View cookies stored on your device</li>                <li>Delete existing cookies</li>                <li>Block all cookies or specific categories</li>                <li>Receive notifications when cookies are set</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Cookie Consent Tool</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We provide a cookie consent tool on our website that allows you to customize your cookie preferences. You can access this tool at any time to update your choices.              </p>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Opt-Out Links</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                You can opt out of certain third-party tracking cookies:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Google Analytics:{' '}                  <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-hover)] hover:underline transition-all duration-150">                    Browser Add-on                  </a>                </li>                <li>Digital Advertising Alliance:{' '}                  <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-hover)] hover:underline transition-all duration-150">                    Opt-Out Tool                  </a>                </li>                <li>Network Advertising Initiative:{' '}                  <a href="http://www.networkadvertising.org/choices/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-hover)] hover:underline transition-all duration-150">                    Opt-Out Tool                  </a>                </li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Impact of Disabling Cookies</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                While you can disable cookies, please note that doing so may affect your experience on our website. Essential cookies are required for basic functionality, and disabling them may prevent you from using certain features.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Disabling analytics and marketing cookies will not affect core functionality but may result in a less personalized experience.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Do Not Track Signals</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Some browsers have a "Do Not Track" feature that signals websites that you do not want your online activity tracked. Currently, there is no industry standard for how to respond to Do Not Track signals. We do not currently respond to these signals, but we will update this policy if standards are adopted.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Universal Legal Shield Provisions</h2>                            <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Limitation of Liability</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                To the maximum extent permitted by law, SaveCash ("SaveCash," "we," "us," or "our") and its affiliates, officers, employees, agents, suppliers, and licensors shall not be liable for any indirect, incidental, special, consequential, exemplary, or punitive damages, or any loss of profits, data, goodwill, or other intangible losses, arising out of or relating to cookies, tracking technologies, or third-party services, regardless of legal theory, even if SaveCash has been advised of the possibility of such damages.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed mt-4">                SaveCash's total cumulative liability for any claim arising from or relating to this Cookie Policy or our use of cookies shall not exceed the greater of: (a) the amount you paid, if any, to use the Services during the six-month period preceding the claim; or (b) one hundred U.S. dollars (US $100).              </p>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Disclaimer of Warranties</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Our cookie and tracking technology services are provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, express or implied. SaveCash disclaims all warranties, including any implied warranties of merchantability, fitness for a particular purpose, quiet enjoyment, and any warranties arising out of course of dealing or usage of trade. No advice or information obtained from SaveCash shall create any warranty not expressly stated herein.              </p>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Third-Party Cookie Disclaimer</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                SaveCash expressly disclaims any and all liability for third-party cookies, tracking technologies, scripts, or services integrated into our website. We are not responsible for the privacy practices, data collection, security, or use of information by third-party services that set cookies or tracking technologies. Your interactions with third-party services are solely between you and such third parties, and are subject to their respective privacy policies and terms of service.              </p>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Indemnification</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                You agree to defend, indemnify, and hold harmless SaveCash and its affiliates, directors, officers, employees, and agents from and against any claims, damages, liabilities, costs, and expenses (including reasonable attorneys' fees) arising from or related to your use of our services, cookies, or tracking technologies, or your interaction with third-party services.              </p>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Governing Law and Dispute Resolution</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                This Cookie Policy and any dispute arising hereunder shall be governed by and construed in accordance with the laws of the State of Delaware, United States, without regard to its conflict of law principles.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed mt-4">                Any dispute, claim, or controversy arising from or relating to this Cookie Policy or our use of cookies shall be resolved exclusively through binding arbitration under the rules of JAMS (or, if JAMS is unavailable, the American Arbitration Association) in San Francisco County, California, United States. The language of arbitration shall be English. You waive any right to participate in a class action, representative action, or jury trial.              </p>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Force Majeure</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                SaveCash shall not be liable for any failure or delay in performance caused by circumstances beyond its reasonable control, including but not limited to natural disasters, acts of God, war, terrorism, labor conditions, Internet failures, cyberattacks, government actions, changes in laws or regulations, or any other cause beyond SaveCash's reasonable control.              </p>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Severability and Survival</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                If any provision of this Cookie Policy is found invalid, illegal, or unenforceable, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect. All provisions that by their nature should survive termination shall survive, including warranty disclaimers, indemnity, and limitations of liability.              </p>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Entire Agreement and No Waiver</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                This Cookie Policy, together with our Terms of Service, Privacy Policy, and other referenced policies, constitutes the entire agreement between you and SaveCash regarding cookies and tracking technologies and supersedes any prior agreements. Failure by SaveCash to enforce any right or provision shall not be deemed a waiver of such right or provision.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Updates to This Policy</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                SaveCash reserves the right to modify this Cookie Policy at any time by posting an updated version on this page. Material changes will be communicated with at least 30 days notice. The "Last updated" date at the top of this page indicates when the policy was last revised. Continued use of our services after changes constitutes acceptance of the revised policy.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Contact Us</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                If you have questions about our use of cookies, please{' '}                <a href="/contact" className="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-hover)] hover:underline transition-all duration-150">                  contact us                </a>                . For more information about how we handle your personal data, please review our{' '}                <a href="/" className="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-hover)] hover:underline transition-all duration-150">                  Privacy Policy                </a>                .              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed mt-4">                For legal inquiries: <a href="mailto:legal@savecash.com" className="text-[var(--color-accent-primary)] hover:underline">legal@savecash.com</a>              </p>            </section>          </article>        </div>      </main>      <Footer />    </div>  );}
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function CookiePolicyPage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Cookie Policy</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: January 16, 2025</p>
+            </div>
+
+            <section className="space-y-4">
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                This Cookie Policy explains how we use cookies and similar tracking technologies on our website and services. By using our services, you consent to the use of cookies as described in this policy.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">What Are Cookies?</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Cookies are small text files that are placed on your device when you visit a website. They are widely used to make websites work more efficiently and provide information to website owners.
+              </p>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Cookies can be "persistent" or "session" cookies. Persistent cookies remain on your device after you close your browser, while session cookies are deleted when you close your browser.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">How We Use Cookies</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We use cookies for various purposes to enhance your experience and improve our services:
+              </p>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Essential Cookies</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                These cookies are necessary for our website to function properly. They enable core functionality such as:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Authentication and security</li>
+                <li>Session management and user preferences</li>
+                <li>Load balancing and performance optimization</li>
+                <li>Fraud prevention and detection</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Analytics Cookies</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                These cookies help us understand how visitors interact with our website by collecting anonymous information such as:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Pages visited and time spent on each page</li>
+                <li>Traffic sources and navigation patterns</li>
+                <li>Device and browser information</li>
+                <li>Error messages and performance metrics</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Functional Cookies</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                These cookies enable enhanced functionality and personalization, such as:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Remembering your preferences and settings</li>
+                <li>Language and region selection</li>
+                <li>Customized content and features</li>
+                <li>Video and chat functionality</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Marketing Cookies</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                These cookies are used to deliver relevant advertisements and measure campaign effectiveness:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Tracking ad impressions and clicks</li>
+                <li>Retargeting and remarketing</li>
+                <li>Social media integration</li>
+                <li>Campaign performance analysis</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Third-Party Cookies</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We may use third-party services that set cookies on our website. These services include:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong className="font-medium">Google Analytics:</strong> For website analytics and user behavior tracking</li>
+                <li><strong className="font-medium">Advertising Partners:</strong> For delivering targeted advertisements</li>
+                <li><strong className="font-medium">Social Media Platforms:</strong> For social sharing and integration features</li>
+                <li><strong className="font-medium">Payment Processors:</strong> For secure payment processing</li>
+                <li><strong className="font-medium">Customer Support Tools:</strong> For live chat and support services</li>
+              </ul>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                These third parties have their own privacy policies governing how they use information collected through their cookies.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Managing Your Cookie Preferences</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                You have several options for managing cookies:
+              </p>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Browser Settings</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Most web browsers allow you to control cookies through their settings. You can:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>View cookies stored on your device</li>
+                <li>Delete existing cookies</li>
+                <li>Block all cookies or specific categories</li>
+                <li>Receive notifications when cookies are set</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Cookie Consent Tool</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We provide a cookie consent tool on our website that allows you to customize your cookie preferences. You can access this tool at any time to update your choices.
+              </p>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">Opt-Out Links</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                You can opt out of certain third-party tracking cookies:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Google Analytics:{' '}
+                  <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-hover)] hover:underline transition-all duration-150">
+                    Browser Add-on
+                  </a>
+                </li>
+                <li>Digital Advertising Alliance:{' '}
+                  <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-hover)] hover:underline transition-all duration-150">
+                    Opt-Out Tool
+                  </a>
+                </li>
+                <li>Network Advertising Initiative:{' '}
+                  <a href="http://www.networkadvertising.org/choices/" target="_blank" rel="noopener noreferrer" className="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-hover)] hover:underline transition-all duration-150">
+                    Opt-Out Tool
+                  </a>
+                </li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Impact of Disabling Cookies</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                While you can disable cookies, please note that doing so may affect your experience on our website. Essential cookies are required for basic functionality, and disabling them may prevent you from using certain features.
+              </p>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Disabling analytics and marketing cookies will not affect core functionality but may result in a less personalized experience.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Do Not Track Signals</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Some browsers have a "Do Not Track" feature that signals websites that you do not want your online activity tracked. Currently, there is no industry standard for how to respond to Do Not Track signals. We do not currently respond to these signals, but we will update this policy if standards are adopted.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Updates to This Policy</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We may update this Cookie Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons. The "Last updated" date at the top of this page indicates when the policy was last revised.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">Contact Us</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                If you have questions about our use of cookies, please{' '}
+                <a href="/contact" className="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-hover)] hover:underline transition-all duration-150">
+                  contact us
+                </a>
+                . For more information about how we handle your personal data, please review our{' '}
+                <a href="/privacy" className="text-[var(--color-accent-primary)] hover:text-[var(--color-accent-hover)] hover:underline transition-all duration-150">
+                  Privacy Policy
+                </a>
+                .
+              </p>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}

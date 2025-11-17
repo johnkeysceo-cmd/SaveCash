@@ -1,1 +1,79 @@
-'use client';import React from 'react';import Header from '@/components/sections/header';import Footer from '@/components/sections/footer';export default function MarksUsagePage() {  return (    <div className="min-h-screen bg-background font-['Inter']">      <Header />            <main className="flex-1">        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">          <article className="space-y-8">            <div>              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Marks Usage Guidelines</h1>              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: November 3, 2025</p>            </div>            <section className="space-y-4">              <p className="text-[var(--color-text-primary)] leading-relaxed">                These Marks Usage Guidelines govern your use of SaveCash trademarks, service marks, logos, and other brand assets. By using SaveCash marks, you agree to comply with these guidelines.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Permitted Uses</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                You may use SaveCash marks to:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Identify SaveCash services you use</li>                <li>Indicate integration with SaveCash services</li>                <li>Attribute SaveCash in marketing materials with prior written approval</li>                <li>Reference SaveCash in press releases with prior written approval</li>                <li>Identify yourself as a SaveCash customer or partner with prior authorization</li>              </ul>              <p className="text-[var(--color-text-primary)] leading-relaxed">                All permitted uses of SaveCash marks require prior written approval. Contact us at privacy.savecash@gmail.com before using our marks in any capacity. We reserve the right to deny or revoke permission at any time.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Prohibited Uses</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                You may NOT:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Modify SaveCash marks or use stylized versions without authorization</li>                <li>Use SaveCash marks as your own trademarks or incorporate them into your marks</li>                <li>Create confusion about your affiliation with SaveCash</li>                <li>Use marks in connection with prohibited businesses or activities</li>                <li>Use marks in a manner that suggests SaveCash endorsement of your products</li>                <li>Display marks larger or more prominently than your own branding</li>                <li>Use marks in connection with competing financial services</li>                <li>Register domain names incorporating SaveCash marks</li>              </ul>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Unauthorized use of SaveCash marks constitutes trademark infringement and will result in immediate legal action seeking injunctive relief, damages, and attorney fees.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Contact Information</h2>              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">                <p className="text-[var(--color-text-primary)]">                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com                </p>              </div>            </section>          </article>        </div>      </main>      <Footer />    </div>  );}
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function MarksUsagePage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Marks Usage Guidelines</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: January 16, 2025</p>
+            </div>
+
+            <section className="space-y-4">
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                These Marks Usage Guidelines govern your use of SaveCash trademarks, service marks, logos, and other brand assets. By using SaveCash marks, you agree to comply with these guidelines.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Permitted Uses</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                You may use SaveCash marks to:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Identify SaveCash services you use</li>
+                <li>Indicate integration with SaveCash services</li>
+                <li>Attribute SaveCash in marketing materials with prior written approval</li>
+                <li>Reference SaveCash in press releases with prior written approval</li>
+                <li>Identify yourself as a SaveCash customer or partner with prior authorization</li>
+              </ul>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                All permitted uses of SaveCash marks require prior written approval. Contact us at privacy.savecash@gmail.com before using our marks in any capacity. We reserve the right to deny or revoke permission at any time.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Prohibited Uses</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                You may NOT:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Modify SaveCash marks or use stylized versions without authorization</li>
+                <li>Use SaveCash marks as your own trademarks or incorporate them into your marks</li>
+                <li>Create confusion about your affiliation with SaveCash</li>
+                <li>Use marks in connection with prohibited businesses or activities</li>
+                <li>Use marks in a manner that suggests SaveCash endorsement of your products</li>
+                <li>Display marks larger or more prominently than your own branding</li>
+                <li>Use marks in connection with competing financial services</li>
+                <li>Register domain names incorporating SaveCash marks</li>
+              </ul>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Unauthorized use of SaveCash marks constitutes trademark infringement and will result in immediate legal action seeking injunctive relief, damages, and attorney fees.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Contact Information</h2>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+

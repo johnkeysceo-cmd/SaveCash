@@ -28,16 +28,16 @@ I need to generate the remaining legal pages. Based on the sidebar navigation, h
 21. /legal/dta (Data Transfers Addendum)
 22. /legal/e-sign-disclosure (E-SIGN Disclosure)
 
-## Internal Links (already exist in this app):
-- ✅ /legal/pnc (PNC Bank)
-- ✅ /legal/prohibited-restricted-businesses (Prohibited & Restricted Businesses)
-- ✅ /legal/partner-ecosystem (SaveCash Partner Ecosystem)
-- ✅ / (Privacy Policy - home page)
-- ✅ /cookies (Cookies Policy)
-- ✅ /legal/service-providers (Service Providers List)
-- ✅ /legal/privacy-center (SaveCash Privacy Center)
-- ✅ /legal/ip-notice (Intellectual Property Notice)
-- ✅ /legal/marks-usage (Marks Usage)
-- ✅ /legal/licenses (Licenses)
-- ✅ /legal/consumer-terms (Consumer Terms)
+## External Links (https://SaveCash.com):
+- /pnc/legal (PNC Bank)
+- /restricted-businesses (Prohibited & Restricted Businesses)
+- /partners/legal (SaveCash Partner Ecosystem)
+- /privacy (Privacy Policy)
+- /cookies-policy/legal (Cookies Policy)
+- /service-providers/legal (Service Providers List)
+- /privacy-center/legal (SaveCash Privacy Center)
+- /ip-notice-process (Intellectual Property Notice)
+- /marks/legal (Marks Usage)
+- /spc/licenses (Licenses)
+- /legal/consumer (Consumer Terms)
 

@@ -1,22 +1,436 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import * as THREE from "three";
+
+// CSS Styles - Scoped to card stream scanner only
+const styles = `
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap");
+
+.card-stream-scanner-section {
+  position: relative;
+  width: 100%;
+  background: #000000;
+  overflow: visible;
+}
+
+.card-stream-scanner-section * {
+  box-sizing: border-box;
+}
+
+.card-stream-scanner-section .controls {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 100;
+}
+
+.card-stream-scanner-section .control-btn {
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  border-radius: 25px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.card-stream-scanner-section .control-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Speed indicator removed */
+
+.card-stream-scanner-section .info {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  font-size: 14px;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 15px 25px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  z-index: 100;
+  line-height: 1.4;
+}
+
+.card-stream-scanner-section .card-stream {
+  position: absolute;
+  width: 100vw;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+.card-stream-scanner-section .card-line {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  white-space: nowrap;
+  cursor: grab;
+  user-select: none;
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.card-stream-scanner-section .card-line:active {
+  cursor: grabbing;
+}
+
+.card-stream-scanner-section .card-line.dragging {
+  cursor: grabbing;
+}
+
+.card-stream-scanner-section .card-line.css-animated {
+  animation: scrollCards 40s linear infinite;
+}
+
+@keyframes scrollCards {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100vw);
+  }
+}
+
+.card-stream-scanner-section .card-wrapper {
+  position: relative;
+  width: 400px;
+  height: 250px;
+  flex-shrink: 0;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card-stream-scanner-section .card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 250px;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.card-stream-scanner-section .card-normal {
+  background: transparent;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0;
+  color: white;
+  z-index: 2;
+  position: relative;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: clip-path;
+  transition: clip-path 0.03s cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card-stream-scanner-section .card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: all 0.3s ease;
+  filter: brightness(1.1) contrast(1.1);
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-stream-scanner-section .card-image:hover {
+  filter: brightness(1.2) contrast(1.2);
+}
+
+.card-stream-scanner-section .card-ascii {
+  background: transparent;
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 250px;
+  border-radius: 15px;
+  overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: clip-path;
+  transition: clip-path 0.03s cubic-bezier(0.4, 0, 0.2, 1);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card-stream-scanner-section .card-chip {
+  width: 40px;
+  height: 30px;
+  background: linear-gradient(45deg, #ffd700, #ffed4e);
+  border-radius: 5px;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.card-stream-scanner-section .card-chip::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background: linear-gradient(45deg, #e6c200, #f4d03f);
+  border-radius: 2px;
+}
+
+.card-stream-scanner-section .contactless {
+  position: absolute;
+  top: 60px;
+  left: 20px;
+  width: 25px;
+  height: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+}
+
+.card-stream-scanner-section .contactless::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 15px;
+  height: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+}
+
+.card-stream-scanner-section .card-number {
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card-stream-scanner-section .card-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.card-stream-scanner-section .card-holder {
+  color: white;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.card-stream-scanner-section .card-expiry {
+  color: white;
+  font-size: 14px;
+}
+
+.card-stream-scanner-section .card-logo {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.card-stream-scanner-section .ascii-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(220, 210, 255, 0.6);
+  font-family: "Courier New", monospace;
+  font-size: 11px;
+  line-height: 13px;
+  overflow: hidden;
+  white-space: pre;
+  clip-path: inset(0 calc(100% - var(--clip-left, 0%)) 0 0);
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  vertical-align: top;
+  box-sizing: border-box;
+  will-change: contents, clip-path;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 30%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.4) 80%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.8) 30%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.4) 80%,
+    rgba(0, 0, 0, 0.2) 100%
+  );
+}
+
+/* Glitch animation removed for smoother performance */
+
+.card-stream-scanner-section .scanner {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 4px;
+  height: 300px;
+  border-radius: 30px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(0, 255, 255, 0.8),
+    rgba(0, 255, 255, 1),
+    rgba(0, 255, 255, 0.8),
+    transparent
+  );
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.4);
+  animation: scanPulse 2s ease-in-out infinite alternate;
+  z-index: 10;
+}
+
+@keyframes scanPulse {
+  0% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scaleY(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scaleY(1.1);
+  }
+}
+
+.card-stream-scanner-section .scanner-label {
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(0, 255, 255, 0.9);
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.card-stream-scanner-section .card-normal {
+  clip-path: inset(0 0 0 var(--clip-right, 0%));
+}
+
+.card-stream-scanner-section .card-ascii {
+  clip-path: inset(0 calc(100% - var(--clip-left, 0%)) 0 0);
+}
+
+/* Scan effect removed */
+
+.card-stream-scanner-section .instructions {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  max-width: 200px;
+  text-align: right;
+  z-index: 5;
+}
+
+.card-stream-scanner-section #particleCanvas {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate3d(0, -50%, 0);
+  width: 100vw;
+  height: 250px;
+  z-index: 0;
+  pointer-events: none;
+  image-rendering: auto;
+  will-change: contents;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card-stream-scanner-section #scannerCanvas {
+  position: absolute;
+  top: 50%;
+  left: -3px;
+  transform: translate3d(0, -50%, 0);
+  width: 100vw;
+  height: 300px;
+  z-index: 15;
+  pointer-events: none;
+  image-rendering: auto;
+  will-change: contents;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.card-stream-scanner-section .inspiration-credit {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Roboto Mono", monospace;
+  font-size: 12px;
+  font-weight: 900;
+  color: #ff9a9c;
+  z-index: 1000;
+  text-align: center;
+}
+
+.card-stream-scanner-section .inspiration-credit a {
+  color: #ff9a9c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.card-stream-scanner-section .inspiration-credit a:hover {
+  color: #ff7a7c;
+}
+`;
 
 const codeChars =
   "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789(){}[]<>;:,._-+=!@#$%^&*|\\/\"'`~?";
 
-<<<<<<< HEAD
-=======
-// Helper function to generate random integers
-const randInt = (min: number, max: number) =>
-  Math.floor(Math.random() * (max - min + 1)) + min;
-const pick = (arr: any[]) => arr[randInt(0, arr.length - 1)];
-const pickChar = (str: string) => str[randInt(0, str.length - 1)];
+const scannerLeft = window.innerWidth / 2 - 2;
+const scannerRight = window.innerWidth / 2 + 2;
 
->>>>>>> 7eac276 ( Credit Cards)
 class CardStreamController {
   container: HTMLElement;
   cardLine: HTMLElement;
-  speedIndicator: HTMLElement | null;
+  speedIndicator: HTMLElement;
   position: number;
   velocity: number;
   direction: number;
@@ -29,42 +443,29 @@ class CardStreamController {
   minVelocity: number;
   containerWidth: number;
   cardLineWidth: number;
+  usedNumbers: Set<string>; // Persistent set to track all used numbers across all cards
 
-<<<<<<< HEAD
-  constructor(container: HTMLElement, cardLine: HTMLElement, speedIndicator: HTMLElement | null) {
-    this.container = container;
-    this.cardLine = cardLine;
-    this.speedIndicator = speedIndicator;
-=======
-  constructor(containerId: string, cardLineId: string, speedIndicatorId: string) {
-    this.container = document.getElementById(containerId)!;
-    this.cardLine = document.getElementById(cardLineId)!;
-    this.speedIndicator = document.getElementById(speedIndicatorId);
+  constructor() {
+    this.container = document.getElementById("cardStream")!;
+    this.cardLine = document.getElementById("cardLine")!;
+    this.speedIndicator = null as any; // Removed speed indicator
 
->>>>>>> 7eac276 ( Credit Cards)
     this.position = 0;
     this.velocity = 120;
     this.direction = -1;
     this.isAnimating = true;
     this.isDragging = false;
-<<<<<<< HEAD
-=======
 
->>>>>>> 7eac276 ( Credit Cards)
     this.lastTime = 0;
     this.lastMouseX = 0;
     this.mouseVelocity = 0;
     this.friction = 0.95;
     this.minVelocity = 30;
-<<<<<<< HEAD
-    this.containerWidth = 0;
-    this.cardLineWidth = 0;
-=======
 
     this.containerWidth = 0;
     this.cardLineWidth = 0;
+    this.usedNumbers = new Set<string>(); // Initialize persistent set for unique numbers
 
->>>>>>> 7eac276 ( Credit Cards)
     this.init();
   }
 
@@ -107,14 +508,8 @@ class CardStreamController {
     window.addEventListener("resize", () => this.calculateDimensions());
   }
 
-  startDrag(e: MouseEvent | Touch) {
-<<<<<<< HEAD
+  startDrag(e) {
     e.preventDefault();
-=======
-    if (e instanceof MouseEvent) {
-      e.preventDefault();
-    }
->>>>>>> 7eac276 ( Credit Cards)
 
     this.isDragging = true;
     this.isAnimating = false;
@@ -134,22 +529,17 @@ class CardStreamController {
     document.body.style.cursor = "grabbing";
   }
 
-  onDrag(e: MouseEvent | Touch) {
+  onDrag(e) {
     if (!this.isDragging) return;
-<<<<<<< HEAD
     e.preventDefault();
-=======
-    if (e instanceof MouseEvent) {
-      e.preventDefault();
-    }
->>>>>>> 7eac276 ( Credit Cards)
 
     const deltaX = e.clientX - this.lastMouseX;
     this.position += deltaX;
     this.mouseVelocity = deltaX * 60;
     this.lastMouseX = e.clientX;
 
-    this.cardLine.style.transform = `translateX(${this.position}px)`;
+    // Use transform3d for hardware acceleration
+    this.cardLine.style.transform = `translate3d(${this.position}px, 0, 0)`;
     this.updateCardClipping();
   }
 
@@ -175,7 +565,7 @@ class CardStreamController {
 
   animate() {
     const currentTime = performance.now();
-    const deltaTime = (currentTime - this.lastTime) / 1000;
+    const deltaTime = Math.min((currentTime - this.lastTime) / 1000, 0.033); // Cap at 30fps minimum
     this.lastTime = currentTime;
 
     if (this.isAnimating && !this.isDragging) {
@@ -203,21 +593,18 @@ class CardStreamController {
       this.position = -cardLineWidth;
     }
 
-    this.cardLine.style.transform = `translateX(${this.position}px)`;
+    // Use transform3d for hardware acceleration
+    this.cardLine.style.transform = `translate3d(${this.position}px, 0, 0)`;
     this.updateCardClipping();
   }
 
   updateSpeedIndicator() {
-    if (this.speedIndicator) {
-      this.speedIndicator.textContent = Math.round(this.velocity).toString();
-    }
+    // Speed indicator removed
   }
 
   toggleAnimation() {
     this.isAnimating = !this.isAnimating;
-<<<<<<< HEAD
-=======
-    const btn = document.querySelector(".control-btn");
+    const btn = document.querySelector(".control-btn") as HTMLElement;
     if (btn) {
       btn.textContent = this.isAnimating ? "⏸️ Pause" : "▶️ Play";
     }
@@ -225,7 +612,6 @@ class CardStreamController {
     if (this.isAnimating) {
       this.cardLine.style.animation = "none";
     }
->>>>>>> 7eac276 ( Credit Cards)
   }
 
   resetPosition() {
@@ -236,18 +622,15 @@ class CardStreamController {
     this.isDragging = false;
 
     this.cardLine.style.animation = "none";
-    this.cardLine.style.transform = `translateX(${this.position}px)`;
+    this.cardLine.style.transform = `translate3d(${this.position}px, 0, 0)`;
     this.cardLine.classList.remove("dragging");
 
     this.updateSpeedIndicator();
-<<<<<<< HEAD
-=======
 
-    const btn = document.querySelector(".control-btn");
+    const btn = document.querySelector(".control-btn") as HTMLElement;
     if (btn) {
       btn.textContent = "⏸️ Pause";
     }
->>>>>>> 7eac276 ( Credit Cards)
   }
 
   changeDirection() {
@@ -255,7 +638,7 @@ class CardStreamController {
     this.updateSpeedIndicator();
   }
 
-  onWheel(e: WheelEvent) {
+  onWheel(e) {
     e.preventDefault();
 
     const scrollSpeed = 20;
@@ -266,63 +649,61 @@ class CardStreamController {
     this.updateCardClipping();
   }
 
-  generateCode(width: number, height: number) {
-<<<<<<< HEAD
-    // Random animated characters - numbers, letters, symbols
-    const chars = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=[]{}|;:,.<>?/~`";
+  generateCode(width, height) {
     const randInt = (min: number, max: number) =>
       Math.floor(Math.random() * (max - min + 1)) + min;
-    const getRandomChar = () => chars[randInt(0, chars.length - 1)];
+    
+    // Generate unique random numbers that never repeat across all cards
+    const getUniqueRandomNumber = (): string => {
+      let numStr;
+      let attempts = 0;
+      do {
+        // Generate random number between 100000 and 999999 for 6-digit numbers
+        const num = randInt(100000, 999999);
+        numStr = num.toString();
+        attempts++;
+        // Prevent infinite loop - if we've tried too many times, generate a timestamp-based unique number
+        if (attempts > 1000) {
+          numStr = `${Date.now()}${randInt(0, 999)}`.slice(-6);
+          break;
+        }
+      } while (this.usedNumbers.has(numStr));
+      this.usedNumbers.add(numStr);
+      return numStr;
+    };
 
-    // Generate random animated text with mixed characters
+    // Generate random alphanumeric characters
+    const chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>?/~`";
+    
     let out = "";
+    
+    // Generate completely random content with unique numbers
     for (let row = 0; row < height; row++) {
       let line = "";
       for (let col = 0; col < width; col++) {
-        // Mix of random characters - more numbers and symbols for that "data stream" look
-        if (Math.random() < 0.3) {
-          // Sometimes add spaces for readability
-          line += " ";
-        } else if (Math.random() < 0.6) {
-          // Mostly numbers
-          line += randInt(0, 9).toString();
-        } else if (Math.random() < 0.8) {
-          // Some letters
-          line += getRandomChar();
+        // 40% chance of unique number, 60% chance of other character
+        if (Math.random() < 0.4 && col < width - 5) {
+          // Generate unique random number (6 digits)
+          const uniqueNum = getUniqueRandomNumber();
+          // Add number digits to line
+          for (let j = 0; j < uniqueNum.length && col < width; j++) {
+            line += uniqueNum[j];
+            col++;
+          }
+          col--; // Adjust for loop increment
         } else {
-          // Symbols
-          line += "!@#$%^&*()_+-=[]{}|;:,.<>?/~`"[randInt(0, 31)];
+          // Random character
+          const char = chars[randInt(0, chars.length - 1)];
+          line += char;
         }
       }
       out += line + (row < height - 1 ? "\n" : "");
     }
-=======
-    // Completely random characters - numbers, letters, symbols, and spaces
-    const allChars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%^&*()_+-=[]{}|;:,.<>?/~`";
     
-    let out = "";
-    
-    // Generate completely random characters for each position
-    for (let row = 0; row < height; row++) {
-      let line = "";
-      
-      for (let col = 0; col < width; col++) {
-        // 20% chance of space, 80% chance of random character
-        if (Math.random() < 0.2) {
-          line += " ";
-        } else {
-          line += pickChar(allChars);
-        }
-      }
-      
-      out += line + (row < height - 1 ? "\n" : "");
-    }
-    
->>>>>>> 7eac276 ( Credit Cards)
     return out;
   }
 
-  calculateCodeDimensions(cardWidth: number, cardHeight: number) {
+  calculateCodeDimensions(cardWidth, cardHeight) {
     const fontSize = 11;
     const lineHeight = 13;
     const charWidth = 6;
@@ -331,7 +712,7 @@ class CardStreamController {
     return { width, height, fontSize, lineHeight };
   }
 
-  createCardWrapper(index: number) {
+  createCardWrapper(index) {
     const wrapper = document.createElement("div");
     wrapper.className = "card-wrapper";
 
@@ -339,19 +720,11 @@ class CardStreamController {
     normalCard.className = "card card-normal";
 
     const cardImages = [
-<<<<<<< HEAD
-      "https://cdn.prod.website-files.com/68789c86c8bc802d61932544/689f20b55e654d1341fb06f8_4.1.png",
-      "https://cdn.prod.website-files.com/68789c86c8bc802d61932544/689f20b5a080a31ee7154b19_1.png",
-      "https://cdn.prod.website-files.com/68789c86c8bc802d61932544/689f20b5c1e4919fd69672b8_3.png",
-      "https://cdn.prod.website-files.com/68789c86c8bc802d61932544/689f20b5f6a5e232e7beb4be_2.png",
-      "https://cdn.prod.website-files.com/68789c86c8bc802d61932544/689f20b5bea2f1b07392d936_4.png",
-=======
       "/pictech-ai-inpainted-image.png",
       "/Revolut.png",
       "/Apple (2).png",
       "/orange credit card.png",
       "/sTRIPE CREDIT CARD KNEW!.png",
->>>>>>> 7eac276 ( Credit Cards)
     ];
 
     const cardImage = document.createElement("img");
@@ -363,18 +736,8 @@ class CardStreamController {
       const canvas = document.createElement("canvas");
       canvas.width = 400;
       canvas.height = 250;
-<<<<<<< HEAD
       const ctx = canvas.getContext("2d");
-      if (ctx) {
-        const gradient = ctx.createLinearGradient(0, 0, 400, 250);
-        gradient.addColorStop(0, "#667eea");
-        gradient.addColorStop(1, "#764ba2");
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, 400, 250);
-        cardImage.src = canvas.toDataURL();
-      }
-=======
-      const ctx = canvas.getContext("2d")!;
+    if (!ctx) return;
 
       const gradient = ctx.createLinearGradient(0, 0, 400, 250);
       gradient.addColorStop(0, "#667eea");
@@ -384,7 +747,6 @@ class CardStreamController {
       ctx.fillRect(0, 0, 400, 250);
 
       cardImage.src = canvas.toDataURL();
->>>>>>> 7eac276 ( Credit Cards)
     };
 
     normalCard.appendChild(cardImage);
@@ -415,7 +777,9 @@ class CardStreamController {
     const scannerRight = scannerX + scannerWidth / 2;
     let anyScanningActive = false;
 
-    document.querySelectorAll(".card-wrapper").forEach((wrapper) => {
+    // Use requestAnimationFrame for smoother updates
+    const wrappers = document.querySelectorAll(".card-stream-scanner-section .card-wrapper, .card-wrapper");
+    wrappers.forEach((wrapper) => {
       const rect = wrapper.getBoundingClientRect();
       const cardLeft = rect.left;
       const cardRight = rect.right;
@@ -424,9 +788,7 @@ class CardStreamController {
       const normalCard = wrapper.querySelector(".card-normal") as HTMLElement;
       const asciiCard = wrapper.querySelector(".card-ascii") as HTMLElement;
 
-<<<<<<< HEAD
-      if (normalCard && asciiCard) {
-        if (cardLeft < scannerRight && cardRight > scannerLeft) {
+      if (normalCard && asciiCard && cardLeft < scannerRight && cardRight > scannerLeft) {
           anyScanningActive = true;
           const scannerIntersectLeft = Math.max(scannerLeft - cardLeft, 0);
           const scannerIntersectRight = Math.min(
@@ -442,16 +804,10 @@ class CardStreamController {
 
           if (!wrapper.hasAttribute("data-scanned") && scannerIntersectLeft > 0) {
             wrapper.setAttribute("data-scanned", "true");
-            const scanEffect = document.createElement("div");
-            scanEffect.className = "scan-effect";
-            wrapper.appendChild(scanEffect);
-            setTimeout(() => {
-              if (scanEffect.parentNode) {
-                scanEffect.parentNode.removeChild(scanEffect);
-              }
-            }, 600);
+            // Blue shine overlay removed
           }
         } else {
+        if (normalCard && asciiCard) {
           if (cardRight < scannerLeft) {
             normalCard.style.setProperty("--clip-right", "100%");
             asciiCard.style.setProperty("--clip-left", "100%");
@@ -459,80 +815,22 @@ class CardStreamController {
             normalCard.style.setProperty("--clip-right", "0%");
             asciiCard.style.setProperty("--clip-left", "0%");
           }
-          wrapper.removeAttribute("data-scanned");
-        }
-      }
-    });
-
-    if ((window as any).setScannerScanning) {
-      (window as any).setScannerScanning(anyScanningActive);
-=======
-      if (cardLeft < scannerRight && cardRight > scannerLeft) {
-        anyScanningActive = true;
-        const scannerIntersectLeft = Math.max(scannerLeft - cardLeft, 0);
-        const scannerIntersectRight = Math.min(
-          scannerRight - cardLeft,
-          cardWidth
-        );
-
-        const normalClipRight = (scannerIntersectLeft / cardWidth) * 100;
-        const asciiClipLeft = (scannerIntersectRight / cardWidth) * 100;
-
-        normalCard.style.setProperty("--clip-right", `${normalClipRight}%`);
-        asciiCard.style.setProperty("--clip-left", `${asciiClipLeft}%`);
-
-        if (!wrapper.hasAttribute("data-scanned") && scannerIntersectLeft > 0) {
-          wrapper.setAttribute("data-scanned", "true");
-          // Blue shine overlay removed
-        }
-      } else {
-        if (cardRight < scannerLeft) {
-          normalCard.style.setProperty("--clip-right", "100%");
-          asciiCard.style.setProperty("--clip-left", "100%");
-        } else if (cardLeft > scannerRight) {
-          normalCard.style.setProperty("--clip-right", "0%");
-          asciiCard.style.setProperty("--clip-left", "0%");
         }
         wrapper.removeAttribute("data-scanned");
       }
     });
 
     if (window.setScannerScanning) {
-      (window.setScannerScanning as (active: boolean) => void)(anyScanningActive);
->>>>>>> 7eac276 ( Credit Cards)
+      window.setScannerScanning(anyScanningActive);
     }
   }
 
   updateAsciiContent() {
-    document.querySelectorAll(".ascii-content").forEach((content) => {
-<<<<<<< HEAD
-      // Update more frequently for animation effect
-      if (Math.random() < 0.4) {
-        const { width, height } = this.calculateCodeDimensions(400, 250);
-        content.textContent = this.generateCode(width, height);
-      } else {
-        // Partial update - scramble some characters for continuous animation
-        const currentText = content.textContent || "";
-        if (currentText.length > 0) {
-          const chars = currentText.split("");
-          // Randomly change 5-15% of characters
-          const changeCount = Math.floor(chars.length * (0.05 + Math.random() * 0.1));
-          const charSet = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=[]{}|;:,.<>?/~`";
-          
-          for (let i = 0; i < changeCount; i++) {
-            const index = Math.floor(Math.random() * chars.length);
-            if (chars[index] !== "\n" && chars[index] !== " ") {
-              chars[index] = charSet[Math.floor(Math.random() * charSet.length)];
-            }
-          }
-          content.textContent = chars.join("");
-        }
-=======
-      // Reduced probability and only update occasionally for less glitchy effect
+    // Reduced update frequency for smoother performance
+    document.querySelectorAll(".card-stream-scanner-section .ascii-content, .ascii-content").forEach((content) => {
       if (Math.random() < 0.05) {
         const { width, height } = this.calculateCodeDimensions(400, 250);
         content.textContent = this.generateCode(width, height);
->>>>>>> 7eac276 ( Credit Cards)
       }
     });
   }
@@ -547,28 +845,25 @@ class CardStreamController {
   }
 
   startPeriodicUpdates() {
-<<<<<<< HEAD
-    // Update ASCII content more frequently for smoother animation
+    // Increased interval for smoother performance
     setInterval(() => {
       this.updateAsciiContent();
-    }, 100); // Changed from 200ms to 100ms for faster animation
-=======
-    setInterval(() => {
-      this.updateAsciiContent();
-    }, 2500); // Increased from 200ms to 2500ms (2.5 seconds) for less glitchy effect
->>>>>>> 7eac276 ( Credit Cards)
+    }, 1000);
 
-    const updateClipping = () => {
-      this.updateCardClipping();
+    // Optimized clipping updates with throttling
+    let lastUpdate = 0;
+    const updateClipping = (timestamp: number) => {
+      if (timestamp - lastUpdate >= 16) { // ~60fps
+        this.updateCardClipping();
+        lastUpdate = timestamp;
+      }
       requestAnimationFrame(updateClipping);
     };
-    updateClipping();
+    requestAnimationFrame(updateClipping);
   }
 }
 
-<<<<<<< HEAD
-=======
-let cardStream: CardStreamController | null = null;
+let cardStream: any;
 
 function toggleAnimation() {
   if (cardStream) {
@@ -588,7 +883,6 @@ function changeDirection() {
   }
 }
 
->>>>>>> 7eac276 ( Credit Cards)
 class ParticleSystem {
   scene: THREE.Scene | null;
   camera: THREE.OrthographicCamera | null;
@@ -599,26 +893,16 @@ class ParticleSystem {
   velocities: Float32Array | null;
   alphas: Float32Array | null;
 
-<<<<<<< HEAD
-  constructor(canvas: HTMLCanvasElement) {
-=======
   constructor() {
->>>>>>> 7eac276 ( Credit Cards)
     this.scene = null;
     this.camera = null;
     this.renderer = null;
     this.particles = null;
     this.particleCount = 400;
-<<<<<<< HEAD
-    this.canvas = canvas;
-    this.velocities = null;
-    this.alphas = null;
-=======
     this.canvas = document.getElementById("particleCanvas") as HTMLCanvasElement;
     this.velocities = null;
     this.alphas = null;
 
->>>>>>> 7eac276 ( Credit Cards)
     this.init();
   }
 
@@ -651,11 +935,6 @@ class ParticleSystem {
   }
 
   createParticles() {
-<<<<<<< HEAD
-    if (!this.scene) return;
-
-=======
->>>>>>> 7eac276 ( Credit Cards)
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(this.particleCount * 3);
     const colors = new Float32Array(this.particleCount * 3);
@@ -665,12 +944,7 @@ class ParticleSystem {
     const canvas = document.createElement("canvas");
     canvas.width = 100;
     canvas.height = 100;
-<<<<<<< HEAD
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-=======
     const ctx = canvas.getContext("2d")!;
->>>>>>> 7eac276 ( Credit Cards)
 
     const half = canvas.width / 2;
     const hue = 217;
@@ -751,28 +1025,18 @@ class ParticleSystem {
     });
 
     this.particles = new THREE.Points(geometry, material);
-<<<<<<< HEAD
-    this.scene.add(this.particles);
-  }
-
-  animate() {
-    if (!this.renderer || !this.scene || !this.camera || !this.particles) return;
-
-=======
     this.scene!.add(this.particles);
   }
 
   animate() {
->>>>>>> 7eac276 ( Credit Cards)
-    requestAnimationFrame(() => this.animate());
-
     if (this.particles && this.velocities && this.alphas) {
       const positions = this.particles.geometry.attributes.position.array as Float32Array;
       const alphas = this.particles.geometry.attributes.alpha.array as Float32Array;
       const time = Date.now() * 0.001;
+      const deltaTime = 0.016; // Fixed timestep for smoother animation
 
       for (let i = 0; i < this.particleCount; i++) {
-        positions[i * 3] += this.velocities[i] * 0.016;
+        positions[i * 3] += this.velocities[i] * deltaTime;
 
         if (positions[i * 3] > window.innerWidth / 2 + 100) {
           positions[i * 3] = -window.innerWidth / 2 - 100;
@@ -781,11 +1045,12 @@ class ParticleSystem {
 
         positions[i * 3 + 1] += Math.sin(time + i * 0.1) * 0.5;
 
-        const twinkle = Math.floor(Math.random() * 10);
+        // Reduced twinkle frequency for smoother animation
+        const twinkle = Math.floor(Math.random() * 20);
         if (twinkle === 1 && alphas[i] > 0) {
-          alphas[i] -= 0.05;
+          alphas[i] -= 0.03;
         } else if (twinkle === 2 && alphas[i] < 1) {
-          alphas[i] += 0.05;
+          alphas[i] += 0.03;
         }
 
         alphas[i] = Math.max(0, Math.min(1, alphas[i]));
@@ -795,59 +1060,35 @@ class ParticleSystem {
       this.particles.geometry.attributes.alpha.needsUpdate = true;
     }
 
-<<<<<<< HEAD
     if (this.renderer && this.scene && this.camera) {
       this.renderer.render(this.scene, this.camera);
     }
+
+    requestAnimationFrame(() => this.animate());
   }
 
   onWindowResize() {
-    if (!this.camera || !this.renderer) return;
+    this.camera!.left = -window.innerWidth / 2;
+    this.camera!.right = window.innerWidth / 2;
+    this.camera!.updateProjectionMatrix();
 
-    this.camera.left = -window.innerWidth / 2;
-    this.camera.right = window.innerWidth / 2;
-    this.camera.updateProjectionMatrix();
-
-    this.renderer.setSize(window.innerWidth, 250);
-=======
-    this.renderer!.render(this.scene!, this.camera!);
-  }
-
-  onWindowResize() {
-    if (this.camera) {
-      this.camera.left = -window.innerWidth / 2;
-      this.camera.right = window.innerWidth / 2;
-      this.camera.updateProjectionMatrix();
-    }
-
-    if (this.renderer) {
-      this.renderer.setSize(window.innerWidth, 250);
-    }
->>>>>>> 7eac276 ( Credit Cards)
+    this.renderer!.setSize(window.innerWidth, 250);
   }
 
   destroy() {
     if (this.renderer) {
       this.renderer.dispose();
     }
-<<<<<<< HEAD
-    if (this.particles && this.scene) {
-      this.scene.remove(this.particles);
-=======
     if (this.particles) {
       this.scene!.remove(this.particles);
->>>>>>> 7eac276 ( Credit Cards)
       this.particles.geometry.dispose();
       this.particles.material.dispose();
     }
   }
 }
 
-<<<<<<< HEAD
-=======
-let particleSystem: ParticleSystem | null = null;
+let particleSystem: any;
 
->>>>>>> 7eac276 ( Credit Cards)
 class ParticleScanner {
   canvas: HTMLCanvasElement;
   ctx: CanvasRenderingContext2D;
@@ -876,17 +1117,9 @@ class ParticleScanner {
   gradientCtx: CanvasRenderingContext2D | null;
   currentGlowIntensity: number;
 
-<<<<<<< HEAD
-  constructor(canvas: HTMLCanvasElement) {
-    this.canvas = canvas;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) throw new Error("Could not get 2d context");
-    this.ctx = ctx;
-=======
   constructor() {
     this.canvas = document.getElementById("scannerCanvas") as HTMLCanvasElement;
     this.ctx = this.canvas.getContext("2d")!;
->>>>>>> 7eac276 ( Credit Cards)
     this.animationId = null;
 
     this.w = window.innerWidth;
@@ -941,13 +1174,7 @@ class ParticleScanner {
 
   createGradientCache() {
     this.gradientCanvas = document.createElement("canvas");
-<<<<<<< HEAD
-    this.gradientCtx = this.gradientCanvas.getContext("2d");
-    if (!this.gradientCtx) return;
-
-=======
     this.gradientCtx = this.gradientCanvas.getContext("2d")!;
->>>>>>> 7eac276 ( Credit Cards)
     this.gradientCanvas.width = 16;
     this.gradientCanvas.height = 16;
 
@@ -976,11 +1203,7 @@ class ParticleScanner {
       max = min;
       min = 0;
     }
-<<<<<<< HEAD
-    return Math.floor(Math.random() * (max! - min + 1)) + min;
-=======
     return Math.floor(Math.random() * ((max as number) - min + 1)) + min;
->>>>>>> 7eac276 ( Credit Cards)
   }
 
   randomFloat(min: number, max: number) {
@@ -1094,11 +1317,8 @@ class ParticleScanner {
 
     const targetGlowIntensity = this.scanningActive ? 3.5 : 1;
 
-<<<<<<< HEAD
-=======
     if (!this.currentGlowIntensity) this.currentGlowIntensity = 1;
 
->>>>>>> 7eac276 ( Credit Cards)
     this.currentGlowIntensity +=
       (targetGlowIntensity - this.currentGlowIntensity) * this.transitionSpeed;
 
@@ -1254,17 +1474,25 @@ class ParticleScanner {
     this.drawLightBar();
 
     this.ctx.globalCompositeOperation = "lighter";
+    // Batch particle updates for better performance
+    const particleArray: any[] = [];
     for (let i = 1; i <= this.count; i++) {
       if (this.particles[i]) {
-        this.updateParticle(this.particles[i]);
-        this.drawParticle(this.particles[i]);
+        particleArray.push(this.particles[i]);
       }
+    }
+    
+    // Update and draw particles in batches
+    for (const particle of particleArray) {
+      this.updateParticle(particle);
+      this.drawParticle(particle);
     }
 
     const currentIntensity = this.intensity;
     const currentMaxParticles = this.maxParticles;
 
-    if (Math.random() < currentIntensity && this.count < currentMaxParticles) {
+    // Reduced particle creation frequency for smoother performance
+    if (Math.random() < currentIntensity * 0.5 && this.count < currentMaxParticles) {
       const particle = this.createParticle();
       particle.originalAlpha = particle.alpha;
       particle.startX = particle.x;
@@ -1274,7 +1502,8 @@ class ParticleScanner {
 
     const intensityRatio = this.intensity / this.baseIntensity;
 
-    if (intensityRatio > 1.1 && Math.random() < (intensityRatio - 1.0) * 1.2) {
+    // Reduced frequency of additional particle creation
+    if (intensityRatio > 1.1 && Math.random() < (intensityRatio - 1.0) * 0.6) {
       const particle = this.createParticle();
       particle.originalAlpha = particle.alpha;
       particle.startX = particle.x;
@@ -1282,7 +1511,7 @@ class ParticleScanner {
       this.particles[this.count] = particle;
     }
 
-    if (intensityRatio > 1.3 && Math.random() < (intensityRatio - 1.3) * 1.4) {
+    if (intensityRatio > 1.3 && Math.random() < (intensityRatio - 1.3) * 0.7) {
       const particle = this.createParticle();
       particle.originalAlpha = particle.alpha;
       particle.startX = particle.x;
@@ -1290,7 +1519,7 @@ class ParticleScanner {
       this.particles[this.count] = particle;
     }
 
-    if (intensityRatio > 1.5 && Math.random() < (intensityRatio - 1.5) * 1.8) {
+    if (intensityRatio > 1.5 && Math.random() < (intensityRatio - 1.5) * 0.9) {
       const particle = this.createParticle();
       particle.originalAlpha = particle.alpha;
       particle.startX = particle.x;
@@ -1298,7 +1527,7 @@ class ParticleScanner {
       this.particles[this.count] = particle;
     }
 
-    if (intensityRatio > 2.0 && Math.random() < (intensityRatio - 2.0) * 2.0) {
+    if (intensityRatio > 2.0 && Math.random() < (intensityRatio - 2.0) * 1.0) {
       const particle = this.createParticle();
       particle.originalAlpha = particle.alpha;
       particle.startX = particle.x;
@@ -1320,12 +1549,21 @@ class ParticleScanner {
     this.animationId = requestAnimationFrame(() => this.animate());
   }
 
-  setScanningActive(active: boolean) {
-    this.scanningActive = active;
+  startScanning() {
+    this.scanningActive = true;
+    console.log("Scanning started - intense particle mode activated");
   }
 
-<<<<<<< HEAD
-=======
+  stopScanning() {
+    this.scanningActive = false;
+    console.log("Scanning stopped - normal particle mode");
+  }
+
+  setScanningActive(active: boolean) {
+    this.scanningActive = active;
+    console.log("Scanning mode:", active ? "active" : "inactive");
+  }
+
   getStats() {
     return {
       intensity: this.intensity,
@@ -1339,33 +1577,27 @@ class ParticleScanner {
     };
   }
 
->>>>>>> 7eac276 ( Credit Cards)
   destroy() {
     if (this.animationId) {
       cancelAnimationFrame(this.animationId);
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 7eac276 ( Credit Cards)
     this.particles = [];
     this.count = 0;
   }
 }
 
-<<<<<<< HEAD
+let particleScanner: any;
+
+declare global {
+  interface Window {
+    setScannerScanning?: (active: boolean) => void;
+    getScannerStats?: () => any;
+  }
+}
+
 export function CardStreamScanner() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const cardLineRef = useRef<HTMLDivElement>(null);
-  const particleCanvasRef = useRef<HTMLCanvasElement>(null);
-  const scannerCanvasRef = useRef<HTMLCanvasElement>(null);
-  const cardStreamRef = useRef<CardStreamController | null>(null);
-  const particleSystemRef = useRef<ParticleSystem | null>(null);
-  const particleScannerRef = useRef<ParticleScanner | null>(null);
-
   useEffect(() => {
-    if (!containerRef.current || !cardLineRef.current || !particleCanvasRef.current || !scannerCanvasRef.current) return;
-
     // Add roundRect polyfill for older browsers
     if (!(CanvasRenderingContext2D.prototype as any).roundRect) {
       (CanvasRenderingContext2D.prototype as any).roundRect = function(x: number, y: number, w: number, h: number, r: number) {
@@ -1382,44 +1614,9 @@ export function CardStreamScanner() {
       };
     }
 
-    // Initialize controllers
-    const speedIndicator = document.getElementById("speedValue");
-    cardStreamRef.current = new CardStreamController(
-      containerRef.current,
-      cardLineRef.current,
-      speedIndicator
-    );
-
-    particleSystemRef.current = new ParticleSystem(particleCanvasRef.current);
-    particleScannerRef.current = new ParticleScanner(scannerCanvasRef.current);
-
-    // Set up global scanner function
-    (window as any).setScannerScanning = (active: boolean) => {
-      if (particleScannerRef.current) {
-        particleScannerRef.current.setScanningActive(active);
-      }
-    };
-
-    return () => {
-      if (cardStreamRef.current) {
-        // Cleanup will be handled by component unmount
-      }
-      if (particleSystemRef.current) {
-        particleSystemRef.current.destroy();
-      }
-      if (particleScannerRef.current) {
-        particleScannerRef.current.destroy();
-      }
-=======
-let particleScanner: ParticleScanner | null = null;
-
-// Global functions for external control
-declare global {
-  interface Window {
-    setScannerScanning?: (active: boolean) => void;
-    getScannerStats?: () => any;
-  }
-}
+    cardStream = new CardStreamController();
+    particleSystem = new ParticleSystem();
+    particleScanner = new ParticleScanner();
 
 window.setScannerScanning = (active: boolean) => {
   if (particleScanner) {
@@ -1434,90 +1631,29 @@ window.getScannerStats = () => {
   return null;
 };
 
-export function CardStreamScanner() {
-  const particleCanvasRef = useRef<HTMLCanvasElement>(null);
-  const scannerCanvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const cardLineRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Ensure THREE is available globally or imported correctly
-    (window as any).THREE = THREE;
-
-    // Initialize controllers
-    if (containerRef.current && cardLineRef.current) {
-      cardStream = new CardStreamController(
-        containerRef.current.id,
-        cardLineRef.current.id,
-        "" // No speed indicator needed
-      );
-    }
-    
-    if (particleCanvasRef.current) {
-      particleSystem = new ParticleSystem();
-    }
-    
-    if (scannerCanvasRef.current) {
-      particleScanner = new ParticleScanner();
-    }
-
-    // Cleanup function
     return () => {
       if (particleSystem) {
         particleSystem.destroy();
-        particleSystem = null;
       }
       if (particleScanner) {
         particleScanner.destroy();
-        particleScanner = null;
       }
-      cardStream = null;
->>>>>>> 7eac276 ( Credit Cards)
     };
   }, []);
 
   return (
-<<<<<<< HEAD
-    <section className="relative w-full bg-black overflow-visible" style={{ height: "350px", minHeight: "350px", paddingTop: "50px", paddingBottom: "50px" }}>
+    <section className="card-stream-scanner-section relative w-full bg-black overflow-visible" style={{ height: "350px", minHeight: "350px", paddingTop: "50px", paddingBottom: "50px" }}>
+      <style>{styles}</style>
+      
       {/* Particle Canvas (Three.js) */}
-      <canvas
-        ref={particleCanvasRef}
-        id="particleCanvas"
-      />
+      <canvas id="particleCanvas" />
 
       {/* Scanner Canvas */}
-      <canvas
-        ref={scannerCanvasRef}
-        id="scannerCanvas"
-      />
+      <canvas id="scannerCanvas" />
 
       {/* Card Stream Container */}
-      <div
-        ref={containerRef}
-        id="cardStream"
-        className="card-stream"
-      >
-=======
-    <section
-      className="card-stream-scanner-section relative w-full bg-black overflow-x-hidden"
-      style={{
-        height: "350px",
-        minHeight: "350px",
-        paddingTop: "50px",
-        paddingBottom: "50px",
-      }}
-    >
-      {/* Particle Canvas (Three.js) */}
-      <canvas ref={particleCanvasRef} id="particleCanvas" />
-
-      {/* Scanner Canvas */}
-      <canvas ref={scannerCanvasRef} id="scannerCanvas" />
-
-      {/* Card Stream Container */}
-      <div ref={containerRef} id="cardStream" className="card-stream">
->>>>>>> 7eac276 ( Credit Cards)
+      <div id="cardStream" className="card-stream">
         <div
-          ref={cardLineRef}
           id="cardLine"
           className="card-line"
           style={{
@@ -1528,517 +1664,6 @@ export function CardStreamScanner() {
         </div>
       </div>
 
-      {/* Styles */}
-      <style>{`
-        @import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500;700&display=swap");
-
-<<<<<<< HEAD
-        .card-stream {
-          position: absolute;
-          width: 100vw;
-          height: 300px;
-          top: 50%;
-          left: 0;
-          transform: translateY(-50%);
-=======
-        /* Scoped styles - only affect this component */
-        .card-stream-scanner-section * {
-          box-sizing: border-box;
-        }
-
-        .card-stream-scanner-section .controls {
-          position: absolute;
-          top: 20px;
-          left: 20px;
-          display: flex;
-          gap: 10px;
-          z-index: 100;
-        }
-
-        .card-stream-scanner-section .control-btn {
-          padding: 10px 20px;
-          background: rgba(255, 255, 255, 0.2);
-          border: none;
-          border-radius: 25px;
-          color: white;
-          font-weight: bold;
-          cursor: pointer;
-          backdrop-filter: blur(5px);
-          transition: all 0.3s ease;
-          font-size: 14px;
-        }
-
-        .card-stream-scanner-section .control-btn:hover {
-          background: rgba(255, 255, 255, 0.3);
-          transform: translateY(-2px);
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .card-stream-scanner-section .speed-indicator {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          color: white;
-          font-size: 16px;
-          background: rgba(0, 0, 0, 0.3);
-          padding: 8px 16px;
-          border-radius: 20px;
-          backdrop-filter: blur(5px);
-          z-index: 100;
-        }
-
-        .card-stream-scanner-section .info {
-          position: absolute;
-          bottom: 20px;
-          left: 50%;
-          transform: translateX(-50%);
-          color: rgba(255, 255, 255, 0.9);
-          text-align: center;
-          font-size: 14px;
-          background: rgba(0, 0, 0, 0.3);
-          padding: 15px 25px;
-          border-radius: 20px;
-          backdrop-filter: blur(5px);
-          z-index: 100;
-          line-height: 1.4;
-        }
-
-        .card-stream-scanner-section .card-stream {
-          position: absolute;
-          width: 100vw;
-          height: 180px;
->>>>>>> 7eac276 ( Credit Cards)
-          display: flex;
-          align-items: center;
-          overflow: visible;
-        }
-
-<<<<<<< HEAD
-        .card-line {
-=======
-        .card-stream-scanner-section .card-line {
->>>>>>> 7eac276 ( Credit Cards)
-          display: flex;
-          align-items: center;
-          gap: 60px;
-          white-space: nowrap;
-          cursor: grab;
-          user-select: none;
-          will-change: transform;
-        }
-
-<<<<<<< HEAD
-        .card-line:active {
-          cursor: grabbing;
-        }
-
-        .card-line.dragging {
-          cursor: grabbing;
-        }
-
-        .card-line.css-animated {
-=======
-        .card-stream-scanner-section .card-line:active {
-          cursor: grabbing;
-        }
-
-        .card-stream-scanner-section .card-line.dragging {
-          cursor: grabbing;
-        }
-
-        .card-stream-scanner-section .card-line.css-animated {
->>>>>>> 7eac276 ( Credit Cards)
-          animation: scrollCards 40s linear infinite;
-        }
-
-        @keyframes scrollCards {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100vw);
-          }
-        }
-
-<<<<<<< HEAD
-        .card-wrapper {
-=======
-        .card-stream-scanner-section .card-wrapper {
->>>>>>> 7eac276 ( Credit Cards)
-          position: relative;
-          width: 400px;
-          height: 250px;
-          flex-shrink: 0;
-        }
-
-<<<<<<< HEAD
-        .card {
-=======
-        .card-stream-scanner-section .card {
->>>>>>> 7eac276 ( Credit Cards)
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 400px;
-          height: 250px;
-          border-radius: 15px;
-          overflow: hidden;
-        }
-
-<<<<<<< HEAD
-        .card-normal {
-=======
-        .card-stream-scanner-section .card-normal {
->>>>>>> 7eac276 ( Credit Cards)
-          background: transparent;
-          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          padding: 0;
-          color: white;
-          z-index: 2;
-          position: relative;
-          overflow: hidden;
-<<<<<<< HEAD
-          clip-path: inset(0 0 0 var(--clip-right, 0%));
-          transition: clip-path 0.1s ease-out;
-        }
-
-        .card-image {
-=======
-        }
-
-        .card-stream-scanner-section .card-image {
->>>>>>> 7eac276 ( Credit Cards)
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          border-radius: 15px;
-          transition: all 0.3s ease;
-          filter: brightness(1.1) contrast(1.1);
-          box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
-        }
-
-<<<<<<< HEAD
-        .card-image:hover {
-          filter: brightness(1.2) contrast(1.2);
-        }
-
-        .card-ascii {
-=======
-        .card-stream-scanner-section .card-image:hover {
-          filter: brightness(1.2) contrast(1.2);
-        }
-
-        .card-stream-scanner-section .card-ascii {
->>>>>>> 7eac276 ( Credit Cards)
-          background: transparent;
-          z-index: 1;
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 400px;
-          height: 250px;
-          border-radius: 15px;
-          overflow: hidden;
-<<<<<<< HEAD
-          clip-path: inset(0 calc(100% - var(--clip-left, 0%)) 0 0);
-          transition: clip-path 0.1s ease-out;
-        }
-
-        .ascii-content {
-=======
-        }
-
-        .card-stream-scanner-section .card-chip {
-          width: 40px;
-          height: 30px;
-          background: linear-gradient(45deg, #ffd700, #ffed4e);
-          border-radius: 5px;
-          position: relative;
-          margin-bottom: 20px;
-        }
-
-        .card-stream-scanner-section .card-chip::before {
-          content: "";
-          position: absolute;
-          top: 3px;
-          left: 3px;
-          right: 3px;
-          bottom: 3px;
-          background: linear-gradient(45deg, #e6c200, #f4d03f);
-          border-radius: 2px;
-        }
-
-        .card-stream-scanner-section .contactless {
-          position: absolute;
-          top: 60px;
-          left: 20px;
-          width: 25px;
-          height: 25px;
-          border: 2px solid rgba(255, 255, 255, 0.8);
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
-        }
-
-        .card-stream-scanner-section .contactless::after {
-          content: "";
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 15px;
-          height: 15px;
-          border: 1px solid rgba(255, 255, 255, 0.6);
-          border-radius: 50%;
-        }
-
-        .card-stream-scanner-section .card-number {
-          font-size: 22px;
-          font-weight: bold;
-          letter-spacing: 3px;
-          margin-bottom: 15px;
-          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .card-stream-scanner-section .card-info {
-          display: flex;
-          justify-content: space-between;
-          align-items: flex-end;
-        }
-
-        .card-stream-scanner-section .card-holder {
-          color: white;
-          font-size: 14px;
-          text-transform: uppercase;
-        }
-
-        .card-stream-scanner-section .card-expiry {
-          color: white;
-          font-size: 14px;
-        }
-
-        .card-stream-scanner-section .card-logo {
-          position: absolute;
-          top: 20px;
-          right: 20px;
-          font-size: 18px;
-          font-weight: bold;
-          color: white;
-          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .card-stream-scanner-section .ascii-content {
->>>>>>> 7eac276 ( Credit Cards)
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          color: rgba(220, 210, 255, 0.6);
-          font-family: "Courier New", monospace;
-          font-size: 11px;
-          line-height: 13px;
-          overflow: hidden;
-          white-space: pre;
-<<<<<<< HEAD
-=======
-          clip-path: inset(0 calc(100% - var(--clip-left, 0%)) 0 0);
-          animation: glitch 0.1s infinite linear alternate-reverse;
->>>>>>> 7eac276 ( Credit Cards)
-          margin: 0;
-          padding: 0;
-          text-align: left;
-          vertical-align: top;
-          box-sizing: border-box;
-          -webkit-mask-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 0, 0, 0.8) 30%,
-            rgba(0, 0, 0, 0.6) 50%,
-            rgba(0, 0, 0, 0.4) 80%,
-            rgba(0, 0, 0, 0.2) 100%
-          );
-          mask-image: linear-gradient(
-            to right,
-            rgba(0, 0, 0, 1) 0%,
-            rgba(0, 0, 0, 0.8) 30%,
-            rgba(0, 0, 0, 0.6) 50%,
-            rgba(0, 0, 0, 0.4) 80%,
-            rgba(0, 0, 0, 0.2) 100%
-          );
-<<<<<<< HEAD
-          animation: glitch 0.1s infinite linear alternate-reverse;
-=======
->>>>>>> 7eac276 ( Credit Cards)
-        }
-
-        @keyframes glitch {
-          0% {
-            opacity: 1;
-          }
-          15% {
-            opacity: 0.9;
-          }
-          16% {
-            opacity: 1;
-          }
-          49% {
-            opacity: 0.8;
-          }
-          50% {
-            opacity: 1;
-          }
-          99% {
-            opacity: 0.9;
-          }
-          100% {
-            opacity: 1;
-          }
-        }
-
-<<<<<<< HEAD
-        .scan-effect {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(0, 255, 255, 0.4),
-            transparent
-          );
-          animation: scanEffect 0.6s ease-out;
-          pointer-events: none;
-          z-index: 5;
-        }
-
-        @keyframes scanEffect {
-          0% {
-            transform: translateX(-100%);
-            opacity: 0;
-          }
-          50% {
-            opacity: 1;
-          }
-          100% {
-            transform: translateX(100%);
-            opacity: 0;
-          }
-        }
-
-        #particleCanvas {
-=======
-        .card-stream-scanner-section .scanner {
-          display: none;
-          position: absolute;
-          left: 50%;
-          top: 50%;
-          transform: translate(-50%, -50%);
-          width: 4px;
-          height: 300px;
-          border-radius: 30px;
-          background: linear-gradient(
-            to bottom,
-            transparent,
-            rgba(0, 255, 255, 0.8),
-            rgba(0, 255, 255, 1),
-            rgba(0, 255, 255, 0.8),
-            transparent
-          );
-          box-shadow: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.4);
-          animation: scanPulse 2s ease-in-out infinite alternate;
-          z-index: 10;
-        }
-
-        @keyframes scanPulse {
-          0% {
-            opacity: 0.8;
-            transform: translate(-50%, -50%) scaleY(1);
-          }
-          100% {
-            opacity: 1;
-            transform: translate(-50%, -50%) scaleY(1.1);
-          }
-        }
-
-        .card-stream-scanner-section .scanner-label {
-          position: absolute;
-          bottom: -40px;
-          left: 50%;
-          transform: translateX(-50%);
-          color: rgba(0, 255, 255, 0.9);
-          font-size: 12px;
-          font-weight: bold;
-          text-transform: uppercase;
-          letter-spacing: 2px;
-          text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-        }
-
-        .card-stream-scanner-section .card-normal {
-          clip-path: inset(0 0 0 var(--clip-right, 0%));
-        }
-
-        .card-stream-scanner-section .card-ascii {
-          clip-path: inset(0 calc(100% - var(--clip-left, 0%)) 0 0);
-        }
-
-        /* Blue shine overlay removed */
-
-        .card-stream-scanner-section .instructions {
-          position: absolute;
-          top: 50%;
-          right: 30px;
-          transform: translateY(-50%);
-          color: rgba(255, 255, 255, 0.7);
-          font-size: 14px;
-          max-width: 200px;
-          text-align: right;
-          z-index: 5;
-        }
-
-        .card-stream-scanner-section #particleCanvas {
->>>>>>> 7eac276 ( Credit Cards)
-          position: absolute;
-          top: 50%;
-          left: 0;
-          transform: translateY(-50%);
-          width: 100vw;
-<<<<<<< HEAD
-          height: 300px;
-=======
-          height: 250px;
->>>>>>> 7eac276 ( Credit Cards)
-          z-index: 0;
-          pointer-events: none;
-        }
-
-<<<<<<< HEAD
-        #scannerCanvas {
-=======
-        .card-stream-scanner-section #scannerCanvas {
->>>>>>> 7eac276 ( Credit Cards)
-          position: absolute;
-          top: 50%;
-          left: -3px;
-          transform: translateY(-50%);
-          width: 100vw;
-<<<<<<< HEAD
-          height: 350px;
-          z-index: 15;
-          pointer-events: none;
-        }
-=======
-          height: 300px;
-          z-index: 15;
-          pointer-events: none;
-        }
-
->>>>>>> 7eac276 ( Credit Cards)
-      `}</style>
     </section>
   );
 }

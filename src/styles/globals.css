@@ -17,6 +17,48 @@
   }
   
   /* ========================
+     ULTRA-SMOOTH PERFORMANCE OPTIMIZATIONS
+     ======================== */
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  
+  html {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Hardware acceleration for all animated elements */
+  [data-motion], 
+  .motion-safe\:animate-fade-in,
+  .motion-safe\:animate-slide-up,
+  section,
+  video,
+  canvas {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  /* Optimize images and videos */
+  img, video {
+    image-rendering: -webkit-optimize-contrast;
+    transform: translateZ(0);
+    will-change: auto;
+  }
+  
+  /* ========================
      GLOBAL PAGE RESET
      ======================== */
   html, body {

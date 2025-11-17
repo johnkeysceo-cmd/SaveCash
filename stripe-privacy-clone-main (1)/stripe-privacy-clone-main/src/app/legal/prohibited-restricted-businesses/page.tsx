@@ -1,1 +1,88 @@
-'use client';import React from 'react';import Header from '@/components/sections/header';import Footer from '@/components/sections/footer';export default function ProhibitedBusinessesPage() {  return (    <div className="min-h-screen bg-background font-['Inter']">      <Header />            <main className="flex-1">        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">          <article className="space-y-8">            <div>              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Prohibited & Restricted Businesses</h1>              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: November 3, 2025</p>            </div>            <section className="space-y-4">              <p className="text-[var(--color-text-primary)] leading-relaxed">                This policy identifies business types and activities that are prohibited or restricted from using SaveCash services. This list is maintained to comply with applicable laws, regulations, card network rules, and to mitigate risks to our platform and users.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Prohibited Business Types</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                The following business types are strictly prohibited from using SaveCash services. We maintain a zero-tolerance policy for any business that poses risks to our platform, users, or reputation. SaveCash reserves the right to immediately suspend or terminate any account engaging in prohibited activities without notice or refund.              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li><strong>Illegal Activities:</strong> Any business involved in illegal activities or sales of illegal goods, including but not limited to drug trafficking, human trafficking, weapons trafficking, and money laundering operations</li>                <li><strong>Adult Content:</strong> Pornography, adult websites, escort services, live webcam services featuring explicit content, and related adult entertainment industries</li>                <li><strong>Gambling:</strong> Online casinos, sports betting platforms, lotteries, poker rooms, daily fantasy sports, virtual sports betting, and all forms of gambling or games of chance</li>                <li><strong>Cryptocurrency:</strong> Virtual currency exchanges, cryptocurrency ATMs, initial coin offerings (ICOs), cryptocurrency mining pools, decentralized finance (DeFi) platforms, and any cryptocurrency-related business</li>                <li><strong>Prescription Drugs:</strong> Online pharmaceutical sales without proper licensing, telemedicine prescribing without valid medical oversight, controlled substance sales, and counterfeit medication operations</li>                <li><strong>Weapons:</strong> Firearms, ammunition, explosives, knives, tasers, pepper spray, military equipment, weapon accessories, and any item designed primarily for causing harm</li>                <li><strong>Pyramid Schemes:</strong> Multi-level marketing companies, pyramid schemes, Ponzi schemes, matrix programs, and any business model dependent primarily on recruitment rather than product sales</li>                <li><strong>Debt Collection:</strong> Debt collection agencies, credit repair services, debt settlement companies, payday loan providers, and predatory lending businesses</li>                <li><strong>Money Services:</strong> Unlicensed money transmitters, unregistered foreign exchange dealers, high-risk financial services, and businesses operating without appropriate financial licenses</li>                <li><strong>Counterfeit Goods:</strong> Replicas, counterfeit merchandise, trademark infringement, copyright violation, unauthorized reproductions, knockoff products, and imitation goods</li>                <li><strong>Stolen Goods:</strong> Sales of stolen merchandise, fraudulently obtained products, proceeds of crime, fencing operations, and sales of goods without proper title</li>                <li><strong>Tobacco:</strong> Unlicensed tobacco sales, vaping products, e-cigarettes, hookah sales, and tobacco paraphernalia</li>                <li><strong>Competing Financial Services:</strong> Any business that directly competes with or mimics SaveCash's core AI-powered savings and financial management services</li>                <li><strong>Unregulated Investment Products:</strong> Unregistered securities offerings, investment schemes, binary options, forex trading platforms, and unlicensed investment advisors</li>                <li><strong>File Sharing and Piracy:</strong> BitTorrent sites, unauthorized software distribution, piracy platforms, and intellectual property theft operations</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Restricted Business Types</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                The following business types may be subject to additional restrictions, enhanced due diligence, or specific approval requirements:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li><strong>Travel Services:</strong> Airlines, hotels, and travel agencies with specific restrictions</li>                <li><strong>Membership Organizations:</strong> Timeshares, membership clubs, and subscription services</li>                <li><strong>Digital Goods:</strong> Downloadable software, digital media, and virtual services</li>                <li><strong>Non-Profit Organizations:</strong> Charities and non-profits with specific documentation requirements</li>                <li><strong>High-Value Goods:</strong> Jewelry, precious metals, and luxury items</li>                <li><strong>Services Requiring Licensing:</strong> Legal, medical, financial advisory, and other licensed professional services</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Compliance Requirements</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Businesses that are permitted to use SaveCash services must comply with all applicable laws, regulations, and industry standards. SaveCash reserves the right to suspend or terminate accounts that violate these requirements or pose unacceptable risks.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Contact Information</h2>              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">                <p className="text-[var(--color-text-primary)]">                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com                </p>              </div>            </section>          </article>        </div>      </main>      <Footer />    </div>  );}
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function ProhibitedBusinessesPage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Prohibited & Restricted Businesses</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: January 16, 2025</p>
+            </div>
+
+            <section className="space-y-4">
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                This policy identifies business types and activities that are prohibited or restricted from using SaveCash services. This list is maintained to comply with applicable laws, regulations, card network rules, and to mitigate risks to our platform and users.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Prohibited Business Types</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                The following business types are strictly prohibited from using SaveCash services. We maintain a zero-tolerance policy for any business that poses risks to our platform, users, or reputation. SaveCash reserves the right to immediately suspend or terminate any account engaging in prohibited activities without notice or refund.
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Illegal Activities:</strong> Any business involved in illegal activities or sales of illegal goods, including but not limited to drug trafficking, human trafficking, weapons trafficking, and money laundering operations</li>
+                <li><strong>Adult Content:</strong> Pornography, adult websites, escort services, live webcam services featuring explicit content, and related adult entertainment industries</li>
+                <li><strong>Gambling:</strong> Online casinos, sports betting platforms, lotteries, poker rooms, daily fantasy sports, virtual sports betting, and all forms of gambling or games of chance</li>
+                <li><strong>Cryptocurrency:</strong> Virtual currency exchanges, cryptocurrency ATMs, initial coin offerings (ICOs), cryptocurrency mining pools, decentralized finance (DeFi) platforms, and any cryptocurrency-related business</li>
+                <li><strong>Prescription Drugs:</strong> Online pharmaceutical sales without proper licensing, telemedicine prescribing without valid medical oversight, controlled substance sales, and counterfeit medication operations</li>
+                <li><strong>Weapons:</strong> Firearms, ammunition, explosives, knives, tasers, pepper spray, military equipment, weapon accessories, and any item designed primarily for causing harm</li>
+                <li><strong>Pyramid Schemes:</strong> Multi-level marketing companies, pyramid schemes, Ponzi schemes, matrix programs, and any business model dependent primarily on recruitment rather than product sales</li>
+                <li><strong>Debt Collection:</strong> Debt collection agencies, credit repair services, debt settlement companies, payday loan providers, and predatory lending businesses</li>
+                <li><strong>Money Services:</strong> Unlicensed money transmitters, unregistered foreign exchange dealers, high-risk financial services, and businesses operating without appropriate financial licenses</li>
+                <li><strong>Counterfeit Goods:</strong> Replicas, counterfeit merchandise, trademark infringement, copyright violation, unauthorized reproductions, knockoff products, and imitation goods</li>
+                <li><strong>Stolen Goods:</strong> Sales of stolen merchandise, fraudulently obtained products, proceeds of crime, fencing operations, and sales of goods without proper title</li>
+                <li><strong>Tobacco:</strong> Unlicensed tobacco sales, vaping products, e-cigarettes, hookah sales, and tobacco paraphernalia</li>
+                <li><strong>Competing Financial Services:</strong> Any business that directly competes with or mimics SaveCash's core AI-powered savings and financial management services</li>
+                <li><strong>Unregulated Investment Products:</strong> Unregistered securities offerings, investment schemes, binary options, forex trading platforms, and unlicensed investment advisors</li>
+                <li><strong>File Sharing and Piracy:</strong> BitTorrent sites, unauthorized software distribution, piracy platforms, and intellectual property theft operations</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Restricted Business Types</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                The following business types may be subject to additional restrictions, enhanced due diligence, or specific approval requirements:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Travel Services:</strong> Airlines, hotels, and travel agencies with specific restrictions</li>
+                <li><strong>Membership Organizations:</strong> Timeshares, membership clubs, and subscription services</li>
+                <li><strong>Digital Goods:</strong> Downloadable software, digital media, and virtual services</li>
+                <li><strong>Non-Profit Organizations:</strong> Charities and non-profits with specific documentation requirements</li>
+                <li><strong>High-Value Goods:</strong> Jewelry, precious metals, and luxury items</li>
+                <li><strong>Services Requiring Licensing:</strong> Legal, medical, financial advisory, and other licensed professional services</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Compliance Requirements</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Businesses that are permitted to use SaveCash services must comply with all applicable laws, regulations, and industry standards. SaveCash reserves the right to suspend or terminate accounts that violate these requirements or pose unacceptable risks.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Contact Information</h2>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+

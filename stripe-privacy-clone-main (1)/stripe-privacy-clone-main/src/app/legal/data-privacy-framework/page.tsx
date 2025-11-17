@@ -1,1 +1,255 @@
-'use client';import React from 'react';import Header from '@/components/sections/header';import Footer from '@/components/sections/footer';export default function DataPrivacyFrameworkPage() {  return (    <div className="min-h-screen bg-background font-['Inter']">      <Header />            <main className="flex-1">        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">          <article className="space-y-8">            <div>              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">SaveCash Data Privacy Framework</h1>              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: November 3, 2025</p>            </div>            <section className="space-y-4">              <p className="text-[var(--color-text-primary)] leading-relaxed">                The SaveCash Data Privacy Framework ("Framework") establishes our foundational principles and commitments for protecting personal information and ensuring transparency in our data practices. This Framework guides our approach to data privacy across all SaveCash products, services, and operations.              </p>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Our Framework is designed to comply with applicable data protection laws and regulations, including the General Data Protection Regulation (GDPR), California Consumer Privacy Act (CCPA), and other regional privacy laws. We continuously update our practices to meet evolving standards and best practices.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Core Privacy Principles</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                SaveCash adheres to the following fundamental privacy principles in all our data practices:              </p>                            <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.1 Lawfulness, Fairness, and Transparency</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We process personal data lawfully, fairly, and in a transparent manner. We:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Identify a lawful basis for all data processing activities</li>                <li>Communicate our data practices clearly and honestly</li>                <li>Provide comprehensive privacy notices and disclosures</li>                <li>Ensure transparency about how and why we use personal data</li>                <li>Comply with all applicable laws and regulations</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.2 Purpose Limitation</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We collect personal data only for specified, explicit, and legitimate purposes and do not process it further in ways that are incompatible with those purposes. We:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Clearly state the purposes for which data is collected</li>                <li>Limit data processing to only what is necessary for the stated purposes</li>                <li>Obtain consent for new uses beyond original purposes</li>                <li>Ensure compatibility of secondary uses with original purposes</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.3 Data Minimization</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We collect and process only the personal data that is adequate, relevant, and limited to what is necessary for the purposes for which it is processed. We:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Conduct regular data minimization assessments</li>                <li>Collect only data essential for service delivery</li>                <li>Remove or anonymize unnecessary data promptly</li>                <li>Implement default privacy settings that minimize data collection</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.4 Accuracy</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We keep personal data accurate and up-to-date. We:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Provide mechanisms for users to update their information</li>                <li>Verify data accuracy during onboarding and transactions</li>                <li>Promptly correct inaccurate or incomplete data</li>                <li>Implement data quality controls and validation</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.5 Storage Limitation</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We retain personal data only for as long as necessary to fulfill the purposes for which it was collected or as required by law. We:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Establish clear data retention schedules</li>                <li>Automatically delete data when retention periods expire</li>                <li>Document legal or regulatory retention requirements</li>                <li>Securely dispose of data when no longer needed</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.6 Integrity and Confidentiality</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We implement appropriate technical and organizational measures to protect personal data against unauthorized access, alteration, disclosure, or destruction. We:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Encrypt data in transit and at rest</li>                <li>Implement access controls and authentication mechanisms</li>                <li>Conduct regular security assessments and audits</li>                <li>Maintain confidentiality through appropriate safeguards</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.7 Accountability</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We are accountable for compliance with these principles and can demonstrate our adherence. We:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Assign accountability roles and responsibilities</li>                <li>Document our data processing activities</li>                <li>Conduct privacy impact assessments</li>                <li>Maintain compliance records and certifications</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Individual Rights</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                SaveCash recognizes and respects the fundamental rights that individuals have regarding their personal data. We provide mechanisms to exercise these rights:              </p>                            <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.1 Right to Access</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Individuals have the right to obtain confirmation as to whether or not personal data concerning them is being processed and to access that data. We provide:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Account dashboards where users can view their data</li>                <li>Data export functionality for portable formats</li>                <li>Transparent information about data processing activities</li>                <li>Copies of personal data in commonly used electronic formats</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.2 Right to Rectification</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Individuals have the right to have inaccurate personal data corrected. We:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Enable users to update their information directly</li>                <li>Process correction requests within 30 days</li>                <li>Notify third parties of corrections when appropriate</li>                <li>Verify corrections to maintain data accuracy</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.3 Right to Erasure</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Under certain circumstances, individuals have the right to request deletion of their personal data. We:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Provide account deletion functionality</li>                <li>Process erasure requests in accordance with applicable law</li>                <li>Retain data only when required by law or legitimate interests</li>                <li>Use secure deletion methods that render data unrecoverable</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.4 Right to Restrict Processing</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Individuals have the right to restrict certain types of data processing. We:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Provide privacy controls and preference settings</li>                <li>Respect opt-out requests for marketing and analytics</li>                <li>Suspend processing when requested and legally permissible</li>                <li>Notify users when restrictions are lifted</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.5 Right to Data Portability</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Where processing is based on consent or contract, individuals have the right to receive their personal data in a structured, commonly used, machine-readable format. We provide:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Automated data export tools in standard formats (JSON, CSV)</li>                <li>Complete data packages including all processed information</li>                <li>Interoperable formats where technically feasible</li>                <li>Direct transmission to another service provider upon request</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.6 Right to Object</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Individuals have the right to object to certain types of data processing. We:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Provide opt-out mechanisms for marketing communications</li>                <li>Respect objections to direct marketing unconditionally</li>                <li>Provide opt-out tools in privacy preferences and email footers</li>                <li>Cease processing within reasonable timeframes after objection</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.7 Rights Related to Automated Decision-Making</h3>              <p className="text-[var(--color-text-primary)] leading-relaxed">                When we make solely automated decisions with legal or similarly significant effects, individuals have the right to:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Request human review of automated decisions</li>                <li>Express their point of view and contest decisions</li>                <li>Obtain an explanation of the logic behind automated decisions</li>                <li>Request intervention in the automated processing</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Security Safeguards</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                SaveCash implements comprehensive technical and organizational measures to protect personal data from Security Incidents:              </p>                            <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.1 Technical Measures</h3>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li><strong>Encryption:</strong> AES-256 encryption for data at rest, TLS 1.3 for data in transit</li>                <li><strong>Access Controls:</strong> Role-based access, multi-factor authentication, least privilege principles</li>                <li><strong>Network Security:</strong> Firewalls, intrusion detection, DDoS protection, network segmentation</li>                <li><strong>Application Security:</strong> Secure coding practices, vulnerability assessments, penetration testing</li>                <li><strong>Monitoring:</strong> 24/7 security monitoring, anomaly detection, real-time threat intelligence</li>              </ul>              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.2 Organizational Measures</h3>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li><strong>Policies and Procedures:</strong> Comprehensive information security policies</li>                <li><strong>Training:</strong> Regular security awareness training for all personnel</li>                <li><strong>Incident Response:</strong> Documented incident response and recovery procedures</li>                <li><strong>Audits:</strong> Regular internal and third-party security audits</li>                <li><strong>Compliance:</strong> Ongoing monitoring of regulatory requirements</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Third-Party Data Sharing</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                We share personal data with third parties only under specific, limited circumstances:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li><strong>Service Providers:</strong> Vetted partners who perform services on our behalf under strict contractual obligations</li>                <li><strong>Business Transfers:</strong> In connection with mergers, acquisitions, or asset sales</li>                <li><strong>Legal Requirements:</strong> When required by law, court order, or regulatory process</li>                <li><strong>With Consent:</strong> When you explicitly authorize sharing</li>                <li><strong>Emergency Situations:</strong> To protect safety or prevent fraud</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">5. Contact Information</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                For questions about this Framework or to exercise your privacy rights, contact us at:              </p>              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">                <p className="text-[var(--color-text-primary)] mb-3">                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com                </p>              </div>            </section>          </article>        </div>      </main>      <Footer />    </div>  );}
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function DataPrivacyFrameworkPage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">SaveCash Data Privacy Framework</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: January 16, 2025</p>
+            </div>
+
+            <section className="space-y-4">
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                The SaveCash Data Privacy Framework ("Framework") establishes our foundational principles and commitments for protecting personal information and ensuring transparency in our data practices. This Framework guides our approach to data privacy across all SaveCash products, services, and operations.
+              </p>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Our Framework is designed to comply with applicable data protection laws and regulations, including the General Data Protection Regulation (GDPR), California Consumer Privacy Act (CCPA), and other regional privacy laws. We continuously update our practices to meet evolving standards and best practices.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Core Privacy Principles</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash adheres to the following fundamental privacy principles in all our data practices:
+              </p>
+              
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.1 Lawfulness, Fairness, and Transparency</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We process personal data lawfully, fairly, and in a transparent manner. We:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Identify a lawful basis for all data processing activities</li>
+                <li>Communicate our data practices clearly and honestly</li>
+                <li>Provide comprehensive privacy notices and disclosures</li>
+                <li>Ensure transparency about how and why we use personal data</li>
+                <li>Comply with all applicable laws and regulations</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.2 Purpose Limitation</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We collect personal data only for specified, explicit, and legitimate purposes and do not process it further in ways that are incompatible with those purposes. We:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Clearly state the purposes for which data is collected</li>
+                <li>Limit data processing to only what is necessary for the stated purposes</li>
+                <li>Obtain consent for new uses beyond original purposes</li>
+                <li>Ensure compatibility of secondary uses with original purposes</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.3 Data Minimization</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We collect and process only the personal data that is adequate, relevant, and limited to what is necessary for the purposes for which it is processed. We:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Conduct regular data minimization assessments</li>
+                <li>Collect only data essential for service delivery</li>
+                <li>Remove or anonymize unnecessary data promptly</li>
+                <li>Implement default privacy settings that minimize data collection</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.4 Accuracy</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We keep personal data accurate and up-to-date. We:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Provide mechanisms for users to update their information</li>
+                <li>Verify data accuracy during onboarding and transactions</li>
+                <li>Promptly correct inaccurate or incomplete data</li>
+                <li>Implement data quality controls and validation</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.5 Storage Limitation</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We retain personal data only for as long as necessary to fulfill the purposes for which it was collected or as required by law. We:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Establish clear data retention schedules</li>
+                <li>Automatically delete data when retention periods expire</li>
+                <li>Document legal or regulatory retention requirements</li>
+                <li>Securely dispose of data when no longer needed</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.6 Integrity and Confidentiality</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We implement appropriate technical and organizational measures to protect personal data against unauthorized access, alteration, disclosure, or destruction. We:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Encrypt data in transit and at rest</li>
+                <li>Implement access controls and authentication mechanisms</li>
+                <li>Conduct regular security assessments and audits</li>
+                <li>Maintain confidentiality through appropriate safeguards</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">1.7 Accountability</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We are accountable for compliance with these principles and can demonstrate our adherence. We:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Assign accountability roles and responsibilities</li>
+                <li>Document our data processing activities</li>
+                <li>Conduct privacy impact assessments</li>
+                <li>Maintain compliance records and certifications</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Individual Rights</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash recognizes and respects the fundamental rights that individuals have regarding their personal data. We provide mechanisms to exercise these rights:
+              </p>
+              
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.1 Right to Access</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Individuals have the right to obtain confirmation as to whether or not personal data concerning them is being processed and to access that data. We provide:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Account dashboards where users can view their data</li>
+                <li>Data export functionality for portable formats</li>
+                <li>Transparent information about data processing activities</li>
+                <li>Copies of personal data in commonly used electronic formats</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.2 Right to Rectification</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Individuals have the right to have inaccurate personal data corrected. We:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Enable users to update their information directly</li>
+                <li>Process correction requests within 30 days</li>
+                <li>Notify third parties of corrections when appropriate</li>
+                <li>Verify corrections to maintain data accuracy</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.3 Right to Erasure</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Under certain circumstances, individuals have the right to request deletion of their personal data. We:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Provide account deletion functionality</li>
+                <li>Process erasure requests in accordance with applicable law</li>
+                <li>Retain data only when required by law or legitimate interests</li>
+                <li>Use secure deletion methods that render data unrecoverable</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.4 Right to Restrict Processing</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Individuals have the right to restrict certain types of data processing. We:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Provide privacy controls and preference settings</li>
+                <li>Respect opt-out requests for marketing and analytics</li>
+                <li>Suspend processing when requested and legally permissible</li>
+                <li>Notify users when restrictions are lifted</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.5 Right to Data Portability</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Where processing is based on consent or contract, individuals have the right to receive their personal data in a structured, commonly used, machine-readable format. We provide:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Automated data export tools in standard formats (JSON, CSV)</li>
+                <li>Complete data packages including all processed information</li>
+                <li>Interoperable formats where technically feasible</li>
+                <li>Direct transmission to another service provider upon request</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.6 Right to Object</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Individuals have the right to object to certain types of data processing. We:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Provide opt-out mechanisms for marketing communications</li>
+                <li>Respect objections to direct marketing unconditionally</li>
+                <li>Provide opt-out tools in privacy preferences and email footers</li>
+                <li>Cease processing within reasonable timeframes after objection</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">2.7 Rights Related to Automated Decision-Making</h3>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                When we make solely automated decisions with legal or similarly significant effects, individuals have the right to:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Request human review of automated decisions</li>
+                <li>Express their point of view and contest decisions</li>
+                <li>Obtain an explanation of the logic behind automated decisions</li>
+                <li>Request intervention in the automated processing</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Security Safeguards</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                SaveCash implements comprehensive technical and organizational measures to protect personal data from Security Incidents:
+              </p>
+              
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.1 Technical Measures</h3>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Encryption:</strong> AES-256 encryption for data at rest, TLS 1.3 for data in transit</li>
+                <li><strong>Access Controls:</strong> Role-based access, multi-factor authentication, least privilege principles</li>
+                <li><strong>Network Security:</strong> Firewalls, intrusion detection, DDoS protection, network segmentation</li>
+                <li><strong>Application Security:</strong> Secure coding practices, vulnerability assessments, penetration testing</li>
+                <li><strong>Monitoring:</strong> 24/7 security monitoring, anomaly detection, real-time threat intelligence</li>
+              </ul>
+
+              <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mt-8 mb-4">3.2 Organizational Measures</h3>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Policies and Procedures:</strong> Comprehensive information security policies</li>
+                <li><strong>Training:</strong> Regular security awareness training for all personnel</li>
+                <li><strong>Incident Response:</strong> Documented incident response and recovery procedures</li>
+                <li><strong>Audits:</strong> Regular internal and third-party security audits</li>
+                <li><strong>Compliance:</strong> Ongoing monitoring of regulatory requirements</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Third-Party Data Sharing</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                We share personal data with third parties only under specific, limited circumstances:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Service Providers:</strong> Vetted partners who perform services on our behalf under strict contractual obligations</li>
+                <li><strong>Business Transfers:</strong> In connection with mergers, acquisitions, or asset sales</li>
+                <li><strong>Legal Requirements:</strong> When required by law, court order, or regulatory process</li>
+                <li><strong>With Consent:</strong> When you explicitly authorize sharing</li>
+                <li><strong>Emergency Situations:</strong> To protect safety or prevent fraud</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">5. Contact Information</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                For questions about this Framework or to exercise your privacy rights, contact us at:
+              </p>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)] mb-3">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}

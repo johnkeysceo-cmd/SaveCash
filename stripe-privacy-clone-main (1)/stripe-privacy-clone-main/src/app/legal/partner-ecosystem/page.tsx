@@ -1,1 +1,75 @@
-'use client';import React from 'react';import Header from '@/components/sections/header';import Footer from '@/components/sections/footer';export default function PartnerEcosystemPage() {  return (    <div className="min-h-screen bg-background font-['Inter']">      <Header />            <main className="flex-1">        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">          <article className="space-y-8">            <div>              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Partner Ecosystem Terms</h1>              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: November 3, 2025</p>            </div>            <section className="space-y-4">              <p className="text-[var(--color-text-primary)] leading-relaxed">                These Partner Ecosystem Terms govern participation in SaveCash's partner program, which enables technology companies, service providers, and platform partners to integrate with SaveCash and offer complementary services to shared customers.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Partner Program</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                The SaveCash Partner Ecosystem includes various partnership models:              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li><strong>Technology Partners:</strong> Platform integrations and API partners</li>                <li><strong>Channel Partners:</strong> Resellers and referral partners</li>                <li><strong>Solution Partners:</strong> Providers of complementary financial services</li>                <li><strong>Ecosystem Partners:</strong> Strategic alliance and co-marketing partners</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Partner Requirements</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Partners must meet SaveCash's quality, security, and compliance standards, provide appropriate support to joint customers, and comply with all applicable agreements and policies.              </p>              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">                <li>Demonstrated expertise in their domain</li>                <li>Strong track record of customer satisfaction</li>                <li>Compliance with all applicable laws and regulations</li>                <li>Commitment to protecting intellectual property</li>              </ul>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Partner Benefits</h2>              <p className="text-[var(--color-text-primary)] leading-relaxed">                Partners in the SaveCash ecosystem receive access to co-marketing opportunities, technical resources, and integration support.              </p>            </section>            <section className="space-y-4">              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Contact Information</h2>              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">                <p className="text-[var(--color-text-primary)]">                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com                </p>              </div>            </section>          </article>        </div>      </main>      <Footer />    </div>  );}
+'use client';
+
+import React from 'react';
+import Header from '@/components/sections/header';
+import Footer from '@/components/sections/footer';
+
+export default function PartnerEcosystemPage() {
+  return (
+    <div className="min-h-screen bg-background font-['Inter']">
+      <Header />
+      
+      <main className="flex-1">
+        <div className="mx-auto max-w-[800px] px-6 py-16 md:px-12 md:py-20">
+          <article className="space-y-8">
+            <div>
+              <h1 className="text-4xl font-semibold text-[var(--color-text-primary)] mb-6">Partner Ecosystem Terms</h1>
+              <p className="text-sm text-[var(--color-text-secondary)] mb-8">Last updated: January 16, 2025</p>
+            </div>
+
+            <section className="space-y-4">
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                These Partner Ecosystem Terms govern participation in SaveCash's partner program, which enables technology companies, service providers, and platform partners to integrate with SaveCash and offer complementary services to shared customers.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">1. Partner Program</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                The SaveCash Partner Ecosystem includes various partnership models:
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li><strong>Technology Partners:</strong> Platform integrations and API partners</li>
+                <li><strong>Channel Partners:</strong> Resellers and referral partners</li>
+                <li><strong>Solution Partners:</strong> Providers of complementary financial services</li>
+                <li><strong>Ecosystem Partners:</strong> Strategic alliance and co-marketing partners</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">2. Partner Requirements</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Partners must meet SaveCash's quality, security, and compliance standards, provide appropriate support to joint customers, and comply with all applicable agreements and policies.
+              </p>
+              <ul className="list-disc pl-6 space-y-3 text-[var(--color-text-primary)] leading-relaxed">
+                <li>Demonstrated expertise in their domain</li>
+                <li>Strong track record of customer satisfaction</li>
+                <li>Compliance with all applicable laws and regulations</li>
+                <li>Commitment to protecting intellectual property</li>
+              </ul>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">3. Partner Benefits</h2>
+              <p className="text-[var(--color-text-primary)] leading-relaxed">
+                Partners in the SaveCash ecosystem receive access to co-marketing opportunities, technical resources, and integration support.
+              </p>
+            </section>
+
+            <section className="space-y-4">
+              <h2 className="text-3xl font-semibold text-[var(--color-text-primary)] mt-12 mb-6">4. Contact Information</h2>
+              <div className="bg-[var(--color-background-secondary)] border border-[var(--color-border-divider)] rounded-lg p-6 mt-4">
+                <p className="text-[var(--color-text-primary)]">
+                  <strong className="font-medium">Email:</strong> privacy.savecash@gmail.com
+                </p>
+              </div>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
+
