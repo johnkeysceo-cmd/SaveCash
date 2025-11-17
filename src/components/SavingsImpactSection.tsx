@@ -77,7 +77,7 @@ export function SavingsImpactSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-3 gap-8 mb-32"
+          className="grid md:grid-cols-3 gap-8"
         >
           {savingsData.map((data, index) => (
             <motion.div
@@ -125,6 +125,7 @@ export function SavingsImpactSection() {
             </motion.div>
           ))}
         </motion.div>
+<<<<<<< HEAD
 
         {/* Animated AI Financial Intelligence */}
         <motion.div
@@ -208,6 +209,8 @@ export function SavingsImpactSection() {
             </motion.div>
           </div>
         </motion.div>
+=======
+>>>>>>> 7eac276 ( Credit Cards)
       </div>
     </section>
   );

@@ -23,7 +23,6 @@ import {
   AlertTriangle,
   ExternalLink
 } from "lucide-react";
-import { SecuritySwitch } from "./ui/SecuritySwitch";
 
 
 export default function Footer() {
@@ -258,12 +257,6 @@ export default function Footer() {
               <div className="text-gray-700 text-sm mb-2">
                 © 2025 SaveCash. All rights reserved.
               </div>
-              <div className="text-gray-600 text-xs">
-                Select visual elements licensed via Shutterstock.
-              </div>
-              <div className="text-gray-600 text-xs mt-1">
-                SaveCash is a registered trademark.
-              </div>
             </motion.div>
            
             <motion.div
@@ -333,11 +326,6 @@ export default function Footer() {
               >
                 Contact
               </motion.a>
-              {/* Security toggle (visual control) */}
-              <div className="flex items-center gap-2">
-                <span className="text-gray-600">Security</span>
-                <SecuritySwitch />
-              </div>
             </motion.div>
            
             {/* Official Tagline */}

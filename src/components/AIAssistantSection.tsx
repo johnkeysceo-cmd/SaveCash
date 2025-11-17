@@ -190,25 +190,6 @@ export function AIAssistantSection() {
             />
 
             <div className="relative z-10 p-12 md:p-16">
-              {/* Icon Grid - Professional minimalist design */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
-                {features.map((feature, i) => (
-                  <motion.div
-                    key={feature.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.4 + i * 0.1 }}
-                    viewport={{ once: true }}
-                           className="flex flex-col items-center gap-3 p-6 rounded-2xl bg-black/70 border border-white/5 hover:bg-black/80 hover:border-white/10 transition-all group"
-                  >
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 flex items-center justify-center group-hover:from-purple-500/20 group-hover:to-pink-500/20 transition-all">
-                      <feature.icon className="w-6 h-6 text-purple-400 group-hover:text-purple-300 transition-colors" />
-                    </div>
-                    <span className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">{feature.label}</span>
-                  </motion.div>
-                ))}
-              </div>
-
               {/* Center content */}
               <div className="text-center max-w-3xl mx-auto">
                 <motion.div

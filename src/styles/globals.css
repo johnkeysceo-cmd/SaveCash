@@ -16,6 +16,18 @@
     @apply border-border;
   }
   
+  /* ========================
+     GLOBAL PAGE RESET
+     ======================== */
+  html, body {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    overflow-y: auto;      /* single vertical scrollbar */
+    overflow-x: hidden;    /* prevent horizontal scroll */
+    box-sizing: border-box;
+  }
+
   html {
     background: transparent;
   }
@@ -23,6 +35,10 @@
   body {
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  * {
+    box-sizing: inherit;
   }
 
   /* Subtle glow on hover for all interactive text */
@@ -37,6 +53,48 @@
   /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Hero overflow guard: prevent horizontal overflow only */
+  section.min-h-screen {
+    overflow-x: clip;
+    position: relative;
+  }
+  section.min-h-screen .max-w-6xl,
+  section.min-h-screen .mx-auto {
+    max-width: 100%;
+  }
+  section.min-h-screen [style*="100vw"] {
+    width: 100% !important;
+  }
+
+  /* ========================
+     MAIN WRAPPER
+     ======================== */
+  .main-wrapper,
+  main {
+    height: auto !important;          /* do not limit scroll to one section */
+    min-height: 100%;                 /* stretch if content grows */
+    overflow: visible !important;     /* remove inner scrollbars */
+  }
+
+  /* ========================
+     SECTIONS
+     ======================== */
+  section {
+    min-height: 100vh;  /* fills viewport if needed */
+    height: auto;       /* grows naturally with content */
+    overflow: visible;  /* no independent scroll */
+  }
+
+  /* ========================
+     SIDEBAR (if any)
+     ======================== */
+  .sidebar {
+    position: sticky;
+    top: 0;
+    height: 100%;
+    overflow-y: visible; /* remove sidebar scrollbar */
   }
 }
 
@@ -147,6 +205,11 @@
   .glass-radio-group-vertical:has(#glass-platinum:checked) { border-color: #57d5ff; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), inset 0 0 8px rgba(0, 183, 255, 0.63); }
 
 @layer utilities {
+  /* Prevent flex children from causing horizontal overflow */
+  .flex > * {
+    min-width: 0;
+    max-width: 100%;
+  }
   .text-glow-purple {
     text-shadow: 0 0 30px rgba(168, 85, 247, 0.5);
   }
@@ -222,3 +285,17 @@
   .honeycomb div:nth-child(6) { -webkit-animation-delay: 0.6s; animation-delay: 0.6s; left: -14px; top: -22px; }
   .honeycomb div:nth-child(7) { -webkit-animation-delay: 0.72s; animation-delay: 0.72s; left: 0; top: 0; }
 }
+/* ========================
+   FLEX CHILDREN / INNER ELEMENTS
+   ======================== */
+* {
+  box-sizing: border-box;
+  overflow-x: hidden; /* safety net against horizontal overflow */
+}
+
+.main-wrapper > * {
+  min-width: 0;
+  max-width: 100%;
+  min-height: 0;
+}
+

@@ -5,7 +5,6 @@ import { initPerformanceOptimizations } from "./utils/performanceOptimizer";
 import { HoneycombLoader } from "./components/ui/honeycomb-loader";
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { saveScrollPosition, restoreScrollPosition } from "./utils/scrollRestore";
-import { ScrollTracker } from "./components/ScrollTracker";
 const NextJSPageWrapper = lazy(() => import("./components/NextJSPageWrapper").then(module => ({ default: module.default })));
 
 // Lazy load ALL components for maximum performance
@@ -125,6 +124,9 @@ export default function App() {
         saveScrollPosition("/");
       }
     };
+
+    // Enforce "no-scroll" on home page and restore elsewhere
+    // Default browser scrolling behavior across all routes (no locks)
 
     const handleRouteChange = () => {
       const newRoute = window.location.pathname;
@@ -329,10 +331,10 @@ export default function App() {
           willChange: "auto", // Use auto to avoid overuse
           backfaceVisibility: "hidden",
           isolation: "isolate",
-          contain: "layout style paint",
         }}
       >
-        <ScrollTracker />
+        {/* Disable custom scroll tracking on home to keep native single scrollbar */}
+        {/* <ScrollTracker /> */}
         <Suspense fallback={<HoneycombLoader className="h-screen" />}>
           <HeroSection />
         </Suspense>
