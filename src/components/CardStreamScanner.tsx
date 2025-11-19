@@ -856,65 +856,115 @@ class CardStreamController {
     const randInt = (min: number, max: number) =>
       Math.floor(Math.random() * (max - min + 1)) + min;
     const pick = (arr: string[]) => arr[randInt(0, arr.length - 1)];
+    
+    const hexChars = "0123456789ABCDEF";
+    const generateHex = (length: number) => {
+      let result = "";
+      for (let i = 0; i < length; i++) {
+        result += hexChars[randInt(0, hexChars.length - 1)];
+      }
+      return result;
+    };
+    
+    const generateHexCode = () => {
+      return `${generateHex(4)}-${generateHex(4)}-${generateHex(4)}-${generateHex(4)}`;
+    };
+    
+    const generateHexValue = (prefix: string = "0x") => {
+      return `${prefix}${generateHex(randInt(4, 12))}`;
+    };
+    
+    const techTerms = ["AUTH_PIPE", "SCAN", "STREAM", "VERIFY", "ENCODE", "CIPHER", "SESSION", "PACKET", "NOISE", "ENTROPY", "INTEGRITY", "CHANNEL", "SECTOR", "BLOCK", "HASH", "SALT", "IV", "SIG", "BIAS", "JITTER", "FLOW", "LOCK", "READ", "WRITE", "ROTATE", "EMIT", "STEP"];
+    const techStatus = ["OK", "PASS", "FAIL", "PENDING", "ACTIVE", "STABLE", "UNSTABLE", "LOCKED", "UNLOCKED"];
+    const techModes = ["TLS-A1", "TLS-A2", "TLS-A3", "AES-256", "SHA-256", "RSA-2048", "ECDSA", "HMAC"];
+    
+    const generateHeader = () => {
+      return `${generateHexCode()}  `;
+    };
+    
+    const generateHelper = () => {
+      return `${generateHexCode()} ${generateHexCode()}   `;
+    };
+    
+    const generateParticleLine = () => {
+      const templates = [
+        `  ${generateHexValue()} • ${pick(techTerms)}[${pick(techStatus)}] • seq=${randInt(1000, 9999)} • hash:${generateHex(randInt(8, 16))}`,
+        `    stream(pkt) => { id:${randInt(100, 999)}, sig:'${generateHexValue()}', t:${(randInt(1, 99) / 10).toFixed(2)}ms }`,
+        `   verify::channel(${randInt(1, 8)}) • salt=${generateHex(6)} • len=${randInt(512, 4096)}`,
+        `    SCAN >> block:${randInt(100, 999)} • entropy:${(Math.random() * 0.5 + 0.5).toFixed(3)} • flow:${pick(techStatus).toLowerCase()}`,
+        `  rand_v(${randInt(16, 64)}) = ${generateHex(randInt(20, 32))}`,
+        `  ${generateHexCode()} • ${pick(techTerms)}:${generateHexValue()} • ${pick(techStatus)}`,
+      ];
+      return pick(templates);
+    };
+    
+    const generateScannerLine = () => {
+      const templates = [
+        `  cipher.step(Δ) • mode:${pick(techModes)} • noise:${(Math.random() * 0.1).toFixed(3)}`,
+        `  mem://sector/${generateHex(3)} • read: ${pick(["true", "false"])} • lock:${pick(["true", "false"])}`,
+        `  encode(b) => sha256(${generateHexValue()})`,
+        `  ${pick(techTerms)}::${pick(techTerms).toLowerCase()}(${randInt(1, 8)}) • cost=${randInt(1024, 4096)} • ${pick(techStatus)}`,
+        `  ${generateHexValue()} • ${pick(techTerms)}[${randInt(0, 255)}] • ${pick(techStatus)}`,
+      ];
+      return pick(templates);
+    };
+    
+    const generateLoopLine = () => {
+      const templates = [
+        `packet#${randInt(1000, 9999)} • src:${pick(["LOCAL", "REMOTE", "PROXY", "CACHE"])} • iv=${generateHexValue()}`,
+        ` session_key.rotate() • cost=${randInt(1024, 4096)} • ${pick(techStatus)}`,
+        `  EMIT ›› stamp: ${(randInt(100, 9999) / 10).toFixed(2)} • jitter: ${(Math.random() * 5).toFixed(1)}%`,
+        `  const Ω = ${generateHexValue()} • integrity:${pick(techStatus)}`,
+        `  ${pick(techTerms)} >> ${pick(techTerms).toLowerCase()}:${randInt(1, 999)} • ${pick(techStatus)}`,
+      ];
+      return pick(templates);
+    };
+    
+    const generateMiscLine = () => {
+      const templates = [
+        `bitmask[${randInt(0, 255)}] = ${randInt(10000000000000000000, 99999999999999999999)}`,
+        `NOISE_FRAME • index=${randInt(100, 9999)} • bias: ${(Math.random() > 0.5 ? "+" : "-")}${(Math.random() * 0.01).toFixed(3)}`,
+        `${generateHexCode()} • ${pick(techTerms)}:${randInt(1, 999)} • ${pick(techStatus)}`,
+        `${pick(techTerms)}::${pick(techTerms).toLowerCase()}() • ${generateHexValue()} • ${pick(techStatus)}`,
+        `hash:${generateHex(randInt(8, 16))} • salt:${generateHex(6)} • len:${randInt(128, 2048)}`,
+        `${pick(techModes)} • entropy:${(Math.random()).toFixed(3)} • flow:${pick(techStatus).toLowerCase()}`,
+      ];
+      return pick(templates);
+    };
 
-    const header = [
-      "A91F-33C7-8EB2-447A  ",
-      "F0C2-11D9-7A3E-99B1  ",
-      "3E7A-C8F1-5D2C-0A4D  ",
-      "8BBF-221A-DD07-44E3  ",
-      "6C19-42FA-A5C0-7F8B  ",
-      "D4A1-BE38-114C-92F7  ",
-    ];
+    const header: string[] = [];
+    for (let i = 0; i < 6; i++) {
+      header.push(generateHeader());
+    }
 
-    const helpers = [
-      "0F3E-7D2A-AAC1-3B58 9E21-4FA7-62CB-0E6D   ",
-      "BC72-197D-3EFF-A4C1 E0AA-55C8-9F32-1A0C   ",
-      "73DF-A7E2-148C-E0B5 CC09-416E-A887-5F12  ",
-      "F3A8-0BC9-CE11-47DA 11AD-F7C2-903E-66B0  ",
-    ];
+    const helpers: string[] = [];
+    for (let i = 0; i < 4; i++) {
+      helpers.push(generateHelper());
+    }
 
-    const particleBlock = (idx: number) => [
-      `7B23-1CE0-4A31-DF19  `,
-      "  0x12AF • AUTH_PIPE[OK] • seq=8841 • hash:91cfae2d",
-      "    stream(pkt) => { id:443, sig:'0x77fa', t:02.18ms }",
-      "   verify::channel(3) • salt=98dc1f • len=2048",
-      "    SCAN >> block:784 • entropy:0.882 • flow:stable",
-      "  rand_v(32) = 7c9a1e0bf4ddedcc9172385fdc",
-      "  step(dt) { this.x += this.vx * dt; this.y += this.vy * dt; }",
-      "}",
-    ];
+    const particleBlock = (idx: number) => {
+      const lines: string[] = [];
+      lines.push(`${generateHexCode()}  `);
+      for (let i = 0; i < 6; i++) {
+        lines.push(generateParticleLine());
+      }
+      return lines;
+    };
 
-    const scannerBlock = [
-      "const scanner = {",
-      "  cipher.step(Δ) • mode:TLS-A3 • noise:0.055",
-      "  mem://sector/19A • read: true • lock:false",
-      "  encode(b) => sha256(0x9f81c2dbe341)",
-      "};",
-      "",
-      "  cipher.step(Δ) • mode:TLS-A3 • noise:0.055",
-      "  mem://sector/19A • read: true • lock:false",
-      "  encode(b) => sha256(0x9f81c2dbe341)",
-      "  ctx.globalAlpha = clamp(p.a, 0, 1);",
-      "  ctx.drawImage(gradient, p.x - p.r, p.y - p.r, p.r * 2, p.r * 2);",
-      "}",
-    ];
+    const scannerBlock: string[] = [];
+    for (let i = 0; i < 8; i++) {
+      scannerBlock.push(generateScannerLine());
+    }
 
-    const loopBlock = [
-      "packet#1192 • src:LOCAL • iv=0xc4aa913e",
-      " session_key.rotate() • cost=2048 • OK",
-      "  EMIT ›› stamp: 883.12 • jitter: 1.3%",
-      "  const Ω = 0x8ac19f4a • integrity:PASS",
-      "}",
-    ];
+    const loopBlock: string[] = [];
+    for (let i = 0; i < 5; i++) {
+      loopBlock.push(generateLoopLine());
+    }
 
-    const misc = [
-      "const state = { intensity: 1.2, particles: MAX_PARTICLES };",
-      "const bounds = { w: window.innerWidth, h: 300 };",
-      "const gradient = document.createElement('canvas');",
-      "const ctx = gradient.getContext('2d');",
-      "bitmask[204] = 11010011100011101101';",
-      "NOISE_FRAME • index=912 • bias: +0.004",
-    ];
+    const misc: string[] = [];
+    for (let i = 0; i < 6; i++) {
+      misc.push(generateMiscLine());
+    }
 
     const library: string[] = [];
     header.forEach((l) => library.push(l));
@@ -926,14 +976,10 @@ class CardStreamController {
     misc.forEach((l) => library.push(l));
 
     for (let i = 0; i < 40; i++) {
-      const n1 = randInt(1, 9);
-      const n2 = randInt(10, 99);
-      library.push(`const v${i} = (${n1} + ${n2}) * 0.${randInt(1, 9)};`);
+      library.push(`${generateHexCode()} • ${pick(techTerms)}:${randInt(1, 9999)} • ${pick(techStatus)}`);
     }
     for (let i = 0; i < 20; i++) {
-      library.push(
-        `if (state.intensity > ${1 + (i % 3)}) { scanner.glow += 0.01; }`
-      );
+      library.push(`${pick(techTerms)}[${randInt(0, 255)}] = ${generateHexValue()} • ${pick(techStatus)}`);
     }
 
     let flow = library.join(" ");
@@ -1124,10 +1170,9 @@ class CardStreamController {
 
   updateAsciiContent() {
     document.querySelectorAll(".card-stream-scanner-section .ascii-content, .ascii-content").forEach((content) => {
-      if (Math.random() < 0.05) {
-        const { width, height } = this.calculateCodeDimensions(400, 250);
-        (content as HTMLElement).textContent = this.generateCode(width, height);
-      }
+      // Always update - constantly changing, never reverting
+      const { width, height } = this.calculateCodeDimensions(400, 250);
+      (content as HTMLElement).textContent = this.generateCode(width, height);
     });
   }
 
@@ -1143,7 +1188,7 @@ class CardStreamController {
   startPeriodicUpdates() {
     setInterval(() => {
       this.updateAsciiContent();
-    }, 2000); // Reduced frequency
+    }, 2000); // Each word transforms every 2 seconds
 
     // Use requestAnimationFrame with frame skipping for ultra-smooth performance
     let frameCount = 0;
