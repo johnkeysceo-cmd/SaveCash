@@ -125,64 +125,6 @@ export function SavingsImpactSection() {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Animated AI Financial Intelligence */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="relative rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-orange-500/5 p-16"
-          style={{
-            boxShadow: "0 30px 80px -20px rgba(168, 85, 247, 0.3)",
-          }}
-        >
-          <div className="relative z-10 text-center">
-            <div className="relative inline-block mb-8">
-              {/* BlenderKit-Level Quality Video Animation */}
-              <div className="w-16 h-16 mx-auto rounded-full overflow-hidden">
-                <video
-                  src="/lv_0_20251026134622.mp4"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  className="w-full h-full object-cover"
-                  style={{
-                    transform: "translateZ(0)",
-                    willChange: "auto",
-                    backfaceVisibility: "hidden",
-                    imageRendering: "crisp-edges",
-                    filter: "contrast(1.4) brightness(1.2) saturate(1.3) hue-rotate(5deg)",
-                    isolation: "isolate",
-                    contain: "layout style paint",
-                    perspective: "1000px",
-                  }}
-                />
-              </div>
-            </div>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              viewport={{ once: true }}
-              className="text-2xl md:text-3xl text-white mb-2"
-            >
-              AI-powered financial intelligence
-            </motion.p>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-              className="text-gray-400"
-            >
-              Monitoring 24/7
-            </motion.p>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

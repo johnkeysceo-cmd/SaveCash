@@ -222,7 +222,7 @@ export function AIAssistantSection() {
                       >
                         <video
                           ref={videoRef}
-                            src="/lv_0_20251026134622.mp4"
+                            src="/Ai%20%20brain%20board.webm"
                           muted
                           playsInline
                           autoPlay
@@ -377,7 +377,7 @@ export function AIAssistantSection() {
                 >
                   {/* Video background */}
                   <video
-                    src="/lv_0_20251026134622.mp4"
+                    src="/Ai%20%20brain%20board.webm"
                     muted
                     playsInline
                     autoPlay

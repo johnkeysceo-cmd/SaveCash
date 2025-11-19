@@ -95,6 +95,9 @@ const styles = `
   display: flex;
   align-items: center;
   overflow: visible;
+  will-change: contents;
+  contain: layout style paint;
+  isolation: isolate;
 }
 
 .card-stream-scanner-section .card-line {
@@ -105,6 +108,10 @@ const styles = `
   cursor: grab;
   user-select: none;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  contain: layout style paint;
 }
 
 .card-stream-scanner-section .card-line:active {
@@ -133,6 +140,10 @@ const styles = `
   width: 400px;
   height: 250px;
   flex-shrink: 0;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 .card-stream-scanner-section .card {
@@ -156,6 +167,10 @@ const styles = `
   z-index: 2;
   position: relative;
   overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: clip-path;
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 .card-stream-scanner-section .card-image {
@@ -163,13 +178,19 @@ const styles = `
   height: 100%;
   object-fit: cover;
   border-radius: 15px;
-  transition: all 0.3s ease;
+  transition: none;
   filter: brightness(1.1) contrast(1.1);
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.1);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
 .card-stream-scanner-section .card-image:hover {
   filter: brightness(1.2) contrast(1.2);
+  transition: filter 0.2s ease;
 }
 
 .card-stream-scanner-section .card-ascii {
@@ -182,6 +203,10 @@ const styles = `
   height: 250px;
   border-radius: 15px;
   overflow: hidden;
+  transform: translate3d(0, 0, 0);
+  will-change: clip-path;
+  backface-visibility: hidden;
+  contain: layout style paint;
 }
 
 .card-stream-scanner-section .card-chip {
@@ -275,12 +300,15 @@ const styles = `
   overflow: hidden;
   white-space: pre;
   clip-path: inset(0 calc(100% - var(--clip-left, 0%)) 0 0);
-  animation: glitch 0.1s infinite linear alternate-reverse;
   margin: 0;
   padding: 0;
   text-align: left;
   vertical-align: top;
   box-sizing: border-box;
+  transform: translate3d(0, 0, 0);
+  will-change: clip-path, contents;
+  backface-visibility: hidden;
+  contain: layout style paint;
   -webkit-mask-image: linear-gradient(
     to right,
     rgba(0, 0, 0, 1) 0%,
@@ -438,8 +466,10 @@ const styles = `
   transform: translate3d(0, -50%, 0);
   width: 100vw;
   height: 250px;
-  z-index: 15;
+  z-index: 25;
   pointer-events: none;
+  will-change: contents;
+  contain: layout style paint;
 }
 
 .card-stream-scanner-section .inspiration-credit {
@@ -464,6 +494,133 @@ const styles = `
 .card-stream-scanner-section .inspiration-credit a:hover {
   color: #ff7a7c;
 }
+
+.card-stream-scanner-section .security-section {
+  padding: 60px 20px 80px;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  background: transparent;
+}
+
+.card-stream-scanner-section .security-headline {
+  font-size: 3.5rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, #ffffff 0%, #a855f7 50%, #f97316 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.card-stream-scanner-section .security-subheadline {
+  font-size: 1.25rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 4rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+.card-stream-scanner-section .security-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 0;
+}
+
+.card-stream-scanner-section .security-feature {
+  padding: 2rem;
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.card-stream-scanner-section .security-feature:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(168, 85, 247, 0.4);
+  transform: translate3d(0, -6px, 0);
+  box-shadow: 0 20px 40px rgba(168, 85, 247, 0.1);
+}
+
+.card-stream-scanner-section .security-feature-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-bottom: 1.25rem;
+  color: #a855f7;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+.card-stream-scanner-section .security-feature-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.card-stream-scanner-section .security-feature-desc {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+}
+
+.card-stream-scanner-section .scanner-intro {
+  text-align: center;
+  z-index: 10;
+  position: absolute;
+  top: 3%;
+  left: 27%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 900px;
+  padding: 0 2rem;
+  pointer-events: none;
+}
+
+.card-stream-scanner-section .scanner-intro-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-stream-scanner-section .scanner-intro-text {
+  font-size: 1.125rem;
+  color: #ffffff;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .card-stream-scanner-section .scanner-intro-heading {
+    font-size: 1.875rem;
+  }
+  .card-stream-scanner-section .scanner-intro-text {
+    font-size: 1rem;
+  }
+}
+
 `;
 
 const codeChars =
@@ -486,6 +643,7 @@ class CardStreamController {
   containerWidth: number;
   cardLineWidth: number;
   usedNumbers: Set<number>;
+  cachedWrappers: HTMLElement[] | null;
 
   constructor() {
     this.container = document.getElementById("cardStream") as HTMLElement;
@@ -507,6 +665,7 @@ class CardStreamController {
     this.containerWidth = 0;
     this.cardLineWidth = 0;
     this.usedNumbers = new Set<number>();
+    this.cachedWrappers = null;
 
     this.init();
   }
@@ -609,9 +768,8 @@ class CardStreamController {
   }
 
   animate() {
-    const currentTime = performance.now();
-    const deltaTime = (currentTime - this.lastTime) / 1000;
-    this.lastTime = currentTime;
+    // Use fixed timestep for consistent animation (Apple/Tesla-level smoothness)
+    const fixedDeltaTime = 0.016; // ~60fps fixed timestep for consistent animation
 
     if (this.isAnimating && !this.isDragging) {
       if (this.velocity > this.minVelocity) {
@@ -620,7 +778,7 @@ class CardStreamController {
         this.velocity = Math.max(this.minVelocity, this.velocity);
       }
 
-      this.position += this.velocity * this.direction * deltaTime;
+      this.position += this.velocity * this.direction * fixedDeltaTime;
       this.updateCardPosition();
       this.updateSpeedIndicator();
     }
@@ -638,8 +796,9 @@ class CardStreamController {
       this.position = -cardLineWidth;
     }
 
-    this.cardLine.style.transform = `translate3d(${this.position}px, 0, 0)`;
-    this.updateCardClipping();
+    // Use transform directly for hardware acceleration - round for pixel-perfect rendering
+    this.cardLine.style.transform = `translate3d(${Math.round(this.position)}px, 0, 0)`;
+    // Clipping is handled separately in startPeriodicUpdates for better performance
   }
 
   updateSpeedIndicator() {
@@ -699,50 +858,52 @@ class CardStreamController {
     const pick = (arr: string[]) => arr[randInt(0, arr.length - 1)];
 
     const header = [
-      "// compiled preview • scanner demo",
-      "/* generated for visual effect – not executed */",
-      "const SCAN_WIDTH = 8;",
-      "const FADE_ZONE = 35;",
-      "const MAX_PARTICLES = 2500;",
-      "const TRANSITION = 0.05;",
+      "A91F-33C7-8EB2-447A  ",
+      "F0C2-11D9-7A3E-99B1  ",
+      "3E7A-C8F1-5D2C-0A4D  ",
+      "8BBF-221A-DD07-44E3  ",
+      "6C19-42FA-A5C0-7F8B  ",
+      "D4A1-BE38-114C-92F7  ",
     ];
 
     const helpers = [
-      "function clamp(n, a, b) { return Math.max(a, Math.min(b, n)); }",
-      "function lerp(a, b, t) { return a + (b - a) * t; }",
-      "const now = () => performance.now();",
-      "function rng(min, max) { return Math.random() * (max - min) + min; }",
+      "0F3E-7D2A-AAC1-3B58 9E21-4FA7-62CB-0E6D   ",
+      "BC72-197D-3EFF-A4C1 E0AA-55C8-9F32-1A0C   ",
+      "73DF-A7E2-148C-E0B5 CC09-416E-A887-5F12  ",
+      "F3A8-0BC9-CE11-47DA 11AD-F7C2-903E-66B0  ",
     ];
 
     const particleBlock = (idx: number) => [
-      `class Particle${idx} {`,
-      "  constructor(x, y, vx, vy, r, a) {",
-      "    this.x = x; this.y = y;",
-      "    this.vx = vx; this.vy = vy;",
-      "    this.r = r; this.a = a;",
-      "  }",
+      `7B23-1CE0-4A31-DF19  `,
+      "  0x12AF • AUTH_PIPE[OK] • seq=8841 • hash:91cfae2d",
+      "    stream(pkt) => { id:443, sig:'0x77fa', t:02.18ms }",
+      "   verify::channel(3) • salt=98dc1f • len=2048",
+      "    SCAN >> block:784 • entropy:0.882 • flow:stable",
+      "  rand_v(32) = 7c9a1e0bf4ddedcc9172385fdc",
       "  step(dt) { this.x += this.vx * dt; this.y += this.vy * dt; }",
       "}",
     ];
 
     const scannerBlock = [
       "const scanner = {",
-      "  x: Math.floor(window.innerWidth / 2),",
-      "  width: SCAN_WIDTH,",
-      "  glow: 3.5,",
+      "  cipher.step(Δ) • mode:TLS-A3 • noise:0.055",
+      "  mem://sector/19A • read: true • lock:false",
+      "  encode(b) => sha256(0x9f81c2dbe341)",
       "};",
       "",
-      "function drawParticle(ctx, p) {",
+      "  cipher.step(Δ) • mode:TLS-A3 • noise:0.055",
+      "  mem://sector/19A • read: true • lock:false",
+      "  encode(b) => sha256(0x9f81c2dbe341)",
       "  ctx.globalAlpha = clamp(p.a, 0, 1);",
       "  ctx.drawImage(gradient, p.x - p.r, p.y - p.r, p.r * 2, p.r * 2);",
       "}",
     ];
 
     const loopBlock = [
-      "function tick(t) {",
-      "  // requestAnimationFrame(tick);",
-      "  const dt = 0.016;",
-      "  // update & render",
+      "packet#1192 • src:LOCAL • iv=0xc4aa913e",
+      " session_key.rotate() • cost=2048 • OK",
+      "  EMIT ›› stamp: 883.12 • jitter: 1.3%",
+      "  const Ω = 0x8ac19f4a • integrity:PASS",
       "}",
     ];
 
@@ -751,8 +912,8 @@ class CardStreamController {
       "const bounds = { w: window.innerWidth, h: 300 };",
       "const gradient = document.createElement('canvas');",
       "const ctx = gradient.getContext('2d');",
-      "ctx.globalCompositeOperation = 'lighter';",
-      "// ascii overlay is masked with a 3-phase gradient",
+      "bitmask[204] = 11010011100011101101';",
+      "NOISE_FRAME • index=912 • bias: +0.004",
     ];
 
     const library: string[] = [];
@@ -878,34 +1039,57 @@ class CardStreamController {
   }
 
   updateCardClipping() {
+    // Cache calculations for Apple/Tesla-level smoothness
     const scannerX = window.innerWidth / 2;
     const scannerWidth = 8;
     const scannerLeft = scannerX - scannerWidth / 2;
     const scannerRight = scannerX + scannerWidth / 2;
     let anyScanningActive = false;
 
-    document.querySelectorAll(".card-stream-scanner-section .card-wrapper, .card-wrapper").forEach((wrapper) => {
+    // Cache card wrappers to avoid repeated DOM queries
+    if (!this.cachedWrappers) {
+      this.cachedWrappers = Array.from(
+        document.querySelectorAll(".card-stream-scanner-section .card-wrapper, .card-wrapper")
+      ) as HTMLElement[];
+    }
+
+    // Batch DOM reads first (Apple/Tesla optimization pattern)
+    const cardData = this.cachedWrappers.map((wrapper) => {
       const rect = wrapper.getBoundingClientRect();
-      const cardLeft = rect.left;
-      const cardRight = rect.right;
-      const cardWidth = rect.width;
+      return {
+        wrapper,
+        cardLeft: rect.left,
+        cardRight: rect.right,
+        cardWidth: rect.width,
+        normalCard: (wrapper as any).__normalCard || wrapper.querySelector(".card-normal") as HTMLElement,
+        asciiCard: (wrapper as any).__asciiCard || wrapper.querySelector(".card-ascii") as HTMLElement,
+      };
+    });
 
-      const normalCard = wrapper.querySelector(".card-normal") as HTMLElement;
-      const asciiCard = wrapper.querySelector(".card-ascii") as HTMLElement;
+    // Cache card elements
+    cardData.forEach((data) => {
+      if (!(data.wrapper as any).__normalCard) {
+        (data.wrapper as any).__normalCard = data.normalCard;
+        (data.wrapper as any).__asciiCard = data.asciiCard;
+      }
+    });
 
+    // Batch DOM writes (Apple/Tesla optimization pattern)
+    const styleUpdates: Array<{element: HTMLElement, property: string, value: string}> = [];
+
+    cardData.forEach(({ wrapper, cardLeft, cardRight, cardWidth, normalCard, asciiCard }) => {
       if (normalCard && asciiCard && cardLeft < scannerRight && cardRight > scannerLeft) {
           anyScanningActive = true;
           const scannerIntersectLeft = Math.max(scannerLeft - cardLeft, 0);
-          const scannerIntersectRight = Math.min(
-            scannerRight - cardLeft,
-            cardWidth
-          );
+        const scannerIntersectRight = Math.min(scannerRight - cardLeft, cardWidth);
 
           const normalClipRight = (scannerIntersectLeft / cardWidth) * 100;
           const asciiClipLeft = (scannerIntersectRight / cardWidth) * 100;
 
-          normalCard.style.setProperty("--clip-right", `${normalClipRight}%`);
-          asciiCard.style.setProperty("--clip-left", `${asciiClipLeft}%`);
+        styleUpdates.push(
+          { element: normalCard, property: "--clip-right", value: `${normalClipRight.toFixed(2)}%` },
+          { element: asciiCard, property: "--clip-left", value: `${asciiClipLeft.toFixed(2)}%` }
+        );
 
           if (!wrapper.hasAttribute("data-scanned") && scannerIntersectLeft > 0) {
             wrapper.setAttribute("data-scanned", "true");
@@ -913,15 +1097,24 @@ class CardStreamController {
         } else {
         if (normalCard && asciiCard) {
           if (cardRight < scannerLeft) {
-            normalCard.style.setProperty("--clip-right", "100%");
-            asciiCard.style.setProperty("--clip-left", "100%");
+            styleUpdates.push(
+              { element: normalCard, property: "--clip-right", value: "100%" },
+              { element: asciiCard, property: "--clip-left", value: "100%" }
+            );
           } else if (cardLeft > scannerRight) {
-            normalCard.style.setProperty("--clip-right", "0%");
-            asciiCard.style.setProperty("--clip-left", "0%");
+            styleUpdates.push(
+              { element: normalCard, property: "--clip-right", value: "0%" },
+              { element: asciiCard, property: "--clip-left", value: "0%" }
+            );
           }
           }
           wrapper.removeAttribute("data-scanned");
       }
+    });
+
+    // Apply all style updates in one batch (reduces reflows)
+    styleUpdates.forEach(({ element, property, value }) => {
+      element.style.setProperty(property, value);
     });
 
     if ((window as any).setScannerScanning) {
@@ -950,13 +1143,19 @@ class CardStreamController {
   startPeriodicUpdates() {
     setInterval(() => {
       this.updateAsciiContent();
-    }, 1000);
+    }, 2000); // Reduced frequency
 
+    // Use requestAnimationFrame with frame skipping for ultra-smooth performance
+    let frameCount = 0;
     const updateClipping = () => {
+      // Only update clipping every 2 frames (30fps) for smoothness
+      if (frameCount % 2 === 0) {
       this.updateCardClipping();
+      }
+      frameCount++;
       requestAnimationFrame(updateClipping);
     };
-    updateClipping();
+    requestAnimationFrame(updateClipping);
   }
 }
 
@@ -1114,10 +1313,12 @@ class ParticleSystem {
     if (this.particles && this.velocities && this.alphas) {
       const positions = this.particles.geometry.attributes.position.array as Float32Array;
       const alphas = this.alphas;
+      // Use fixed timestep for consistent animation (Apple/Tesla-level smoothness)
+      const fixedDeltaTime = 0.016;
       const time = Date.now() * 0.001;
 
       for (let i = 0; i < this.particleCount; i++) {
-        positions[i * 3] += this.velocities[i] * 0.016;
+        positions[i * 3] += this.velocities[i] * fixedDeltaTime;
 
         if (positions[i * 3] > window.innerWidth / 2 + 100) {
           positions[i * 3] = -window.innerWidth / 2 - 100;
@@ -1126,7 +1327,8 @@ class ParticleSystem {
 
         positions[i * 3 + 1] += Math.sin(time + i * 0.1) * 0.5;
 
-        const twinkle = Math.floor(Math.random() * 20);
+        // Reduce twinkle frequency for better performance
+        const twinkle = Math.floor(Math.random() * 30);
         if (twinkle === 1 && alphas[i] > 0) {
           alphas[i] -= 0.05;
         } else if (twinkle === 2 && alphas[i] < 1) {
@@ -1207,15 +1409,14 @@ class ParticleScanner {
     this.animationId = null;
 
     this.w = window.innerWidth;
-    this.h = 250; // Match card height
+    this.h = 300;
     this.particles = {};
     this.count = 0;
     this.maxParticles = 800;
     this.intensity = 0.8;
-    // Will be calculated in setupCanvas based on actual canvas width
-    this.lightBarX = 0;
+    this.lightBarX = this.w / 2;
     this.lightBarWidth = 3;
-    this.fadeZone = 50; // Adjusted for 250px height
+    this.fadeZone = 60;
 
     this.scanTargetIntensity = 1.8;
     this.scanTargetParticles = 2500;
@@ -1244,20 +1445,16 @@ class ParticleScanner {
   }
 
   setupCanvas() {
-    this.w = window.innerWidth;
     this.canvas.width = this.w;
     this.canvas.height = this.h;
     this.canvas.style.width = this.w + "px";
     this.canvas.style.height = this.h + "px";
     this.ctx.clearRect(0, 0, this.w, this.h);
-    
-    // Calculate center position - account for canvas offset of -3px
-    this.lightBarX = this.w / 2 + 3;
   }
 
   onResize() {
     this.w = window.innerWidth;
-    this.lightBarX = this.w / 2 + 3;
+    this.lightBarX = this.w / 2;
     this.setupCanvas();
   }
 
@@ -1404,44 +1601,41 @@ class ParticleScanner {
 
     this.ctx.globalCompositeOperation = "lighter";
 
-    const targetGlowIntensity = this.scanningActive ? 3.2 : 0.8;
-    const time = Date.now() * 0.001;
-    const pulse = Math.sin(time * 2) * 0.05 + 1; // Very subtle pulsing effect
+    const targetGlowIntensity = this.scanningActive ? 3.5 : 1;
 
     if (!this.currentGlowIntensity) this.currentGlowIntensity = 1;
 
     this.currentGlowIntensity +=
       (targetGlowIntensity - this.currentGlowIntensity) * this.transitionSpeed;
 
-    const glowIntensity = this.currentGlowIntensity * pulse;
+    const glowIntensity = this.currentGlowIntensity;
     const lineWidth = this.lightBarWidth;
-    const glow1Alpha = this.scanningActive ? 0.9 : 0.45;
-    const glow2Alpha = this.scanningActive ? 0.7 : 0.3;
+    const glow1Alpha = this.scanningActive ? 1.0 : 0.8;
+    const glow2Alpha = this.scanningActive ? 0.8 : 0.6;
+    const glow3Alpha = this.scanningActive ? 0.6 : 0.4;
 
-    // Core bright white center - Minimal but glowy (brighter when scanning)
     const coreGradient = this.ctx.createLinearGradient(
       this.lightBarX - lineWidth / 2,
       0,
       this.lightBarX + lineWidth / 2,
       0
     );
-    const coreIntensity = this.scanningActive ? 0.9 : 0.75;
     coreGradient.addColorStop(0, "rgba(255, 255, 255, 0)");
     coreGradient.addColorStop(
       0.3,
-      `rgba(255, 255, 255, ${(this.scanningActive ? 0.6 : 0.5) * glowIntensity})`
+      `rgba(255, 255, 255, ${0.9 * glowIntensity})`
     );
-    coreGradient.addColorStop(0.5, `rgba(255, 255, 255, ${coreIntensity * glowIntensity})`);
+    coreGradient.addColorStop(0.5, `rgba(255, 255, 255, ${1 * glowIntensity})`);
     coreGradient.addColorStop(
       0.7,
-      `rgba(255, 255, 255, ${(this.scanningActive ? 0.6 : 0.5) * glowIntensity})`
+      `rgba(255, 255, 255, ${0.9 * glowIntensity})`
     );
     coreGradient.addColorStop(1, "rgba(255, 255, 255, 0)");
 
-    this.ctx.globalAlpha = this.scanningActive ? 0.95 : 0.85;
+    this.ctx.globalAlpha = 1;
     this.ctx.fillStyle = coreGradient;
 
-    const radius = 18;
+    const radius = 15;
     this.ctx.beginPath();
     (this.ctx as any).roundRect(
       this.lightBarX - lineWidth / 2,
@@ -1452,79 +1646,85 @@ class ParticleScanner {
     );
     this.ctx.fill();
 
-    // Inner glow - Minimal purple (MUCH bigger when scanning)
-    const glow1Width = this.scanningActive ? lineWidth * 8 : lineWidth * 2;
     const glow1Gradient = this.ctx.createLinearGradient(
-      this.lightBarX - glow1Width,
+      this.lightBarX - lineWidth * 2,
       0,
-      this.lightBarX + glow1Width,
+      this.lightBarX + lineWidth * 2,
       0
     );
     glow1Gradient.addColorStop(0, "rgba(139, 92, 246, 0)");
     glow1Gradient.addColorStop(
-      0.4,
-      `rgba(167, 139, 250, ${(this.scanningActive ? 0.65 : 0.4) * glowIntensity})`
-    );
-    glow1Gradient.addColorStop(
       0.5,
-      `rgba(196, 181, 253, ${(this.scanningActive ? 0.85 : 0.6) * glowIntensity})`
-    );
-    glow1Gradient.addColorStop(
-      0.6,
-      `rgba(167, 139, 250, ${(this.scanningActive ? 0.65 : 0.4) * glowIntensity})`
+      `rgba(196, 181, 253, ${0.8 * glowIntensity})`
     );
     glow1Gradient.addColorStop(1, "rgba(139, 92, 246, 0)");
 
     this.ctx.globalAlpha = glow1Alpha;
     this.ctx.fillStyle = glow1Gradient;
 
-    const glow1Radius = this.scanningActive ? 50 : 22;
+    const glow1Radius = 25;
     this.ctx.beginPath();
     (this.ctx as any).roundRect(
-      this.lightBarX - glow1Width,
+      this.lightBarX - lineWidth * 2,
       0,
-      glow1Width * 2,
+      lineWidth * 4,
       this.h,
       glow1Radius
     );
     this.ctx.fill();
 
-    // Outer glow - Minimal (MUCH bigger when scanning)
-    const glow2Width = this.scanningActive ? lineWidth * 15 : lineWidth * 3.5;
     const glow2Gradient = this.ctx.createLinearGradient(
-      this.lightBarX - glow2Width,
+      this.lightBarX - lineWidth * 4,
       0,
-      this.lightBarX + glow2Width,
+      this.lightBarX + lineWidth * 4,
       0
     );
     glow2Gradient.addColorStop(0, "rgba(139, 92, 246, 0)");
     glow2Gradient.addColorStop(
-      0.45,
-      `rgba(139, 92, 246, ${(this.scanningActive ? 0.4 : 0.25) * glowIntensity})`
-    );
-    glow2Gradient.addColorStop(
       0.5,
-      `rgba(139, 92, 246, ${(this.scanningActive ? 0.55 : 0.35) * glowIntensity})`
-    );
-    glow2Gradient.addColorStop(
-      0.55,
-      `rgba(139, 92, 246, ${(this.scanningActive ? 0.4 : 0.25) * glowIntensity})`
+      `rgba(139, 92, 246, ${0.4 * glowIntensity})`
     );
     glow2Gradient.addColorStop(1, "rgba(139, 92, 246, 0)");
 
     this.ctx.globalAlpha = glow2Alpha;
     this.ctx.fillStyle = glow2Gradient;
 
-    const glow2Radius = this.scanningActive ? 70 : 28;
+    const glow2Radius = 35;
     this.ctx.beginPath();
     (this.ctx as any).roundRect(
-      this.lightBarX - glow2Width,
+      this.lightBarX - lineWidth * 4,
       0,
-      glow2Width * 2,
+      lineWidth * 8,
       this.h,
       glow2Radius
     );
     this.ctx.fill();
+
+    if (this.scanningActive) {
+      const glow3Gradient = this.ctx.createLinearGradient(
+        this.lightBarX - lineWidth * 8,
+        0,
+        this.lightBarX + lineWidth * 8,
+        0
+      );
+      glow3Gradient.addColorStop(0, "rgba(139, 92, 246, 0)");
+      glow3Gradient.addColorStop(0.5, "rgba(139, 92, 246, 0.2)");
+      glow3Gradient.addColorStop(1, "rgba(139, 92, 246, 0)");
+
+      this.ctx.globalAlpha = glow3Alpha;
+      this.ctx.fillStyle = glow3Gradient;
+
+      const glow3Radius = 45;
+      this.ctx.beginPath();
+      (this.ctx as any).roundRect(
+        this.lightBarX - lineWidth * 8,
+        0,
+        lineWidth * 16,
+        this.h,
+        glow3Radius
+      );
+      this.ctx.fill();
+    }
 
     this.ctx.globalCompositeOperation = "destination-in";
     this.ctx.globalAlpha = 1;
@@ -1622,6 +1822,7 @@ class ParticleScanner {
   }
 
   animate() {
+    // Use requestAnimationFrame for smooth 60fps rendering
     this.render();
     this.animationId = requestAnimationFrame(() => this.animate());
   }
@@ -1711,43 +1912,21 @@ window.getScannerStats = () => {
     <section className="card-stream-scanner-section relative w-full bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
       <style>{styles}</style>
       
+      {/* Scanner Intro Heading - Absolutely positioned, centered on page */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        className="scanner-intro"
+      >
+        <h2 className="scanner-intro-heading">Security is Always Our Priority</h2>
+        <p className="scanner-intro-text">All card data is encrypted and streamed securely — your information never touches our servers.</p>
+      </motion.div>
+
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
-        {/* 1️⃣ Headline - Security First */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, ease: [0.4, 0, 0.2, 1] }}
-          className="text-center mb-4"
-          style={{
-            transform: "translate3d(0, 0, 0)",
-            willChange: "transform, opacity",
-            backfaceVisibility: "hidden",
-          }}
-        >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-white">
-            Your Security, Our Priority
-          </h2>
-        </motion.div> */}
-
-        {/* 2️⃣ Subtext / Microcopy - Future-Focused Confidence Boost */}
-        {/* <motion.p
-          initial={{ opacity: 0, y: -10 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.4, 0, 0.2, 1] }}
-          className="text-center text-sm md:text-base text-gray-400 mb-12"
-      style={{
-            transform: "translate3d(0, 0, 0)",
-            willChange: "transform, opacity",
-            backfaceVisibility: "hidden",
-          }}
-        >
-          Next-Gen Security • AI-Powered Protection • Zero-Knowledge Architecture
-        </motion.p> */}
-
-        {/* 3️⃣ Animated Card Section */}
-        <div className="relative mb-12" style={{ minHeight: "350px", height: "350px" }}>
+        {/* Animated Card Section */}
+        <div className="relative" style={{ minHeight: "350px", height: "350px", marginTop: "40px", position: "relative", zIndex: 20, isolation: "isolate" }}>
       {/* Particle Canvas (Three.js) */}
           <canvas id="particleCanvas" />
 
@@ -1764,73 +1943,9 @@ window.getScannerStats = () => {
           }}
         >
           {/* Cards will be populated by CardStreamController */}
-            </div>
         </div>
       </div>
-
-        {/* 4️⃣ Security Badges / Logos - Trust Signals - Future-Focused */}
-        {/* <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.4, ease: [0.4, 0, 0.2, 1] }}
-          className="flex flex-wrap justify-center items-center gap-8 md:gap-12 mb-6"
-          style={{
-            transform: "translate3d(0, 0, 0)",
-            willChange: "transform, opacity",
-            backfaceVisibility: "hidden",
-          }}
-        >
-          {/* Encrypted Badge */}
-          {/* <div className="flex flex-col items-center group cursor-pointer" title="End-to-End Encryption">
-            <div className="w-10 h-10 mb-2 flex items-center justify-center rounded-lg bg-green-500/10 border border-green-500/20 group-hover:bg-green-500/20 transition-all duration-300">
-              <svg className="w-5 h-5 text-green-400 group-hover:text-green-300 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors font-medium">Encrypted</span>
-          </div> */}
-
-          {/* SSL Secured Badge */}
-          {/* <div className="flex flex-col items-center group cursor-pointer" title="SSL/TLS Secured Connection">
-            <div className="w-10 h-10 mb-2 flex items-center justify-center bg-green-500/20 rounded-lg border border-green-500/30 group-hover:bg-green-500/30 transition-all duration-300">
-              <span className="text-xs font-bold text-green-400">SSL</span>
-            </div>
-            <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors font-medium">SSL Secured</span>
-          </div> */}
-
-          {/* PCI Compliant Badge */}
-          {/* <div className="flex flex-col items-center group cursor-pointer" title="PCI-DSS Level 1 Compliant">
-            <div className="w-10 h-10 mb-2 flex items-center justify-center rounded-lg bg-blue-500/10 border border-blue-500/20 group-hover:bg-blue-500/20 transition-all duration-300">
-              <svg className="w-5 h-5 text-blue-400 group-hover:text-blue-300 transition-colors" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-            </div>
-            <span className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors font-medium">PCI Compliant</span>
-          </div> */}
-        {/* </motion.div> */}
-
-        {/* 5️⃣ Optional Interactive Tooltip - Extra Reassurance */}
-        {/* <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.6, ease: [0.4, 0, 0.2, 1] }}
-          className="text-center"
-        >
-          <a
-            href="#security-section"
-            className="inline-block text-xs text-gray-500 hover:text-gray-400 transition-colors underline decoration-gray-600 hover:decoration-gray-500 underline-offset-2"
-            title="All card details are encrypted and never stored on our servers"
-            style={{
-              transform: "translate3d(0, 0, 0)",
-              willChange: "transform",
-              backfaceVisibility: "hidden",
-            }}
-          >
-            Learn more about our security
-          </a>
-        </motion.div> */}
+      </div>
       </div>
     </section>
   );
