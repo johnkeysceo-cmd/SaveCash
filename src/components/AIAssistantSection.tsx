@@ -2,9 +2,66 @@ import React, { useEffect, useState, useRef } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
 import { TrendingUp, Shield, Zap, Brain, BarChart3 } from "lucide-react";
 
+const aiAlertCards = [
+  {
+    type: "Alert",
+    color: "blue",
+    icon: Zap,
+    badge: "Detected automatically",
+    message: "Your Spotify subscription increased by $2 this month.\nWant me to compare better rates or cancel it for you?",
+    action: "Explore cheaper options",
+    savings: "$24/year",
+    borderColor: "border-blue-400/40",
+    bgGradient: "from-blue-500/10 to-cyan-500/10",
+    dotColor: "bg-blue-400",
+    textColor: "text-blue-400/90",
+  },
+  {
+    type: "Insight",
+    color: "green",
+    icon: TrendingUp,
+    badge: "Savings opportunity",
+    message: "You can save $243/month by combining Netflix + Hulu into a single optimized bundle.\nShould I set that up for you?",
+    action: "Auto-Switch Ready",
+    savings: "$2,916/year potential",
+    borderColor: "border-green-400/40",
+    bgGradient: "from-green-500/10 to-emerald-500/10",
+    dotColor: "bg-green-400",
+    textColor: "text-green-400/90",
+  },
+  {
+    type: "Warning",
+    color: "yellow",
+    icon: BarChart3,
+    badge: "Unused subscription detected",
+    message: "I noticed you're paying $89/month for a gym you haven't visited in 3 months.\nCancel and save $1,068/year?",
+    action: "Cancel Membership",
+    savings: "One-click cancel",
+    borderColor: "border-yellow-400/40",
+    bgGradient: "from-yellow-500/10 to-amber-500/10",
+    dotColor: "bg-yellow-400",
+    textColor: "text-yellow-400/90",
+  },
+  {
+    type: "Notice",
+    color: "orange",
+    icon: Zap,
+    badge: "Price anomaly detected",
+    message: "Your electric bill is 23% higher than last month.\nI found a cheaper provider that could save you $45/month. Want details?",
+    action: "Better rate available",
+    savings: "$540/year",
+    borderColor: "border-orange-400/40",
+    bgGradient: "from-orange-500/10 to-amber-500/10",
+    dotColor: "bg-orange-400",
+    textColor: "text-orange-400/90",
+  },
+];
+
 export function AIAssistantSection() {
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const [showAIModal, setShowAIModal] = useState(false);
+  const [currentCardIndex, setCurrentCardIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const sectionRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
@@ -13,6 +70,17 @@ export function AIAssistantSection() {
 
   // Simple scroll-based opacity
   const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
+
+  // Auto-rotate cards every 4 seconds (smooth infinite cycling)
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentCardIndex((prev) => (prev + 1) % aiAlertCards.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
   
   // BEYOND HUMAN PERCEPTION SMOOTHNESS - CINEMATIC LEVEL
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -268,7 +336,7 @@ export function AIAssistantSection() {
                 </motion.h3>
                 
                 <motion.p 
-                  className="text-lg text-gray-400 mb-10 leading-relaxed max-w-2xl mx-auto"
+                  className="text-lg text-gray-400 mb-12 leading-relaxed max-w-2xl mx-auto"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.7 }}
@@ -278,36 +346,93 @@ export function AIAssistantSection() {
                   our AI analyzes your financial data to provide actionable insights and recommendations.
                 </motion.p>
                 
-                {/* Capabilities grid */}
+                {/* Practical AI Examples - Animated Typing Cards */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.8 }}
+                  viewport={{ once: true }}
+                  className="mb-10"
+                >
+                  <h4 className="text-xl text-white mb-8 font-semibold text-center">
+                    See it in action
+                  </h4>
+                  
+                  <div className="max-w-3xl mx-auto min-h-[400px]">
+                    <AnimatePresence mode="wait">
+                      {aiAlertCards.map((card, index) => {
+                        if (index !== currentCardIndex) return null;
+                        
+                        const IconComponent = card.icon;
+                        const shadowColor = {
+                          blue: "rgba(59, 130, 246, 0.1)",
+                          green: "rgba(74, 222, 128, 0.1)",
+                          yellow: "rgba(250, 204, 21, 0.1)",
+                          orange: "rgba(251, 146, 60, 0.1)",
+                        }[card.color];
+                        
+                        return (
+                          <motion.div
+                            key={index}
+                            initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                            animate={{ opacity: 1, y: 0, scale: 1 }}
+                            exit={{ opacity: 0, y: -40, scale: 0.95 }}
+                            transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+                            className="group relative p-6 rounded-3xl bg-white/[0.03] backdrop-blur-2xl border border-white/10 hover:border-white/20 transition-all duration-300"
+                            style={{
+                              boxShadow: "0 8px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.05) inset",
+                            }}
+                            onMouseEnter={() => setIsAutoPlaying(false)}
+                            onMouseLeave={() => setIsAutoPlaying(true)}
+                          >
+                            {/* Gradient glow on hover */}
+                            <div className={`absolute inset-0 rounded-3xl bg-gradient-to-br ${card.bgGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl -z-10`} />
+                            
+                            {/* Message */}
+                            <motion.p 
+                              className="text-white/95 text-base md:text-lg leading-relaxed font-light whitespace-pre-line"
+                            >
+                              "{card.message}"
+                            </motion.p>
+                          </motion.div>
+                        );
+                      })}
+                    </AnimatePresence>
+                    
+
+                  </div>
+                </motion.div>
+                
+                {/* Premium Category Pills */}
                 <motion.div 
-                  className="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10 text-sm"
+                  className="flex flex-wrap items-center justify-center gap-3 text-sm"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: 0.8 }}
+                  transition={{ duration: 0.6, delay: 1.4, ease: [0.25, 0.1, 0.25, 1] }}
                   viewport={{ once: true }}
                 >
                   {[
-                    "Smart budgeting",
-                    "Investment advice",
-                    "Tax optimization",
-                    "Debt reduction",
-                    "Retirement planning",
-                    "Expense tracking",
+                    "Smart Budgeting",
+                    "Investment Guidance",
+                    "Tax Optimization",
                   ].map((topic, i) => (
-                    <div
+                    <motion.div
                       key={topic}
-                             className="flex items-center justify-center gap-2 text-gray-400 py-2 px-4 rounded-full bg-black/70 border border-white/5"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      transition={{ duration: 0.4, delay: 1.5 + i * 0.1 }}
+                      viewport={{ once: true }}
+                      whileHover={{ scale: 1.05 }}
+                      className="flex items-center justify-center gap-2 text-gray-300 py-2.5 px-6 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 hover:border-purple-400/30 transition-all duration-300 cursor-default"
                     >
-                      <div className="w-1 h-1 rounded-full bg-gradient-to-r from-purple-400 to-pink-400" />
-                      <span>{topic}</span>
-                    </div>
+                      <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400" />
+                      <span className="font-medium tracking-wide">{topic}</span>
+                    </motion.div>
                   ))}
                 </motion.div>
               </div>
             </div>
 
-            {/* Subtle accent line */}
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-purple-400/20 to-transparent" />
           </div>
         </motion.div>
       </div>

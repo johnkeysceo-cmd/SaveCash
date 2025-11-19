@@ -1954,7 +1954,7 @@ window.getScannerStats = () => {
   }, []);
 
   return (
-    <section className="card-stream-scanner-section relative w-full bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
+    <section className="card-stream-scanner-section relative w-full bg-black overflow-hidden" style={{ paddingTop: "100px", paddingBottom: "100px" }}>
       <style>{styles}</style>
       
       {/* Scanner Intro Heading - Absolutely positioned, centered on page */}

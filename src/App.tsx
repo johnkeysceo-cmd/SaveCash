@@ -12,6 +12,7 @@ const HeroSection = lazy(() => import("./components/HeroSection").then(module =>
 const SavingsImpactSection = lazy(() => import("./components/SavingsImpactSection").then(module => ({ default: module.SavingsImpactSection })));
 const FeaturesSection = lazy(() => import("./components/FeaturesSection").then(module => ({ default: module.FeaturesSection })));
 const HowItWorksSection = lazy(() => import("./components/HowItWorksSection").then(module => ({ default: module.HowItWorksSection })));
+const SecuritySection = lazy(() => import("./components/SecuritySection").then(module => ({ default: module.SecuritySection })));
 const TestimonialsSection = lazy(() => import("./components/TestimonialsSection").then(module => ({ default: module.TestimonialsSection })));
 const AIAssistantSection = lazy(() => import("./components/AIAssistantSection").then(module => ({ default: module.AIAssistantSection })));
 const FAQSection = lazy(() => import("./components/FAQSection").then(module => ({ default: module.FAQSection })));
@@ -346,6 +347,10 @@ export default function App() {
         
         <Suspense fallback={<HoneycombLoader className="h-96" />}>
           <HowItWorksSection />
+        </Suspense>
+        
+        <Suspense fallback={<HoneycombLoader className="h-96" />}>
+          <SecuritySection />
         </Suspense>
         
         <Suspense fallback={<HoneycombLoader className="h-96" />}>
