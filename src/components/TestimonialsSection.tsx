@@ -68,7 +68,7 @@ export function TestimonialsSection() {
   }, [isAutoPlaying]);
 
   return (
-    <section className="py-32 px-6 relative">
+    <section className="py-12 sm:py-16 md:py-24 lg:py-32 px-4 sm:px-6 relative">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <motion.div
@@ -76,10 +76,10 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-16 md:mb-20"
         >
           <motion.h2 
-            className="text-5xl md:text-7xl mb-4 text-white tracking-tight"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl mb-3 sm:mb-4 text-white tracking-tight px-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.1, ease: [0.25, 0.1, 0.25, 1] }}
@@ -88,7 +88,7 @@ export function TestimonialsSection() {
             What People Are Saying
           </motion.h2>
           <motion.p
-            className="text-xl md:text-2xl text-gray-400 mb-2"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 mb-2 px-2"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1] }}
@@ -97,7 +97,7 @@ export function TestimonialsSection() {
             From Early Supporters
           </motion.p>
           <motion.p
-            className="text-sm text-gray-500"
+            className="text-xs sm:text-sm text-gray-500 px-2"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -109,7 +109,7 @@ export function TestimonialsSection() {
 
         {/* Featured Testimonial - Large, Rotating */}
         <motion.div
-          className="mb-16"
+          className="mb-12 sm:mb-16"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -122,7 +122,7 @@ export function TestimonialsSection() {
                 animate={{ opacity: 1, y: 0, scale: 1 }}
                 exit={{ opacity: 0, y: -40, scale: 0.95 }}
                 transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
-                className="bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-orange-900/20 rounded-3xl border border-white/10 backdrop-blur-sm p-12 md:p-16 relative overflow-hidden"
+                className="bg-gradient-to-br from-purple-900/20 via-pink-900/20 to-orange-900/20 rounded-2xl sm:rounded-3xl border border-white/10 backdrop-blur-sm p-6 sm:p-8 md:p-12 lg:p-16 relative overflow-hidden"
                 onMouseEnter={() => setIsAutoPlaying(false)}
                 onMouseLeave={() => setIsAutoPlaying(true)}
               >
@@ -154,19 +154,19 @@ export function TestimonialsSection() {
                 {/* Gradient background effect */}
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-orange-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 
-                <Quote className="w-12 h-12 text-purple-400/40 mb-8 relative z-10" />
+                <Quote className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-purple-400/40 mb-4 sm:mb-6 md:mb-8 relative z-10" />
                 
                 <motion.p 
-                  className="text-2xl md:text-3xl text-white mb-10 leading-relaxed relative z-10 font-light"
+                  className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-white mb-6 sm:mb-8 md:mb-10 leading-relaxed relative z-10 font-light px-2"
                 >
                   "{preLaunchTestimonials[currentTestimonial].quote}"
                 </motion.p>
                 
-                <div className="flex items-center gap-4 relative z-10">
-                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-pulse" />
-                  <div>
+                <div className="flex items-center gap-3 sm:gap-4 relative z-10 px-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-pulse flex-shrink-0" />
+                  <div className="min-w-0">
                     <motion.p 
-                      className="text-xl text-white font-medium mb-1"
+                      className="text-base sm:text-lg md:text-xl text-white font-medium mb-1 truncate"
                     >
                       {preLaunchTestimonials[currentTestimonial].author}
                       {preLaunchTestimonials[currentTestimonial].location && (
@@ -174,7 +174,7 @@ export function TestimonialsSection() {
                       )}
                     </motion.p>
                     <motion.p 
-                      className="text-sm text-gray-400"
+                      className="text-xs sm:text-sm text-gray-400 truncate"
                     >
                       {preLaunchTestimonials[currentTestimonial].role}
                     </motion.p>
@@ -210,13 +210,13 @@ export function TestimonialsSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid md:grid-cols-3 gap-8 mb-16"
+          className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mb-12 sm:mb-16"
         >
           {preLaunchTestimonials.slice(0, 3).map((testimonial, index) => (
             <motion.div
               key={index}
               variants={item}
-              className="group p-8 bg-white/[0.02] rounded-2xl border border-white/10 backdrop-blur-sm hover:bg-white/[0.04] hover:border-purple-500/30 transition-all duration-500 relative overflow-hidden"
+              className="group p-4 sm:p-6 md:p-8 bg-white/[0.02] rounded-xl sm:rounded-2xl border border-white/10 backdrop-blur-sm hover:bg-white/[0.04] hover:border-purple-500/30 transition-all duration-500 relative overflow-hidden"
               whileHover={{ 
                 scale: 1.02,
                 y: -5,
@@ -250,22 +250,22 @@ export function TestimonialsSection() {
               {/* Subtle glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/0 via-pink-500/0 to-orange-500/0 opacity-0 group-hover:opacity-5 transition-opacity duration-500" />
               
-              <Quote className="w-8 h-8 text-purple-400/30 mb-4 relative z-10" />
+              <Quote className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-purple-400/30 mb-3 sm:mb-4 relative z-10" />
               
-              <p className="text-base text-gray-300 mb-6 leading-relaxed relative z-10 font-light">
+              <p className="text-sm sm:text-base text-gray-300 mb-4 sm:mb-6 leading-relaxed relative z-10 font-light">
                 "{testimonial.quote}"
               </p>
               
-              <div className="flex items-center gap-3 relative z-10">
-                <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400" />
-                <div>
-                  <p className="text-white text-sm font-medium">
+              <div className="flex items-center gap-2 sm:gap-3 relative z-10">
+                <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 flex-shrink-0" />
+                <div className="min-w-0 flex-1">
+                  <p className="text-white text-xs sm:text-sm font-medium truncate">
                     {testimonial.author}
                     {testimonial.location && (
                       <span className="text-gray-500 font-normal">, {testimonial.location}</span>
                     )}
                   </p>
-                  <p className="text-xs text-gray-500">{testimonial.role}</p>
+                  <p className="text-xs text-gray-500 truncate">{testimonial.role}</p>
                 </div>
               </div>
             </motion.div>
@@ -278,15 +278,15 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           viewport={{ once: true, margin: "-100px" }}
-          className="text-center"
+          className="text-center px-2"
         >
-          <p className="text-lg text-gray-400 mb-2">
+          <p className="text-sm sm:text-base md:text-lg text-gray-400 mb-2">
             Join hundreds of early supporters already on the waitlist.
           </p>
           
           {/* Rotating ticker text */}
           <motion.div
-            className="flex items-center justify-center gap-3 mt-4"
+            className="flex items-center justify-center gap-2 sm:gap-3 mt-4"
             animate={{
               opacity: [0.5, 1, 0.5],
             }}
@@ -296,11 +296,11 @@ export function TestimonialsSection() {
               ease: "easeInOut",
             }}
           >
-            <div className="w-2 h-2 rounded-full bg-purple-400" />
-            <p className="text-sm text-purple-400 font-medium tracking-wider">
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-purple-400" />
+            <p className="text-xs sm:text-sm text-purple-400 font-medium tracking-wider">
               LAUNCHING SOON
             </p>
-            <div className="w-2 h-2 rounded-full bg-purple-400" />
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-purple-400" />
           </motion.div>
         </motion.div>
       </div>

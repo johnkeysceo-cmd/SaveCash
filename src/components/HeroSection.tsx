@@ -53,7 +53,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-32 relative">
+    <section className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-12 sm:py-16 md:py-24 lg:py-32 relative">
       <motion.div
         variants={container}
         initial="hidden"
@@ -62,34 +62,34 @@ export function HeroSection() {
       >
         <motion.div
           variants={item}
-          className="inline-flex items-center gap-2 mb-8 px-5 py-2.5 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-orange-500/10 border border-purple-500/20 rounded-full backdrop-blur-sm"
+          className="inline-flex items-center gap-2 mb-6 sm:mb-8 px-3 sm:px-4 md:px-5 py-2 sm:py-2.5 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-orange-500/10 border border-purple-500/20 rounded-full backdrop-blur-sm"
         >
-          <div className="w-2 h-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-pulse" />
-          <span className="text-sm text-gray-300">Trusted by 1,200+ early adopters</span>
+          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-r from-purple-400 to-pink-400 animate-pulse" />
+          <span className="text-xs sm:text-sm text-gray-300">Trusted by 1,200+ early adopters</span>
         </motion.div>
 
         {/* Trust Signals */}
         <motion.div
           variants={item}
-          className="flex flex-wrap items-center justify-center gap-6 mb-8 text-sm text-gray-400"
+          className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8 text-xs sm:text-sm text-gray-400 px-2"
         >
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-green-400" />
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-green-400" />
             <span>Bank-level Security</span>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-blue-400" />
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-blue-400" />
             <span>SOC 2 Compliant</span>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-2 h-2 rounded-full bg-purple-400" />
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-purple-400" />
             <span>GDPR Ready</span>
           </div>
         </motion.div>
 
         <motion.h1 
           variants={item}
-          className="text-6xl md:text-8xl lg:text-9xl mb-8 tracking-tight leading-[1.05] relative"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl xl:text-9xl mb-6 sm:mb-8 tracking-tight leading-[1.05] relative px-2"
           whileHover={{ 
             scale: 1.01,
             transition: { duration: 0.3, ease: [0.4, 0, 0.2, 1] as const }
@@ -113,7 +113,7 @@ export function HeroSection() {
         
         <motion.p 
           variants={item}
-          className="text-2xl md:text-3xl text-gray-400 mb-4 max-w-4xl mx-auto leading-relaxed"
+          className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-gray-400 mb-4 max-w-4xl mx-auto leading-relaxed px-2"
         >
           SaveCash watches, learns, and protects your wallet 24/7 — so you never miss a chance to save.
         </motion.p>
@@ -121,14 +121,14 @@ export function HeroSection() {
         {/* Value Snapshot */}
         <motion.p 
           variants={item}
-          className="text-lg md:text-xl text-gray-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+          className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-300 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed px-2"
         >
           Powered by real-time AI. Designed for people who want control, confidence, and compound savings — without lifting a finger.
         </motion.p>
         
         <motion.div 
           variants={item}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-6 sm:mb-8 px-2"
         >
                  <motion.div
                    whileHover={{ 
@@ -164,11 +164,11 @@ export function HeroSection() {
                  >
                    <Button
                      onClick={scrollToSignup}
-                     className="group relative bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white px-12 py-8 text-lg rounded-full transition-all duration-500 overflow-hidden"
+                     className="group relative bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white px-6 sm:px-8 md:px-10 lg:px-12 py-4 sm:py-6 md:py-7 lg:py-8 text-sm sm:text-base md:text-lg rounded-full transition-all duration-500 overflow-hidden w-full sm:w-auto"
                    >
-                     <span className="relative z-10 flex items-center">
+                     <span className="relative z-10 flex items-center justify-center">
                        Join the Waitlist
-                       <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                       <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                      </span>
                      
                      {/* Animated background shimmer */}
@@ -189,9 +189,9 @@ export function HeroSection() {
                  <Button
                    variant="outline"
                    onClick={scrollToSignup}
-                   className="group relative border-2 border-purple-500/30 text-white hover:bg-purple-500/10 px-12 py-8 text-lg rounded-full transition-all duration-500"
+                   className="group relative border-2 border-purple-500/30 text-white hover:bg-purple-500/10 px-6 sm:px-8 md:px-10 lg:px-12 py-4 sm:py-6 md:py-7 lg:py-8 text-sm sm:text-base md:text-lg rounded-full transition-all duration-500 w-full sm:w-auto"
                  >
-                   <span className="relative z-10 flex items-center">
+                   <span className="relative z-10 flex items-center justify-center">
                      Activate AI Savings
                    </span>
                  </Button>
@@ -199,7 +199,7 @@ export function HeroSection() {
 
         <motion.p 
           variants={item}
-          className="text-sm text-gray-500 mb-12 max-w-3xl mx-auto leading-relaxed"
+          className="text-xs sm:text-sm text-gray-500 mb-8 sm:mb-10 md:mb-12 max-w-3xl mx-auto leading-relaxed px-2"
         >
           Early users get lifetime perks. Be among the first 500 to try SaveCash.
         </motion.p>
@@ -227,7 +227,7 @@ export function HeroSection() {
                 isolation: "isolate",
                 contain: "layout style paint",
               }}
-              className="flex items-center gap-3 text-gray-400 text-lg"
+              className="flex items-center gap-2 sm:gap-3 text-gray-400 text-sm sm:text-base md:text-lg px-2"
             >
               <div className="w-1.5 h-1.5 rounded-full bg-gradient-to-r from-purple-400 to-pink-400" />
               <span>{benefits[currentBenefit]}</span>
